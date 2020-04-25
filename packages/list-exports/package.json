@@ -3,8 +3,20 @@
 	"version": "0.0.0",
 	"description": "Given a package name and a version number, or a path to a package.json, what specifiers does it expose?",
 	"main": "index.js",
-	"exports": "./index.js",
+	"exports": {
+		".": [
+			{
+				"import": "./index.mjs",
+				"require": "./index.js",
+				"default": "./index.js"
+			},
+			"./index.js"
+		],
+		"./package.json": "./package.json"
+	},
 	"scripts": {
+		"lint": "eslint .",
+		"pretest": "npm run lint",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
@@ -23,9 +35,26 @@
 		"resolve"
 	],
 	"author": "Jordan Harband <ljharb@gmail.com>",
+	"funding": {
+		"url": "https://github.com/sponsors/ljharb"
+	},
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/ljharb/list-exports/issues"
 	},
-	"homepage": "https://github.com/ljharb/list-exports#readme"
+	"homepage": "https://github.com/ljharb/list-exports#readme",
+	"dependencies": {
+		"array.prototype.flatmap": "^1.2.3",
+		"npm-packlist": "^2.1.2",
+		"object.entries": "^1.1.1",
+		"read-package-json": "^2.1.1",
+		"resolve": "^2.0.0-next.1"
+	},
+	"devDependencies": {
+		"@ljharb/eslint-config": "^17.1.0",
+		"eslint": "^7.0.0"
+	},
+	"engines": {
+		"node": ">= 10"
+	}
 }
