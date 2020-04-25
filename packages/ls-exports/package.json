@@ -1,0 +1,31 @@
+{
+	"name": "ls-exports",
+	"version": "0.0.0",
+	"description": "CLI for `list-exports`: Given a package name and a version number, or a path to a package.json, what specifiers does it expose?",
+	"main": false,
+	"exports": false,
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ljharb/ls-exports.git"
+	},
+	"keywords": [
+		"exports",
+		"cjs",
+		"esm",
+		"module",
+		"commonjs",
+		"es",
+		"export",
+		"entrypoint",
+		"resolve"
+	],
+	"author": "Jordan Harband <ljharb@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/ljharb/ls-exports/issues"
+	},
+	"homepage": "https://github.com/ljharb/ls-exports#readme"
+}
