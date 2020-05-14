@@ -8,7 +8,7 @@ const { diffString } = require('json-diff');
 
 const listExports = require('list-exports');
 
-const { OFFLINE, GREP, WRITE } = process.env;
+const { OFFLINE, GREP, WRITE, SKIP_CLI } = process.env;
 
 const fixturesDir = path.join(__dirname, 'fixtures');
 const fixtures = fs.readdirSync(fixturesDir);
@@ -26,7 +26,7 @@ test('listExports', (t) => {
 		const skip = re && !re.test(fixture);
 		t.test(`fixture: ${fixture}`, { skip: skip }, async (st) => {
 			const checkNPM = !isOffline && !fixture.startsWith('ex-') && fixture !== 'list-exports' && fixture !== 'ls-exports';
-			st.plan(2 + (checkNPM ? 1 : 0));
+			st.plan(2);
 
 			const fixtureDir = path.join(fixturesDir, fixture);
 			const projectDir = path.join(fixtureDir, 'project');
@@ -49,17 +49,21 @@ test('listExports', (t) => {
 				fs.writeFileSync(expectedPath, JSON.stringify(results, null, '\t').trim() + '\n');
 			}
 
-			const cliResults = JSON.parse(execSync(`${cli} path "./${path.relative(process.cwd(), projectDir)}" --json`));
-			st.deepEqual(cliResults, expected, `${fixture}: CLI results match expectation`);
+			st.test(`fixture: ${fixture}: CLI`, { skip: SKIP_CLI }, (s2t) => {
+				s2t.plan(checkNPM ? 2 : 1);
 
-			if (checkNPM) {
-				const npmResults = JSON.parse(execSync(`${cli} package "${results.name}@${results.version}" --json`));
-				const npmDiff = diffString(expected, npmResults);
-				if (npmDiff) {
-					console.error('# ' + npmDiff.split('\n').join('\n# '));
+				const cliResults = JSON.parse(execSync(`${cli} path "./${path.relative(process.cwd(), projectDir)}" --json`));
+				s2t.deepEqual(cliResults, expected, `${fixture}: CLI results match expectation`);
+
+				if (checkNPM) {
+					const npmResults = JSON.parse(execSync(`${cli} package "${results.name}@${results.version}" --json`));
+					const npmDiff = diffString(expected, npmResults);
+					if (npmDiff) {
+						console.error('# ' + npmDiff.split('\n').join('\n# '));
+					}
+					s2t.deepEqual(npmResults, expected, 'npm package results match expectation');
 				}
-				st.deepEqual(npmResults, expected, 'npm package results match expectation');
-			}
+			});
 		});
 	});
 
