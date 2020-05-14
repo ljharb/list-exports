@@ -1,0 +1,100 @@
+{
+	"name": "ex-main-exports-TL-object",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"binaries": [],
+	"require": [
+		"ex-main-exports-TL-object"
+	],
+	"import": [
+		"ex-main-exports-TL-object"
+	],
+	"files": [
+		"./dir/extra.js",
+		"./dir/extra.mjs",
+		"./file.js",
+		"./index.mjs"
+	],
+	"tree": {
+		"ex-main-exports-TL-object": {
+			"dir": {
+				"extra.mjs": [
+					"ex-main-exports-TL-object"
+				],
+				"extra.js": [
+					"ex-main-exports-TL-object"
+				]
+			},
+			"file.js": [
+				"ex-main-exports-TL-object"
+			],
+			"index.mjs": [
+				"ex-main-exports-TL-object"
+			]
+		}
+	},
+	"require (pre-exports)": [
+		"ex-main-exports-TL-object",
+		"ex-main-exports-TL-object/",
+		"ex-main-exports-TL-object/dir",
+		"ex-main-exports-TL-object/dir/",
+		"ex-main-exports-TL-object/dir/extra",
+		"ex-main-exports-TL-object/dir/extra.js",
+		"ex-main-exports-TL-object/dir/index",
+		"ex-main-exports-TL-object/dir/index.js",
+		"ex-main-exports-TL-object/file",
+		"ex-main-exports-TL-object/file.js",
+		"ex-main-exports-TL-object/index",
+		"ex-main-exports-TL-object/index.js",
+		"ex-main-exports-TL-object/package",
+		"ex-main-exports-TL-object/package.json"
+	],
+	"files (pre-exports)": [
+		"./dir/extra.js",
+		"./dir/extra.mjs",
+		"./dir/index.js",
+		"./file.js",
+		"./index.js",
+		"./index.mjs",
+		"./package.json"
+	],
+	"tree (pre-exports)": {
+		"ex-main-exports-TL-object": {
+			"index.js": [
+				"ex-main-exports-TL-object",
+				"ex-main-exports-TL-object/",
+				"ex-main-exports-TL-object/index",
+				"ex-main-exports-TL-object/index.js"
+			],
+			"file.js": [
+				"ex-main-exports-TL-object/file",
+				"ex-main-exports-TL-object/file.js"
+			],
+			"index.mjs": [
+				"ex-main-exports-TL-object/index.mjs"
+			],
+			"package.json": [
+				"ex-main-exports-TL-object/package",
+				"ex-main-exports-TL-object/package.json"
+			],
+			"dir": {
+				"index.js": [
+					"ex-main-exports-TL-object/dir",
+					"ex-main-exports-TL-object/dir/",
+					"ex-main-exports-TL-object/dir/index",
+					"ex-main-exports-TL-object/dir/index.js"
+				],
+				"extra.js": [
+					"ex-main-exports-TL-object/dir/extra",
+					"ex-main-exports-TL-object/dir/extra.js"
+				],
+				"extra.mjs": [
+					"ex-main-exports-TL-object/dir/extra.mjs"
+				]
+			}
+		}
+	},
+	"errors": []
+}

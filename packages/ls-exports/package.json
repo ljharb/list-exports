@@ -10,7 +10,8 @@
 	"scripts": {
 		"lint": "eslint . 'bin/**'",
 		"pretest": "npm run lint",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": ">&2 echo tests are ran in the monorepo only",
+		"posttest": "npx aud --production"
 	},
 	"repository": {
 		"type": "git",
@@ -52,6 +53,7 @@
 	},
 	"devDependencies": {
 		"@ljharb/eslint-config": "^17.1.0",
+		"aud": "^1.1.2",
 		"eslint": "^7.0.0"
 	},
 	"engines": {

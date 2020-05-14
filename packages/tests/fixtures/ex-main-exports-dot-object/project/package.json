@@ -1,0 +1,13 @@
+{
+	"name": "ex-main-exports-dot-object",
+	"version": "0.0.0",
+	"main": "./index.js",
+	"exports": {
+		".": {
+			"import": "./index.mjs",
+			"node": "./file.js",
+			"require": "./dir/extra.js",
+			"default": "./dir/extra.mjs"
+		}
+	}
+}

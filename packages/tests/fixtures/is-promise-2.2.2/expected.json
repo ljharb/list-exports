@@ -1,0 +1,75 @@
+{
+	"name": "is-promise",
+	"version": "2.2.2",
+	"engines": {
+		"node": "*"
+	},
+	"binaries": [],
+	"require": [
+		"is-promise",
+		"is-promise/",
+		"is-promise/index",
+		"is-promise/index.js",
+		"is-promise/package",
+		"is-promise/package.json"
+	],
+	"import": [
+		"is-promise",
+		"is-promise/index.js",
+		"is-promise/index.mjs",
+		"is-promise/package.json"
+	],
+	"files": [
+		"./index.js",
+		"./index.mjs",
+		"./package.json"
+	],
+	"tree": {
+		"is-promise": {
+			"index.js": [
+				"is-promise",
+				"is-promise/",
+				"is-promise/index",
+				"is-promise/index.js"
+			],
+			"index.mjs": [
+				"is-promise/index.mjs"
+			],
+			"package.json": [
+				"is-promise/package",
+				"is-promise/package.json"
+			]
+		}
+	},
+	"require (pre-exports)": [
+		"is-promise",
+		"is-promise/",
+		"is-promise/index",
+		"is-promise/index.js",
+		"is-promise/package",
+		"is-promise/package.json"
+	],
+	"files (pre-exports)": [
+		"./index.js",
+		"./index.mjs",
+		"./package.json"
+	],
+	"tree (pre-exports)": {
+		"is-promise": {
+			"index.js": [
+				"is-promise",
+				"is-promise/",
+				"is-promise/index",
+				"is-promise/index.js"
+			],
+			"index.mjs": [
+				"is-promise/index.mjs"
+			],
+			"package.json": [
+				"is-promise/package",
+				"is-promise/package.json"
+			]
+		}
+	},
+	"errors": []
+}

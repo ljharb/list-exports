@@ -1,0 +1,141 @@
+{
+	"name": "ex-main-dotless",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"binaries": [],
+	"require": [
+		"ex-main-dotless",
+		"ex-main-dotless/",
+		"ex-main-dotless/dir",
+		"ex-main-dotless/dir/",
+		"ex-main-dotless/dir/extra",
+		"ex-main-dotless/dir/extra.js",
+		"ex-main-dotless/dir/index",
+		"ex-main-dotless/dir/index.js",
+		"ex-main-dotless/file",
+		"ex-main-dotless/file.js",
+		"ex-main-dotless/index",
+		"ex-main-dotless/index.js",
+		"ex-main-dotless/package",
+		"ex-main-dotless/package.json"
+	],
+	"import": [
+		"ex-main-dotless",
+		"ex-main-dotless/dir/extra.js",
+		"ex-main-dotless/dir/extra.mjs",
+		"ex-main-dotless/dir/index.js",
+		"ex-main-dotless/file.js",
+		"ex-main-dotless/index.js",
+		"ex-main-dotless/index.mjs",
+		"ex-main-dotless/package.json"
+	],
+	"files": [
+		"./dir/extra.js",
+		"./dir/extra.mjs",
+		"./dir/index.js",
+		"./file.js",
+		"./index.js",
+		"./index.mjs",
+		"./package.json"
+	],
+	"tree": {
+		"ex-main-dotless": {
+			"index.js": [
+				"ex-main-dotless",
+				"ex-main-dotless/",
+				"ex-main-dotless/index",
+				"ex-main-dotless/index.js"
+			],
+			"file.js": [
+				"ex-main-dotless/file",
+				"ex-main-dotless/file.js"
+			],
+			"index.mjs": [
+				"ex-main-dotless/index.mjs"
+			],
+			"package.json": [
+				"ex-main-dotless/package",
+				"ex-main-dotless/package.json"
+			],
+			"dir": {
+				"index.js": [
+					"ex-main-dotless/dir",
+					"ex-main-dotless/dir/",
+					"ex-main-dotless/dir/index",
+					"ex-main-dotless/dir/index.js"
+				],
+				"extra.js": [
+					"ex-main-dotless/dir/extra",
+					"ex-main-dotless/dir/extra.js"
+				],
+				"extra.mjs": [
+					"ex-main-dotless/dir/extra.mjs"
+				]
+			}
+		}
+	},
+	"require (pre-exports)": [
+		"ex-main-dotless",
+		"ex-main-dotless/",
+		"ex-main-dotless/dir",
+		"ex-main-dotless/dir/",
+		"ex-main-dotless/dir/extra",
+		"ex-main-dotless/dir/extra.js",
+		"ex-main-dotless/dir/index",
+		"ex-main-dotless/dir/index.js",
+		"ex-main-dotless/file",
+		"ex-main-dotless/file.js",
+		"ex-main-dotless/index",
+		"ex-main-dotless/index.js",
+		"ex-main-dotless/package",
+		"ex-main-dotless/package.json"
+	],
+	"files (pre-exports)": [
+		"./dir/extra.js",
+		"./dir/extra.mjs",
+		"./dir/index.js",
+		"./file.js",
+		"./index.js",
+		"./index.mjs",
+		"./package.json"
+	],
+	"tree (pre-exports)": {
+		"ex-main-dotless": {
+			"index.js": [
+				"ex-main-dotless",
+				"ex-main-dotless/",
+				"ex-main-dotless/index",
+				"ex-main-dotless/index.js"
+			],
+			"file.js": [
+				"ex-main-dotless/file",
+				"ex-main-dotless/file.js"
+			],
+			"index.mjs": [
+				"ex-main-dotless/index.mjs"
+			],
+			"package.json": [
+				"ex-main-dotless/package",
+				"ex-main-dotless/package.json"
+			],
+			"dir": {
+				"index.js": [
+					"ex-main-dotless/dir",
+					"ex-main-dotless/dir/",
+					"ex-main-dotless/dir/index",
+					"ex-main-dotless/dir/index.js"
+				],
+				"extra.js": [
+					"ex-main-dotless/dir/extra",
+					"ex-main-dotless/dir/extra.js"
+				],
+				"extra.mjs": [
+					"ex-main-dotless/dir/extra.mjs"
+				]
+			}
+		}
+	},
+	"errors": []
+}
