@@ -4,10 +4,11 @@
 	"private": true,
 	"description": "Given a package name and a version number, or a path to a package.json, what specifiers does it expose?",
 	"scripts": {
+		"postinstall": "lerna bootstrap",
 		"lint": "eslint .",
-		"pretest": "npm run lint",
+		"pretest": "if [ -n \"${LERNA-}\" ]; then npm run lint ; else LERNA=1 lerna run pretest; fi",
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"posttest": "aud --production"
+		"posttest": "if [ -n \"${LERNA-}\" ]; then aud --production ; else LERNA=1 lerna run posttest; fi"
 	},
 	"repository": {
 		"type": "git",
@@ -31,6 +32,7 @@
 	"devDependencies": {
 		"@ljharb/eslint-config": "^17.1.0",
 		"aud": "^1.1.2",
-		"eslint": "^7.0.0"
+		"eslint": "^7.0.0",
+		"lerna": "^3.21.0"
 	}
 }
