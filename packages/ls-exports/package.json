@@ -2,9 +2,14 @@
 	"name": "ls-exports",
 	"version": "0.0.0",
 	"description": "CLI for `list-exports`: Given a package name and a version number, or a path to a package.json, what specifiers does it expose?",
+	"bin": "./bin/ls-exports",
 	"main": false,
-	"exports": false,
+	"exports": {
+		"./package.json": "./package.json"
+	},
 	"scripts": {
+		"lint": "eslint . 'bin/**'",
+		"pretest": "npm run lint",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
@@ -23,9 +28,33 @@
 		"resolve"
 	],
 	"author": "Jordan Harband <ljharb@gmail.com>",
+	"funding": {
+		"url": "https://github.com/sponsors/ljharb"
+	},
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/ljharb/ls-exports/issues"
 	},
-	"homepage": "https://github.com/ljharb/ls-exports#readme"
+	"homepage": "https://github.com/ljharb/ls-exports#readme",
+	"dependencies": {
+		"chalk": "^4.0.0",
+		"json-colorizer": "^2.2.2",
+		"list-exports": "*",
+		"npm-package-arg": "^8.0.1",
+		"object.fromentries": "^2.0.2",
+		"object.values": "^1.1.1",
+		"pacote": "^11.1.10",
+		"strip-ansi": "^6.0.0",
+		"table": "^5.4.6",
+		"tmp": "^0.2.1",
+		"tree-walk": "^0.4.0",
+		"yargs": "^15.3.1"
+	},
+	"devDependencies": {
+		"@ljharb/eslint-config": "^17.1.0",
+		"eslint": "^7.0.0"
+	},
+	"engines": {
+		"node": ">= 12 || ^10.17"
+	}
 }
