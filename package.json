@@ -4,6 +4,8 @@
 	"private": true,
 	"description": "Given a package name and a version number, or a path to a package.json, what specifiers does it expose?",
 	"scripts": {
+		"lint": "eslint .",
+		"pretest": "npm run lint",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"posttest": "aud --production"
 	},
@@ -24,6 +26,8 @@
 	],
 	"author": "Jordan Harband <ljharb@gmail.com>",
 	"devDependencies": {
-		"aud": "^1.1.2"
+		"@ljharb/eslint-config": "^17.1.0",
+		"aud": "^1.1.2",
+		"eslint": "^7.0.0"
 	}
 }

@@ -1,0 +1,41 @@
+{
+	"root": true,
+
+	"extends": "@ljharb",
+
+	"parserOptions": {
+		"ecmaVersion": 2018,
+	},
+
+	"env": {
+		"es6": true,
+	},
+
+	"rules": {
+		"comma-dangle": [2, "always-multiline", {
+			"arrays": "always-multiline",
+			"objects": "always-multiline",
+			"imports": "always-multiline",
+			"exports": "always-multiline",
+			"functions": "always-multiline",
+		}],
+		"dot-notation": [2, {
+			"allowKeywords": true,
+		}],
+		"eqeqeq": [2, "allow-null"],
+		"func-style": 1,
+		"function-call-argument-newline": ["off", "consistent"],
+		"id-length": 0,
+		"max-len": 0,
+		"max-lines": 0,
+		"max-lines-per-function": 0,
+		"max-params": 1,
+		"max-nested-callbacks": 0,
+		"max-statements": 1,
+		"multiline-comment-style": 0,
+		"object-shorthand": [2, "always"],
+		"operator-linebreak": [2, "before"],
+		"quote-props": [2, "consistent-as-needed"],
+		"sort-keys": 0,
+	},
+}
