@@ -25,6 +25,9 @@
 		"resolve"
 	],
 	"author": "Jordan Harband <ljharb@gmail.com>",
+	"funding": {
+		"url": "https://github.com/sponsors/ljharb"
+	},
 	"devDependencies": {
 		"@ljharb/eslint-config": "^17.1.0",
 		"aud": "^1.1.2",
