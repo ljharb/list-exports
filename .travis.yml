@@ -6,7 +6,7 @@ import:
  - ljharb/travis-ci:node/minors/gte_12.yml
  - ljharb/travis-ci:node/minors/11.yml
  - ljharb/travis-ci:node/pretest.yml
- - ljharb/travis-ci:node/posttest.yml
+# - ljharb/travis-ci:node/posttest.yml
 matrix:
   fast_finish: true
   include:
