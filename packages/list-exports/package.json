@@ -23,7 +23,8 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/ljharb/list-exports.git"
+		"url": "git+https://github.com/ljharb/list-exports.git",
+		"directory": "./packages/list-exports"
 	},
 	"keywords": [
 		"exports",
