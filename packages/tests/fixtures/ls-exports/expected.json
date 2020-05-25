@@ -1,6 +1,6 @@
 {
 	"name": "ls-exports",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"engines": {
 		"node": ">= 12 || ^10.17"
 	},
