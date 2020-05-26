@@ -1,0 +1,100 @@
+{
+	"name": "flatted",
+	"version": "3.0.2",
+	"engines": {
+		"node": "*"
+	},
+	"binaries": [],
+	"require": [
+		"flatted"
+	],
+	"import": [
+		"flatted"
+	],
+	"files": [
+		"./cjs/index.js",
+		"./esm/index.js"
+	],
+	"tree": {
+		"flatted": {
+			"cjs": {
+				"index.js": [
+					"flatted"
+				]
+			},
+			"esm": {
+				"index.js": [
+					"flatted"
+				]
+			}
+		}
+	},
+	"require (pre-exports)": [
+		"flatted",
+		"flatted/",
+		"flatted/cjs/index",
+		"flatted/cjs/index.js",
+		"flatted/cjs/package",
+		"flatted/cjs/package.json",
+		"flatted/es",
+		"flatted/es.js",
+		"flatted/esm/index",
+		"flatted/esm/index.js",
+		"flatted/index",
+		"flatted/index.js",
+		"flatted/min",
+		"flatted/min.js",
+		"flatted/package",
+		"flatted/package.json"
+	],
+	"files (pre-exports)": [
+		"./cjs/index.js",
+		"./cjs/package.json",
+		"./es.js",
+		"./esm/index.js",
+		"./index.js",
+		"./min.js",
+		"./package.json"
+	],
+	"tree (pre-exports)": {
+		"flatted": {
+			"cjs": {
+				"index.js": [
+					"flatted",
+					"flatted/",
+					"flatted/cjs/index",
+					"flatted/cjs/index.js"
+				],
+				"package.json": [
+					"flatted/cjs/package",
+					"flatted/cjs/package.json"
+				]
+			},
+			"es.js": [
+				"flatted/es",
+				"flatted/es.js"
+			],
+			"index.js": [
+				"flatted/index",
+				"flatted/index.js"
+			],
+			"min.js": [
+				"flatted/min",
+				"flatted/min.js"
+			],
+			"package.json": [
+				"flatted/package",
+				"flatted/package.json"
+			],
+			"esm": {
+				"index.js": [
+					"flatted/esm/index",
+					"flatted/esm/index.js"
+				]
+			}
+		}
+	},
+	"errors": [
+		"`./cjs` has a `package.json`, but either lacks a `main`, or its `main` is invalid!"
+	]
+}

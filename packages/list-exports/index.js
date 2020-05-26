@@ -7,6 +7,8 @@ const entries = require('object.entries');
 const flatMap = require('array.prototype.flatmap');
 const resolve = require('resolve');
 const packlist = require('npm-packlist');
+const getPackageType = require('get-package-type');
+const inspect = require('object-inspect');
 
 /* eslint-disable no-inner-declarations */
 
@@ -90,7 +92,7 @@ module.exports = async function listExports(packageJSON) {
 		'private': isPrivate,
 		exports,
 		engines,
-		type,
+		type: rootType,
 	} = await new Promise((resolveP, rejectP) => {
 		readPackageJSON(packageJSON, (err, data) => {
 			if (err) {
@@ -108,23 +110,55 @@ module.exports = async function listExports(packageJSON) {
 		};
 	}
 
-	const extensions = Object.keys(require.extensions)
-		.filter((x) => x.startsWith('.') && (type !== 'module' || x !== '.js') && x !== '.mjs');
-	const legacyExtensions = type === 'module' ? extensions.concat('.js') : extensions;
-	const esmExtensions = ['.mjs'].concat(type === 'module' ? '.js' : []);
-	const allExtensions = extensions.concat(esmExtensions);
+	function getExtensions(packageType = 'commonjs') {
+		if (packageType !== 'commonjs' && packageType !== 'module') {
+			throw new TypeError('unknown package type found: ' + inspect(packageType));
+		}
 
+		const base = Object.keys(require.extensions)
+			.filter((x) => x.startsWith('.') && (packageType !== 'module' || x !== '.js') && x !== '.mjs');
+		const legacy = packageType === 'module' ? base.concat('.js') : base;
+		const esm = ['.mjs'].concat(packageType === 'module' ? '.js' : []);
+		const all = base.concat(esm);
+
+		return {
+			all,
+			base,
+			esm,
+			legacy,
+		};
+	}
+
+	function isCJS(filename, usingExports = false) {
+		const packageType = getPackageType.sync(filename);
+		if (packageType !== 'commonjs' && packageType !== 'module') {
+			throw new TypeError('unknown package type found: ' + inspect(packageType));
+		}
+		const { base, legacy } = getExtensions(packageType);
+		return (usingExports ? base : legacy).includes(path.extname(filename));
+	}
+
+	function isESM(filename) {
+		const packageType = getPackageType.sync(filename);
+		if (packageType !== 'commonjs' && packageType !== 'module') {
+			throw new TypeError('unknown package type found: ' + inspect(packageType));
+		}
+		const { esm } = getExtensions(packageType);
+		return esm.includes(path.extname(filename));
+	}
+
+	const { all: rootAllExtensions, base: rootBaseExtensions } = getExtensions(rootType);
 	const packedFiles = await packlist({ path: packageDir });
 	const filteredFiles = new Set(flatMap(
 		packedFiles,
 		(x) => {
-			const resolved = resolveFrom(path.dirname(x), packageDir, allExtensions);
+			const resolved = resolveFrom(path.dirname(x), packageDir, rootAllExtensions);
 			return [
 				x,
 				resolved && path.basename(resolved, packageDir),
 			];
 		},
-	).filter((x) => x && allExtensions.some((ext) => x.endsWith(ext))).sort());
+	).filter((x) => x && rootAllExtensions.some((ext) => x.endsWith(ext))).sort());
 
 	let exportSpecifiersCJS = [];
 	let exportSpecifiersESM = [];
@@ -163,9 +197,7 @@ module.exports = async function listExports(packageJSON) {
 		usingExports,
 	}) {
 		let specifiers;
-		const isCJS = (usingExports ? extensions : legacyExtensions)
-			.some((ext) => pkgRelativeFilename.endsWith(ext));
-		if (isCJS) {
+		if (isCJS(pkgRelativeFilename, usingExports)) {
 			specifiers = isMain
 				? [dir, `${dir.replace(/\/$/, '')}/`]
 				: [
@@ -179,7 +211,7 @@ module.exports = async function listExports(packageJSON) {
 					legacyRequires.push('');
 				}
 			}
-		} else if (esmExtensions.some((ext) => pkgRelativeFilename.endsWith(ext))) {
+		} else if (isESM(pkgRelativeFilename)) {
 			specifiers = [pkgRelativeFilename];
 		}
 		if (specifiers) {
@@ -203,7 +235,7 @@ module.exports = async function listExports(packageJSON) {
 	// no "exports" in package.json; standard/legacy algorithm
 	// crawl the directory and discover everything that's requireable/importable
 	traverseDir(packageDir, false, {
-		extensions,
+		extensions: rootBaseExtensions,
 		filteredFiles,
 		packageDir,
 		process: processPreExportsFile,
@@ -229,9 +261,10 @@ module.exports = async function listExports(packageJSON) {
 		}
 		function processExportsEntry([lhs, rhs]) {
 			if (lhs.endsWith('/')) {
+				const dir = path.join(packageDir, lhs);
 				// this directory is fully exposed to standard/legacy resolution
-				traverseDir(path.join(packageDir, lhs), true, {
-					extensions,
+				traverseDir(dir, true, {
+					extensions: getExtensions(getPackageType.sync(dir)).base,
 					filteredFiles,
 					packageDir,
 					process: processPreExportsFile,
@@ -249,8 +282,7 @@ module.exports = async function listExports(packageJSON) {
 							exportSpecifiersESM.push(...specifiers);
 						}
 						if (canRequire) {
-							const isModule = esmExtensions.includes(path.extname(filename));
-							if (!isModule) {
+							if (!isESM(filename)) {
 								exportSpecifiersCJS.push(...specifiers);
 							}
 						}
@@ -267,7 +299,7 @@ module.exports = async function listExports(packageJSON) {
 				]) {
 					if (typeof target === 'string') {
 						if (target.startsWith('./') && !target.includes('node_modules')) {
-							const resolvedTarget = resolveFrom(target, packageDir, allExtensions);
+							const resolvedTarget = resolveFrom(target, packageDir, rootAllExtensions);
 							if (resolvedTarget) {
 								addFile(target, true, true);
 							} else {
@@ -281,7 +313,7 @@ module.exports = async function listExports(packageJSON) {
 							const targetValue = target[key];
 							if (typeof targetValue === 'string') {
 								if (targetValue.startsWith('./') && !targetValue.includes('node_modules')) {
-									const resolvedTarget = resolveFrom(targetValue, packageDir, allExtensions);
+									const resolvedTarget = resolveFrom(targetValue, packageDir, rootAllExtensions);
 									if (resolvedTarget) {
 										addFile(targetValue, key !== 'require', key !== 'import');
 									} else {
@@ -325,7 +357,7 @@ module.exports = async function listExports(packageJSON) {
 	}
 
 	if (main) {
-		const resolvedLegacyMain = resolveFrom(main.replace(/^\.?\/?/, './'), packageDir, extensions);
+		const resolvedLegacyMain = resolveFrom(main.replace(/^\.?\/?/, './'), packageDir, rootBaseExtensions);
 		if (resolvedLegacyMain) {
 			const legacyMain = `./${resolvedLegacyMain.slice(packageDir.length + 1)}`;
 			legacyFiles.unshift(legacyMain);
