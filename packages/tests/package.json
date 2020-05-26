@@ -7,10 +7,10 @@
 		"pretest": "npm run lint"
 	},
 	"devDependencies": {
-		"@ljharb/eslint-config": "^17.0.0",
-		"eslint": "^7.0.0",
+		"@ljharb/eslint-config": "^17.1.0",
+		"eslint": "^7.1.0",
 		"json-diff": "^0.5.4",
 		"list-exports": "*",
-		"tape": "^5.0.0"
+		"tape": "^5.0.1"
 	}
 }
