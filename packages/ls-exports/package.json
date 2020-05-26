@@ -8,7 +8,7 @@
 		"./package.json": "./package.json"
 	},
 	"scripts": {
-		"prepublish": "not-in-publish || safe-publish-latest",
+		"prepublish": "not-in-publish || (safe-publish-latest && cp ../../LICENSE ./)",
 		"lint": "eslint . 'bin/**'",
 		"pretest": "npm run lint",
 		"test": ">&2 echo tests are ran in the monorepo only",
