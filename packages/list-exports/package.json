@@ -50,7 +50,7 @@
 		"array.prototype.flatmap": "^1.2.3",
 		"get-package-type": "^0.1.0",
 		"npm-packlist": "^2.1.2",
-		"object-inspect": "^1.7.0",
+		"object-inspect": "^1.8.0",
 		"object.entries": "^1.1.2",
 		"read-package-json": "^2.1.1",
 		"resolve": "^2.0.0-next.1"
