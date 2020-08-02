@@ -10,8 +10,12 @@ import:
 matrix:
   fast_finish: true
   include:
-    - node_js: "10.20"
+    - node_js: "10.22"
       env: TEST=true
+    - node_js: "10.21"
+      env: TEST=true ALLOW_FAILURE=true
+    - node_js: "10.20"
+      env: TEST=true ALLOW_FAILURE=true
     - node_js: "10.19"
       env: TEST=true ALLOW_FAILURE=true
     - node_js: "10.18"
