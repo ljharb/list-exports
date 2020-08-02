@@ -12,7 +12,8 @@
 	},
 
 	"rules": {
-		"comma-dangle": [2, "always-multiline", {
+		// TODO: fix when https://github.com/eslint/eslint/pull/13166#issuecomment-667627590 is fixed
+		"comma-dangle": [2, /*"always-multiline",*/ {
 			"arrays": "always-multiline",
 			"objects": "always-multiline",
 			"imports": "always-multiline",
