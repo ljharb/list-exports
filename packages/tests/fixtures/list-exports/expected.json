@@ -1,6 +1,6 @@
 {
 	"name": "list-exports",
-	"version": "1.0.1",
+	"version": null,
 	"engines": {
 		"node": ">= 10"
 	},

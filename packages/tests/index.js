@@ -34,6 +34,9 @@ test('listExports', (t) => {
 			const expectedPath = path.join(fixtureDir, 'expected.json');
 			const expected = JSON.parse(fs.readFileSync(expectedPath));
 			const packageJSON = path.resolve(path.join(projectDir, 'package.json'));
+			if (expected.name === 'ls-exports' || expected.name === 'list-exports') {
+				expected.version = JSON.parse(fs.readFileSync(packageJSON)).version;
+			}
 
 			const results = await listExports(packageJSON)['catch']((e) => {
 				console.error(e);
