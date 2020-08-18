@@ -1,6 +1,6 @@
 {
 	"name": "list-exports",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Given a package name and a version number, or a path to a package.json, what specifiers does it expose?",
 	"main": "index.js",
 	"exports": {
