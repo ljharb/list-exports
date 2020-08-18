@@ -81,6 +81,24 @@ function traverseDir(
 	));
 }
 
+function normalizeExports(exports, errors) {
+	let normalizedExports = exports ? { '.': exports } : {}; // if a string, or an object with no entrypoints
+	if (typeof exports === 'object') {
+		const exportKeys = Object.keys(exports);
+		const starts = new Set(exportKeys.map((x) => String(x).charAt(0)));
+		if (starts.has('.') && starts.size !== 1) {
+			errors.push('package `exports` is invalid; either all keys in an object, or no keys in it, must start with `.`');
+		}
+		if (exportKeys.some((x) => x.includes('node_modules'))) {
+			errors.push('package `exports` is invalid; keys may not contain `node_modules`');
+		}
+		if (starts.has('.')) {
+			normalizedExports = exports;
+		}
+	}
+	return normalizedExports;
+}
+
 module.exports = async function listExports(packageJSON) {
 	const packageDir = path.dirname(fs.realpathSync(packageJSON));
 
@@ -245,20 +263,7 @@ module.exports = async function listExports(packageJSON) {
 	if (hasExports) {
 		exportSpecifiersCJS = [];
 		exportSpecifiersESM = [];
-		let normalizedExports = exports ? { '.': exports } : {}; // if a string, or an object with no entrypoints
-		if (typeof exports === 'object') {
-			const exportKeys = Object.keys(exports);
-			const starts = new Set(exportKeys.map((x) => String(x).charAt(0)));
-			if (starts.has('.') && starts.size !== 1) {
-				errors.push('package `exports` is invalid; either all keys, or no keys, must start with `.`');
-			}
-			if (exportKeys.some((x) => x.includes('node_modules'))) {
-				errors.push('package `exports` is invalid; keys may not contain `node_modules`');
-			}
-			if (starts.has('.')) {
-				normalizedExports = exports;
-			}
-		}
+
 		function processExportsEntry([lhs, rhs]) {
 			if (lhs.endsWith('/')) {
 				const dir = path.join(packageDir, lhs);
@@ -323,7 +328,7 @@ module.exports = async function listExports(packageJSON) {
 									errors.push(`\`exports.${specifier ? `${lhs}.` : ''}${key}\`: ${targetValue} must start with \`./\` and must not contain \`node_modules\``);
 								}
 							} else if (targetValue != null) {
-								processRHSItem(targetValue, [
+								processRHSItem(normalizeExports(targetValue)['.'], [
 									'default',
 									'node',
 								].concat(
@@ -342,6 +347,7 @@ module.exports = async function listExports(packageJSON) {
 			}
 		}
 
+		const normalizedExports = normalizeExports(exports, errors);
 		entries(normalizedExports).forEach(processExportsEntry);
 	} else {
 		exportSpecifiersCJS = legacyRequires;

@@ -1,0 +1,83 @@
+{
+	"name": "single-spa-layout",
+	"version": "1.0.0-beta.6",
+	"engines": {
+		"node": "*"
+	},
+	"binaries": [],
+	"require": [
+		"single-spa-layout"
+	],
+	"import": [
+		"single-spa-layout"
+	],
+	"files": [
+		"./dist/esm/single-spa-layout.min.js",
+		"./dist/umd/single-spa-layout.min.js"
+	],
+	"tree": {
+		"single-spa-layout": {
+			"dist": {
+				"umd": {
+					"single-spa-layout.min.js": [
+						"single-spa-layout"
+					]
+				},
+				"esm": {
+					"single-spa-layout.min.js": [
+						"single-spa-layout"
+					]
+				}
+			}
+		}
+	},
+	"require (pre-exports)": [
+		"single-spa-layout",
+		"single-spa-layout/",
+		"single-spa-layout/dist/esm/single-spa-layout.min",
+		"single-spa-layout/dist/esm/single-spa-layout.min.js",
+		"single-spa-layout/dist/system/single-spa-layout.min",
+		"single-spa-layout/dist/system/single-spa-layout.min.js",
+		"single-spa-layout/dist/umd/single-spa-layout.min",
+		"single-spa-layout/dist/umd/single-spa-layout.min.js",
+		"single-spa-layout/package",
+		"single-spa-layout/package.json"
+	],
+	"files (pre-exports)": [
+		"./dist/esm/single-spa-layout.min.js",
+		"./dist/system/single-spa-layout.min.js",
+		"./dist/umd/single-spa-layout.min.js",
+		"./package.json"
+	],
+	"tree (pre-exports)": {
+		"single-spa-layout": {
+			"dist": {
+				"umd": {
+					"single-spa-layout.min.js": [
+						"single-spa-layout",
+						"single-spa-layout/",
+						"single-spa-layout/dist/umd/single-spa-layout.min",
+						"single-spa-layout/dist/umd/single-spa-layout.min.js"
+					]
+				},
+				"esm": {
+					"single-spa-layout.min.js": [
+						"single-spa-layout/dist/esm/single-spa-layout.min",
+						"single-spa-layout/dist/esm/single-spa-layout.min.js"
+					]
+				},
+				"system": {
+					"single-spa-layout.min.js": [
+						"single-spa-layout/dist/system/single-spa-layout.min",
+						"single-spa-layout/dist/system/single-spa-layout.min.js"
+					]
+				}
+			},
+			"package.json": [
+				"single-spa-layout/package",
+				"single-spa-layout/package.json"
+			]
+		}
+	},
+	"errors": []
+}
