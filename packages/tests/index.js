@@ -49,6 +49,9 @@ test('listExports', (t) => {
 			}
 			st.deepEqual(results, expected, `${fixture}: API results match expectation`);
 			if (WRITE) {
+				if (expected.name === 'ls-exports' || expected.name === 'list-exports') {
+					results.version = null;
+				}
 				fs.writeFileSync(expectedPath, JSON.stringify(results, null, '\t').trim() + '\n');
 			}
 
