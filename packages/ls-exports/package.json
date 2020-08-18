@@ -36,9 +36,9 @@
 	},
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/ljharb/ls-exports/issues"
+		"url": "https://github.com/ljharb/list-exports/issues"
 	},
-	"homepage": "https://github.com/ljharb/ls-exports#readme",
+	"homepage": "https://github.com/ljharb/list-exports#readme",
 	"dependencies": {
 		"chalk": "^4.1.0",
 		"json-colorizer": "^2.2.2",

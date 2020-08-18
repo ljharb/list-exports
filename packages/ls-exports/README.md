@@ -35,13 +35,13 @@ ls-exports resolve@1
 ```
 
 [1]: https://npmjs.org/package/ls-exports
-[2]: http://versionbadg.es/ljharb/ls-exports.svg
-[3]: https://travis-ci.com/ljharb/ls-exports.svg
-[4]: https://travis-ci.com/ljharb/ls-exports
-[5]: https://david-dm.org/ljharb/ls-exports.svg
-[6]: https://david-dm.org/ljharb/ls-exports
-[7]: https://david-dm.org/ljharb/ls-exports/dev-status.svg
-[8]: https://david-dm.org/ljharb/ls-exports?type=dev
+[2]: http://versionbadg.es/ljharb/list-exports.svg
+[3]: https://travis-ci.com/ljharb/list-exports.svg
+[4]: https://travis-ci.com/ljharb/list-exports
+[5]: https://david-dm.org/ljharb/list-exports.svg
+[6]: https://david-dm.org/ljharb/list-exports
+[7]: https://david-dm.org/ljharb/list-exports/dev-status.svg
+[8]: https://david-dm.org/ljharb/list-exports?type=dev
 [11]: https://nodei.co/npm/ls-exports.png?downloads=true&stars=true
 [license-image]: https://img.shields.io/npm/l/ls-exports.svg
 [license-url]: LICENSE
