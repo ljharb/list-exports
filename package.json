@@ -31,9 +31,9 @@
 		"url": "https://github.com/sponsors/ljharb"
 	},
 	"devDependencies": {
-		"@ljharb/eslint-config": "^17.1.0",
+		"@ljharb/eslint-config": "^17.2.0",
 		"aud": "^1.1.2",
-		"eslint": "^7.6.0",
+		"eslint": "^7.7.0",
 		"lerna": "^3.22.1",
 		"tape": "^5.0.1"
 	}
