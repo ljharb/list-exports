@@ -11,6 +11,10 @@
 		"eslint": "^7.9.0",
 		"json-diff": "^0.5.4",
 		"list-exports": "*",
+		"ls-engines": "^0.3.4",
 		"tape": "^5.0.1"
+	},
+	"engines": {
+		"node": "^14 || ^13 || ^12 || ^10.13"
 	}
 }
