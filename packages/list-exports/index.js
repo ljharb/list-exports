@@ -328,7 +328,7 @@ module.exports = async function listExports(packageJSON) {
 									errors.push(`\`exports.${specifier ? `${lhs}.` : ''}${key}\`: ${targetValue} must start with \`./\` and must not contain \`node_modules\``);
 								}
 							} else if (targetValue != null) {
-								processRHSItem(normalizeExports(targetValue)['.'], [
+								processRHSItem(targetValue, [
 									'default',
 									'node',
 								].concat(

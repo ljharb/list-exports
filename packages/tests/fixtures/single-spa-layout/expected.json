@@ -6,30 +6,12 @@
 	},
 	"binaries": [],
 	"require": [
-		"single-spa-layout"
 	],
 	"import": [
-		"single-spa-layout"
 	],
 	"files": [
-		"./dist/esm/single-spa-layout.min.js",
-		"./dist/umd/single-spa-layout.min.js"
 	],
 	"tree": {
-		"single-spa-layout": {
-			"dist": {
-				"umd": {
-					"single-spa-layout.min.js": [
-						"single-spa-layout"
-					]
-				},
-				"esm": {
-					"single-spa-layout.min.js": [
-						"single-spa-layout"
-					]
-				}
-			}
-		}
 	},
 	"require (pre-exports)": [
 		"single-spa-layout",
