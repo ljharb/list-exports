@@ -7,7 +7,6 @@
 	"binaries": [],
 	"require": [
 		"preact",
-		"preact/",
 		"preact/compat",
 		"preact/compat/",
 		"preact/compat/dist/compat",
@@ -296,7 +295,6 @@
 			"dist": {
 				"preact.js": [
 					"preact",
-					"preact/",
 					"preact/dist/preact",
 					"preact/dist/preact.js"
 				],

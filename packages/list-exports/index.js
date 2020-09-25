@@ -37,6 +37,7 @@ function traverseDir(
 		packageDir,
 		process,
 		addError,
+		skipSlashExport,
 	},
 ) {
 	const slicedDir = dir.slice(packageDir.length + 1);
@@ -48,6 +49,7 @@ function traverseDir(
 			isMain: true,
 			file: mainFile,
 			usingExports,
+			skipSlashExport,
 		});
 	} else if (fs.existsSync(path.join(dir, 'package.json'))) {
 		addError(`\`${dirRelative}\` has a \`package.json\`, but either lacks a \`main\`, or its \`main\` is invalid!`);
@@ -213,11 +215,12 @@ module.exports = async function listExports(packageJSON) {
 		isMain,
 		file: pkgRelativeFilename,
 		usingExports,
+		skipSlashExport,
 	}) {
 		let specifiers;
 		if (isCJS(pkgRelativeFilename, usingExports)) {
 			specifiers = isMain
-				? [dir, `${dir.replace(/\/$/, '')}/`]
+				? skipSlashExport ? [dir] : [dir, `${dir.replace(/\/$/, '')}/`]
 				: [
 					pkgRelativeFilename,
 					pkgRelativeFilename.slice(0, -path.extname(pkgRelativeFilename).length),
@@ -274,6 +277,7 @@ module.exports = async function listExports(packageJSON) {
 					packageDir,
 					process: processPreExportsFile,
 					addError,
+					skipSlashExport: true,
 				});
 			} else {
 				const specifier = lhs === '.' ? '' : lhs;
