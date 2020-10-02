@@ -4,6 +4,6 @@
 	"extends": ["@ljharb", "@ljharb/eslint-config/tests"],
 
 	"parserOptions": {
-		"ecmaVersion": "2018",
+		"ecmaVersion": 2018,
 	},
 }
