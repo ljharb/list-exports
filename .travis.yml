@@ -7,8 +7,14 @@ import:
  - ljharb/travis-ci:node/minors/11.yml
  - ljharb/travis-ci:node/pretest.yml
 # - ljharb/travis-ci:node/posttest.yml
+before_install:
+  - 'case "${TRAVIS_NODE_VERSION}" in 0.*) export NPM_CONFIG_STRICT_SSL=false ;; esac'
+  - 'if [ -n "${CONDITIONS-}" ]; then cd packages/tests; fi'
+install:
+  - 'if [ "${TRAVIS_NODE_VERSION}" = "0.5" ] || [ "${TRAVIS_NODE_VERSION}" = "0.6" ] || [ "${TRAVIS_NODE_VERSION}" = "0.7" ] || [ "${TRAVIS_NODE_VERSION}" = "0.9" ]; then nvm install --latest-npm 0.8 && npm install && nvm use "${TRAVIS_NODE_VERSION}"; else npm install; fi;'
 script:
   - 'if [ -n "${ENGINES-}" ]; then npx lerna exec ls-engines; fi'
+  - 'if [ -n "${CONDITIONS-}" ]; then cd ../.. && node packages/tests/conditions.js; fi'
 matrix:
   fast_finish: true
   include:
@@ -60,5 +66,37 @@ matrix:
       env: TEST=true SKIP_CLI=true ALLOW_FAILURE=true
     - node_js: "10.0"
       env: TEST=true SKIP_CLI=true
+    - node_js: "13.7"
+      env: CONDITIONS=true
+    - node_js: "13.6"
+      env: CONDITIONS=true
+    - node_js: "13.2"
+      env: CONDITIONS=true
+    - node_js: "13.1"
+      env: CONDITIONS=true
+    - node_js: "13.0"
+      env: CONDITIONS=true
+    - node_js: "12.17"
+      env: CONDITIONS=true
+    - node_js: "12.16"
+      env: CONDITIONS=true
+    - node_js: "8"
+      env: CONDITIONS=true
+    - node_js: "6"
+      env: CONDITIONS=true
+    - node_js: "4"
+      env: CONDITIONS=true
+    - node_js: "iojs"
+      env: CONDITIONS=true
+    - node_js: "0.12"
+      env: CONDITIONS=true
+    - node_js: "0.10"
+      env: CONDITIONS=true
+    - node_js: "0.8"
+      env: CONDITIONS=true
+    - node_js: "0.6"
+      env: CONDITIONS=true
   allow_failures:
     - env: TEST=true SKIP_CLI=true ALLOW_FAILURE=true
+    - node_js: "0.6"
+      env: CONDITIONS=true

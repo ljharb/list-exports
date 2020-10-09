@@ -4,14 +4,24 @@
 	"private": true,
 	"scripts": {
 		"lint": "eslint .",
-		"pretest": "npm run lint"
+		"pretest": "npm run lint",
+		"posttest": "NODE_ENV=test npm run regen",
+		"regen": "node fixtures/conditions/project/gen"
 	},
 	"devDependencies": {
 		"@ljharb/eslint-config": "^17.2.0",
+		"conditions": "file:./fixtures/conditions/project",
 		"eslint": "^7.11.0",
+		"for-each": "^0.3.3",
+		"has-package-exports": "^1.2.1",
+		"is-equal": "^1.6.1",
 		"json-diff": "^0.5.4",
 		"list-exports": "*",
 		"ls-engines": "^0.3.5",
+		"object.entries": "^1.1.2",
+		"object.fromentries": "^2.0.2",
+		"resolve": "^2.0.0-next.1",
+		"semver": "^6.3.0",
 		"tape": "^5.0.1"
 	},
 	"engines": {

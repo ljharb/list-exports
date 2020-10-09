@@ -6,4 +6,12 @@
 	"parserOptions": {
 		"ecmaVersion": 2018,
 	},
+
+	"rules": {
+		"complexity": 0,
+		"func-style": 0,
+		"id-length": 0,
+		"max-lines-per-function": 0,
+		"no-negated-condition": 0,
+	},
 }

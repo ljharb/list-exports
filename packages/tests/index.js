@@ -25,7 +25,7 @@ test('listExports', (t) => {
 	fixtures.forEach((fixture) => {
 		const skip = re && !re.test(fixture);
 		t.test(`fixture: ${fixture}`, { skip: skip }, async (st) => {
-			const checkNPM = !isOffline && !fixture.startsWith('ex-') && fixture !== 'list-exports' && fixture !== 'ls-exports';
+			const checkNPM = !isOffline && !fixture.startsWith('ex-') && fixture !== 'list-exports' && fixture !== 'ls-exports' && fixture !== 'conditions';
 			st.plan(2);
 
 			const fixtureDir = path.join(fixturesDir, fixture);
