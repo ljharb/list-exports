@@ -43,7 +43,7 @@
 		"chalk": "^4.1.0",
 		"json-colorizer": "^2.2.2",
 		"list-exports": "^1.0.3",
-		"npm-package-arg": "^8.0.1",
+		"npm-package-arg": "^8.1.0",
 		"object.fromentries": "^2.0.2",
 		"object.values": "^1.1.1",
 		"pacote": "^11.1.11",
@@ -51,7 +51,7 @@
 		"table": "^6.0.3",
 		"tmp": "^0.2.1",
 		"tree-walk": "^0.4.0",
-		"yargs": "^16.0.3"
+		"yargs": "^16.1.0"
 	},
 	"devDependencies": {
 		"@ljharb/eslint-config": "^17.2.0",
