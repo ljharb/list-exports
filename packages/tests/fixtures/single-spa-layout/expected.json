@@ -5,14 +5,10 @@
 		"node": "*"
 	},
 	"binaries": [],
-	"require": [
-	],
-	"import": [
-	],
-	"files": [
-	],
-	"tree": {
-	},
+	"require": [],
+	"import": [],
+	"files": [],
+	"tree": {},
 	"require (pre-exports)": [
 		"single-spa-layout",
 		"single-spa-layout/",

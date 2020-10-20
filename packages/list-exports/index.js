@@ -12,6 +12,21 @@ const inspect = require('object-inspect');
 
 /* eslint-disable no-inner-declarations */
 
+function pathType(file) {
+	try {
+		var stat = fs.lstatSync(file);
+		if (stat.isFile()) {
+			return 'file';
+		}
+		if (stat.isDirectory()) {
+			return 'dir';
+		}
+		return 'unknown';
+	} catch (e) {
+		return 'missing';
+	}
+}
+
 function isDirectory(file) {
 	try {
 		return fs.lstatSync(file).isDirectory();
@@ -52,7 +67,7 @@ function traverseDir(
 			skipSlashExport,
 		});
 	} else if (fs.existsSync(path.join(dir, 'package.json'))) {
-		addError(`\`${dirRelative}\` has a \`package.json\`, but either lacks a \`main\`, or its \`main\` is invalid!`);
+		addError(`\`./${path.relative(global.process.cwd(), dirRelative || dir)}\` has a \`package.json\`, but either lacks a \`main\`, or its \`main\` is invalid!`);
 	}
 
 	const contents = fs.readdirSync(dir);
@@ -268,86 +283,97 @@ module.exports = async function listExports(packageJSON) {
 		exportSpecifiersESM = [];
 
 		function processExportsEntry([lhs, rhs]) {
-			if (lhs.endsWith('/')) {
-				const dir = path.join(packageDir, lhs);
-				// this directory is fully exposed to standard/legacy resolution
-				traverseDir(dir, true, {
-					extensions: getExtensions(getPackageType.sync(dir)).base,
-					filteredFiles,
-					packageDir,
-					process: processPreExportsFile,
-					addError,
-					skipSlashExport: true,
-				});
-			} else {
-				const specifier = lhs === '.' ? '' : lhs;
+			const specifier = lhs === '.' ? '' : lhs;
 
-				function addFile(filename, canImport, canRequire) {
-					if (isDirectory(filename)) {
-						errors.push(`\`${lhs}\` points to \`${rhs}\`, which is a directory!`);
-					} else {
-						const specifiers = [specifier.replace(/^\.\//, '')];
-						if (canImport) {
-							exportSpecifiersESM.push(...specifiers);
-						}
-						if (canRequire) {
-							if (!isESM(filename)) {
-								exportSpecifiersCJS.push(...specifiers);
-							}
-						}
-						exposedFiles.push(filename);
-						addExportToFile(filename, specifiers, true);
+			function addFile(filename, canImport, canRequire) {
+				if (isDirectory(filename)) {
+					errors.push(`\`${lhs}\` points to \`${rhs}\`, which is a directory!`);
+				} else {
+					const specifiers = [specifier.replace(/^\.\//, '')];
+					if (canImport) {
+						exportSpecifiersESM.push(...specifiers);
 					}
+					if (canRequire) {
+						if (!isESM(filename)) {
+							exportSpecifiersCJS.push(...specifiers);
+						}
+					}
+					exposedFiles.push(filename);
+					addExportToFile(filename, specifiers, true);
 				}
+			}
 
-				function processRHSItem(target, env = [
-					'default',
-					'node',
-					'require',
-					'import',
-				]) {
-					if (typeof target === 'string') {
-						if (target.startsWith('./') && !target.includes('node_modules')) {
-							const resolvedTarget = resolveFrom(target, packageDir, rootAllExtensions);
-							if (resolvedTarget) {
-								addFile(target, true, true);
-							} else {
-								errors.push(`“${lhs}”: ${target} does not appear to exist!`);
-							}
+			function processRHSItem(target, env = [
+				'default',
+				'node',
+				'require',
+				'import',
+			]) {
+				if (typeof target === 'string') {
+					if (target.startsWith('./') && !target.includes('node_modules')) {
+						const resolvedTarget = resolveFrom(target, packageDir, rootAllExtensions);
+						if (resolvedTarget) {
+							addFile(target, true, true);
 						} else {
-							errors.push(`\`exports.${lhs}\`: ${target} must start with \`./\` and must not contain \`node_modules\``);
+							errors.push(`“${lhs}”: ${target} does not appear to exist!`);
 						}
-					} else if (target && typeof target === 'object') {
-						env.forEach((key) => {
-							const targetValue = target[key];
-							if (typeof targetValue === 'string') {
-								if (targetValue.startsWith('./') && !targetValue.includes('node_modules')) {
-									const resolvedTarget = resolveFrom(targetValue, packageDir, rootAllExtensions);
-									if (resolvedTarget) {
-										addFile(targetValue, key !== 'require', key !== 'import');
-									} else {
-										errors.push(`“${specifier ? `${lhs}.` : ''}${key}”: ${targetValue} does not appear to exist!`);
-									}
-								} else {
-									errors.push(`\`exports.${specifier ? `${lhs}.` : ''}${key}\`: ${targetValue} must start with \`./\` and must not contain \`node_modules\``);
-								}
-							} else if (targetValue != null) {
-								processRHSItem(targetValue, [
-									'default',
-									'node',
-								].concat(
-									key === 'import' ? [] : 'require',
-									key === 'require' ? [] : 'import',
-								));
-							}
-						});
 					} else {
-						errors.push(`“${lhs}”: ${target} must be a string, an object, or an array of those.`);
+						errors.push(`\`exports.${lhs}\`: ${target} must start with \`./\` and must not contain \`node_modules\``);
 					}
+				} else if (target && typeof target === 'object') {
+					env.forEach((key) => {
+						const targetValue = target[key];
+						if (typeof targetValue === 'string') {
+							if (targetValue.startsWith('./') && !targetValue.includes('node_modules')) {
+								const resolvedTarget = resolveFrom(targetValue, packageDir, rootAllExtensions);
+								if (resolvedTarget) {
+									addFile(targetValue, key !== 'require', key !== 'import');
+								} else {
+									errors.push(`“${specifier ? `${lhs}.` : ''}${key}”: ${targetValue} does not appear to exist!`);
+								}
+							} else {
+								errors.push(`\`exports.${specifier ? `${lhs}.` : ''}${key}\`: ${targetValue} must start with \`./\` and must not contain \`node_modules\``);
+							}
+						} else if (targetValue != null) {
+							processRHSItem(targetValue, [
+								'default',
+								'node',
+							].concat(
+								key === 'import' ? [] : 'require',
+								key === 'require' ? [] : 'import',
+							));
+						}
+					});
+				} else {
+					errors.push(`“${lhs}”: ${target} must be a string, an object, or an array of those.`);
 				}
+			}
 
+			if (Array.isArray(rhs)) {
+				rhs.forEach((x) => processExportsEntry([lhs, x]));
+			} else if (!lhs.endsWith('/')) { // eslint-disable-line no-negated-condition
 				// rhs is a string, an object, or an array of both
 				[].concat(rhs).forEach((x) => processRHSItem(x));
+			} else {
+				const rhsPath = path.join(packageDir, rhs);
+				const rhsType = pathType(rhsPath);
+				if (rhsType === 'missing') {
+					addError(`\`./${path.relative(process.cwd(), path.join(packageDir, 'package.json'))}\` references \`"${lhs}": "${rhs}"\`, but \`${rhs}\` does not appear to exist!`);
+					return;
+				}
+				if (rhsType === 'dir') {
+					// this directory is fully exposed to standard/legacy resolution
+					traverseDir(rhsPath, true, {
+						extensions: getExtensions(getPackageType.sync(rhsPath)).base,
+						filteredFiles,
+						packageDir,
+						process: processPreExportsFile,
+						addError,
+						skipSlashExport: true,
+					});
+				} else if (rhsType === 'file') {
+					processRHSItem(rhs);
+				}
 			}
 		}
 

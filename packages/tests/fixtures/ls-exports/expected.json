@@ -60,6 +60,6 @@
 		}
 	},
 	"errors": [
-		"`` has a `package.json`, but either lacks a `main`, or its `main` is invalid!"
+		"`./packages/ls-exports` has a `package.json`, but either lacks a `main`, or its `main` is invalid!"
 	]
 }
