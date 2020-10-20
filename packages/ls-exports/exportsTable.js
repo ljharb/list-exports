@@ -90,5 +90,10 @@ module.exports = async function exportsTable(packageDir, log) {
 		]);
 	log(table(treeRows, tableOptions));
 
+	if (x.errors.length > 0) {
+		log(chalk.bold(chalk.red('!! Errors:')));
+		log(table([x.errors.map((e) => e.replace(process.cwd(), '$PWD'))]));
+	}
+
 	log(chalk.dim('run the same command with `--json` for full details'));
 };
