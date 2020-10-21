@@ -25,7 +25,8 @@ test('listExports', (t) => {
 	fixtures.forEach((fixture) => {
 		const skip = re && !re.test(fixture);
 		t.test(`fixture: ${fixture}`, { skip: skip }, async (st) => {
-			const checkNPM = !isOffline && !fixture.startsWith('ex-') && fixture !== 'list-exports' && fixture !== 'ls-exports' && fixture !== 'conditions';
+			const checkNPM = !isOffline && !fixture.startsWith('ex-') && fixture !== 'list-exports' && fixture !== 'ls-exports';
+
 			st.plan(2);
 
 			const fixtureDir = path.join(fixturesDir, fixture);
@@ -34,8 +35,9 @@ test('listExports', (t) => {
 			const expectedPath = path.join(fixtureDir, 'expected.json');
 			const expected = JSON.parse(fs.readFileSync(expectedPath));
 			const packageJSON = path.resolve(path.join(projectDir, 'package.json'));
+			const packageData = JSON.parse(fs.readFileSync(packageJSON));
 			if (expected.name === 'ls-exports' || expected.name === 'list-exports') {
-				expected.version = JSON.parse(fs.readFileSync(packageJSON)).version;
+				expected.version = packageData.version;
 			}
 
 			const results = await listExports(packageJSON)['catch']((e) => {

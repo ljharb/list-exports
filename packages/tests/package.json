@@ -6,11 +6,11 @@
 		"lint": "eslint .",
 		"pretest": "npm run lint",
 		"posttest": "NODE_ENV=test npm run regen",
-		"regen": "node fixtures/conditions/project/gen"
+		"regen": "node fixtures/ex-conditions/project/gen"
 	},
 	"devDependencies": {
 		"@ljharb/eslint-config": "^17.2.0",
-		"conditions": "file:./fixtures/conditions/project",
+		"conditions": "file:./fixtures/ex-conditions/project",
 		"eslint": "^7.11.0",
 		"for-each": "^0.3.3",
 		"has-package-exports": "^1.2.1",

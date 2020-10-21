@@ -10,13 +10,13 @@ var hasBrokenExports = semver.satisfies(process.version, '~13.0 || ~13.1', { inc
 var hasPackageExports = require('has-package-exports');
 var hasConditions = require('has-package-exports/conditional');
 
-var conditionsPkg = JSON.parse(String(fs.readFileSync(path.join(__dirname, './fixtures/conditions/project/package.json'))));
+var conditionsPkg = JSON.parse(String(fs.readFileSync(path.join(__dirname, './fixtures/ex-conditions/project/package.json'))));
 
 var empty = {};
 
 function makeResult(slug) {
 	return {
-		resolved: path.basename(path.join(__dirname, 'fixtures/conditions/project/' + slug + '.js')),
+		resolved: path.basename(path.join(__dirname, 'fixtures/ex-conditions/project/' + slug + '.js')),
 		result: slug
 	};
 }
@@ -25,7 +25,7 @@ module.exports = function getExpectedConditions(resolve) {
 	var expected = {
 		'.': makeResult(hasBrokenExports ? 'fallback' : hasPackageExports ? 'default' : 'main'),
 		'package.json': {
-			resolved: path.basename(resolve('./fixtures/conditions/project/package.json')),
+			resolved: path.basename(resolve('./fixtures/ex-conditions/project/package.json')),
 			result: empty
 		},
 		dnri: makeResult(hasPackageExports ? hasBrokenExports ? 'fallback' : 'default' : 'dnri'),
