@@ -50,7 +50,7 @@
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
     "cross-env": "^5.2.0",
-    "diff": "^3.5.0",
+    "diff": "^4.0.0",
     "eslint": "5.15.1",
     "eslint-config-developit": "^1.1.1",
     "eslint-config-prettier": "^6.5.0",
