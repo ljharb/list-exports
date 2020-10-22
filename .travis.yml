@@ -100,3 +100,5 @@ matrix:
     - env: TEST=true SKIP_CLI=true ALLOW_FAILURE=true
     - node_js: "0.6"
       env: CONDITIONS=true
+    - node_js: "lts/*"
+      env: ENGINES=true
