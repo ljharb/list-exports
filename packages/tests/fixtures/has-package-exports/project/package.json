@@ -46,7 +46,7 @@
   },
   "homepage": "https://github.com/ljharb/has-package-exports#readme",
   "devDependencies": {
-    "@ljharb/eslint-config": "^16.0.0",
+    "@ljharb/eslint-config": "^17.0.0",
     "aud": "^1.1.1",
     "auto-changelog": "^2.0.0",
     "eslint": "^6.8.0",
