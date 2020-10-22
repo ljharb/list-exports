@@ -52,8 +52,8 @@
 		"npm-packlist": "^2.1.2",
 		"object-inspect": "^1.8.0",
 		"object.entries": "^1.1.2",
-		"read-package-json": "^2.1.2",
-		"resolve": "^2.0.0-next.1"
+		"read-package-json": "^3.0.0",
+		"resolve": "^2.0.0-next.2"
 	},
 	"devDependencies": {
 		"@ljharb/eslint-config": "^17.2.0",
