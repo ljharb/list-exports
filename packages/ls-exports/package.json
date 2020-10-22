@@ -42,7 +42,7 @@
 	"dependencies": {
 		"chalk": "^4.1.0",
 		"json-colorizer": "^2.2.2",
-		"list-exports": "^1.0.3",
+		"list-exports": "^1.0.4",
 		"npm-package-arg": "^8.1.0",
 		"object.fromentries": "^2.0.2",
 		"object.values": "^1.1.1",
