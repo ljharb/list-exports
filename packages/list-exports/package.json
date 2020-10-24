@@ -60,7 +60,7 @@
 		"aud": "^1.1.2",
 		"eslint": "^7.11.0",
 		"in-publish": "^2.0.1",
-		"ls-engines": "^0.3.5",
+		"ls-engines": "^0.4.0",
 		"safe-publish-latest": "^1.1.4"
 	},
 	"engines": {
