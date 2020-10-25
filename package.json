@@ -36,7 +36,7 @@
 		"aud": "^1.1.2",
 		"eslint": "^7.11.0",
 		"lerna": "^3.22.1",
-		"ls-engines": "^0.3.5",
+		"ls-engines": "^0.4.0",
 		"tape": "^5.0.1"
 	},
 	"engines": {
