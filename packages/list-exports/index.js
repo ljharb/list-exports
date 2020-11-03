@@ -116,8 +116,19 @@ function normalizeExports(exports, errors) {
 	return normalizedExports;
 }
 
-module.exports = async function listExports(packageJSON) {
+module.exports = async function listExports(packageJSON, options = {}) {
 	const packageDir = path.dirname(fs.realpathSync(packageJSON));
+
+	let supportsConditionalExports = true;
+
+	const level = options.level || 'all';
+	if (level !== 'all') {
+		if (level === 'without conditions') {
+			supportsConditionalExports = false;
+		} else {
+			throw new TypeError('unknown level: ' + level);
+		}
+	}
 
 	const {
 		name,
@@ -303,7 +314,7 @@ module.exports = async function listExports(packageJSON) {
 				}
 			}
 
-			function processRHSItem(target, env = [
+			function processRHSItem(target, conditions = [
 				'default',
 				'node',
 				'require',
@@ -321,29 +332,31 @@ module.exports = async function listExports(packageJSON) {
 						errors.push(`\`exports.${lhs}\`: ${target} must start with \`./\` and must not contain \`node_modules\``);
 					}
 				} else if (target && typeof target === 'object') {
-					env.forEach((key) => {
-						const targetValue = target[key];
-						if (typeof targetValue === 'string') {
-							if (targetValue.startsWith('./') && !targetValue.includes('node_modules')) {
-								const resolvedTarget = resolveFrom(targetValue, packageDir, rootAllExtensions);
-								if (resolvedTarget) {
-									addFile(targetValue, key !== 'require', key !== 'import');
+					if (supportsConditionalExports) {
+						conditions.forEach((key) => {
+							const targetValue = target[key];
+							if (typeof targetValue === 'string') {
+								if (targetValue.startsWith('./') && !targetValue.includes('node_modules')) {
+									const resolvedTarget = resolveFrom(targetValue, packageDir, rootAllExtensions);
+									if (resolvedTarget) {
+										addFile(targetValue, key !== 'require', key !== 'import');
+									} else {
+										errors.push(`“${specifier ? `${lhs}.` : ''}${key}”: ${targetValue} does not appear to exist!`);
+									}
 								} else {
-									errors.push(`“${specifier ? `${lhs}.` : ''}${key}”: ${targetValue} does not appear to exist!`);
+									errors.push(`\`exports.${specifier ? `${lhs}.` : ''}${key}\`: ${targetValue} must start with \`./\` and must not contain \`node_modules\``);
 								}
-							} else {
-								errors.push(`\`exports.${specifier ? `${lhs}.` : ''}${key}\`: ${targetValue} must start with \`./\` and must not contain \`node_modules\``);
+							} else if (targetValue != null) {
+								processRHSItem(targetValue, [
+									'default',
+									'node',
+								].concat(
+									key === 'import' ? [] : 'require',
+									key === 'require' ? [] : 'import',
+								));
 							}
-						} else if (targetValue != null) {
-							processRHSItem(targetValue, [
-								'default',
-								'node',
-							].concat(
-								key === 'import' ? [] : 'require',
-								key === 'require' ? [] : 'import',
-							));
-						}
-					});
+						});
+					}
 				} else {
 					errors.push(`“${lhs}”: ${target} must be a string, an object, or an array of those.`);
 				}

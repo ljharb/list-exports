@@ -8,7 +8,7 @@
 
 [![npm badge][11]][1]
 
-Given a package name and a version number, or a path to a package.json, what specifiers does it expose?
+Given a path to a package.json, what specifiers does it expose?
 
 The package export defaults an `async function`. It fulfills with an object with the following keys:
   - `name` the package name
@@ -16,6 +16,11 @@ The package export defaults an `async function`. It fulfills with an object with
   - `engines`: the package's `engines` requirements
   - `binaries`: the files that are made available as executable programs
   - `errors`: any validation errors encountered during parsing. <sub>Note that these errors *do not* necessarily interfere with the listed entry points being accessible at runtime.</sub>
+
+In addition to the required package.json path, it also takes a second argument, an options object. This object supports the following properties:
+ - `level`: must be `'all'` (the default), or `'without conditions'`
+   - `'all'` means "supports everything latest node supports", which includes export conditions. (note: subpath patterns are not yet supported)
+   - `'without conditions'` means "support what node v13.2 - v13.6 support", which in the "exports" field only allows the string form or an object with the "default" property set
 
 For ESM-supporting node versions (at the time of this writing, `^12.17 || >= 13.2`):
   - `require`: valid specifiers to pass into `require`

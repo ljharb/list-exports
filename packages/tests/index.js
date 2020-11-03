@@ -19,6 +19,29 @@ const cli = path.join(__dirname, '..', 'ls-exports', 'bin', 'ls-exports');
 
 const re = GREP && new RegExp(GREP);
 
+function readExpectedJson(expectedPath, packageData) {
+	const expected = JSON.parse(fs.readFileSync(expectedPath));
+	if (expected.name === 'ls-exports' || expected.name === 'list-exports') {
+		expected.version = packageData.version;
+	}
+	return expected;
+}
+
+function diffApiOutput(t, message, { expected, results, expectedPath }) {
+	const diff = diffString(expected, results);
+	if (diff) {
+		console.error('# ' + diff.split('\n').join('\n# '));
+	}
+	t.deepEqual(results, expected, message);
+	if (WRITE) {
+		let resultsToWrite = results;
+		if (expected.name === 'ls-exports' || expected.name === 'list-exports') {
+			resultsToWrite = { ...resultsToWrite, version: null };
+		}
+		fs.writeFileSync(expectedPath, JSON.stringify(resultsToWrite, null, '\t').trim() + '\n');
+	}
+}
+
 test('listExports', (t) => {
 	t.plan(fixtures.length);
 
@@ -27,35 +50,44 @@ test('listExports', (t) => {
 		t.test(`fixture: ${fixture}`, { skip: skip }, async (st) => {
 			const checkNPM = !isOffline && !fixture.startsWith('ex-') && fixture !== 'list-exports' && fixture !== 'ls-exports';
 
-			st.plan(2);
+			st.plan(3);
 
 			const fixtureDir = path.join(fixturesDir, fixture);
 			const projectDir = path.join(fixtureDir, 'project');
 
 			const expectedPath = path.join(fixtureDir, 'expected.json');
-			const expected = JSON.parse(fs.readFileSync(expectedPath));
 			const packageJSON = path.resolve(path.join(projectDir, 'package.json'));
 			const packageData = JSON.parse(fs.readFileSync(packageJSON));
-			if (expected.name === 'ls-exports' || expected.name === 'list-exports') {
-				expected.version = packageData.version;
-			}
+			const expected = readExpectedJson(expectedPath, packageData);
 
 			const results = await listExports(packageJSON)['catch']((e) => {
 				console.error(e);
 				throw e;
 			});
 
-			const diff = diffString(expected, results);
-			if (diff) {
-				console.error('# ' + diff.split('\n').join('\n# '));
-			}
-			st.deepEqual(results, expected, `${fixture}: API results match expectation`);
-			if (WRITE) {
-				if (expected.name === 'ls-exports' || expected.name === 'list-exports') {
-					results.version = null;
-				}
-				fs.writeFileSync(expectedPath, JSON.stringify(results, null, '\t').trim() + '\n');
-			}
+			diffApiOutput(st, `${fixture}: API results match expectation`, {
+				expected: expected,
+				results: results,
+				expectedPath: expectedPath
+			});
+
+			st.test(`fixture: ${fixture}: without conditions`, async (s2t) => {
+				s2t.plan(1);
+
+				const expectedWithoutConditionsPath = path.join(fixtureDir, 'expected-without-conditions.json');
+				const expectedWithoutConditions = readExpectedJson(expectedWithoutConditionsPath, packageData);
+
+				const resultsWithoutConditions = await listExports(packageJSON, { level: 'without conditions' })['catch']((e) => {
+					console.error(e);
+					throw e;
+				});
+
+				diffApiOutput(s2t, `${fixture}: API results match expectation without conditions`, {
+					expected: expectedWithoutConditions,
+					results: resultsWithoutConditions,
+					expectedPath: expectedWithoutConditionsPath
+				});
+			});
 
 			st.test(`fixture: ${fixture}: CLI`, { skip: SKIP_CLI }, (s2t) => {
 				s2t.plan(checkNPM ? 2 : 1);
