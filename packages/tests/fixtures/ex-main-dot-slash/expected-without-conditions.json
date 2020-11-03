@@ -1,0 +1,141 @@
+{
+	"name": "ex-main-dot-slash",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"binaries": [],
+	"require": [
+		"ex-main-dot-slash",
+		"ex-main-dot-slash/",
+		"ex-main-dot-slash/dir",
+		"ex-main-dot-slash/dir/",
+		"ex-main-dot-slash/dir/extra",
+		"ex-main-dot-slash/dir/extra.js",
+		"ex-main-dot-slash/dir/index",
+		"ex-main-dot-slash/dir/index.js",
+		"ex-main-dot-slash/file",
+		"ex-main-dot-slash/file.js",
+		"ex-main-dot-slash/index",
+		"ex-main-dot-slash/index.js",
+		"ex-main-dot-slash/package",
+		"ex-main-dot-slash/package.json"
+	],
+	"import": [
+		"ex-main-dot-slash",
+		"ex-main-dot-slash/dir/extra.js",
+		"ex-main-dot-slash/dir/extra.mjs",
+		"ex-main-dot-slash/dir/index.js",
+		"ex-main-dot-slash/file.js",
+		"ex-main-dot-slash/index.js",
+		"ex-main-dot-slash/index.mjs",
+		"ex-main-dot-slash/package.json"
+	],
+	"files": [
+		"./dir/extra.js",
+		"./dir/extra.mjs",
+		"./dir/index.js",
+		"./file.js",
+		"./index.js",
+		"./index.mjs",
+		"./package.json"
+	],
+	"tree": {
+		"ex-main-dot-slash": {
+			"index.js": [
+				"ex-main-dot-slash",
+				"ex-main-dot-slash/",
+				"ex-main-dot-slash/index",
+				"ex-main-dot-slash/index.js"
+			],
+			"file.js": [
+				"ex-main-dot-slash/file",
+				"ex-main-dot-slash/file.js"
+			],
+			"index.mjs": [
+				"ex-main-dot-slash/index.mjs"
+			],
+			"package.json": [
+				"ex-main-dot-slash/package",
+				"ex-main-dot-slash/package.json"
+			],
+			"dir": {
+				"index.js": [
+					"ex-main-dot-slash/dir",
+					"ex-main-dot-slash/dir/",
+					"ex-main-dot-slash/dir/index",
+					"ex-main-dot-slash/dir/index.js"
+				],
+				"extra.js": [
+					"ex-main-dot-slash/dir/extra",
+					"ex-main-dot-slash/dir/extra.js"
+				],
+				"extra.mjs": [
+					"ex-main-dot-slash/dir/extra.mjs"
+				]
+			}
+		}
+	},
+	"require (pre-exports)": [
+		"ex-main-dot-slash",
+		"ex-main-dot-slash/",
+		"ex-main-dot-slash/dir",
+		"ex-main-dot-slash/dir/",
+		"ex-main-dot-slash/dir/extra",
+		"ex-main-dot-slash/dir/extra.js",
+		"ex-main-dot-slash/dir/index",
+		"ex-main-dot-slash/dir/index.js",
+		"ex-main-dot-slash/file",
+		"ex-main-dot-slash/file.js",
+		"ex-main-dot-slash/index",
+		"ex-main-dot-slash/index.js",
+		"ex-main-dot-slash/package",
+		"ex-main-dot-slash/package.json"
+	],
+	"files (pre-exports)": [
+		"./dir/extra.js",
+		"./dir/extra.mjs",
+		"./dir/index.js",
+		"./file.js",
+		"./index.js",
+		"./index.mjs",
+		"./package.json"
+	],
+	"tree (pre-exports)": {
+		"ex-main-dot-slash": {
+			"index.js": [
+				"ex-main-dot-slash",
+				"ex-main-dot-slash/",
+				"ex-main-dot-slash/index",
+				"ex-main-dot-slash/index.js"
+			],
+			"file.js": [
+				"ex-main-dot-slash/file",
+				"ex-main-dot-slash/file.js"
+			],
+			"index.mjs": [
+				"ex-main-dot-slash/index.mjs"
+			],
+			"package.json": [
+				"ex-main-dot-slash/package",
+				"ex-main-dot-slash/package.json"
+			],
+			"dir": {
+				"index.js": [
+					"ex-main-dot-slash/dir",
+					"ex-main-dot-slash/dir/",
+					"ex-main-dot-slash/dir/index",
+					"ex-main-dot-slash/dir/index.js"
+				],
+				"extra.js": [
+					"ex-main-dot-slash/dir/extra",
+					"ex-main-dot-slash/dir/extra.js"
+				],
+				"extra.mjs": [
+					"ex-main-dot-slash/dir/extra.mjs"
+				]
+			}
+		}
+	},
+	"errors": []
+}

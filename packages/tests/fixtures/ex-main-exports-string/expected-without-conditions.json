@@ -1,0 +1,86 @@
+{
+	"name": "ex-main-exports-string",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"binaries": [],
+	"require": [
+		"ex-main-exports-string"
+	],
+	"import": [
+		"ex-main-exports-string"
+	],
+	"files": [
+		"./index.js"
+	],
+	"tree": {
+		"ex-main-exports-string": {
+			"index.js": [
+				"ex-main-exports-string"
+			]
+		}
+	},
+	"require (pre-exports)": [
+		"ex-main-exports-string",
+		"ex-main-exports-string/",
+		"ex-main-exports-string/dir",
+		"ex-main-exports-string/dir/",
+		"ex-main-exports-string/dir/extra",
+		"ex-main-exports-string/dir/extra.js",
+		"ex-main-exports-string/dir/index",
+		"ex-main-exports-string/dir/index.js",
+		"ex-main-exports-string/file",
+		"ex-main-exports-string/file.js",
+		"ex-main-exports-string/index",
+		"ex-main-exports-string/index.js",
+		"ex-main-exports-string/package",
+		"ex-main-exports-string/package.json"
+	],
+	"files (pre-exports)": [
+		"./dir/extra.js",
+		"./dir/extra.mjs",
+		"./dir/index.js",
+		"./file.js",
+		"./index.js",
+		"./index.mjs",
+		"./package.json"
+	],
+	"tree (pre-exports)": {
+		"ex-main-exports-string": {
+			"dir": {
+				"index.js": [
+					"ex-main-exports-string",
+					"ex-main-exports-string/",
+					"ex-main-exports-string/dir",
+					"ex-main-exports-string/dir/",
+					"ex-main-exports-string/dir/index",
+					"ex-main-exports-string/dir/index.js"
+				],
+				"extra.js": [
+					"ex-main-exports-string/dir/extra",
+					"ex-main-exports-string/dir/extra.js"
+				],
+				"extra.mjs": [
+					"ex-main-exports-string/dir/extra.mjs"
+				]
+			},
+			"file.js": [
+				"ex-main-exports-string/file",
+				"ex-main-exports-string/file.js"
+			],
+			"index.js": [
+				"ex-main-exports-string/index",
+				"ex-main-exports-string/index.js"
+			],
+			"index.mjs": [
+				"ex-main-exports-string/index.mjs"
+			],
+			"package.json": [
+				"ex-main-exports-string/package",
+				"ex-main-exports-string/package.json"
+			]
+		}
+	},
+	"errors": []
+}

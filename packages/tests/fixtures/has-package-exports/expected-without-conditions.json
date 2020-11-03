@@ -1,0 +1,78 @@
+{
+	"name": "has-package-exports",
+	"version": "1.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"binaries": [],
+	"require": [
+		"has-package-exports"
+	],
+	"import": [
+		"has-package-exports"
+	],
+	"files": [
+		"./yes.js"
+	],
+	"tree": {
+		"has-package-exports": {
+			"yes.js": [
+				"has-package-exports"
+			]
+		}
+	},
+	"require (pre-exports)": [
+		"has-package-exports",
+		"has-package-exports/",
+		"has-package-exports/browser",
+		"has-package-exports/browser.js",
+		"has-package-exports/no",
+		"has-package-exports/no.js",
+		"has-package-exports/package",
+		"has-package-exports/package.json",
+		"has-package-exports/test",
+		"has-package-exports/test/",
+		"has-package-exports/test/index",
+		"has-package-exports/test/index.js",
+		"has-package-exports/yes",
+		"has-package-exports/yes.js"
+	],
+	"files (pre-exports)": [
+		"./browser.js",
+		"./no.js",
+		"./package.json",
+		"./test/index.js",
+		"./yes.js"
+	],
+	"tree (pre-exports)": {
+		"has-package-exports": {
+			"no.js": [
+				"has-package-exports",
+				"has-package-exports/",
+				"has-package-exports/no",
+				"has-package-exports/no.js"
+			],
+			"browser.js": [
+				"has-package-exports/browser",
+				"has-package-exports/browser.js"
+			],
+			"package.json": [
+				"has-package-exports/package",
+				"has-package-exports/package.json"
+			],
+			"yes.js": [
+				"has-package-exports/yes",
+				"has-package-exports/yes.js"
+			],
+			"test": {
+				"index.js": [
+					"has-package-exports/test",
+					"has-package-exports/test/",
+					"has-package-exports/test/index",
+					"has-package-exports/test/index.js"
+				]
+			}
+		}
+	},
+	"errors": []
+}

@@ -1,0 +1,1546 @@
+{
+	"name": "resolve",
+	"version": "1.17.0",
+	"engines": {
+		"node": "*"
+	},
+	"binaries": [],
+	"require": [
+		"resolve",
+		"resolve/",
+		"resolve/example/async",
+		"resolve/example/async.js",
+		"resolve/example/sync",
+		"resolve/example/sync.js",
+		"resolve/index",
+		"resolve/index.js",
+		"resolve/lib/async",
+		"resolve/lib/async.js",
+		"resolve/lib/caller",
+		"resolve/lib/caller.js",
+		"resolve/lib/core",
+		"resolve/lib/core.js",
+		"resolve/lib/core.json",
+		"resolve/lib/is-core",
+		"resolve/lib/is-core.js",
+		"resolve/lib/node-modules-paths",
+		"resolve/lib/node-modules-paths.js",
+		"resolve/lib/normalize-options",
+		"resolve/lib/normalize-options.js",
+		"resolve/lib/sync",
+		"resolve/lib/sync.js",
+		"resolve/package",
+		"resolve/package.json",
+		"resolve/test/core",
+		"resolve/test/core.js",
+		"resolve/test/dotdot",
+		"resolve/test/dotdot.js",
+		"resolve/test/dotdot/",
+		"resolve/test/dotdot/abc",
+		"resolve/test/dotdot/abc/",
+		"resolve/test/dotdot/abc/index",
+		"resolve/test/dotdot/abc/index.js",
+		"resolve/test/dotdot/index",
+		"resolve/test/dotdot/index.js",
+		"resolve/test/faulty_basedir",
+		"resolve/test/faulty_basedir.js",
+		"resolve/test/filter",
+		"resolve/test/filter.js",
+		"resolve/test/filter_sync",
+		"resolve/test/filter_sync.js",
+		"resolve/test/mock",
+		"resolve/test/mock.js",
+		"resolve/test/mock_sync",
+		"resolve/test/mock_sync.js",
+		"resolve/test/module_dir",
+		"resolve/test/module_dir.js",
+		"resolve/test/module_dir/xmodules/aaa",
+		"resolve/test/module_dir/xmodules/aaa/",
+		"resolve/test/module_dir/xmodules/aaa/index",
+		"resolve/test/module_dir/xmodules/aaa/index.js",
+		"resolve/test/module_dir/ymodules/aaa",
+		"resolve/test/module_dir/ymodules/aaa/",
+		"resolve/test/module_dir/ymodules/aaa/index",
+		"resolve/test/module_dir/ymodules/aaa/index.js",
+		"resolve/test/module_dir/zmodules/bbb",
+		"resolve/test/module_dir/zmodules/bbb/",
+		"resolve/test/module_dir/zmodules/bbb/main",
+		"resolve/test/module_dir/zmodules/bbb/main.js",
+		"resolve/test/module_dir/zmodules/bbb/package",
+		"resolve/test/module_dir/zmodules/bbb/package.json",
+		"resolve/test/node-modules-paths",
+		"resolve/test/node-modules-paths.js",
+		"resolve/test/node_path",
+		"resolve/test/node_path.js",
+		"resolve/test/node_path/x/aaa",
+		"resolve/test/node_path/x/aaa/",
+		"resolve/test/node_path/x/aaa/index",
+		"resolve/test/node_path/x/aaa/index.js",
+		"resolve/test/node_path/x/ccc",
+		"resolve/test/node_path/x/ccc/",
+		"resolve/test/node_path/x/ccc/index",
+		"resolve/test/node_path/x/ccc/index.js",
+		"resolve/test/node_path/y/bbb",
+		"resolve/test/node_path/y/bbb/",
+		"resolve/test/node_path/y/bbb/index",
+		"resolve/test/node_path/y/bbb/index.js",
+		"resolve/test/node_path/y/ccc",
+		"resolve/test/node_path/y/ccc/",
+		"resolve/test/node_path/y/ccc/index",
+		"resolve/test/node_path/y/ccc/index.js",
+		"resolve/test/nonstring",
+		"resolve/test/nonstring.js",
+		"resolve/test/pathfilter",
+		"resolve/test/pathfilter.js",
+		"resolve/test/pathfilter/deep_ref/main",
+		"resolve/test/pathfilter/deep_ref/main.js",
+		"resolve/test/precedence",
+		"resolve/test/precedence.js",
+		"resolve/test/precedence/aaa",
+		"resolve/test/precedence/aaa.js",
+		"resolve/test/precedence/aaa/",
+		"resolve/test/precedence/aaa/index",
+		"resolve/test/precedence/aaa/index.js",
+		"resolve/test/precedence/aaa/main",
+		"resolve/test/precedence/aaa/main.js",
+		"resolve/test/precedence/bbb",
+		"resolve/test/precedence/bbb.js",
+		"resolve/test/precedence/bbb/main",
+		"resolve/test/precedence/bbb/main.js",
+		"resolve/test/resolver",
+		"resolve/test/resolver.js",
+		"resolve/test/resolver/baz",
+		"resolve/test/resolver/baz/",
+		"resolve/test/resolver/baz/doom",
+		"resolve/test/resolver/baz/doom.js",
+		"resolve/test/resolver/baz/package",
+		"resolve/test/resolver/baz/package.json",
+		"resolve/test/resolver/baz/quux",
+		"resolve/test/resolver/baz/quux.js",
+		"resolve/test/resolver/browser_field",
+		"resolve/test/resolver/browser_field/",
+		"resolve/test/resolver/browser_field/a",
+		"resolve/test/resolver/browser_field/a.js",
+		"resolve/test/resolver/browser_field/b",
+		"resolve/test/resolver/browser_field/b.js",
+		"resolve/test/resolver/browser_field/package",
+		"resolve/test/resolver/browser_field/package.json",
+		"resolve/test/resolver/dot_main",
+		"resolve/test/resolver/dot_main/",
+		"resolve/test/resolver/dot_main/index",
+		"resolve/test/resolver/dot_main/index.js",
+		"resolve/test/resolver/dot_main/package",
+		"resolve/test/resolver/dot_main/package.json",
+		"resolve/test/resolver/dot_slash_main",
+		"resolve/test/resolver/dot_slash_main/",
+		"resolve/test/resolver/dot_slash_main/index",
+		"resolve/test/resolver/dot_slash_main/index.js",
+		"resolve/test/resolver/dot_slash_main/package",
+		"resolve/test/resolver/dot_slash_main/package.json",
+		"resolve/test/resolver/foo",
+		"resolve/test/resolver/foo.js",
+		"resolve/test/resolver/incorrect_main",
+		"resolve/test/resolver/incorrect_main/",
+		"resolve/test/resolver/incorrect_main/index",
+		"resolve/test/resolver/incorrect_main/index.js",
+		"resolve/test/resolver/incorrect_main/package",
+		"resolve/test/resolver/incorrect_main/package.json",
+		"resolve/test/resolver/invalid_main/package",
+		"resolve/test/resolver/invalid_main/package.json",
+		"resolve/test/resolver/mug",
+		"resolve/test/resolver/mug.js",
+		"resolve/test/resolver/multirepo/lerna",
+		"resolve/test/resolver/multirepo/lerna.json",
+		"resolve/test/resolver/multirepo/package",
+		"resolve/test/resolver/multirepo/package.json",
+		"resolve/test/resolver/multirepo/packages/package-a",
+		"resolve/test/resolver/multirepo/packages/package-a/",
+		"resolve/test/resolver/multirepo/packages/package-a/index",
+		"resolve/test/resolver/multirepo/packages/package-a/index.js",
+		"resolve/test/resolver/multirepo/packages/package-a/package",
+		"resolve/test/resolver/multirepo/packages/package-a/package.json",
+		"resolve/test/resolver/multirepo/packages/package-b",
+		"resolve/test/resolver/multirepo/packages/package-b/",
+		"resolve/test/resolver/multirepo/packages/package-b/index",
+		"resolve/test/resolver/multirepo/packages/package-b/index.js",
+		"resolve/test/resolver/multirepo/packages/package-b/package",
+		"resolve/test/resolver/multirepo/packages/package-b/package.json",
+		"resolve/test/resolver/nested_symlinks/mylib/async",
+		"resolve/test/resolver/nested_symlinks/mylib/async.js",
+		"resolve/test/resolver/nested_symlinks/mylib/package",
+		"resolve/test/resolver/nested_symlinks/mylib/package.json",
+		"resolve/test/resolver/nested_symlinks/mylib/sync",
+		"resolve/test/resolver/nested_symlinks/mylib/sync.js",
+		"resolve/test/resolver/other_path/lib/other-lib",
+		"resolve/test/resolver/other_path/lib/other-lib.js",
+		"resolve/test/resolver/other_path/root",
+		"resolve/test/resolver/other_path/root.js",
+		"resolve/test/resolver/quux/foo",
+		"resolve/test/resolver/quux/foo/",
+		"resolve/test/resolver/quux/foo/index",
+		"resolve/test/resolver/quux/foo/index.js",
+		"resolve/test/resolver/same_names/foo",
+		"resolve/test/resolver/same_names/foo.js",
+		"resolve/test/resolver/same_names/foo/",
+		"resolve/test/resolver/same_names/foo/index",
+		"resolve/test/resolver/same_names/foo/index.js",
+		"resolve/test/resolver/symlinked/package",
+		"resolve/test/resolver/symlinked/package/",
+		"resolve/test/resolver/symlinked/package/bar",
+		"resolve/test/resolver/symlinked/package/bar.js",
+		"resolve/test/resolver/symlinked/package/package",
+		"resolve/test/resolver/symlinked/package/package.json",
+		"resolve/test/resolver/without_basedir/main",
+		"resolve/test/resolver/without_basedir/main.js",
+		"resolve/test/resolver_sync",
+		"resolve/test/resolver_sync.js",
+		"resolve/test/shadowed_core",
+		"resolve/test/shadowed_core.js",
+		"resolve/test/subdirs",
+		"resolve/test/subdirs.js",
+		"resolve/test/symlinks",
+		"resolve/test/symlinks.js"
+	],
+	"import": [
+		"resolve",
+		"resolve/example/async.js",
+		"resolve/example/sync.js",
+		"resolve/index.js",
+		"resolve/lib/async.js",
+		"resolve/lib/caller.js",
+		"resolve/lib/core.js",
+		"resolve/lib/core.json",
+		"resolve/lib/is-core.js",
+		"resolve/lib/node-modules-paths.js",
+		"resolve/lib/normalize-options.js",
+		"resolve/lib/sync.js",
+		"resolve/package.json",
+		"resolve/test/core.js",
+		"resolve/test/dotdot.js",
+		"resolve/test/dotdot/abc/index.js",
+		"resolve/test/dotdot/index.js",
+		"resolve/test/faulty_basedir.js",
+		"resolve/test/filter.js",
+		"resolve/test/filter_sync.js",
+		"resolve/test/mock.js",
+		"resolve/test/mock_sync.js",
+		"resolve/test/module_dir.js",
+		"resolve/test/module_dir/xmodules/aaa/index.js",
+		"resolve/test/module_dir/ymodules/aaa/index.js",
+		"resolve/test/module_dir/zmodules/bbb/main.js",
+		"resolve/test/module_dir/zmodules/bbb/package.json",
+		"resolve/test/node-modules-paths.js",
+		"resolve/test/node_path.js",
+		"resolve/test/node_path/x/aaa/index.js",
+		"resolve/test/node_path/x/ccc/index.js",
+		"resolve/test/node_path/y/bbb/index.js",
+		"resolve/test/node_path/y/ccc/index.js",
+		"resolve/test/nonstring.js",
+		"resolve/test/pathfilter.js",
+		"resolve/test/pathfilter/deep_ref/main.js",
+		"resolve/test/precedence.js",
+		"resolve/test/precedence/aaa.js",
+		"resolve/test/precedence/aaa/index.js",
+		"resolve/test/precedence/aaa/main.js",
+		"resolve/test/precedence/bbb.js",
+		"resolve/test/precedence/bbb/main.js",
+		"resolve/test/resolver.js",
+		"resolve/test/resolver/baz/doom.js",
+		"resolve/test/resolver/baz/package.json",
+		"resolve/test/resolver/baz/quux.js",
+		"resolve/test/resolver/browser_field/a.js",
+		"resolve/test/resolver/browser_field/b.js",
+		"resolve/test/resolver/browser_field/package.json",
+		"resolve/test/resolver/dot_main/index.js",
+		"resolve/test/resolver/dot_main/package.json",
+		"resolve/test/resolver/dot_slash_main/index.js",
+		"resolve/test/resolver/dot_slash_main/package.json",
+		"resolve/test/resolver/foo.js",
+		"resolve/test/resolver/incorrect_main/index.js",
+		"resolve/test/resolver/incorrect_main/package.json",
+		"resolve/test/resolver/invalid_main/package.json",
+		"resolve/test/resolver/mug.js",
+		"resolve/test/resolver/multirepo/lerna.json",
+		"resolve/test/resolver/multirepo/package.json",
+		"resolve/test/resolver/multirepo/packages/package-a/index.js",
+		"resolve/test/resolver/multirepo/packages/package-a/package.json",
+		"resolve/test/resolver/multirepo/packages/package-b/index.js",
+		"resolve/test/resolver/multirepo/packages/package-b/package.json",
+		"resolve/test/resolver/nested_symlinks/mylib/async.js",
+		"resolve/test/resolver/nested_symlinks/mylib/package.json",
+		"resolve/test/resolver/nested_symlinks/mylib/sync.js",
+		"resolve/test/resolver/other_path/lib/other-lib.js",
+		"resolve/test/resolver/other_path/root.js",
+		"resolve/test/resolver/quux/foo/index.js",
+		"resolve/test/resolver/same_names/foo.js",
+		"resolve/test/resolver/same_names/foo/index.js",
+		"resolve/test/resolver/symlinked/package/bar.js",
+		"resolve/test/resolver/symlinked/package/package.json",
+		"resolve/test/resolver/without_basedir/main.js",
+		"resolve/test/resolver_sync.js",
+		"resolve/test/shadowed_core.js",
+		"resolve/test/subdirs.js",
+		"resolve/test/symlinks.js"
+	],
+	"files": [
+		"./example/async.js",
+		"./example/sync.js",
+		"./index.js",
+		"./lib/async.js",
+		"./lib/caller.js",
+		"./lib/core.js",
+		"./lib/core.json",
+		"./lib/is-core.js",
+		"./lib/node-modules-paths.js",
+		"./lib/normalize-options.js",
+		"./lib/sync.js",
+		"./package.json",
+		"./test/core.js",
+		"./test/dotdot.js",
+		"./test/dotdot/abc/index.js",
+		"./test/dotdot/index.js",
+		"./test/faulty_basedir.js",
+		"./test/filter.js",
+		"./test/filter_sync.js",
+		"./test/mock.js",
+		"./test/mock_sync.js",
+		"./test/module_dir.js",
+		"./test/module_dir/xmodules/aaa/index.js",
+		"./test/module_dir/ymodules/aaa/index.js",
+		"./test/module_dir/zmodules/bbb/main.js",
+		"./test/module_dir/zmodules/bbb/package.json",
+		"./test/node-modules-paths.js",
+		"./test/node_path.js",
+		"./test/node_path/x/aaa/index.js",
+		"./test/node_path/x/ccc/index.js",
+		"./test/node_path/y/bbb/index.js",
+		"./test/node_path/y/ccc/index.js",
+		"./test/nonstring.js",
+		"./test/pathfilter.js",
+		"./test/pathfilter/deep_ref/main.js",
+		"./test/precedence.js",
+		"./test/precedence/aaa.js",
+		"./test/precedence/aaa/index.js",
+		"./test/precedence/aaa/main.js",
+		"./test/precedence/bbb.js",
+		"./test/precedence/bbb/main.js",
+		"./test/resolver.js",
+		"./test/resolver/baz/doom.js",
+		"./test/resolver/baz/package.json",
+		"./test/resolver/baz/quux.js",
+		"./test/resolver/browser_field/a.js",
+		"./test/resolver/browser_field/b.js",
+		"./test/resolver/browser_field/package.json",
+		"./test/resolver/dot_main/index.js",
+		"./test/resolver/dot_main/package.json",
+		"./test/resolver/dot_slash_main/index.js",
+		"./test/resolver/dot_slash_main/package.json",
+		"./test/resolver/foo.js",
+		"./test/resolver/incorrect_main/index.js",
+		"./test/resolver/incorrect_main/package.json",
+		"./test/resolver/invalid_main/package.json",
+		"./test/resolver/mug.js",
+		"./test/resolver/multirepo/lerna.json",
+		"./test/resolver/multirepo/package.json",
+		"./test/resolver/multirepo/packages/package-a/index.js",
+		"./test/resolver/multirepo/packages/package-a/package.json",
+		"./test/resolver/multirepo/packages/package-b/index.js",
+		"./test/resolver/multirepo/packages/package-b/package.json",
+		"./test/resolver/nested_symlinks/mylib/async.js",
+		"./test/resolver/nested_symlinks/mylib/package.json",
+		"./test/resolver/nested_symlinks/mylib/sync.js",
+		"./test/resolver/other_path/lib/other-lib.js",
+		"./test/resolver/other_path/root.js",
+		"./test/resolver/quux/foo/index.js",
+		"./test/resolver/same_names/foo.js",
+		"./test/resolver/same_names/foo/index.js",
+		"./test/resolver/symlinked/package/bar.js",
+		"./test/resolver/symlinked/package/package.json",
+		"./test/resolver/without_basedir/main.js",
+		"./test/resolver_sync.js",
+		"./test/shadowed_core.js",
+		"./test/subdirs.js",
+		"./test/symlinks.js"
+	],
+	"tree": {
+		"resolve": {
+			"index.js": [
+				"resolve",
+				"resolve/",
+				"resolve/index",
+				"resolve/index.js"
+			],
+			"package.json": [
+				"resolve/package",
+				"resolve/package.json"
+			],
+			"example": {
+				"async.js": [
+					"resolve/example/async",
+					"resolve/example/async.js"
+				],
+				"sync.js": [
+					"resolve/example/sync",
+					"resolve/example/sync.js"
+				]
+			},
+			"lib": {
+				"async.js": [
+					"resolve/lib/async",
+					"resolve/lib/async.js"
+				],
+				"caller.js": [
+					"resolve/lib/caller",
+					"resolve/lib/caller.js"
+				],
+				"core.js": [
+					"resolve/lib/core",
+					"resolve/lib/core.js"
+				],
+				"core.json": [
+					"resolve/lib/core",
+					"resolve/lib/core.json"
+				],
+				"is-core.js": [
+					"resolve/lib/is-core",
+					"resolve/lib/is-core.js"
+				],
+				"node-modules-paths.js": [
+					"resolve/lib/node-modules-paths",
+					"resolve/lib/node-modules-paths.js"
+				],
+				"normalize-options.js": [
+					"resolve/lib/normalize-options",
+					"resolve/lib/normalize-options.js"
+				],
+				"sync.js": [
+					"resolve/lib/sync",
+					"resolve/lib/sync.js"
+				]
+			},
+			"test": {
+				"core.js": [
+					"resolve/test/core",
+					"resolve/test/core.js"
+				],
+				"dotdot.js": [
+					"resolve/test/dotdot",
+					"resolve/test/dotdot.js"
+				],
+				"faulty_basedir.js": [
+					"resolve/test/faulty_basedir",
+					"resolve/test/faulty_basedir.js"
+				],
+				"filter.js": [
+					"resolve/test/filter",
+					"resolve/test/filter.js"
+				],
+				"filter_sync.js": [
+					"resolve/test/filter_sync",
+					"resolve/test/filter_sync.js"
+				],
+				"mock.js": [
+					"resolve/test/mock",
+					"resolve/test/mock.js"
+				],
+				"mock_sync.js": [
+					"resolve/test/mock_sync",
+					"resolve/test/mock_sync.js"
+				],
+				"module_dir.js": [
+					"resolve/test/module_dir",
+					"resolve/test/module_dir.js"
+				],
+				"node-modules-paths.js": [
+					"resolve/test/node-modules-paths",
+					"resolve/test/node-modules-paths.js"
+				],
+				"node_path.js": [
+					"resolve/test/node_path",
+					"resolve/test/node_path.js"
+				],
+				"nonstring.js": [
+					"resolve/test/nonstring",
+					"resolve/test/nonstring.js"
+				],
+				"pathfilter.js": [
+					"resolve/test/pathfilter",
+					"resolve/test/pathfilter.js"
+				],
+				"precedence.js": [
+					"resolve/test/precedence",
+					"resolve/test/precedence.js"
+				],
+				"resolver.js": [
+					"resolve/test/resolver",
+					"resolve/test/resolver.js"
+				],
+				"resolver_sync.js": [
+					"resolve/test/resolver_sync",
+					"resolve/test/resolver_sync.js"
+				],
+				"shadowed_core.js": [
+					"resolve/test/shadowed_core",
+					"resolve/test/shadowed_core.js"
+				],
+				"subdirs.js": [
+					"resolve/test/subdirs",
+					"resolve/test/subdirs.js"
+				],
+				"symlinks.js": [
+					"resolve/test/symlinks",
+					"resolve/test/symlinks.js"
+				],
+				"dotdot": {
+					"index.js": [
+						"resolve/test/dotdot",
+						"resolve/test/dotdot/",
+						"resolve/test/dotdot/index",
+						"resolve/test/dotdot/index.js"
+					],
+					"abc": {
+						"index.js": [
+							"resolve/test/dotdot/abc",
+							"resolve/test/dotdot/abc/",
+							"resolve/test/dotdot/abc/index",
+							"resolve/test/dotdot/abc/index.js"
+						]
+					}
+				},
+				"module_dir": {
+					"xmodules": {
+						"aaa": {
+							"index.js": [
+								"resolve/test/module_dir/xmodules/aaa",
+								"resolve/test/module_dir/xmodules/aaa/",
+								"resolve/test/module_dir/xmodules/aaa/index",
+								"resolve/test/module_dir/xmodules/aaa/index.js"
+							]
+						}
+					},
+					"ymodules": {
+						"aaa": {
+							"index.js": [
+								"resolve/test/module_dir/ymodules/aaa",
+								"resolve/test/module_dir/ymodules/aaa/",
+								"resolve/test/module_dir/ymodules/aaa/index",
+								"resolve/test/module_dir/ymodules/aaa/index.js"
+							]
+						}
+					},
+					"zmodules": {
+						"bbb": {
+							"main.js": [
+								"resolve/test/module_dir/zmodules/bbb",
+								"resolve/test/module_dir/zmodules/bbb/",
+								"resolve/test/module_dir/zmodules/bbb/main",
+								"resolve/test/module_dir/zmodules/bbb/main.js"
+							],
+							"package.json": [
+								"resolve/test/module_dir/zmodules/bbb/package",
+								"resolve/test/module_dir/zmodules/bbb/package.json"
+							]
+						}
+					}
+				},
+				"node_path": {
+					"x": {
+						"aaa": {
+							"index.js": [
+								"resolve/test/node_path/x/aaa",
+								"resolve/test/node_path/x/aaa/",
+								"resolve/test/node_path/x/aaa/index",
+								"resolve/test/node_path/x/aaa/index.js"
+							]
+						},
+						"ccc": {
+							"index.js": [
+								"resolve/test/node_path/x/ccc",
+								"resolve/test/node_path/x/ccc/",
+								"resolve/test/node_path/x/ccc/index",
+								"resolve/test/node_path/x/ccc/index.js"
+							]
+						}
+					},
+					"y": {
+						"bbb": {
+							"index.js": [
+								"resolve/test/node_path/y/bbb",
+								"resolve/test/node_path/y/bbb/",
+								"resolve/test/node_path/y/bbb/index",
+								"resolve/test/node_path/y/bbb/index.js"
+							]
+						},
+						"ccc": {
+							"index.js": [
+								"resolve/test/node_path/y/ccc",
+								"resolve/test/node_path/y/ccc/",
+								"resolve/test/node_path/y/ccc/index",
+								"resolve/test/node_path/y/ccc/index.js"
+							]
+						}
+					}
+				},
+				"pathfilter": {
+					"deep_ref": {
+						"main.js": [
+							"resolve/test/pathfilter/deep_ref/main",
+							"resolve/test/pathfilter/deep_ref/main.js"
+						]
+					}
+				},
+				"precedence": {
+					"aaa.js": [
+						"resolve/test/precedence/aaa",
+						"resolve/test/precedence/aaa.js"
+					],
+					"bbb.js": [
+						"resolve/test/precedence/bbb",
+						"resolve/test/precedence/bbb.js"
+					],
+					"aaa": {
+						"index.js": [
+							"resolve/test/precedence/aaa",
+							"resolve/test/precedence/aaa/",
+							"resolve/test/precedence/aaa/index",
+							"resolve/test/precedence/aaa/index.js"
+						],
+						"main.js": [
+							"resolve/test/precedence/aaa/main",
+							"resolve/test/precedence/aaa/main.js"
+						]
+					},
+					"bbb": {
+						"main.js": [
+							"resolve/test/precedence/bbb/main",
+							"resolve/test/precedence/bbb/main.js"
+						]
+					}
+				},
+				"resolver": {
+					"foo.js": [
+						"resolve/test/resolver/foo",
+						"resolve/test/resolver/foo.js"
+					],
+					"mug.js": [
+						"resolve/test/resolver/mug",
+						"resolve/test/resolver/mug.js"
+					],
+					"baz": {
+						"quux.js": [
+							"resolve/test/resolver/baz",
+							"resolve/test/resolver/baz/",
+							"resolve/test/resolver/baz/quux",
+							"resolve/test/resolver/baz/quux.js"
+						],
+						"doom.js": [
+							"resolve/test/resolver/baz/doom",
+							"resolve/test/resolver/baz/doom.js"
+						],
+						"package.json": [
+							"resolve/test/resolver/baz/package",
+							"resolve/test/resolver/baz/package.json"
+						]
+					},
+					"browser_field": {
+						"a.js": [
+							"resolve/test/resolver/browser_field",
+							"resolve/test/resolver/browser_field/",
+							"resolve/test/resolver/browser_field/a",
+							"resolve/test/resolver/browser_field/a.js"
+						],
+						"b.js": [
+							"resolve/test/resolver/browser_field/b",
+							"resolve/test/resolver/browser_field/b.js"
+						],
+						"package.json": [
+							"resolve/test/resolver/browser_field/package",
+							"resolve/test/resolver/browser_field/package.json"
+						]
+					},
+					"dot_main": {
+						"index.js": [
+							"resolve/test/resolver/dot_main",
+							"resolve/test/resolver/dot_main/",
+							"resolve/test/resolver/dot_main/index",
+							"resolve/test/resolver/dot_main/index.js"
+						],
+						"package.json": [
+							"resolve/test/resolver/dot_main/package",
+							"resolve/test/resolver/dot_main/package.json"
+						]
+					},
+					"dot_slash_main": {
+						"index.js": [
+							"resolve/test/resolver/dot_slash_main",
+							"resolve/test/resolver/dot_slash_main/",
+							"resolve/test/resolver/dot_slash_main/index",
+							"resolve/test/resolver/dot_slash_main/index.js"
+						],
+						"package.json": [
+							"resolve/test/resolver/dot_slash_main/package",
+							"resolve/test/resolver/dot_slash_main/package.json"
+						]
+					},
+					"incorrect_main": {
+						"index.js": [
+							"resolve/test/resolver/incorrect_main",
+							"resolve/test/resolver/incorrect_main/",
+							"resolve/test/resolver/incorrect_main/index",
+							"resolve/test/resolver/incorrect_main/index.js"
+						],
+						"package.json": [
+							"resolve/test/resolver/incorrect_main/package",
+							"resolve/test/resolver/incorrect_main/package.json"
+						]
+					},
+					"invalid_main": {
+						"package.json": [
+							"resolve/test/resolver/invalid_main/package",
+							"resolve/test/resolver/invalid_main/package.json"
+						]
+					},
+					"multirepo": {
+						"lerna.json": [
+							"resolve/test/resolver/multirepo/lerna",
+							"resolve/test/resolver/multirepo/lerna.json"
+						],
+						"package.json": [
+							"resolve/test/resolver/multirepo/package",
+							"resolve/test/resolver/multirepo/package.json"
+						],
+						"packages": {
+							"package-a": {
+								"index.js": [
+									"resolve/test/resolver/multirepo/packages/package-a",
+									"resolve/test/resolver/multirepo/packages/package-a/",
+									"resolve/test/resolver/multirepo/packages/package-a/index",
+									"resolve/test/resolver/multirepo/packages/package-a/index.js"
+								],
+								"package.json": [
+									"resolve/test/resolver/multirepo/packages/package-a/package",
+									"resolve/test/resolver/multirepo/packages/package-a/package.json"
+								]
+							},
+							"package-b": {
+								"index.js": [
+									"resolve/test/resolver/multirepo/packages/package-b",
+									"resolve/test/resolver/multirepo/packages/package-b/",
+									"resolve/test/resolver/multirepo/packages/package-b/index",
+									"resolve/test/resolver/multirepo/packages/package-b/index.js"
+								],
+								"package.json": [
+									"resolve/test/resolver/multirepo/packages/package-b/package",
+									"resolve/test/resolver/multirepo/packages/package-b/package.json"
+								]
+							}
+						}
+					},
+					"nested_symlinks": {
+						"mylib": {
+							"async.js": [
+								"resolve/test/resolver/nested_symlinks/mylib/async",
+								"resolve/test/resolver/nested_symlinks/mylib/async.js"
+							],
+							"package.json": [
+								"resolve/test/resolver/nested_symlinks/mylib/package",
+								"resolve/test/resolver/nested_symlinks/mylib/package.json"
+							],
+							"sync.js": [
+								"resolve/test/resolver/nested_symlinks/mylib/sync",
+								"resolve/test/resolver/nested_symlinks/mylib/sync.js"
+							]
+						}
+					},
+					"other_path": {
+						"root.js": [
+							"resolve/test/resolver/other_path/root",
+							"resolve/test/resolver/other_path/root.js"
+						],
+						"lib": {
+							"other-lib.js": [
+								"resolve/test/resolver/other_path/lib/other-lib",
+								"resolve/test/resolver/other_path/lib/other-lib.js"
+							]
+						}
+					},
+					"quux": {
+						"foo": {
+							"index.js": [
+								"resolve/test/resolver/quux/foo",
+								"resolve/test/resolver/quux/foo/",
+								"resolve/test/resolver/quux/foo/index",
+								"resolve/test/resolver/quux/foo/index.js"
+							]
+						}
+					},
+					"same_names": {
+						"foo.js": [
+							"resolve/test/resolver/same_names/foo",
+							"resolve/test/resolver/same_names/foo.js"
+						],
+						"foo": {
+							"index.js": [
+								"resolve/test/resolver/same_names/foo",
+								"resolve/test/resolver/same_names/foo/",
+								"resolve/test/resolver/same_names/foo/index",
+								"resolve/test/resolver/same_names/foo/index.js"
+							]
+						}
+					},
+					"symlinked": {
+						"package": {
+							"bar.js": [
+								"resolve/test/resolver/symlinked/package",
+								"resolve/test/resolver/symlinked/package/",
+								"resolve/test/resolver/symlinked/package/bar",
+								"resolve/test/resolver/symlinked/package/bar.js"
+							],
+							"package.json": [
+								"resolve/test/resolver/symlinked/package/package",
+								"resolve/test/resolver/symlinked/package/package.json"
+							]
+						}
+					},
+					"without_basedir": {
+						"main.js": [
+							"resolve/test/resolver/without_basedir/main",
+							"resolve/test/resolver/without_basedir/main.js"
+						]
+					}
+				}
+			}
+		}
+	},
+	"require (pre-exports)": [
+		"resolve",
+		"resolve/",
+		"resolve/example/async",
+		"resolve/example/async.js",
+		"resolve/example/sync",
+		"resolve/example/sync.js",
+		"resolve/index",
+		"resolve/index.js",
+		"resolve/lib/async",
+		"resolve/lib/async.js",
+		"resolve/lib/caller",
+		"resolve/lib/caller.js",
+		"resolve/lib/core",
+		"resolve/lib/core.js",
+		"resolve/lib/core.json",
+		"resolve/lib/is-core",
+		"resolve/lib/is-core.js",
+		"resolve/lib/node-modules-paths",
+		"resolve/lib/node-modules-paths.js",
+		"resolve/lib/normalize-options",
+		"resolve/lib/normalize-options.js",
+		"resolve/lib/sync",
+		"resolve/lib/sync.js",
+		"resolve/package",
+		"resolve/package.json",
+		"resolve/test/core",
+		"resolve/test/core.js",
+		"resolve/test/dotdot",
+		"resolve/test/dotdot.js",
+		"resolve/test/dotdot/",
+		"resolve/test/dotdot/abc",
+		"resolve/test/dotdot/abc/",
+		"resolve/test/dotdot/abc/index",
+		"resolve/test/dotdot/abc/index.js",
+		"resolve/test/dotdot/index",
+		"resolve/test/dotdot/index.js",
+		"resolve/test/faulty_basedir",
+		"resolve/test/faulty_basedir.js",
+		"resolve/test/filter",
+		"resolve/test/filter.js",
+		"resolve/test/filter_sync",
+		"resolve/test/filter_sync.js",
+		"resolve/test/mock",
+		"resolve/test/mock.js",
+		"resolve/test/mock_sync",
+		"resolve/test/mock_sync.js",
+		"resolve/test/module_dir",
+		"resolve/test/module_dir.js",
+		"resolve/test/module_dir/xmodules/aaa",
+		"resolve/test/module_dir/xmodules/aaa/",
+		"resolve/test/module_dir/xmodules/aaa/index",
+		"resolve/test/module_dir/xmodules/aaa/index.js",
+		"resolve/test/module_dir/ymodules/aaa",
+		"resolve/test/module_dir/ymodules/aaa/",
+		"resolve/test/module_dir/ymodules/aaa/index",
+		"resolve/test/module_dir/ymodules/aaa/index.js",
+		"resolve/test/module_dir/zmodules/bbb",
+		"resolve/test/module_dir/zmodules/bbb/",
+		"resolve/test/module_dir/zmodules/bbb/main",
+		"resolve/test/module_dir/zmodules/bbb/main.js",
+		"resolve/test/module_dir/zmodules/bbb/package",
+		"resolve/test/module_dir/zmodules/bbb/package.json",
+		"resolve/test/node-modules-paths",
+		"resolve/test/node-modules-paths.js",
+		"resolve/test/node_path",
+		"resolve/test/node_path.js",
+		"resolve/test/node_path/x/aaa",
+		"resolve/test/node_path/x/aaa/",
+		"resolve/test/node_path/x/aaa/index",
+		"resolve/test/node_path/x/aaa/index.js",
+		"resolve/test/node_path/x/ccc",
+		"resolve/test/node_path/x/ccc/",
+		"resolve/test/node_path/x/ccc/index",
+		"resolve/test/node_path/x/ccc/index.js",
+		"resolve/test/node_path/y/bbb",
+		"resolve/test/node_path/y/bbb/",
+		"resolve/test/node_path/y/bbb/index",
+		"resolve/test/node_path/y/bbb/index.js",
+		"resolve/test/node_path/y/ccc",
+		"resolve/test/node_path/y/ccc/",
+		"resolve/test/node_path/y/ccc/index",
+		"resolve/test/node_path/y/ccc/index.js",
+		"resolve/test/nonstring",
+		"resolve/test/nonstring.js",
+		"resolve/test/pathfilter",
+		"resolve/test/pathfilter.js",
+		"resolve/test/pathfilter/deep_ref/main",
+		"resolve/test/pathfilter/deep_ref/main.js",
+		"resolve/test/precedence",
+		"resolve/test/precedence.js",
+		"resolve/test/precedence/aaa",
+		"resolve/test/precedence/aaa.js",
+		"resolve/test/precedence/aaa/",
+		"resolve/test/precedence/aaa/index",
+		"resolve/test/precedence/aaa/index.js",
+		"resolve/test/precedence/aaa/main",
+		"resolve/test/precedence/aaa/main.js",
+		"resolve/test/precedence/bbb",
+		"resolve/test/precedence/bbb.js",
+		"resolve/test/precedence/bbb/main",
+		"resolve/test/precedence/bbb/main.js",
+		"resolve/test/resolver",
+		"resolve/test/resolver.js",
+		"resolve/test/resolver/baz",
+		"resolve/test/resolver/baz/",
+		"resolve/test/resolver/baz/doom",
+		"resolve/test/resolver/baz/doom.js",
+		"resolve/test/resolver/baz/package",
+		"resolve/test/resolver/baz/package.json",
+		"resolve/test/resolver/baz/quux",
+		"resolve/test/resolver/baz/quux.js",
+		"resolve/test/resolver/browser_field",
+		"resolve/test/resolver/browser_field/",
+		"resolve/test/resolver/browser_field/a",
+		"resolve/test/resolver/browser_field/a.js",
+		"resolve/test/resolver/browser_field/b",
+		"resolve/test/resolver/browser_field/b.js",
+		"resolve/test/resolver/browser_field/package",
+		"resolve/test/resolver/browser_field/package.json",
+		"resolve/test/resolver/dot_main",
+		"resolve/test/resolver/dot_main/",
+		"resolve/test/resolver/dot_main/index",
+		"resolve/test/resolver/dot_main/index.js",
+		"resolve/test/resolver/dot_main/package",
+		"resolve/test/resolver/dot_main/package.json",
+		"resolve/test/resolver/dot_slash_main",
+		"resolve/test/resolver/dot_slash_main/",
+		"resolve/test/resolver/dot_slash_main/index",
+		"resolve/test/resolver/dot_slash_main/index.js",
+		"resolve/test/resolver/dot_slash_main/package",
+		"resolve/test/resolver/dot_slash_main/package.json",
+		"resolve/test/resolver/foo",
+		"resolve/test/resolver/foo.js",
+		"resolve/test/resolver/incorrect_main",
+		"resolve/test/resolver/incorrect_main/",
+		"resolve/test/resolver/incorrect_main/index",
+		"resolve/test/resolver/incorrect_main/index.js",
+		"resolve/test/resolver/incorrect_main/package",
+		"resolve/test/resolver/incorrect_main/package.json",
+		"resolve/test/resolver/invalid_main/package",
+		"resolve/test/resolver/invalid_main/package.json",
+		"resolve/test/resolver/mug",
+		"resolve/test/resolver/mug.js",
+		"resolve/test/resolver/multirepo/lerna",
+		"resolve/test/resolver/multirepo/lerna.json",
+		"resolve/test/resolver/multirepo/package",
+		"resolve/test/resolver/multirepo/package.json",
+		"resolve/test/resolver/multirepo/packages/package-a",
+		"resolve/test/resolver/multirepo/packages/package-a/",
+		"resolve/test/resolver/multirepo/packages/package-a/index",
+		"resolve/test/resolver/multirepo/packages/package-a/index.js",
+		"resolve/test/resolver/multirepo/packages/package-a/package",
+		"resolve/test/resolver/multirepo/packages/package-a/package.json",
+		"resolve/test/resolver/multirepo/packages/package-b",
+		"resolve/test/resolver/multirepo/packages/package-b/",
+		"resolve/test/resolver/multirepo/packages/package-b/index",
+		"resolve/test/resolver/multirepo/packages/package-b/index.js",
+		"resolve/test/resolver/multirepo/packages/package-b/package",
+		"resolve/test/resolver/multirepo/packages/package-b/package.json",
+		"resolve/test/resolver/nested_symlinks/mylib/async",
+		"resolve/test/resolver/nested_symlinks/mylib/async.js",
+		"resolve/test/resolver/nested_symlinks/mylib/package",
+		"resolve/test/resolver/nested_symlinks/mylib/package.json",
+		"resolve/test/resolver/nested_symlinks/mylib/sync",
+		"resolve/test/resolver/nested_symlinks/mylib/sync.js",
+		"resolve/test/resolver/other_path/lib/other-lib",
+		"resolve/test/resolver/other_path/lib/other-lib.js",
+		"resolve/test/resolver/other_path/root",
+		"resolve/test/resolver/other_path/root.js",
+		"resolve/test/resolver/quux/foo",
+		"resolve/test/resolver/quux/foo/",
+		"resolve/test/resolver/quux/foo/index",
+		"resolve/test/resolver/quux/foo/index.js",
+		"resolve/test/resolver/same_names/foo",
+		"resolve/test/resolver/same_names/foo.js",
+		"resolve/test/resolver/same_names/foo/",
+		"resolve/test/resolver/same_names/foo/index",
+		"resolve/test/resolver/same_names/foo/index.js",
+		"resolve/test/resolver/symlinked/package",
+		"resolve/test/resolver/symlinked/package/",
+		"resolve/test/resolver/symlinked/package/bar",
+		"resolve/test/resolver/symlinked/package/bar.js",
+		"resolve/test/resolver/symlinked/package/package",
+		"resolve/test/resolver/symlinked/package/package.json",
+		"resolve/test/resolver/without_basedir/main",
+		"resolve/test/resolver/without_basedir/main.js",
+		"resolve/test/resolver_sync",
+		"resolve/test/resolver_sync.js",
+		"resolve/test/shadowed_core",
+		"resolve/test/shadowed_core.js",
+		"resolve/test/subdirs",
+		"resolve/test/subdirs.js",
+		"resolve/test/symlinks",
+		"resolve/test/symlinks.js"
+	],
+	"files (pre-exports)": [
+		"./example/async.js",
+		"./example/sync.js",
+		"./index.js",
+		"./lib/async.js",
+		"./lib/caller.js",
+		"./lib/core.js",
+		"./lib/core.json",
+		"./lib/is-core.js",
+		"./lib/node-modules-paths.js",
+		"./lib/normalize-options.js",
+		"./lib/sync.js",
+		"./package.json",
+		"./test/core.js",
+		"./test/dotdot.js",
+		"./test/dotdot/abc/index.js",
+		"./test/dotdot/index.js",
+		"./test/faulty_basedir.js",
+		"./test/filter.js",
+		"./test/filter_sync.js",
+		"./test/mock.js",
+		"./test/mock_sync.js",
+		"./test/module_dir.js",
+		"./test/module_dir/xmodules/aaa/index.js",
+		"./test/module_dir/ymodules/aaa/index.js",
+		"./test/module_dir/zmodules/bbb/main.js",
+		"./test/module_dir/zmodules/bbb/package.json",
+		"./test/node-modules-paths.js",
+		"./test/node_path.js",
+		"./test/node_path/x/aaa/index.js",
+		"./test/node_path/x/ccc/index.js",
+		"./test/node_path/y/bbb/index.js",
+		"./test/node_path/y/ccc/index.js",
+		"./test/nonstring.js",
+		"./test/pathfilter.js",
+		"./test/pathfilter/deep_ref/main.js",
+		"./test/precedence.js",
+		"./test/precedence/aaa.js",
+		"./test/precedence/aaa/index.js",
+		"./test/precedence/aaa/main.js",
+		"./test/precedence/bbb.js",
+		"./test/precedence/bbb/main.js",
+		"./test/resolver.js",
+		"./test/resolver/baz/doom.js",
+		"./test/resolver/baz/package.json",
+		"./test/resolver/baz/quux.js",
+		"./test/resolver/browser_field/a.js",
+		"./test/resolver/browser_field/b.js",
+		"./test/resolver/browser_field/package.json",
+		"./test/resolver/dot_main/index.js",
+		"./test/resolver/dot_main/package.json",
+		"./test/resolver/dot_slash_main/index.js",
+		"./test/resolver/dot_slash_main/package.json",
+		"./test/resolver/foo.js",
+		"./test/resolver/incorrect_main/index.js",
+		"./test/resolver/incorrect_main/package.json",
+		"./test/resolver/invalid_main/package.json",
+		"./test/resolver/mug.js",
+		"./test/resolver/multirepo/lerna.json",
+		"./test/resolver/multirepo/package.json",
+		"./test/resolver/multirepo/packages/package-a/index.js",
+		"./test/resolver/multirepo/packages/package-a/package.json",
+		"./test/resolver/multirepo/packages/package-b/index.js",
+		"./test/resolver/multirepo/packages/package-b/package.json",
+		"./test/resolver/nested_symlinks/mylib/async.js",
+		"./test/resolver/nested_symlinks/mylib/package.json",
+		"./test/resolver/nested_symlinks/mylib/sync.js",
+		"./test/resolver/other_path/lib/other-lib.js",
+		"./test/resolver/other_path/root.js",
+		"./test/resolver/quux/foo/index.js",
+		"./test/resolver/same_names/foo.js",
+		"./test/resolver/same_names/foo/index.js",
+		"./test/resolver/symlinked/package/bar.js",
+		"./test/resolver/symlinked/package/package.json",
+		"./test/resolver/without_basedir/main.js",
+		"./test/resolver_sync.js",
+		"./test/shadowed_core.js",
+		"./test/subdirs.js",
+		"./test/symlinks.js"
+	],
+	"tree (pre-exports)": {
+		"resolve": {
+			"index.js": [
+				"resolve",
+				"resolve/",
+				"resolve/index",
+				"resolve/index.js"
+			],
+			"package.json": [
+				"resolve/package",
+				"resolve/package.json"
+			],
+			"example": {
+				"async.js": [
+					"resolve/example/async",
+					"resolve/example/async.js"
+				],
+				"sync.js": [
+					"resolve/example/sync",
+					"resolve/example/sync.js"
+				]
+			},
+			"lib": {
+				"async.js": [
+					"resolve/lib/async",
+					"resolve/lib/async.js"
+				],
+				"caller.js": [
+					"resolve/lib/caller",
+					"resolve/lib/caller.js"
+				],
+				"core.js": [
+					"resolve/lib/core",
+					"resolve/lib/core.js"
+				],
+				"core.json": [
+					"resolve/lib/core",
+					"resolve/lib/core.json"
+				],
+				"is-core.js": [
+					"resolve/lib/is-core",
+					"resolve/lib/is-core.js"
+				],
+				"node-modules-paths.js": [
+					"resolve/lib/node-modules-paths",
+					"resolve/lib/node-modules-paths.js"
+				],
+				"normalize-options.js": [
+					"resolve/lib/normalize-options",
+					"resolve/lib/normalize-options.js"
+				],
+				"sync.js": [
+					"resolve/lib/sync",
+					"resolve/lib/sync.js"
+				]
+			},
+			"test": {
+				"core.js": [
+					"resolve/test/core",
+					"resolve/test/core.js"
+				],
+				"dotdot.js": [
+					"resolve/test/dotdot",
+					"resolve/test/dotdot.js"
+				],
+				"faulty_basedir.js": [
+					"resolve/test/faulty_basedir",
+					"resolve/test/faulty_basedir.js"
+				],
+				"filter.js": [
+					"resolve/test/filter",
+					"resolve/test/filter.js"
+				],
+				"filter_sync.js": [
+					"resolve/test/filter_sync",
+					"resolve/test/filter_sync.js"
+				],
+				"mock.js": [
+					"resolve/test/mock",
+					"resolve/test/mock.js"
+				],
+				"mock_sync.js": [
+					"resolve/test/mock_sync",
+					"resolve/test/mock_sync.js"
+				],
+				"module_dir.js": [
+					"resolve/test/module_dir",
+					"resolve/test/module_dir.js"
+				],
+				"node-modules-paths.js": [
+					"resolve/test/node-modules-paths",
+					"resolve/test/node-modules-paths.js"
+				],
+				"node_path.js": [
+					"resolve/test/node_path",
+					"resolve/test/node_path.js"
+				],
+				"nonstring.js": [
+					"resolve/test/nonstring",
+					"resolve/test/nonstring.js"
+				],
+				"pathfilter.js": [
+					"resolve/test/pathfilter",
+					"resolve/test/pathfilter.js"
+				],
+				"precedence.js": [
+					"resolve/test/precedence",
+					"resolve/test/precedence.js"
+				],
+				"resolver.js": [
+					"resolve/test/resolver",
+					"resolve/test/resolver.js"
+				],
+				"resolver_sync.js": [
+					"resolve/test/resolver_sync",
+					"resolve/test/resolver_sync.js"
+				],
+				"shadowed_core.js": [
+					"resolve/test/shadowed_core",
+					"resolve/test/shadowed_core.js"
+				],
+				"subdirs.js": [
+					"resolve/test/subdirs",
+					"resolve/test/subdirs.js"
+				],
+				"symlinks.js": [
+					"resolve/test/symlinks",
+					"resolve/test/symlinks.js"
+				],
+				"dotdot": {
+					"index.js": [
+						"resolve/test/dotdot",
+						"resolve/test/dotdot/",
+						"resolve/test/dotdot/index",
+						"resolve/test/dotdot/index.js"
+					],
+					"abc": {
+						"index.js": [
+							"resolve/test/dotdot/abc",
+							"resolve/test/dotdot/abc/",
+							"resolve/test/dotdot/abc/index",
+							"resolve/test/dotdot/abc/index.js"
+						]
+					}
+				},
+				"module_dir": {
+					"xmodules": {
+						"aaa": {
+							"index.js": [
+								"resolve/test/module_dir/xmodules/aaa",
+								"resolve/test/module_dir/xmodules/aaa/",
+								"resolve/test/module_dir/xmodules/aaa/index",
+								"resolve/test/module_dir/xmodules/aaa/index.js"
+							]
+						}
+					},
+					"ymodules": {
+						"aaa": {
+							"index.js": [
+								"resolve/test/module_dir/ymodules/aaa",
+								"resolve/test/module_dir/ymodules/aaa/",
+								"resolve/test/module_dir/ymodules/aaa/index",
+								"resolve/test/module_dir/ymodules/aaa/index.js"
+							]
+						}
+					},
+					"zmodules": {
+						"bbb": {
+							"main.js": [
+								"resolve/test/module_dir/zmodules/bbb",
+								"resolve/test/module_dir/zmodules/bbb/",
+								"resolve/test/module_dir/zmodules/bbb/main",
+								"resolve/test/module_dir/zmodules/bbb/main.js"
+							],
+							"package.json": [
+								"resolve/test/module_dir/zmodules/bbb/package",
+								"resolve/test/module_dir/zmodules/bbb/package.json"
+							]
+						}
+					}
+				},
+				"node_path": {
+					"x": {
+						"aaa": {
+							"index.js": [
+								"resolve/test/node_path/x/aaa",
+								"resolve/test/node_path/x/aaa/",
+								"resolve/test/node_path/x/aaa/index",
+								"resolve/test/node_path/x/aaa/index.js"
+							]
+						},
+						"ccc": {
+							"index.js": [
+								"resolve/test/node_path/x/ccc",
+								"resolve/test/node_path/x/ccc/",
+								"resolve/test/node_path/x/ccc/index",
+								"resolve/test/node_path/x/ccc/index.js"
+							]
+						}
+					},
+					"y": {
+						"bbb": {
+							"index.js": [
+								"resolve/test/node_path/y/bbb",
+								"resolve/test/node_path/y/bbb/",
+								"resolve/test/node_path/y/bbb/index",
+								"resolve/test/node_path/y/bbb/index.js"
+							]
+						},
+						"ccc": {
+							"index.js": [
+								"resolve/test/node_path/y/ccc",
+								"resolve/test/node_path/y/ccc/",
+								"resolve/test/node_path/y/ccc/index",
+								"resolve/test/node_path/y/ccc/index.js"
+							]
+						}
+					}
+				},
+				"pathfilter": {
+					"deep_ref": {
+						"main.js": [
+							"resolve/test/pathfilter/deep_ref/main",
+							"resolve/test/pathfilter/deep_ref/main.js"
+						]
+					}
+				},
+				"precedence": {
+					"aaa.js": [
+						"resolve/test/precedence/aaa",
+						"resolve/test/precedence/aaa.js"
+					],
+					"bbb.js": [
+						"resolve/test/precedence/bbb",
+						"resolve/test/precedence/bbb.js"
+					],
+					"aaa": {
+						"index.js": [
+							"resolve/test/precedence/aaa",
+							"resolve/test/precedence/aaa/",
+							"resolve/test/precedence/aaa/index",
+							"resolve/test/precedence/aaa/index.js"
+						],
+						"main.js": [
+							"resolve/test/precedence/aaa/main",
+							"resolve/test/precedence/aaa/main.js"
+						]
+					},
+					"bbb": {
+						"main.js": [
+							"resolve/test/precedence/bbb/main",
+							"resolve/test/precedence/bbb/main.js"
+						]
+					}
+				},
+				"resolver": {
+					"foo.js": [
+						"resolve/test/resolver/foo",
+						"resolve/test/resolver/foo.js"
+					],
+					"mug.js": [
+						"resolve/test/resolver/mug",
+						"resolve/test/resolver/mug.js"
+					],
+					"baz": {
+						"quux.js": [
+							"resolve/test/resolver/baz",
+							"resolve/test/resolver/baz/",
+							"resolve/test/resolver/baz/quux",
+							"resolve/test/resolver/baz/quux.js"
+						],
+						"doom.js": [
+							"resolve/test/resolver/baz/doom",
+							"resolve/test/resolver/baz/doom.js"
+						],
+						"package.json": [
+							"resolve/test/resolver/baz/package",
+							"resolve/test/resolver/baz/package.json"
+						]
+					},
+					"browser_field": {
+						"a.js": [
+							"resolve/test/resolver/browser_field",
+							"resolve/test/resolver/browser_field/",
+							"resolve/test/resolver/browser_field/a",
+							"resolve/test/resolver/browser_field/a.js"
+						],
+						"b.js": [
+							"resolve/test/resolver/browser_field/b",
+							"resolve/test/resolver/browser_field/b.js"
+						],
+						"package.json": [
+							"resolve/test/resolver/browser_field/package",
+							"resolve/test/resolver/browser_field/package.json"
+						]
+					},
+					"dot_main": {
+						"index.js": [
+							"resolve/test/resolver/dot_main",
+							"resolve/test/resolver/dot_main/",
+							"resolve/test/resolver/dot_main/index",
+							"resolve/test/resolver/dot_main/index.js"
+						],
+						"package.json": [
+							"resolve/test/resolver/dot_main/package",
+							"resolve/test/resolver/dot_main/package.json"
+						]
+					},
+					"dot_slash_main": {
+						"index.js": [
+							"resolve/test/resolver/dot_slash_main",
+							"resolve/test/resolver/dot_slash_main/",
+							"resolve/test/resolver/dot_slash_main/index",
+							"resolve/test/resolver/dot_slash_main/index.js"
+						],
+						"package.json": [
+							"resolve/test/resolver/dot_slash_main/package",
+							"resolve/test/resolver/dot_slash_main/package.json"
+						]
+					},
+					"incorrect_main": {
+						"index.js": [
+							"resolve/test/resolver/incorrect_main",
+							"resolve/test/resolver/incorrect_main/",
+							"resolve/test/resolver/incorrect_main/index",
+							"resolve/test/resolver/incorrect_main/index.js"
+						],
+						"package.json": [
+							"resolve/test/resolver/incorrect_main/package",
+							"resolve/test/resolver/incorrect_main/package.json"
+						]
+					},
+					"invalid_main": {
+						"package.json": [
+							"resolve/test/resolver/invalid_main/package",
+							"resolve/test/resolver/invalid_main/package.json"
+						]
+					},
+					"multirepo": {
+						"lerna.json": [
+							"resolve/test/resolver/multirepo/lerna",
+							"resolve/test/resolver/multirepo/lerna.json"
+						],
+						"package.json": [
+							"resolve/test/resolver/multirepo/package",
+							"resolve/test/resolver/multirepo/package.json"
+						],
+						"packages": {
+							"package-a": {
+								"index.js": [
+									"resolve/test/resolver/multirepo/packages/package-a",
+									"resolve/test/resolver/multirepo/packages/package-a/",
+									"resolve/test/resolver/multirepo/packages/package-a/index",
+									"resolve/test/resolver/multirepo/packages/package-a/index.js"
+								],
+								"package.json": [
+									"resolve/test/resolver/multirepo/packages/package-a/package",
+									"resolve/test/resolver/multirepo/packages/package-a/package.json"
+								]
+							},
+							"package-b": {
+								"index.js": [
+									"resolve/test/resolver/multirepo/packages/package-b",
+									"resolve/test/resolver/multirepo/packages/package-b/",
+									"resolve/test/resolver/multirepo/packages/package-b/index",
+									"resolve/test/resolver/multirepo/packages/package-b/index.js"
+								],
+								"package.json": [
+									"resolve/test/resolver/multirepo/packages/package-b/package",
+									"resolve/test/resolver/multirepo/packages/package-b/package.json"
+								]
+							}
+						}
+					},
+					"nested_symlinks": {
+						"mylib": {
+							"async.js": [
+								"resolve/test/resolver/nested_symlinks/mylib/async",
+								"resolve/test/resolver/nested_symlinks/mylib/async.js"
+							],
+							"package.json": [
+								"resolve/test/resolver/nested_symlinks/mylib/package",
+								"resolve/test/resolver/nested_symlinks/mylib/package.json"
+							],
+							"sync.js": [
+								"resolve/test/resolver/nested_symlinks/mylib/sync",
+								"resolve/test/resolver/nested_symlinks/mylib/sync.js"
+							]
+						}
+					},
+					"other_path": {
+						"root.js": [
+							"resolve/test/resolver/other_path/root",
+							"resolve/test/resolver/other_path/root.js"
+						],
+						"lib": {
+							"other-lib.js": [
+								"resolve/test/resolver/other_path/lib/other-lib",
+								"resolve/test/resolver/other_path/lib/other-lib.js"
+							]
+						}
+					},
+					"quux": {
+						"foo": {
+							"index.js": [
+								"resolve/test/resolver/quux/foo",
+								"resolve/test/resolver/quux/foo/",
+								"resolve/test/resolver/quux/foo/index",
+								"resolve/test/resolver/quux/foo/index.js"
+							]
+						}
+					},
+					"same_names": {
+						"foo.js": [
+							"resolve/test/resolver/same_names/foo",
+							"resolve/test/resolver/same_names/foo.js"
+						],
+						"foo": {
+							"index.js": [
+								"resolve/test/resolver/same_names/foo",
+								"resolve/test/resolver/same_names/foo/",
+								"resolve/test/resolver/same_names/foo/index",
+								"resolve/test/resolver/same_names/foo/index.js"
+							]
+						}
+					},
+					"symlinked": {
+						"package": {
+							"bar.js": [
+								"resolve/test/resolver/symlinked/package",
+								"resolve/test/resolver/symlinked/package/",
+								"resolve/test/resolver/symlinked/package/bar",
+								"resolve/test/resolver/symlinked/package/bar.js"
+							],
+							"package.json": [
+								"resolve/test/resolver/symlinked/package/package",
+								"resolve/test/resolver/symlinked/package/package.json"
+							]
+						}
+					},
+					"without_basedir": {
+						"main.js": [
+							"resolve/test/resolver/without_basedir/main",
+							"resolve/test/resolver/without_basedir/main.js"
+						]
+					}
+				}
+			}
+		}
+	},
+	"errors": [
+		"`./test/resolver/invalid_main` has a `package.json`, but either lacks a `main`, or its `main` is invalid!",
+		"`./test/resolver/multirepo` has a `package.json`, but either lacks a `main`, or its `main` is invalid!",
+		"`./test/resolver/nested_symlinks/mylib` has a `package.json`, but either lacks a `main`, or its `main` is invalid!"
+	]
+}
