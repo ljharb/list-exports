@@ -1,0 +1,153 @@
+name: 'Tests: node.js'
+
+on: [pull_request, push]
+
+jobs:
+  engines:
+    name: 'ls-engines'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ljharb/actions/node/run@main
+        name: 'npm install && npm run tests-only'
+        with:
+          node-version: 'lts/*'
+          shell-command: 'npx lerna exec ls-engines'
+        continue-on-error: true
+      - run: 'echo test completed. TODO: make this required'
+
+  conditions:
+    name: 'exports conditions'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version:
+          - '15'
+          - '14.13'
+          - '14.12'
+          - '13.7'
+          - '13.6'
+          - '13.5'
+          - '13.4'
+          - '13.3'
+          - '13.2'
+          - '13.1'
+          - '13.0'
+          - '12.17'
+          - '12.16'
+          - '8'
+          - '6'
+          - '4'
+          - 'iojs'
+          - '0.12'
+          - '0.10'
+          - '0.8'
+          - '0.6'
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd packages/tests
+      - uses: ljharb/actions/node/run@main
+        name: 'npm install && node packages/tests/conditions.js'
+        with:
+          node-version: 'lts/*'
+          before_install: 'cd packages/tests'
+          after_install: 'cd ../..'
+          shell-command: 'node packages/tests/conditions.js'
+          skip-ls-check: true
+
+  exports-conditions:
+    name: 'exports conditions'
+    needs: [conditions]
+    runs-on: ubuntu-latest
+    steps:
+      - run: 'echo tests completed'
+
+  matrix-skip-cli:
+    runs-on: ubuntu-latest
+    outputs:
+      versions: ${{ steps.set-matrix.outputs.requireds }}
+    steps:
+      - uses: ljharb/actions/node/matrix@main
+        id: set-matrix
+        with:
+          requireds: '10.0 - 10.16'
+          type: 'minors'
+          envs: "[{ \"SKIP_CLI\": true }]"
+    
+  skip-cli:
+    needs: [matrix-skip-cli]
+    name: 'node 10 + skip CLI'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{ fromJson(needs.matrix-skip-cli.outputs.versions) }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ljharb/actions/node/run@main
+        name: 'npm install && npm run tests-only'
+        with:
+          node-version: ${{ matrix.node-version }}
+          shell-command: 'SKIP_CLI=${{ matrix.envs.SKIP_CLI }} npm run tests-only'
+          skip-ls-check: true
+
+  skip-cli-finish:
+    needs: [skip-cli]
+    name: 'node 10 + skip CLI'
+    runs-on: ubuntu-latest
+    steps:
+      - run: 'echo tests completed'
+
+  matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      latest: ${{ steps.set-matrix.outputs.requireds }}
+      minors: ${{ steps.set-matrix.outputs.optionals }}
+    steps:
+      - uses: ljharb/actions/node/matrix@main
+        id: set-matrix
+        with:
+          requireds: '10.17 || ^10.22 || >= 11'
+          optionals: '10.18 || 10.19 || 10.20 || 10.21'
+          type: 'minors'
+
+  latest:
+    needs: [matrix]
+    name: 'latest minors'
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix: ${{ fromJson(needs.matrix.outputs.latest) }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ljharb/actions/node/run@main
+        name: 'npm install && npm run tests-only'
+        with:
+          node-version: ${{ matrix.node-version }}
+          command: 'tests-only'
+          skip-ls-check: true
+
+  minors:
+    needs: [matrix, latest]
+    name: 'non-latest minors'
+    continue-on-error: true
+    if: ${{ !github.head_ref || !startsWith(github.head_ref, 'renovate') }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix: ${{ fromJson(needs.matrix.outputs.minors) }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ljharb/actions/node/run@main
+        with:
+          node-version: ${{ matrix.node-version }}
+          command: 'tests-only'
+          skip-ls-check: true
+
+  node:
+    name: 'node 10+'
+    needs: [engines, latest, minors]
+    runs-on: ubuntu-latest
+    steps:
+      - run: 'echo tests completed'
