@@ -46,7 +46,7 @@
     "@rollup/plugin-babel": "^5.0.2",
     "@testing-library/dom": "^7.5.7",
     "@testing-library/jest-dom": "^5.8.0",
-    "@types/jest": "^25.2.3",
+    "@types/jest": "^26.0.0",
     "@types/jsdom": "^16.2.3",
     "@types/systemjs": "^6.1.0",
     "babel-eslint": "^11.0.0-beta.2",
