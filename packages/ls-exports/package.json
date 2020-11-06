@@ -56,7 +56,7 @@
 	"devDependencies": {
 		"@ljharb/eslint-config": "^17.2.0",
 		"aud": "^1.1.2",
-		"eslint": "^7.11.0",
+		"eslint": "^7.12.1",
 		"in-publish": "^2.0.1",
 		"ls-engines": "^0.4.0",
 		"safe-publish-latest": "^1.1.4"

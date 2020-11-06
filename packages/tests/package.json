@@ -11,7 +11,7 @@
 	"devDependencies": {
 		"@ljharb/eslint-config": "^17.2.0",
 		"conditions": "file:./fixtures/ex-conditions/project",
-		"eslint": "^7.11.0",
+		"eslint": "^7.12.1",
 		"for-each": "^0.3.3",
 		"has-package-exports": "^1.2.1",
 		"is-equal": "^1.6.1",
