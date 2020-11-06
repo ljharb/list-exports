@@ -13,8 +13,6 @@ jobs:
         with:
           node-version: 'lts/*'
           shell-command: 'npx lerna exec ls-engines'
-        continue-on-error: true
-      - run: 'echo test completed. TODO: make this required'
 
   conditions:
     name: 'exports conditions'
@@ -73,7 +71,7 @@ jobs:
           requireds: '10.0 - 10.16'
           type: 'minors'
           envs: "[{ \"SKIP_CLI\": true }]"
-    
+
   skip-cli:
     needs: [matrix-skip-cli]
     name: 'node 10 + skip CLI'
