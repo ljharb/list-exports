@@ -63,7 +63,7 @@
     "jsdom": "^16.2.2",
     "parse5": "^6.0.0",
     "prettier": "^2.0.5",
-    "pretty-quick": "^2.0.1",
+    "pretty-quick": "^3.0.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.10.9",
     "rollup-cli": "^1.0.9",
