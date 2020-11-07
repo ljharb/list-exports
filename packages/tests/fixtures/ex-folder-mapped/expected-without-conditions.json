@@ -1,0 +1,118 @@
+{
+	"name": "ex-folder-mapped",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"binaries": [],
+	"require": [
+		"ex-folder-mapped",
+		"ex-folder-mapped/index",
+		"ex-folder-mapped/index.js",
+		"ex-folder-mapped/mapped",
+		"ex-folder-mapped/mapped/",
+		"ex-folder-mapped/mapped/index",
+		"ex-folder-mapped/mapped/index.js",
+		"ex-folder-mapped/package",
+		"ex-folder-mapped/package.json",
+		"ex-folder-mapped/unmapped",
+		"ex-folder-mapped/unmapped/",
+		"ex-folder-mapped/unmapped/index",
+		"ex-folder-mapped/unmapped/index.js"
+	],
+	"import": [
+		"ex-folder-mapped",
+		"ex-folder-mapped/index.js",
+		"ex-folder-mapped/mapped/index.js",
+		"ex-folder-mapped/package.json",
+		"ex-folder-mapped/unmapped/index.js"
+	],
+	"files": [
+		"./index.js",
+		"./mapped/index.js",
+		"./package.json",
+		"./unmapped/index.js"
+	],
+	"tree": {
+		"ex-folder-mapped": {
+			"unmapped": {
+				"index.js": [
+					"ex-folder-mapped/unmapped",
+					"ex-folder-mapped/unmapped/",
+					"ex-folder-mapped/unmapped/index",
+					"ex-folder-mapped/unmapped/index.js"
+				]
+			},
+			"index.js": [
+				"ex-folder-mapped",
+				"ex-folder-mapped/index",
+				"ex-folder-mapped/index.js"
+			],
+			"package.json": [
+				"ex-folder-mapped/package",
+				"ex-folder-mapped/package.json"
+			],
+			"mapped": {
+				"index.js": [
+					"ex-folder-mapped/mapped",
+					"ex-folder-mapped/mapped/",
+					"ex-folder-mapped/mapped/index",
+					"ex-folder-mapped/mapped/index.js"
+				]
+			}
+		}
+	},
+	"require (pre-exports)": [
+		"ex-folder-mapped",
+		"ex-folder-mapped/",
+		"ex-folder-mapped/index",
+		"ex-folder-mapped/index.js",
+		"ex-folder-mapped/mapped",
+		"ex-folder-mapped/mapped/",
+		"ex-folder-mapped/mapped/index",
+		"ex-folder-mapped/mapped/index.js",
+		"ex-folder-mapped/package",
+		"ex-folder-mapped/package.json",
+		"ex-folder-mapped/unmapped",
+		"ex-folder-mapped/unmapped/",
+		"ex-folder-mapped/unmapped/index",
+		"ex-folder-mapped/unmapped/index.js"
+	],
+	"files (pre-exports)": [
+		"./index.js",
+		"./mapped/index.js",
+		"./package.json",
+		"./unmapped/index.js"
+	],
+	"tree (pre-exports)": {
+		"ex-folder-mapped": {
+			"index.js": [
+				"ex-folder-mapped",
+				"ex-folder-mapped/",
+				"ex-folder-mapped/index",
+				"ex-folder-mapped/index.js"
+			],
+			"package.json": [
+				"ex-folder-mapped/package",
+				"ex-folder-mapped/package.json"
+			],
+			"mapped": {
+				"index.js": [
+					"ex-folder-mapped/mapped",
+					"ex-folder-mapped/mapped/",
+					"ex-folder-mapped/mapped/index",
+					"ex-folder-mapped/mapped/index.js"
+				]
+			},
+			"unmapped": {
+				"index.js": [
+					"ex-folder-mapped/unmapped",
+					"ex-folder-mapped/unmapped/",
+					"ex-folder-mapped/unmapped/index",
+					"ex-folder-mapped/unmapped/index.js"
+				]
+			}
+		}
+	},
+	"errors": []
+}
