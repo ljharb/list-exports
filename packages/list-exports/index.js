@@ -536,18 +536,20 @@ function traverseExportsSubdir({
 		problems.add(`\`${lhs}\`: \`${rhs}\` is not a directory!`);
 	} else {
 		const subtree = rhs === './' ? legacy.tree : legacy.tree.get(rhs);
-		traverseExportsSubtree({
-			tree,
-			subtree,
-			problems,
-			packageDir,
-			packageExports,
-			mains,
-			dir: '.',
-			lhs,
-			rhs,
-			category,
-		});
+		if (subtree) {
+			traverseExportsSubtree({
+				tree,
+				subtree,
+				problems,
+				packageDir,
+				packageExports,
+				mains,
+				dir: '.',
+				lhs,
+				rhs,
+				category,
+			});
+		}
 	}
 }
 

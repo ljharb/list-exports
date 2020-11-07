@@ -14,8 +14,10 @@
 	"devDependencies": {
 		"@fixtures/es-abstract": "file:fixtures/es-abstract/project",
 		"@fixtures/ex-conditions": "file:fixtures/ex-conditions/project",
+		"@fixtures/ex-conditions-in-folder": "file:fixtures/ex-conditions-in-folder/project",
 		"@fixtures/ex-exports-string": "file:fixtures/ex-exports-string/project",
 		"@fixtures/ex-exports-TL-object": "file:fixtures/ex-exports-TL-object/project",
+		"@fixtures/ex-folder-mapped": "file:fixtures/ex-folder-mapped/project",
 		"@fixtures/ex-main-dot-slash": "file:fixtures/ex-main-dot-slash/project",
 		"@fixtures/ex-main-dotless": "file:fixtures/ex-main-dotless/project",
 		"@fixtures/ex-main-dotted": "file:fixtures/ex-main-dotted/project",
