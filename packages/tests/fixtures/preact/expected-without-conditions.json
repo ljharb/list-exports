@@ -7,7 +7,6 @@
 	"binaries": [],
 	"require": [
 		"preact",
-		"preact/compat",
 		"preact/compat/",
 		"preact/compat/dist/compat",
 		"preact/compat/dist/compat.js",
@@ -17,7 +16,6 @@
 		"preact/compat/dist/compat.umd.js",
 		"preact/compat/package",
 		"preact/compat/package.json",
-		"preact/compat/server",
 		"preact/compat/server.js",
 		"preact/compat/src",
 		"preact/compat/src/",
@@ -43,7 +41,6 @@
 		"preact/compat/src/suspense.js",
 		"preact/compat/src/util",
 		"preact/compat/src/util.js",
-		"preact/debug",
 		"preact/debug/",
 		"preact/debug/dist/debug",
 		"preact/debug/dist/debug.js",
@@ -65,7 +62,6 @@
 		"preact/debug/src/debug.js",
 		"preact/debug/src/index",
 		"preact/debug/src/index.js",
-		"preact/devtools",
 		"preact/devtools/",
 		"preact/devtools/dist/devtools",
 		"preact/devtools/dist/devtools.js",
@@ -89,7 +85,6 @@
 		"preact/dist/preact.module.js",
 		"preact/dist/preact.umd",
 		"preact/dist/preact.umd.js",
-		"preact/hooks",
 		"preact/hooks/",
 		"preact/hooks/dist/hooks",
 		"preact/hooks/dist/hooks.js",
@@ -135,7 +130,6 @@
 		"preact/src/render.js",
 		"preact/src/util",
 		"preact/src/util.js",
-		"preact/test-utils",
 		"preact/test-utils/",
 		"preact/test-utils/dist/testUtils",
 		"preact/test-utils/dist/testUtils.js",
@@ -316,7 +310,6 @@
 			"compat": {
 				"dist": {
 					"compat.js": [
-						"preact/compat",
 						"preact/compat/",
 						"preact/compat/dist/compat",
 						"preact/compat/dist/compat.js"
@@ -338,7 +331,6 @@
 					"preact/compat/package.json"
 				],
 				"server.js": [
-					"preact/compat/server",
 					"preact/compat/server.js"
 				],
 				"src": {
@@ -393,7 +385,6 @@
 			"debug": {
 				"dist": {
 					"debug.js": [
-						"preact/debug",
 						"preact/debug/",
 						"preact/debug/dist/debug",
 						"preact/debug/dist/debug.js"
@@ -442,7 +433,6 @@
 			"devtools": {
 				"dist": {
 					"devtools.js": [
-						"preact/devtools",
 						"preact/devtools/",
 						"preact/devtools/dist/devtools",
 						"preact/devtools/dist/devtools.js"
@@ -479,7 +469,6 @@
 			"hooks": {
 				"dist": {
 					"hooks.js": [
-						"preact/hooks",
 						"preact/hooks/",
 						"preact/hooks/dist/hooks",
 						"preact/hooks/dist/hooks.js"
@@ -572,7 +561,6 @@
 			"test-utils": {
 				"dist": {
 					"testUtils.js": [
-						"preact/test-utils",
 						"preact/test-utils/",
 						"preact/test-utils/dist/testUtils",
 						"preact/test-utils/dist/testUtils.js"
