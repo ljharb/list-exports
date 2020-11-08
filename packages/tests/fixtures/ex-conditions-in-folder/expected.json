@@ -1,0 +1,116 @@
+{
+	"name": "conditions-in-folder",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"binaries": [],
+	"require": [
+		"conditions-in-folder",
+		"conditions-in-folder/index",
+		"conditions-in-folder/index.js",
+		"conditions-in-folder/package.json",
+		"conditions-in-folder/utils",
+		"conditions-in-folder/utils.js"
+	],
+	"import": [
+		"conditions-in-folder",
+		"conditions-in-folder/index.mjs",
+		"conditions-in-folder/package.json",
+		"conditions-in-folder/utils.mjs"
+	],
+	"files": [
+		"./index.js",
+		"./cjs/index.js",
+		"./cjs/utils.js",
+		"./mjs/index.mjs",
+		"./mjs/utils.mjs",
+		"./package.json"
+	],
+	"tree": {
+		"conditions-in-folder": {
+			"cjs": {
+				"index.js": [
+					"conditions-in-folder",
+					"conditions-in-folder/index",
+					"conditions-in-folder/index.js"
+				],
+				"utils.js": [
+					"conditions-in-folder/utils",
+					"conditions-in-folder/utils.js"
+				]
+			},
+			"mjs": {
+				"index.mjs": [
+					"conditions-in-folder",
+					"conditions-in-folder/index.mjs"
+				],
+				"utils.mjs": [
+					"conditions-in-folder/utils.mjs"
+				]
+			},
+			"package.json": [
+				"conditions-in-folder/package.json"
+			]
+		}
+	},
+	"require (pre-exports)": [
+		"conditions-in-folder",
+		"conditions-in-folder/",
+		"conditions-in-folder/index",
+		"conditions-in-folder/index.js",
+		"conditions-in-folder/cjs",
+		"conditions-in-folder/cjs/",
+		"conditions-in-folder/cjs/index",
+		"conditions-in-folder/cjs/index.js",
+		"conditions-in-folder/cjs/utils",
+		"conditions-in-folder/cjs/utils.js",
+		"conditions-in-folder/mjs/index.mjs",
+		"conditions-in-folder/mjs/utils.mjs",
+		"conditions-in-folder/package",
+		"conditions-in-folder/package.json"
+	],
+	"files (pre-exports)": [
+		"./index.js",
+		"./cjs/index.js",
+		"./cjs/utils.js",
+		"./mjs/index.mjs",
+		"./mjs/utils.mjs",
+		"./package.json"
+	],
+	"tree (pre-exports)": {
+		"conditions-in-folder": {
+			"index.js": [
+				"conditions-in-folder/",
+				"conditions-in-folder/index",
+				"conditions-in-folder/index.js"
+			],
+			"cjs": {
+				"index.js": [
+					"conditions-in-folder",
+					"conditions-in-folder/cjs",
+					"conditions-in-folder/cjs/",
+					"conditions-in-folder/cjs/index",
+					"conditions-in-folder/cjs/index.js"
+				],
+				"utils.js": [
+					"conditions-in-folder/cjs/utils",
+					"conditions-in-folder/cjs/utils.js"
+				]
+			},
+			"mjs": {
+				"index.mjs": [
+					"conditions-in-folder/cjs/index.mjs"
+				],
+				"utils.mjs": [
+					"conditions-in-folder/cjs/utils.mjs"
+				]
+			},
+			"package.json": [
+				"conditions-in-folder/package",
+				"conditions-in-folder/package.json"
+			]
+		}
+	},
+	"errors": []
+}
