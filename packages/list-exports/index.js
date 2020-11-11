@@ -116,6 +116,43 @@ function normalizeExports(exports, errors) {
 	return normalizedExports;
 }
 
+function getExtensions(packageType = 'commonjs') {
+	if (packageType !== 'commonjs' && packageType !== 'module') {
+		throw new TypeError('unknown package type found: ' + inspect(packageType));
+	}
+
+	const base = Object.keys(require.extensions)
+		.filter((x) => x.startsWith('.') && (packageType !== 'module' || x !== '.js') && x !== '.mjs');
+	const legacy = packageType === 'module' ? base.concat('.js') : base;
+	const esm = ['.mjs'].concat(packageType === 'module' ? '.js' : []);
+	const all = base.concat(esm);
+
+	return {
+		all,
+		base,
+		esm,
+		legacy,
+	};
+}
+
+function isCJS(filename, usingExports = false) {
+	const packageType = getPackageType.sync(filename);
+	if (packageType !== 'commonjs' && packageType !== 'module') {
+		throw new TypeError('unknown package type found: ' + inspect(packageType));
+	}
+	const { base, legacy } = getExtensions(packageType);
+	return (usingExports ? base : legacy).includes(path.extname(filename));
+}
+
+function isESM(filename) {
+	const packageType = getPackageType.sync(filename);
+	if (packageType !== 'commonjs' && packageType !== 'module') {
+		throw new TypeError('unknown package type found: ' + inspect(packageType));
+	}
+	const { esm } = getExtensions(packageType);
+	return esm.includes(path.extname(filename));
+}
+
 module.exports = async function listExports(packageJSON, options = {}) {
 	const packageDir = path.dirname(fs.realpathSync(packageJSON));
 
@@ -154,43 +191,6 @@ module.exports = async function listExports(packageJSON, options = {}) {
 			version,
 			private: isPrivate,
 		};
-	}
-
-	function getExtensions(packageType = 'commonjs') {
-		if (packageType !== 'commonjs' && packageType !== 'module') {
-			throw new TypeError('unknown package type found: ' + inspect(packageType));
-		}
-
-		const base = Object.keys(require.extensions)
-			.filter((x) => x.startsWith('.') && (packageType !== 'module' || x !== '.js') && x !== '.mjs');
-		const legacy = packageType === 'module' ? base.concat('.js') : base;
-		const esm = ['.mjs'].concat(packageType === 'module' ? '.js' : []);
-		const all = base.concat(esm);
-
-		return {
-			all,
-			base,
-			esm,
-			legacy,
-		};
-	}
-
-	function isCJS(filename, usingExports = false) {
-		const packageType = getPackageType.sync(filename);
-		if (packageType !== 'commonjs' && packageType !== 'module') {
-			throw new TypeError('unknown package type found: ' + inspect(packageType));
-		}
-		const { base, legacy } = getExtensions(packageType);
-		return (usingExports ? base : legacy).includes(path.extname(filename));
-	}
-
-	function isESM(filename) {
-		const packageType = getPackageType.sync(filename);
-		if (packageType !== 'commonjs' && packageType !== 'module') {
-			throw new TypeError('unknown package type found: ' + inspect(packageType));
-		}
-		const { esm } = getExtensions(packageType);
-		return esm.includes(path.extname(filename));
 	}
 
 	const { all: rootAllExtensions, base: rootBaseExtensions } = getExtensions(rootType);
