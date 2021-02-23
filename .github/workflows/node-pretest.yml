@@ -16,6 +16,7 @@ jobs:
           skip-ls-check: true
 
   posttest:
+    if: false
     runs-on: ubuntu-latest
 
     steps:
