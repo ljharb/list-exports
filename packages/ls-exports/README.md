@@ -31,7 +31,7 @@ For node versions prior to ESM support (at the time of this writing, `< 12.17 ||
 ## Example
 
 ```sh
-ls-exports resolve@1
+ls-exports package resolve@1
 ```
 
 [1]: https://npmjs.org/package/ls-exports
