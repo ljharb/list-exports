@@ -35,6 +35,7 @@
 		"@ljharb/eslint-config": "^17.5.1",
 		"aud": "^1.1.4",
 		"eslint": "^7.20.0",
+		"glob-gitignore": "^1.0.14",
 		"lerna": "^3.22.1",
 		"ls-engines": "^0.4.1",
 		"tape": "^5.2.0"
