@@ -13,7 +13,9 @@ var hasConditions = require('has-package-exports/conditional');
 
 var getExpected = require('./conditions-expected');
 
-test('condition ordering', function (t) {
+var re = process.env.GREP && new RegExp(process.env.GREP);
+
+test('condition ordering', { skip: !re || !re.test('condition ordering') }, function (t) {
 	if (hasBrokenExports) {
 		t.ok(
 			semver.satisfies(process.version, '~13.0 || ~13.1', { includePrerelease: true }),
