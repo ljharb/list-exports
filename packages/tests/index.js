@@ -101,7 +101,7 @@ test('listExports', (t) => {
 					if (npmDiff) {
 						console.error('# ' + npmDiff.split('\n').join('\n# '));
 					}
-					s2t.deepEqual(npmResults, expected, 'npm package results match expectation');
+					s2t.deepEqual(npmResults, expected, `${fixture}: npm package results match expectation`);
 				}
 			});
 		});
