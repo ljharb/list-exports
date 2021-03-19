@@ -8,11 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ljharb/actions/node/run@main
-        name: 'npm install && npm run tests-only'
+      - uses: ljharb/actions/node/install@main
+        name: 'nvm install ${{ matrix.node-version }} && npm install'
         with:
           node-version: 'lts/*'
-          shell-command: 'npx lerna exec ls-engines'
+      - run: npx lerna exec ls-engines
 
   conditions:
     name: 'exports conditions'
@@ -44,14 +44,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cd packages/tests
-      - uses: ljharb/actions/node/run@main
-        name: 'npm install && node packages/tests/conditions.js'
+      - uses: ljharb/actions/node/install@main
+        name: 'nvm install ${{ matrix.node-version }} && npm install'
         with:
           node-version: 'lts/*'
           before_install: 'cd packages/tests'
           after_install: 'cd ../..'
-          shell-command: 'node packages/tests/conditions.js'
           skip-ls-check: true
+      - run: node packages/tests/conditions.js
 
   exports-conditions:
     name: 'exports conditions'
@@ -81,12 +81,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: ljharb/actions/node/run@main
-        name: 'npm install && npm run tests-only'
+      - uses: ljharb/actions/node/install@main
+        name: 'nvm install ${{ matrix.node-version }} && npm install'
         with:
           node-version: ${{ matrix.node-version }}
-          shell-command: 'SKIP_CLI=${{ matrix.envs.SKIP_CLI }} npm run tests-only'
           skip-ls-check: true
+      - run: SKIP_CLI=${{ matrix.envs.SKIP_CLI }} npm run tests-only
+      - run: bash <(curl -s https://codecov.io/bash) -f coverage/*.json;
 
   skip-cli-finish:
     needs: [skip-cli]
@@ -118,12 +119,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: ljharb/actions/node/run@main
-        name: 'npm install && npm run tests-only'
+      - uses: ljharb/actions/node/install@main
+        name: 'nvm install ${{ matrix.node-version }} && npm install'
         with:
           node-version: ${{ matrix.node-version }}
-          command: 'tests-only'
           skip-ls-check: true
+      - run: npm run tests-only
+      - run: bash <(curl -s https://codecov.io/bash) -f coverage/*.json;
 
   minors:
     needs: [matrix, latest]
@@ -137,11 +139,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: ljharb/actions/node/run@main
+      - uses: ljharb/actions/node/install@main
+        name: 'nvm install ${{ matrix.node-version }} && npm install'
         with:
           node-version: ${{ matrix.node-version }}
-          command: 'tests-only'
           skip-ls-check: true
+      - run: npm run tests-only
+      - run: bash <(curl -s https://codecov.io/bash) -f coverage/*.json;
 
   node:
     name: 'node 10+'
