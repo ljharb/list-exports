@@ -1,0 +1,8 @@
+{
+	"name": "ex-folder-mapped",
+	"version": "0.0.0",
+	"exports": {
+		"./mapped/": "./unmapped/",
+		"./": "./"
+	}
+}
