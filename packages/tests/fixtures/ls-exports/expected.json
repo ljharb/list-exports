@@ -17,11 +17,9 @@
 		"./package.json"
 	],
 	"tree": {
-		"ls-exports": {
-			"package.json": [
-				"ls-exports/package.json"
-			]
-		}
+		"package.json": [
+			"ls-exports/package.json"
+		]
 	},
 	"require (pre-exports)": [
 		"ls-exports/exportsTable",
@@ -40,24 +38,22 @@
 		"./table.js"
 	],
 	"tree (pre-exports)": {
-		"ls-exports": {
-			"exportsTable.js": [
-				"ls-exports/exportsTable",
-				"ls-exports/exportsTable.js"
-			],
-			"getPackageJSONPath.js": [
-				"ls-exports/getPackageJSONPath",
-				"ls-exports/getPackageJSONPath.js"
-			],
-			"package.json": [
-				"ls-exports/package",
-				"ls-exports/package.json"
-			],
-			"table.js": [
-				"ls-exports/table",
-				"ls-exports/table.js"
-			]
-		}
+		"exportsTable.js": [
+			"ls-exports/exportsTable",
+			"ls-exports/exportsTable.js"
+		],
+		"getPackageJSONPath.js": [
+			"ls-exports/getPackageJSONPath",
+			"ls-exports/getPackageJSONPath.js"
+		],
+		"package.json": [
+			"ls-exports/package",
+			"ls-exports/package.json"
+		],
+		"table.js": [
+			"ls-exports/table",
+			"ls-exports/table.js"
+		]
 	},
 	"errors": [
 		"`./packages/ls-exports` has a `package.json`, but either lacks a `main`, or its `main` is invalid!"

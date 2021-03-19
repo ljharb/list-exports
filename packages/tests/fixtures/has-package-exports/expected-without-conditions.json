@@ -15,11 +15,9 @@
 		"./yes.js"
 	],
 	"tree": {
-		"has-package-exports": {
-			"yes.js": [
-				"has-package-exports"
-			]
-		}
+		"yes.js": [
+			"has-package-exports"
+		]
 	},
 	"require (pre-exports)": [
 		"has-package-exports",
@@ -45,33 +43,31 @@
 		"./yes.js"
 	],
 	"tree (pre-exports)": {
-		"has-package-exports": {
-			"no.js": [
-				"has-package-exports",
-				"has-package-exports/",
-				"has-package-exports/no",
-				"has-package-exports/no.js"
-			],
-			"browser.js": [
-				"has-package-exports/browser",
-				"has-package-exports/browser.js"
-			],
-			"package.json": [
-				"has-package-exports/package",
-				"has-package-exports/package.json"
-			],
-			"yes.js": [
-				"has-package-exports/yes",
-				"has-package-exports/yes.js"
-			],
-			"test": {
-				"index.js": [
-					"has-package-exports/test",
-					"has-package-exports/test/",
-					"has-package-exports/test/index",
-					"has-package-exports/test/index.js"
-				]
-			}
+		"no.js": [
+			"has-package-exports",
+			"has-package-exports/",
+			"has-package-exports/no",
+			"has-package-exports/no.js"
+		],
+		"browser.js": [
+			"has-package-exports/browser",
+			"has-package-exports/browser.js"
+		],
+		"package.json": [
+			"has-package-exports/package",
+			"has-package-exports/package.json"
+		],
+		"yes.js": [
+			"has-package-exports/yes",
+			"has-package-exports/yes.js"
+		],
+		"test": {
+			"index.js": [
+				"has-package-exports/test",
+				"has-package-exports/test/",
+				"has-package-exports/test/index",
+				"has-package-exports/test/index.js"
+			]
 		}
 	},
 	"errors": []

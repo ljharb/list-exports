@@ -18,22 +18,20 @@
 		"./index.mjs"
 	],
 	"tree": {
-		"ex-main-exports-dot-object": {
-			"dir": {
-				"extra.mjs": [
-					"ex-main-exports-dot-object"
-				],
-				"extra.js": [
-					"ex-main-exports-dot-object"
-				]
-			},
-			"file.js": [
+		"dir": {
+			"extra.mjs": [
 				"ex-main-exports-dot-object"
 			],
-			"index.mjs": [
+			"extra.js": [
 				"ex-main-exports-dot-object"
 			]
-		}
+		},
+		"file.js": [
+			"ex-main-exports-dot-object"
+		],
+		"index.mjs": [
+			"ex-main-exports-dot-object"
+		]
 	},
 	"require (pre-exports)": [
 		"ex-main-exports-dot-object",
@@ -61,39 +59,37 @@
 		"./package.json"
 	],
 	"tree (pre-exports)": {
-		"ex-main-exports-dot-object": {
+		"index.js": [
+			"ex-main-exports-dot-object",
+			"ex-main-exports-dot-object/",
+			"ex-main-exports-dot-object/index",
+			"ex-main-exports-dot-object/index.js"
+		],
+		"file.js": [
+			"ex-main-exports-dot-object/file",
+			"ex-main-exports-dot-object/file.js"
+		],
+		"index.mjs": [
+			"ex-main-exports-dot-object/index.mjs"
+		],
+		"package.json": [
+			"ex-main-exports-dot-object/package",
+			"ex-main-exports-dot-object/package.json"
+		],
+		"dir": {
 			"index.js": [
-				"ex-main-exports-dot-object",
-				"ex-main-exports-dot-object/",
-				"ex-main-exports-dot-object/index",
-				"ex-main-exports-dot-object/index.js"
+				"ex-main-exports-dot-object/dir",
+				"ex-main-exports-dot-object/dir/",
+				"ex-main-exports-dot-object/dir/index",
+				"ex-main-exports-dot-object/dir/index.js"
 			],
-			"file.js": [
-				"ex-main-exports-dot-object/file",
-				"ex-main-exports-dot-object/file.js"
+			"extra.js": [
+				"ex-main-exports-dot-object/dir/extra",
+				"ex-main-exports-dot-object/dir/extra.js"
 			],
-			"index.mjs": [
-				"ex-main-exports-dot-object/index.mjs"
-			],
-			"package.json": [
-				"ex-main-exports-dot-object/package",
-				"ex-main-exports-dot-object/package.json"
-			],
-			"dir": {
-				"index.js": [
-					"ex-main-exports-dot-object/dir",
-					"ex-main-exports-dot-object/dir/",
-					"ex-main-exports-dot-object/dir/index",
-					"ex-main-exports-dot-object/dir/index.js"
-				],
-				"extra.js": [
-					"ex-main-exports-dot-object/dir/extra",
-					"ex-main-exports-dot-object/dir/extra.js"
-				],
-				"extra.mjs": [
-					"ex-main-exports-dot-object/dir/extra.mjs"
-				]
-			}
+			"extra.mjs": [
+				"ex-main-exports-dot-object/dir/extra.mjs"
+			]
 		}
 	},
 	"errors": []

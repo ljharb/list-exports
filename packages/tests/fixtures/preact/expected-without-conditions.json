@@ -286,321 +286,319 @@
 		"./test-utils/src/index.js"
 	],
 	"tree": {
-		"preact": {
-			"package.json": [
-				"preact/package",
-				"preact/package.json"
+		"package.json": [
+			"preact/package",
+			"preact/package.json"
+		],
+		"dist": {
+			"preact.js": [
+				"preact",
+				"preact/dist/preact",
+				"preact/dist/preact.js"
 			],
+			"preact.min.js": [
+				"preact/dist/preact.min",
+				"preact/dist/preact.min.js"
+			],
+			"preact.mjs": [
+				"preact/dist/preact.mjs"
+			],
+			"preact.module.js": [
+				"preact/dist/preact.module",
+				"preact/dist/preact.module.js"
+			],
+			"preact.umd.js": [
+				"preact/dist/preact.umd",
+				"preact/dist/preact.umd.js"
+			]
+		},
+		"compat": {
 			"dist": {
-				"preact.js": [
-					"preact",
-					"preact/dist/preact",
-					"preact/dist/preact.js"
+				"compat.js": [
+					"preact/compat",
+					"preact/compat/",
+					"preact/compat/dist/compat",
+					"preact/compat/dist/compat.js"
 				],
-				"preact.min.js": [
-					"preact/dist/preact.min",
-					"preact/dist/preact.min.js"
+				"compat.mjs": [
+					"preact/compat/dist/compat.mjs"
 				],
-				"preact.mjs": [
-					"preact/dist/preact.mjs"
+				"compat.module.js": [
+					"preact/compat/dist/compat.module",
+					"preact/compat/dist/compat.module.js"
 				],
-				"preact.module.js": [
-					"preact/dist/preact.module",
-					"preact/dist/preact.module.js"
-				],
-				"preact.umd.js": [
-					"preact/dist/preact.umd",
-					"preact/dist/preact.umd.js"
+				"compat.umd.js": [
+					"preact/compat/dist/compat.umd",
+					"preact/compat/dist/compat.umd.js"
 				]
 			},
-			"compat": {
-				"dist": {
-					"compat.js": [
-						"preact/compat",
-						"preact/compat/",
-						"preact/compat/dist/compat",
-						"preact/compat/dist/compat.js"
-					],
-					"compat.mjs": [
-						"preact/compat/dist/compat.mjs"
-					],
-					"compat.module.js": [
-						"preact/compat/dist/compat.module",
-						"preact/compat/dist/compat.module.js"
-					],
-					"compat.umd.js": [
-						"preact/compat/dist/compat.umd",
-						"preact/compat/dist/compat.umd.js"
-					]
-				},
-				"package.json": [
-					"preact/compat/package",
-					"preact/compat/package.json"
-				],
-				"server.js": [
-					"preact/compat/server",
-					"preact/compat/server.js"
-				],
-				"src": {
-					"index.js": [
-						"preact/compat/src",
-						"preact/compat/src/",
-						"preact/compat/src/index",
-						"preact/compat/src/index.js"
-					],
-					"Children.js": [
-						"preact/compat/src/Children",
-						"preact/compat/src/Children.js"
-					],
-					"PureComponent.js": [
-						"preact/compat/src/PureComponent",
-						"preact/compat/src/PureComponent.js"
-					],
-					"events.js": [
-						"preact/compat/src/events",
-						"preact/compat/src/events.js"
-					],
-					"forwardRef.js": [
-						"preact/compat/src/forwardRef",
-						"preact/compat/src/forwardRef.js"
-					],
-					"memo.js": [
-						"preact/compat/src/memo",
-						"preact/compat/src/memo.js"
-					],
-					"portals.js": [
-						"preact/compat/src/portals",
-						"preact/compat/src/portals.js"
-					],
-					"render.js": [
-						"preact/compat/src/render",
-						"preact/compat/src/render.js"
-					],
-					"suspense-list.js": [
-						"preact/compat/src/suspense-list",
-						"preact/compat/src/suspense-list.js"
-					],
-					"suspense.js": [
-						"preact/compat/src/suspense",
-						"preact/compat/src/suspense.js"
-					],
-					"util.js": [
-						"preact/compat/src/util",
-						"preact/compat/src/util.js"
-					]
-				}
-			},
-			"debug": {
-				"dist": {
-					"debug.js": [
-						"preact/debug",
-						"preact/debug/",
-						"preact/debug/dist/debug",
-						"preact/debug/dist/debug.js"
-					],
-					"debug.mjs": [
-						"preact/debug/dist/debug.mjs"
-					],
-					"debug.module.js": [
-						"preact/debug/dist/debug.module",
-						"preact/debug/dist/debug.module.js"
-					],
-					"debug.umd.js": [
-						"preact/debug/dist/debug.umd",
-						"preact/debug/dist/debug.umd.js"
-					]
-				},
-				"package.json": [
-					"preact/debug/package",
-					"preact/debug/package.json"
-				],
-				"src": {
-					"index.js": [
-						"preact/debug/src",
-						"preact/debug/src/",
-						"preact/debug/src/index",
-						"preact/debug/src/index.js"
-					],
-					"check-props.js": [
-						"preact/debug/src/check-props",
-						"preact/debug/src/check-props.js"
-					],
-					"component-stack.js": [
-						"preact/debug/src/component-stack",
-						"preact/debug/src/component-stack.js"
-					],
-					"constants.js": [
-						"preact/debug/src/constants",
-						"preact/debug/src/constants.js"
-					],
-					"debug.js": [
-						"preact/debug/src/debug",
-						"preact/debug/src/debug.js"
-					]
-				}
-			},
-			"devtools": {
-				"dist": {
-					"devtools.js": [
-						"preact/devtools",
-						"preact/devtools/",
-						"preact/devtools/dist/devtools",
-						"preact/devtools/dist/devtools.js"
-					],
-					"devtools.mjs": [
-						"preact/devtools/dist/devtools.mjs"
-					],
-					"devtools.module.js": [
-						"preact/devtools/dist/devtools.module",
-						"preact/devtools/dist/devtools.module.js"
-					],
-					"devtools.umd.js": [
-						"preact/devtools/dist/devtools.umd",
-						"preact/devtools/dist/devtools.umd.js"
-					]
-				},
-				"package.json": [
-					"preact/devtools/package",
-					"preact/devtools/package.json"
-				],
-				"src": {
-					"index.js": [
-						"preact/devtools/src",
-						"preact/devtools/src/",
-						"preact/devtools/src/index",
-						"preact/devtools/src/index.js"
-					],
-					"devtools.js": [
-						"preact/devtools/src/devtools",
-						"preact/devtools/src/devtools.js"
-					]
-				}
-			},
-			"hooks": {
-				"dist": {
-					"hooks.js": [
-						"preact/hooks",
-						"preact/hooks/",
-						"preact/hooks/dist/hooks",
-						"preact/hooks/dist/hooks.js"
-					],
-					"hooks.mjs": [
-						"preact/hooks/dist/hooks.mjs"
-					],
-					"hooks.module.js": [
-						"preact/hooks/dist/hooks.module",
-						"preact/hooks/dist/hooks.module.js"
-					],
-					"hooks.umd.js": [
-						"preact/hooks/dist/hooks.umd",
-						"preact/hooks/dist/hooks.umd.js"
-					]
-				},
-				"package.json": [
-					"preact/hooks/package",
-					"preact/hooks/package.json"
-				],
-				"src": {
-					"index.js": [
-						"preact/hooks/src",
-						"preact/hooks/src/",
-						"preact/hooks/src/index",
-						"preact/hooks/src/index.js"
-					]
-				}
-			},
+			"package.json": [
+				"preact/compat/package",
+				"preact/compat/package.json"
+			],
+			"server.js": [
+				"preact/compat/server",
+				"preact/compat/server.js"
+			],
 			"src": {
 				"index.js": [
-					"preact/src",
-					"preact/src/",
-					"preact/src/index",
-					"preact/src/index.js"
+					"preact/compat/src",
+					"preact/compat/src/",
+					"preact/compat/src/index",
+					"preact/compat/src/index.js"
 				],
-				"clone-element.js": [
-					"preact/src/clone-element",
-					"preact/src/clone-element.js"
+				"Children.js": [
+					"preact/compat/src/Children",
+					"preact/compat/src/Children.js"
 				],
-				"component.js": [
-					"preact/src/component",
-					"preact/src/component.js"
+				"PureComponent.js": [
+					"preact/compat/src/PureComponent",
+					"preact/compat/src/PureComponent.js"
 				],
-				"constants.js": [
-					"preact/src/constants",
-					"preact/src/constants.js"
+				"events.js": [
+					"preact/compat/src/events",
+					"preact/compat/src/events.js"
 				],
-				"create-context.js": [
-					"preact/src/create-context",
-					"preact/src/create-context.js"
+				"forwardRef.js": [
+					"preact/compat/src/forwardRef",
+					"preact/compat/src/forwardRef.js"
 				],
-				"create-element.js": [
-					"preact/src/create-element",
-					"preact/src/create-element.js"
+				"memo.js": [
+					"preact/compat/src/memo",
+					"preact/compat/src/memo.js"
 				],
-				"options.js": [
-					"preact/src/options",
-					"preact/src/options.js"
+				"portals.js": [
+					"preact/compat/src/portals",
+					"preact/compat/src/portals.js"
 				],
 				"render.js": [
-					"preact/src/render",
-					"preact/src/render.js"
+					"preact/compat/src/render",
+					"preact/compat/src/render.js"
+				],
+				"suspense-list.js": [
+					"preact/compat/src/suspense-list",
+					"preact/compat/src/suspense-list.js"
+				],
+				"suspense.js": [
+					"preact/compat/src/suspense",
+					"preact/compat/src/suspense.js"
 				],
 				"util.js": [
-					"preact/src/util",
-					"preact/src/util.js"
+					"preact/compat/src/util",
+					"preact/compat/src/util.js"
+				]
+			}
+		},
+		"debug": {
+			"dist": {
+				"debug.js": [
+					"preact/debug",
+					"preact/debug/",
+					"preact/debug/dist/debug",
+					"preact/debug/dist/debug.js"
 				],
-				"diff": {
-					"index.js": [
-						"preact/src/diff",
-						"preact/src/diff/",
-						"preact/src/diff/index",
-						"preact/src/diff/index.js"
-					],
-					"catch-error.js": [
-						"preact/src/diff/catch-error",
-						"preact/src/diff/catch-error.js"
-					],
-					"children.js": [
-						"preact/src/diff/children",
-						"preact/src/diff/children.js"
-					],
-					"props.js": [
-						"preact/src/diff/props",
-						"preact/src/diff/props.js"
-					]
-				}
+				"debug.mjs": [
+					"preact/debug/dist/debug.mjs"
+				],
+				"debug.module.js": [
+					"preact/debug/dist/debug.module",
+					"preact/debug/dist/debug.module.js"
+				],
+				"debug.umd.js": [
+					"preact/debug/dist/debug.umd",
+					"preact/debug/dist/debug.umd.js"
+				]
 			},
-			"test-utils": {
-				"dist": {
-					"testUtils.js": [
-						"preact/test-utils",
-						"preact/test-utils/",
-						"preact/test-utils/dist/testUtils",
-						"preact/test-utils/dist/testUtils.js"
-					],
-					"testUtils.mjs": [
-						"preact/test-utils/dist/testUtils.mjs"
-					],
-					"testUtils.module.js": [
-						"preact/test-utils/dist/testUtils.module",
-						"preact/test-utils/dist/testUtils.module.js"
-					],
-					"testUtils.umd.js": [
-						"preact/test-utils/dist/testUtils.umd",
-						"preact/test-utils/dist/testUtils.umd.js"
-					]
-				},
-				"package.json": [
-					"preact/test-utils/package",
-					"preact/test-utils/package.json"
+			"package.json": [
+				"preact/debug/package",
+				"preact/debug/package.json"
+			],
+			"src": {
+				"index.js": [
+					"preact/debug/src",
+					"preact/debug/src/",
+					"preact/debug/src/index",
+					"preact/debug/src/index.js"
 				],
-				"src": {
-					"index.js": [
-						"preact/test-utils/src",
-						"preact/test-utils/src/",
-						"preact/test-utils/src/index",
-						"preact/test-utils/src/index.js"
-					]
-				}
+				"check-props.js": [
+					"preact/debug/src/check-props",
+					"preact/debug/src/check-props.js"
+				],
+				"component-stack.js": [
+					"preact/debug/src/component-stack",
+					"preact/debug/src/component-stack.js"
+				],
+				"constants.js": [
+					"preact/debug/src/constants",
+					"preact/debug/src/constants.js"
+				],
+				"debug.js": [
+					"preact/debug/src/debug",
+					"preact/debug/src/debug.js"
+				]
+			}
+		},
+		"devtools": {
+			"dist": {
+				"devtools.js": [
+					"preact/devtools",
+					"preact/devtools/",
+					"preact/devtools/dist/devtools",
+					"preact/devtools/dist/devtools.js"
+				],
+				"devtools.mjs": [
+					"preact/devtools/dist/devtools.mjs"
+				],
+				"devtools.module.js": [
+					"preact/devtools/dist/devtools.module",
+					"preact/devtools/dist/devtools.module.js"
+				],
+				"devtools.umd.js": [
+					"preact/devtools/dist/devtools.umd",
+					"preact/devtools/dist/devtools.umd.js"
+				]
+			},
+			"package.json": [
+				"preact/devtools/package",
+				"preact/devtools/package.json"
+			],
+			"src": {
+				"index.js": [
+					"preact/devtools/src",
+					"preact/devtools/src/",
+					"preact/devtools/src/index",
+					"preact/devtools/src/index.js"
+				],
+				"devtools.js": [
+					"preact/devtools/src/devtools",
+					"preact/devtools/src/devtools.js"
+				]
+			}
+		},
+		"hooks": {
+			"dist": {
+				"hooks.js": [
+					"preact/hooks",
+					"preact/hooks/",
+					"preact/hooks/dist/hooks",
+					"preact/hooks/dist/hooks.js"
+				],
+				"hooks.mjs": [
+					"preact/hooks/dist/hooks.mjs"
+				],
+				"hooks.module.js": [
+					"preact/hooks/dist/hooks.module",
+					"preact/hooks/dist/hooks.module.js"
+				],
+				"hooks.umd.js": [
+					"preact/hooks/dist/hooks.umd",
+					"preact/hooks/dist/hooks.umd.js"
+				]
+			},
+			"package.json": [
+				"preact/hooks/package",
+				"preact/hooks/package.json"
+			],
+			"src": {
+				"index.js": [
+					"preact/hooks/src",
+					"preact/hooks/src/",
+					"preact/hooks/src/index",
+					"preact/hooks/src/index.js"
+				]
+			}
+		},
+		"src": {
+			"index.js": [
+				"preact/src",
+				"preact/src/",
+				"preact/src/index",
+				"preact/src/index.js"
+			],
+			"clone-element.js": [
+				"preact/src/clone-element",
+				"preact/src/clone-element.js"
+			],
+			"component.js": [
+				"preact/src/component",
+				"preact/src/component.js"
+			],
+			"constants.js": [
+				"preact/src/constants",
+				"preact/src/constants.js"
+			],
+			"create-context.js": [
+				"preact/src/create-context",
+				"preact/src/create-context.js"
+			],
+			"create-element.js": [
+				"preact/src/create-element",
+				"preact/src/create-element.js"
+			],
+			"options.js": [
+				"preact/src/options",
+				"preact/src/options.js"
+			],
+			"render.js": [
+				"preact/src/render",
+				"preact/src/render.js"
+			],
+			"util.js": [
+				"preact/src/util",
+				"preact/src/util.js"
+			],
+			"diff": {
+				"index.js": [
+					"preact/src/diff",
+					"preact/src/diff/",
+					"preact/src/diff/index",
+					"preact/src/diff/index.js"
+				],
+				"catch-error.js": [
+					"preact/src/diff/catch-error",
+					"preact/src/diff/catch-error.js"
+				],
+				"children.js": [
+					"preact/src/diff/children",
+					"preact/src/diff/children.js"
+				],
+				"props.js": [
+					"preact/src/diff/props",
+					"preact/src/diff/props.js"
+				]
+			}
+		},
+		"test-utils": {
+			"dist": {
+				"testUtils.js": [
+					"preact/test-utils",
+					"preact/test-utils/",
+					"preact/test-utils/dist/testUtils",
+					"preact/test-utils/dist/testUtils.js"
+				],
+				"testUtils.mjs": [
+					"preact/test-utils/dist/testUtils.mjs"
+				],
+				"testUtils.module.js": [
+					"preact/test-utils/dist/testUtils.module",
+					"preact/test-utils/dist/testUtils.module.js"
+				],
+				"testUtils.umd.js": [
+					"preact/test-utils/dist/testUtils.umd",
+					"preact/test-utils/dist/testUtils.umd.js"
+				]
+			},
+			"package.json": [
+				"preact/test-utils/package",
+				"preact/test-utils/package.json"
+			],
+			"src": {
+				"index.js": [
+					"preact/test-utils/src",
+					"preact/test-utils/src/",
+					"preact/test-utils/src/index",
+					"preact/test-utils/src/index.js"
+				]
 			}
 		}
 	},
@@ -818,322 +816,320 @@
 		"./test-utils/src/index.js"
 	],
 	"tree (pre-exports)": {
-		"preact": {
+		"dist": {
+			"preact.js": [
+				"preact",
+				"preact/",
+				"preact/dist/preact",
+				"preact/dist/preact.js"
+			],
+			"preact.min.js": [
+				"preact/dist/preact.min",
+				"preact/dist/preact.min.js"
+			],
+			"preact.mjs": [
+				"preact/dist/preact.mjs"
+			],
+			"preact.module.js": [
+				"preact/dist/preact.module",
+				"preact/dist/preact.module.js"
+			],
+			"preact.umd.js": [
+				"preact/dist/preact.umd",
+				"preact/dist/preact.umd.js"
+			]
+		},
+		"package.json": [
+			"preact/package",
+			"preact/package.json"
+		],
+		"compat": {
 			"dist": {
-				"preact.js": [
-					"preact",
-					"preact/",
-					"preact/dist/preact",
-					"preact/dist/preact.js"
+				"compat.js": [
+					"preact/compat",
+					"preact/compat/",
+					"preact/compat/dist/compat",
+					"preact/compat/dist/compat.js"
 				],
-				"preact.min.js": [
-					"preact/dist/preact.min",
-					"preact/dist/preact.min.js"
+				"compat.mjs": [
+					"preact/compat/dist/compat.mjs"
 				],
-				"preact.mjs": [
-					"preact/dist/preact.mjs"
+				"compat.module.js": [
+					"preact/compat/dist/compat.module",
+					"preact/compat/dist/compat.module.js"
 				],
-				"preact.module.js": [
-					"preact/dist/preact.module",
-					"preact/dist/preact.module.js"
-				],
-				"preact.umd.js": [
-					"preact/dist/preact.umd",
-					"preact/dist/preact.umd.js"
+				"compat.umd.js": [
+					"preact/compat/dist/compat.umd",
+					"preact/compat/dist/compat.umd.js"
 				]
 			},
 			"package.json": [
-				"preact/package",
-				"preact/package.json"
+				"preact/compat/package",
+				"preact/compat/package.json"
 			],
-			"compat": {
-				"dist": {
-					"compat.js": [
-						"preact/compat",
-						"preact/compat/",
-						"preact/compat/dist/compat",
-						"preact/compat/dist/compat.js"
-					],
-					"compat.mjs": [
-						"preact/compat/dist/compat.mjs"
-					],
-					"compat.module.js": [
-						"preact/compat/dist/compat.module",
-						"preact/compat/dist/compat.module.js"
-					],
-					"compat.umd.js": [
-						"preact/compat/dist/compat.umd",
-						"preact/compat/dist/compat.umd.js"
-					]
-				},
-				"package.json": [
-					"preact/compat/package",
-					"preact/compat/package.json"
-				],
-				"server.js": [
-					"preact/compat/server",
-					"preact/compat/server.js"
-				],
-				"src": {
-					"index.js": [
-						"preact/compat/src",
-						"preact/compat/src/",
-						"preact/compat/src/index",
-						"preact/compat/src/index.js"
-					],
-					"Children.js": [
-						"preact/compat/src/Children",
-						"preact/compat/src/Children.js"
-					],
-					"PureComponent.js": [
-						"preact/compat/src/PureComponent",
-						"preact/compat/src/PureComponent.js"
-					],
-					"events.js": [
-						"preact/compat/src/events",
-						"preact/compat/src/events.js"
-					],
-					"forwardRef.js": [
-						"preact/compat/src/forwardRef",
-						"preact/compat/src/forwardRef.js"
-					],
-					"memo.js": [
-						"preact/compat/src/memo",
-						"preact/compat/src/memo.js"
-					],
-					"portals.js": [
-						"preact/compat/src/portals",
-						"preact/compat/src/portals.js"
-					],
-					"render.js": [
-						"preact/compat/src/render",
-						"preact/compat/src/render.js"
-					],
-					"suspense-list.js": [
-						"preact/compat/src/suspense-list",
-						"preact/compat/src/suspense-list.js"
-					],
-					"suspense.js": [
-						"preact/compat/src/suspense",
-						"preact/compat/src/suspense.js"
-					],
-					"util.js": [
-						"preact/compat/src/util",
-						"preact/compat/src/util.js"
-					]
-				}
-			},
-			"debug": {
-				"dist": {
-					"debug.js": [
-						"preact/debug",
-						"preact/debug/",
-						"preact/debug/dist/debug",
-						"preact/debug/dist/debug.js"
-					],
-					"debug.mjs": [
-						"preact/debug/dist/debug.mjs"
-					],
-					"debug.module.js": [
-						"preact/debug/dist/debug.module",
-						"preact/debug/dist/debug.module.js"
-					],
-					"debug.umd.js": [
-						"preact/debug/dist/debug.umd",
-						"preact/debug/dist/debug.umd.js"
-					]
-				},
-				"package.json": [
-					"preact/debug/package",
-					"preact/debug/package.json"
-				],
-				"src": {
-					"index.js": [
-						"preact/debug/src",
-						"preact/debug/src/",
-						"preact/debug/src/index",
-						"preact/debug/src/index.js"
-					],
-					"check-props.js": [
-						"preact/debug/src/check-props",
-						"preact/debug/src/check-props.js"
-					],
-					"component-stack.js": [
-						"preact/debug/src/component-stack",
-						"preact/debug/src/component-stack.js"
-					],
-					"constants.js": [
-						"preact/debug/src/constants",
-						"preact/debug/src/constants.js"
-					],
-					"debug.js": [
-						"preact/debug/src/debug",
-						"preact/debug/src/debug.js"
-					]
-				}
-			},
-			"devtools": {
-				"dist": {
-					"devtools.js": [
-						"preact/devtools",
-						"preact/devtools/",
-						"preact/devtools/dist/devtools",
-						"preact/devtools/dist/devtools.js"
-					],
-					"devtools.mjs": [
-						"preact/devtools/dist/devtools.mjs"
-					],
-					"devtools.module.js": [
-						"preact/devtools/dist/devtools.module",
-						"preact/devtools/dist/devtools.module.js"
-					],
-					"devtools.umd.js": [
-						"preact/devtools/dist/devtools.umd",
-						"preact/devtools/dist/devtools.umd.js"
-					]
-				},
-				"package.json": [
-					"preact/devtools/package",
-					"preact/devtools/package.json"
-				],
-				"src": {
-					"index.js": [
-						"preact/devtools/src",
-						"preact/devtools/src/",
-						"preact/devtools/src/index",
-						"preact/devtools/src/index.js"
-					],
-					"devtools.js": [
-						"preact/devtools/src/devtools",
-						"preact/devtools/src/devtools.js"
-					]
-				}
-			},
-			"hooks": {
-				"dist": {
-					"hooks.js": [
-						"preact/hooks",
-						"preact/hooks/",
-						"preact/hooks/dist/hooks",
-						"preact/hooks/dist/hooks.js"
-					],
-					"hooks.mjs": [
-						"preact/hooks/dist/hooks.mjs"
-					],
-					"hooks.module.js": [
-						"preact/hooks/dist/hooks.module",
-						"preact/hooks/dist/hooks.module.js"
-					],
-					"hooks.umd.js": [
-						"preact/hooks/dist/hooks.umd",
-						"preact/hooks/dist/hooks.umd.js"
-					]
-				},
-				"package.json": [
-					"preact/hooks/package",
-					"preact/hooks/package.json"
-				],
-				"src": {
-					"index.js": [
-						"preact/hooks/src",
-						"preact/hooks/src/",
-						"preact/hooks/src/index",
-						"preact/hooks/src/index.js"
-					]
-				}
-			},
+			"server.js": [
+				"preact/compat/server",
+				"preact/compat/server.js"
+			],
 			"src": {
 				"index.js": [
-					"preact/src",
-					"preact/src/",
-					"preact/src/index",
-					"preact/src/index.js"
+					"preact/compat/src",
+					"preact/compat/src/",
+					"preact/compat/src/index",
+					"preact/compat/src/index.js"
 				],
-				"clone-element.js": [
-					"preact/src/clone-element",
-					"preact/src/clone-element.js"
+				"Children.js": [
+					"preact/compat/src/Children",
+					"preact/compat/src/Children.js"
 				],
-				"component.js": [
-					"preact/src/component",
-					"preact/src/component.js"
+				"PureComponent.js": [
+					"preact/compat/src/PureComponent",
+					"preact/compat/src/PureComponent.js"
 				],
-				"constants.js": [
-					"preact/src/constants",
-					"preact/src/constants.js"
+				"events.js": [
+					"preact/compat/src/events",
+					"preact/compat/src/events.js"
 				],
-				"create-context.js": [
-					"preact/src/create-context",
-					"preact/src/create-context.js"
+				"forwardRef.js": [
+					"preact/compat/src/forwardRef",
+					"preact/compat/src/forwardRef.js"
 				],
-				"create-element.js": [
-					"preact/src/create-element",
-					"preact/src/create-element.js"
+				"memo.js": [
+					"preact/compat/src/memo",
+					"preact/compat/src/memo.js"
 				],
-				"options.js": [
-					"preact/src/options",
-					"preact/src/options.js"
+				"portals.js": [
+					"preact/compat/src/portals",
+					"preact/compat/src/portals.js"
 				],
 				"render.js": [
-					"preact/src/render",
-					"preact/src/render.js"
+					"preact/compat/src/render",
+					"preact/compat/src/render.js"
+				],
+				"suspense-list.js": [
+					"preact/compat/src/suspense-list",
+					"preact/compat/src/suspense-list.js"
+				],
+				"suspense.js": [
+					"preact/compat/src/suspense",
+					"preact/compat/src/suspense.js"
 				],
 				"util.js": [
-					"preact/src/util",
-					"preact/src/util.js"
+					"preact/compat/src/util",
+					"preact/compat/src/util.js"
+				]
+			}
+		},
+		"debug": {
+			"dist": {
+				"debug.js": [
+					"preact/debug",
+					"preact/debug/",
+					"preact/debug/dist/debug",
+					"preact/debug/dist/debug.js"
 				],
-				"diff": {
-					"index.js": [
-						"preact/src/diff",
-						"preact/src/diff/",
-						"preact/src/diff/index",
-						"preact/src/diff/index.js"
-					],
-					"catch-error.js": [
-						"preact/src/diff/catch-error",
-						"preact/src/diff/catch-error.js"
-					],
-					"children.js": [
-						"preact/src/diff/children",
-						"preact/src/diff/children.js"
-					],
-					"props.js": [
-						"preact/src/diff/props",
-						"preact/src/diff/props.js"
-					]
-				}
+				"debug.mjs": [
+					"preact/debug/dist/debug.mjs"
+				],
+				"debug.module.js": [
+					"preact/debug/dist/debug.module",
+					"preact/debug/dist/debug.module.js"
+				],
+				"debug.umd.js": [
+					"preact/debug/dist/debug.umd",
+					"preact/debug/dist/debug.umd.js"
+				]
 			},
-			"test-utils": {
-				"dist": {
-					"testUtils.js": [
-						"preact/test-utils",
-						"preact/test-utils/",
-						"preact/test-utils/dist/testUtils",
-						"preact/test-utils/dist/testUtils.js"
-					],
-					"testUtils.mjs": [
-						"preact/test-utils/dist/testUtils.mjs"
-					],
-					"testUtils.module.js": [
-						"preact/test-utils/dist/testUtils.module",
-						"preact/test-utils/dist/testUtils.module.js"
-					],
-					"testUtils.umd.js": [
-						"preact/test-utils/dist/testUtils.umd",
-						"preact/test-utils/dist/testUtils.umd.js"
-					]
-				},
-				"package.json": [
-					"preact/test-utils/package",
-					"preact/test-utils/package.json"
+			"package.json": [
+				"preact/debug/package",
+				"preact/debug/package.json"
+			],
+			"src": {
+				"index.js": [
+					"preact/debug/src",
+					"preact/debug/src/",
+					"preact/debug/src/index",
+					"preact/debug/src/index.js"
 				],
-				"src": {
-					"index.js": [
-						"preact/test-utils/src",
-						"preact/test-utils/src/",
-						"preact/test-utils/src/index",
-						"preact/test-utils/src/index.js"
-					]
-				}
+				"check-props.js": [
+					"preact/debug/src/check-props",
+					"preact/debug/src/check-props.js"
+				],
+				"component-stack.js": [
+					"preact/debug/src/component-stack",
+					"preact/debug/src/component-stack.js"
+				],
+				"constants.js": [
+					"preact/debug/src/constants",
+					"preact/debug/src/constants.js"
+				],
+				"debug.js": [
+					"preact/debug/src/debug",
+					"preact/debug/src/debug.js"
+				]
+			}
+		},
+		"devtools": {
+			"dist": {
+				"devtools.js": [
+					"preact/devtools",
+					"preact/devtools/",
+					"preact/devtools/dist/devtools",
+					"preact/devtools/dist/devtools.js"
+				],
+				"devtools.mjs": [
+					"preact/devtools/dist/devtools.mjs"
+				],
+				"devtools.module.js": [
+					"preact/devtools/dist/devtools.module",
+					"preact/devtools/dist/devtools.module.js"
+				],
+				"devtools.umd.js": [
+					"preact/devtools/dist/devtools.umd",
+					"preact/devtools/dist/devtools.umd.js"
+				]
+			},
+			"package.json": [
+				"preact/devtools/package",
+				"preact/devtools/package.json"
+			],
+			"src": {
+				"index.js": [
+					"preact/devtools/src",
+					"preact/devtools/src/",
+					"preact/devtools/src/index",
+					"preact/devtools/src/index.js"
+				],
+				"devtools.js": [
+					"preact/devtools/src/devtools",
+					"preact/devtools/src/devtools.js"
+				]
+			}
+		},
+		"hooks": {
+			"dist": {
+				"hooks.js": [
+					"preact/hooks",
+					"preact/hooks/",
+					"preact/hooks/dist/hooks",
+					"preact/hooks/dist/hooks.js"
+				],
+				"hooks.mjs": [
+					"preact/hooks/dist/hooks.mjs"
+				],
+				"hooks.module.js": [
+					"preact/hooks/dist/hooks.module",
+					"preact/hooks/dist/hooks.module.js"
+				],
+				"hooks.umd.js": [
+					"preact/hooks/dist/hooks.umd",
+					"preact/hooks/dist/hooks.umd.js"
+				]
+			},
+			"package.json": [
+				"preact/hooks/package",
+				"preact/hooks/package.json"
+			],
+			"src": {
+				"index.js": [
+					"preact/hooks/src",
+					"preact/hooks/src/",
+					"preact/hooks/src/index",
+					"preact/hooks/src/index.js"
+				]
+			}
+		},
+		"src": {
+			"index.js": [
+				"preact/src",
+				"preact/src/",
+				"preact/src/index",
+				"preact/src/index.js"
+			],
+			"clone-element.js": [
+				"preact/src/clone-element",
+				"preact/src/clone-element.js"
+			],
+			"component.js": [
+				"preact/src/component",
+				"preact/src/component.js"
+			],
+			"constants.js": [
+				"preact/src/constants",
+				"preact/src/constants.js"
+			],
+			"create-context.js": [
+				"preact/src/create-context",
+				"preact/src/create-context.js"
+			],
+			"create-element.js": [
+				"preact/src/create-element",
+				"preact/src/create-element.js"
+			],
+			"options.js": [
+				"preact/src/options",
+				"preact/src/options.js"
+			],
+			"render.js": [
+				"preact/src/render",
+				"preact/src/render.js"
+			],
+			"util.js": [
+				"preact/src/util",
+				"preact/src/util.js"
+			],
+			"diff": {
+				"index.js": [
+					"preact/src/diff",
+					"preact/src/diff/",
+					"preact/src/diff/index",
+					"preact/src/diff/index.js"
+				],
+				"catch-error.js": [
+					"preact/src/diff/catch-error",
+					"preact/src/diff/catch-error.js"
+				],
+				"children.js": [
+					"preact/src/diff/children",
+					"preact/src/diff/children.js"
+				],
+				"props.js": [
+					"preact/src/diff/props",
+					"preact/src/diff/props.js"
+				]
+			}
+		},
+		"test-utils": {
+			"dist": {
+				"testUtils.js": [
+					"preact/test-utils",
+					"preact/test-utils/",
+					"preact/test-utils/dist/testUtils",
+					"preact/test-utils/dist/testUtils.js"
+				],
+				"testUtils.mjs": [
+					"preact/test-utils/dist/testUtils.mjs"
+				],
+				"testUtils.module.js": [
+					"preact/test-utils/dist/testUtils.module",
+					"preact/test-utils/dist/testUtils.module.js"
+				],
+				"testUtils.umd.js": [
+					"preact/test-utils/dist/testUtils.umd",
+					"preact/test-utils/dist/testUtils.umd.js"
+				]
+			},
+			"package.json": [
+				"preact/test-utils/package",
+				"preact/test-utils/package.json"
+			],
+			"src": {
+				"index.js": [
+					"preact/test-utils/src",
+					"preact/test-utils/src/",
+					"preact/test-utils/src/index",
+					"preact/test-utils/src/index.js"
+				]
 			}
 		}
 	},

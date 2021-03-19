@@ -35,39 +35,37 @@
 		"./package.json"
 	],
 	"tree (pre-exports)": {
-		"ex-exports-TL-object": {
+		"index.js": [
+			"ex-exports-TL-object",
+			"ex-exports-TL-object/",
+			"ex-exports-TL-object/index",
+			"ex-exports-TL-object/index.js"
+		],
+		"file.js": [
+			"ex-exports-TL-object/file",
+			"ex-exports-TL-object/file.js"
+		],
+		"index.mjs": [
+			"ex-exports-TL-object/index.mjs"
+		],
+		"package.json": [
+			"ex-exports-TL-object/package",
+			"ex-exports-TL-object/package.json"
+		],
+		"dir": {
 			"index.js": [
-				"ex-exports-TL-object",
-				"ex-exports-TL-object/",
-				"ex-exports-TL-object/index",
-				"ex-exports-TL-object/index.js"
+				"ex-exports-TL-object/dir",
+				"ex-exports-TL-object/dir/",
+				"ex-exports-TL-object/dir/index",
+				"ex-exports-TL-object/dir/index.js"
 			],
-			"file.js": [
-				"ex-exports-TL-object/file",
-				"ex-exports-TL-object/file.js"
+			"extra.js": [
+				"ex-exports-TL-object/dir/extra",
+				"ex-exports-TL-object/dir/extra.js"
 			],
-			"index.mjs": [
-				"ex-exports-TL-object/index.mjs"
-			],
-			"package.json": [
-				"ex-exports-TL-object/package",
-				"ex-exports-TL-object/package.json"
-			],
-			"dir": {
-				"index.js": [
-					"ex-exports-TL-object/dir",
-					"ex-exports-TL-object/dir/",
-					"ex-exports-TL-object/dir/index",
-					"ex-exports-TL-object/dir/index.js"
-				],
-				"extra.js": [
-					"ex-exports-TL-object/dir/extra",
-					"ex-exports-TL-object/dir/extra.js"
-				],
-				"extra.mjs": [
-					"ex-exports-TL-object/dir/extra.mjs"
-				]
-			}
+			"extra.mjs": [
+				"ex-exports-TL-object/dir/extra.mjs"
+			]
 		}
 	},
 	"errors": []

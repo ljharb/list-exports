@@ -41,39 +41,37 @@
 		"./package.json"
 	],
 	"tree": {
-		"ex-main-dotted": {
+		"index.js": [
+			"ex-main-dotted",
+			"ex-main-dotted/",
+			"ex-main-dotted/index",
+			"ex-main-dotted/index.js"
+		],
+		"file.js": [
+			"ex-main-dotted/file",
+			"ex-main-dotted/file.js"
+		],
+		"index.mjs": [
+			"ex-main-dotted/index.mjs"
+		],
+		"package.json": [
+			"ex-main-dotted/package",
+			"ex-main-dotted/package.json"
+		],
+		"dir": {
 			"index.js": [
-				"ex-main-dotted",
-				"ex-main-dotted/",
-				"ex-main-dotted/index",
-				"ex-main-dotted/index.js"
+				"ex-main-dotted/dir",
+				"ex-main-dotted/dir/",
+				"ex-main-dotted/dir/index",
+				"ex-main-dotted/dir/index.js"
 			],
-			"file.js": [
-				"ex-main-dotted/file",
-				"ex-main-dotted/file.js"
+			"extra.js": [
+				"ex-main-dotted/dir/extra",
+				"ex-main-dotted/dir/extra.js"
 			],
-			"index.mjs": [
-				"ex-main-dotted/index.mjs"
-			],
-			"package.json": [
-				"ex-main-dotted/package",
-				"ex-main-dotted/package.json"
-			],
-			"dir": {
-				"index.js": [
-					"ex-main-dotted/dir",
-					"ex-main-dotted/dir/",
-					"ex-main-dotted/dir/index",
-					"ex-main-dotted/dir/index.js"
-				],
-				"extra.js": [
-					"ex-main-dotted/dir/extra",
-					"ex-main-dotted/dir/extra.js"
-				],
-				"extra.mjs": [
-					"ex-main-dotted/dir/extra.mjs"
-				]
-			}
+			"extra.mjs": [
+				"ex-main-dotted/dir/extra.mjs"
+			]
 		}
 	},
 	"require (pre-exports)": [
@@ -102,39 +100,37 @@
 		"./package.json"
 	],
 	"tree (pre-exports)": {
-		"ex-main-dotted": {
+		"index.js": [
+			"ex-main-dotted",
+			"ex-main-dotted/",
+			"ex-main-dotted/index",
+			"ex-main-dotted/index.js"
+		],
+		"file.js": [
+			"ex-main-dotted/file",
+			"ex-main-dotted/file.js"
+		],
+		"index.mjs": [
+			"ex-main-dotted/index.mjs"
+		],
+		"package.json": [
+			"ex-main-dotted/package",
+			"ex-main-dotted/package.json"
+		],
+		"dir": {
 			"index.js": [
-				"ex-main-dotted",
-				"ex-main-dotted/",
-				"ex-main-dotted/index",
-				"ex-main-dotted/index.js"
+				"ex-main-dotted/dir",
+				"ex-main-dotted/dir/",
+				"ex-main-dotted/dir/index",
+				"ex-main-dotted/dir/index.js"
 			],
-			"file.js": [
-				"ex-main-dotted/file",
-				"ex-main-dotted/file.js"
+			"extra.js": [
+				"ex-main-dotted/dir/extra",
+				"ex-main-dotted/dir/extra.js"
 			],
-			"index.mjs": [
-				"ex-main-dotted/index.mjs"
-			],
-			"package.json": [
-				"ex-main-dotted/package",
-				"ex-main-dotted/package.json"
-			],
-			"dir": {
-				"index.js": [
-					"ex-main-dotted/dir",
-					"ex-main-dotted/dir/",
-					"ex-main-dotted/dir/index",
-					"ex-main-dotted/dir/index.js"
-				],
-				"extra.js": [
-					"ex-main-dotted/dir/extra",
-					"ex-main-dotted/dir/extra.js"
-				],
-				"extra.mjs": [
-					"ex-main-dotted/dir/extra.mjs"
-				]
-			}
+			"extra.mjs": [
+				"ex-main-dotted/dir/extra.mjs"
+			]
 		}
 	},
 	"errors": []

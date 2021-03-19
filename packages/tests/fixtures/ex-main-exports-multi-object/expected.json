@@ -21,25 +21,23 @@
 		"./index.mjs"
 	],
 	"tree": {
-		"ex-main-exports-multi-object": {
-			"dir": {
-				"extra.mjs": [
-					"ex-main-exports-multi-object"
-				],
-				"extra.js": [
-					"ex-main-exports-multi-object"
-				],
-				"index.js": [
-					"ex-main-exports-multi-object/extra2"
-				]
-			},
-			"file.js": [
+		"dir": {
+			"extra.mjs": [
 				"ex-main-exports-multi-object"
 			],
-			"index.mjs": [
+			"extra.js": [
 				"ex-main-exports-multi-object"
+			],
+			"index.js": [
+				"ex-main-exports-multi-object/extra2"
 			]
-		}
+		},
+		"file.js": [
+			"ex-main-exports-multi-object"
+		],
+		"index.mjs": [
+			"ex-main-exports-multi-object"
+		]
 	},
 	"require (pre-exports)": [
 		"ex-main-exports-multi-object",
@@ -67,39 +65,37 @@
 		"./package.json"
 	],
 	"tree (pre-exports)": {
-		"ex-main-exports-multi-object": {
+		"index.js": [
+			"ex-main-exports-multi-object",
+			"ex-main-exports-multi-object/",
+			"ex-main-exports-multi-object/index",
+			"ex-main-exports-multi-object/index.js"
+		],
+		"file.js": [
+			"ex-main-exports-multi-object/file",
+			"ex-main-exports-multi-object/file.js"
+		],
+		"index.mjs": [
+			"ex-main-exports-multi-object/index.mjs"
+		],
+		"package.json": [
+			"ex-main-exports-multi-object/package",
+			"ex-main-exports-multi-object/package.json"
+		],
+		"dir": {
 			"index.js": [
-				"ex-main-exports-multi-object",
-				"ex-main-exports-multi-object/",
-				"ex-main-exports-multi-object/index",
-				"ex-main-exports-multi-object/index.js"
+				"ex-main-exports-multi-object/dir",
+				"ex-main-exports-multi-object/dir/",
+				"ex-main-exports-multi-object/dir/index",
+				"ex-main-exports-multi-object/dir/index.js"
 			],
-			"file.js": [
-				"ex-main-exports-multi-object/file",
-				"ex-main-exports-multi-object/file.js"
+			"extra.js": [
+				"ex-main-exports-multi-object/dir/extra",
+				"ex-main-exports-multi-object/dir/extra.js"
 			],
-			"index.mjs": [
-				"ex-main-exports-multi-object/index.mjs"
-			],
-			"package.json": [
-				"ex-main-exports-multi-object/package",
-				"ex-main-exports-multi-object/package.json"
-			],
-			"dir": {
-				"index.js": [
-					"ex-main-exports-multi-object/dir",
-					"ex-main-exports-multi-object/dir/",
-					"ex-main-exports-multi-object/dir/index",
-					"ex-main-exports-multi-object/dir/index.js"
-				],
-				"extra.js": [
-					"ex-main-exports-multi-object/dir/extra",
-					"ex-main-exports-multi-object/dir/extra.js"
-				],
-				"extra.mjs": [
-					"ex-main-exports-multi-object/dir/extra.mjs"
-				]
-			}
+			"extra.mjs": [
+				"ex-main-exports-multi-object/dir/extra.mjs"
+			]
 		}
 	},
 	"errors": []

@@ -39,37 +39,35 @@
 		"./package.json"
 	],
 	"tree": {
-		"flatted": {
-			"cjs": {
-				"index.js": [
-					"flatted",
-					"flatted/",
-					"flatted/cjs",
-					"flatted/cjs/",
-					"flatted/cjs/index",
-					"flatted/cjs/index.js"
-				]
-			},
+		"cjs": {
 			"index.js": [
-				"flatted/index",
-				"flatted/index.js"
-			],
-			"min.js": [
-				"flatted/min",
-				"flatted/min.js"
-			],
-			"package.json": [
-				"flatted/package",
-				"flatted/package.json"
-			],
-			"esm": {
-				"index.js": [
-					"flatted/esm",
-					"flatted/esm/",
-					"flatted/esm/index",
-					"flatted/esm/index.js"
-				]
-			}
+				"flatted",
+				"flatted/",
+				"flatted/cjs",
+				"flatted/cjs/",
+				"flatted/cjs/index",
+				"flatted/cjs/index.js"
+			]
+		},
+		"index.js": [
+			"flatted/index",
+			"flatted/index.js"
+		],
+		"min.js": [
+			"flatted/min",
+			"flatted/min.js"
+		],
+		"package.json": [
+			"flatted/package",
+			"flatted/package.json"
+		],
+		"esm": {
+			"index.js": [
+				"flatted/esm",
+				"flatted/esm/",
+				"flatted/esm/index",
+				"flatted/esm/index.js"
+			]
 		}
 	},
 	"require (pre-exports)": [
@@ -98,37 +96,35 @@
 		"./package.json"
 	],
 	"tree (pre-exports)": {
-		"flatted": {
-			"cjs": {
-				"index.js": [
-					"flatted",
-					"flatted/",
-					"flatted/cjs",
-					"flatted/cjs/",
-					"flatted/cjs/index",
-					"flatted/cjs/index.js"
-				]
-			},
+		"cjs": {
 			"index.js": [
-				"flatted/index",
-				"flatted/index.js"
-			],
-			"min.js": [
-				"flatted/min",
-				"flatted/min.js"
-			],
-			"package.json": [
-				"flatted/package",
-				"flatted/package.json"
-			],
-			"esm": {
-				"index.js": [
-					"flatted/esm",
-					"flatted/esm/",
-					"flatted/esm/index",
-					"flatted/esm/index.js"
-				]
-			}
+				"flatted",
+				"flatted/",
+				"flatted/cjs",
+				"flatted/cjs/",
+				"flatted/cjs/index",
+				"flatted/cjs/index.js"
+			]
+		},
+		"index.js": [
+			"flatted/index",
+			"flatted/index.js"
+		],
+		"min.js": [
+			"flatted/min",
+			"flatted/min.js"
+		],
+		"package.json": [
+			"flatted/package",
+			"flatted/package.json"
+		],
+		"esm": {
+			"index.js": [
+				"flatted/esm",
+				"flatted/esm/",
+				"flatted/esm/index",
+				"flatted/esm/index.js"
+			]
 		}
 	},
 	"errors": []

@@ -41,39 +41,37 @@
 		"./package.json"
 	],
 	"tree": {
-		"ex-main-implicit": {
+		"index.js": [
+			"ex-main-implicit",
+			"ex-main-implicit/",
+			"ex-main-implicit/index",
+			"ex-main-implicit/index.js"
+		],
+		"file.js": [
+			"ex-main-implicit/file",
+			"ex-main-implicit/file.js"
+		],
+		"index.mjs": [
+			"ex-main-implicit/index.mjs"
+		],
+		"package.json": [
+			"ex-main-implicit/package",
+			"ex-main-implicit/package.json"
+		],
+		"dir": {
 			"index.js": [
-				"ex-main-implicit",
-				"ex-main-implicit/",
-				"ex-main-implicit/index",
-				"ex-main-implicit/index.js"
+				"ex-main-implicit/dir",
+				"ex-main-implicit/dir/",
+				"ex-main-implicit/dir/index",
+				"ex-main-implicit/dir/index.js"
 			],
-			"file.js": [
-				"ex-main-implicit/file",
-				"ex-main-implicit/file.js"
+			"extra.js": [
+				"ex-main-implicit/dir/extra",
+				"ex-main-implicit/dir/extra.js"
 			],
-			"index.mjs": [
-				"ex-main-implicit/index.mjs"
-			],
-			"package.json": [
-				"ex-main-implicit/package",
-				"ex-main-implicit/package.json"
-			],
-			"dir": {
-				"index.js": [
-					"ex-main-implicit/dir",
-					"ex-main-implicit/dir/",
-					"ex-main-implicit/dir/index",
-					"ex-main-implicit/dir/index.js"
-				],
-				"extra.js": [
-					"ex-main-implicit/dir/extra",
-					"ex-main-implicit/dir/extra.js"
-				],
-				"extra.mjs": [
-					"ex-main-implicit/dir/extra.mjs"
-				]
-			}
+			"extra.mjs": [
+				"ex-main-implicit/dir/extra.mjs"
+			]
 		}
 	},
 	"require (pre-exports)": [
@@ -102,39 +100,37 @@
 		"./package.json"
 	],
 	"tree (pre-exports)": {
-		"ex-main-implicit": {
+		"index.js": [
+			"ex-main-implicit",
+			"ex-main-implicit/",
+			"ex-main-implicit/index",
+			"ex-main-implicit/index.js"
+		],
+		"file.js": [
+			"ex-main-implicit/file",
+			"ex-main-implicit/file.js"
+		],
+		"index.mjs": [
+			"ex-main-implicit/index.mjs"
+		],
+		"package.json": [
+			"ex-main-implicit/package",
+			"ex-main-implicit/package.json"
+		],
+		"dir": {
 			"index.js": [
-				"ex-main-implicit",
-				"ex-main-implicit/",
-				"ex-main-implicit/index",
-				"ex-main-implicit/index.js"
+				"ex-main-implicit/dir",
+				"ex-main-implicit/dir/",
+				"ex-main-implicit/dir/index",
+				"ex-main-implicit/dir/index.js"
 			],
-			"file.js": [
-				"ex-main-implicit/file",
-				"ex-main-implicit/file.js"
+			"extra.js": [
+				"ex-main-implicit/dir/extra",
+				"ex-main-implicit/dir/extra.js"
 			],
-			"index.mjs": [
-				"ex-main-implicit/index.mjs"
-			],
-			"package.json": [
-				"ex-main-implicit/package",
-				"ex-main-implicit/package.json"
-			],
-			"dir": {
-				"index.js": [
-					"ex-main-implicit/dir",
-					"ex-main-implicit/dir/",
-					"ex-main-implicit/dir/index",
-					"ex-main-implicit/dir/index.js"
-				],
-				"extra.js": [
-					"ex-main-implicit/dir/extra",
-					"ex-main-implicit/dir/extra.js"
-				],
-				"extra.mjs": [
-					"ex-main-implicit/dir/extra.mjs"
-				]
-			}
+			"extra.mjs": [
+				"ex-main-implicit/dir/extra.mjs"
+			]
 		}
 	},
 	"errors": []

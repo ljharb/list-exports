@@ -16,17 +16,15 @@
 		"./esm/index.js"
 	],
 	"tree": {
-		"flatted": {
-			"cjs": {
-				"index.js": [
-					"flatted"
-				]
-			},
-			"esm": {
-				"index.js": [
-					"flatted"
-				]
-			}
+		"cjs": {
+			"index.js": [
+				"flatted"
+			]
+		},
+		"esm": {
+			"index.js": [
+				"flatted"
+			]
 		}
 	},
 	"require (pre-exports)": [
@@ -57,41 +55,39 @@
 		"./package.json"
 	],
 	"tree (pre-exports)": {
-		"flatted": {
-			"cjs": {
-				"index.js": [
-					"flatted",
-					"flatted/",
-					"flatted/cjs/index",
-					"flatted/cjs/index.js"
-				],
-				"package.json": [
-					"flatted/cjs/package",
-					"flatted/cjs/package.json"
-				]
-			},
-			"es.js": [
-				"flatted/es",
-				"flatted/es.js"
-			],
+		"cjs": {
 			"index.js": [
-				"flatted/index",
-				"flatted/index.js"
-			],
-			"min.js": [
-				"flatted/min",
-				"flatted/min.js"
+				"flatted",
+				"flatted/",
+				"flatted/cjs/index",
+				"flatted/cjs/index.js"
 			],
 			"package.json": [
-				"flatted/package",
-				"flatted/package.json"
-			],
-			"esm": {
-				"index.js": [
-					"flatted/esm/index",
-					"flatted/esm/index.js"
-				]
-			}
+				"flatted/cjs/package",
+				"flatted/cjs/package.json"
+			]
+		},
+		"es.js": [
+			"flatted/es",
+			"flatted/es.js"
+		],
+		"index.js": [
+			"flatted/index",
+			"flatted/index.js"
+		],
+		"min.js": [
+			"flatted/min",
+			"flatted/min.js"
+		],
+		"package.json": [
+			"flatted/package",
+			"flatted/package.json"
+		],
+		"esm": {
+			"index.js": [
+				"flatted/esm/index",
+				"flatted/esm/index.js"
+			]
 		}
 	},
 	"errors": [

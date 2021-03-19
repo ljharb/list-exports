@@ -25,21 +25,19 @@
 		"./package.json"
 	],
 	"tree": {
-		"is-promise": {
-			"index.js": [
-				"is-promise",
-				"is-promise/",
-				"is-promise/index",
-				"is-promise/index.js"
-			],
-			"index.mjs": [
-				"is-promise/index.mjs"
-			],
-			"package.json": [
-				"is-promise/package",
-				"is-promise/package.json"
-			]
-		}
+		"index.js": [
+			"is-promise",
+			"is-promise/",
+			"is-promise/index",
+			"is-promise/index.js"
+		],
+		"index.mjs": [
+			"is-promise/index.mjs"
+		],
+		"package.json": [
+			"is-promise/package",
+			"is-promise/package.json"
+		]
 	},
 	"require (pre-exports)": [
 		"is-promise",
@@ -55,21 +53,19 @@
 		"./package.json"
 	],
 	"tree (pre-exports)": {
-		"is-promise": {
-			"index.js": [
-				"is-promise",
-				"is-promise/",
-				"is-promise/index",
-				"is-promise/index.js"
-			],
-			"index.mjs": [
-				"is-promise/index.mjs"
-			],
-			"package.json": [
-				"is-promise/package",
-				"is-promise/package.json"
-			]
-		}
+		"index.js": [
+			"is-promise",
+			"is-promise/",
+			"is-promise/index",
+			"is-promise/index.js"
+		],
+		"index.mjs": [
+			"is-promise/index.mjs"
+		],
+		"package.json": [
+			"is-promise/package",
+			"is-promise/package.json"
+		]
 	},
 	"errors": []
 }

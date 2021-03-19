@@ -446,10 +446,10 @@ module.exports = async function listExports(packageJSON, options = {}) {
 		'require': actualRequires,
 		'import': actualImports,
 		'files': actualFiles,
-		tree,
+		'tree': tree[name] || {},
 		'require (pre-exports)': actualLegacyRequires,
 		'files (pre-exports)': actualLegacyFiles,
-		'tree (pre-exports)': legacyTree,
+		'tree (pre-exports)': legacyTree[name] || {},
 		errors,
 	};
 };
