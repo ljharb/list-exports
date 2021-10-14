@@ -18,6 +18,7 @@ jobs:
     name: 'exports conditions'
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         node-version:
           - '16'
@@ -43,7 +44,6 @@ jobs:
           - '0.12'
           - '0.10'
           - '0.8'
-          - '0.6'
     steps:
       - uses: actions/checkout@v2
       - run: cd packages/tests
@@ -80,6 +80,7 @@ jobs:
     name: 'node 10 + skip CLI'
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix: ${{ fromJson(needs.matrix-skip-cli.outputs.versions) }}
 
     steps:
@@ -118,6 +119,7 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix: ${{ fromJson(needs.matrix.outputs.latest) }}
 
     steps:
@@ -138,6 +140,7 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix: ${{ fromJson(needs.matrix.outputs.minors) }}
 
     steps:
