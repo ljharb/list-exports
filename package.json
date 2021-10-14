@@ -32,13 +32,14 @@
 		"url": "https://github.com/sponsors/ljharb"
 	},
 	"devDependencies": {
-		"@ljharb/eslint-config": "^17.5.1",
-		"aud": "^1.1.4",
-		"eslint": "^7.20.0",
+		"@ljharb/eslint-config": "^18.0.0",
+		"aud": "^1.1.5",
+		"auto-changelog": "^2.3.0",
+		"eslint": "^7.32.0",
 		"glob-gitignore": "^1.0.14",
 		"lerna": "^3.22.1",
-		"ls-engines": "^0.4.1",
-		"tape": "^5.2.0"
+		"ls-engines": "^0.5.0",
+		"tape": "^5.3.1"
 	},
 	"engines": {
 		"node": ">= 10"

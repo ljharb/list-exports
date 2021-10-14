@@ -56,12 +56,12 @@
 		"resolve": "^2.0.0-next.3"
 	},
 	"devDependencies": {
-		"@ljharb/eslint-config": "^17.5.1",
-		"aud": "^1.1.4",
-		"eslint": "^7.20.0",
+		"@ljharb/eslint-config": "^18.0.0",
+		"aud": "^1.1.5",
+		"eslint": "^7.32.0",
 		"in-publish": "^2.0.1",
-		"ls-engines": "^0.4.1",
-		"safe-publish-latest": "^1.1.4"
+		"ls-engines": "^0.5.0",
+		"safe-publish-latest": "^1.1.5"
 	},
 	"engines": {
 		"node": ">= 10"
