@@ -15,7 +15,7 @@ var getExpected = require('./conditions-expected');
 
 var re = process.env.GREP && new RegExp(process.env.GREP);
 
-test('condition ordering', { skip: !re || !re.test('condition ordering') }, function (t) {
+test('condition ordering', { skip: re && !re.test('condition ordering') }, function (t) {
 	if (hasBrokenExports) {
 		t.ok(
 			semver.satisfies(process.version, '~13.0 || ~13.1', { includePrerelease: true }),
