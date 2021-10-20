@@ -38,7 +38,7 @@
 		"eslint": "^7.32.0",
 		"glob-gitignore": "^1.0.14",
 		"lerna": "^3.22.1",
-		"ls-engines": "^0.5.0",
+		"ls-engines": "^0.6.0",
 		"tape": "^5.3.1"
 	},
 	"engines": {
