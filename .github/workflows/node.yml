@@ -3,8 +3,7 @@ name: 'Tests: node.js'
 on: [pull_request, push]
 
 jobs:
-  engines:
-    name: 'ls-engines'
+  engines-matrix:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -12,7 +11,28 @@ jobs:
         name: 'nvm install lts/* && npm install'
         with:
           node-version: 'lts/*'
-      - run: npx lerna exec ls-engines
+      - id: set-matrix
+        run: |
+          echo "::set-output name=matrix::$(npx lerna list --all --parseable 2>/dev/null | xargs node -pe 'JSON.stringify(process.argv.slice(1).map(x => path.relative(__dirname, x)).map(x => x ? "./"+x : "."))')"
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+
+  engines:
+    name: 'ls-engines'
+    needs: [engines-matrix]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        package: ${{ fromJson(needs.engines-matrix.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ljharb/actions/node/install@main
+        name: 'nvm install lts/* && npm install'
+        with:
+          node-version: 'lts/*'
+      - run: npx ls-engines
+        working-directory: ${{ matrix.package }}
 
   conditions:
     name: 'exports conditions'
