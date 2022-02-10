@@ -48,7 +48,7 @@
 		"object.values": "^1.1.5",
 		"pacote": "^11.3.5",
 		"strip-ansi": "^6.0.1",
-		"table": "^6.7.2",
+		"table": "^6.8.0",
 		"tmp": "^0.2.1",
 		"tree-walk": "^0.4.0",
 		"yargs": "^16.2.0"
