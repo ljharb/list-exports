@@ -49,10 +49,10 @@
 	"dependencies": {
 		"array.prototype.flatmap": "^1.2.5",
 		"get-package-type": "^0.1.0",
-		"npm-packlist": "^2.2.2",
-		"object-inspect": "^1.11.0",
+		"npm-packlist": "^3.0.0",
+		"object-inspect": "^1.12.0",
 		"object.entries": "^1.1.5",
-		"read-package-json": "^3.0.1",
+		"read-package-json": "^4.1.1",
 		"resolve": "^2.0.0-next.3"
 	},
 	"devDependencies": {
