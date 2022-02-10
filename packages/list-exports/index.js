@@ -14,7 +14,7 @@ const inspect = require('object-inspect');
 
 function pathType(file) {
 	try {
-		var stat = fs.lstatSync(file);
+		const stat = fs.lstatSync(file);
 		if (stat.isFile()) {
 			return 'file';
 		}
@@ -118,7 +118,7 @@ function normalizeExports(exports, errors) {
 
 function getExtensions(packageType = 'commonjs') {
 	if (packageType !== 'commonjs' && packageType !== 'module') {
-		throw new TypeError('unknown package type found: ' + inspect(packageType));
+		throw new TypeError(`unknown package type found: ${inspect(packageType)}`);
 	}
 
 	const base = Object.keys(require.extensions)
@@ -138,7 +138,7 @@ function getExtensions(packageType = 'commonjs') {
 function isCJS(filename, usingExports = false) {
 	const packageType = getPackageType.sync(filename);
 	if (packageType !== 'commonjs' && packageType !== 'module') {
-		throw new TypeError('unknown package type found: ' + inspect(packageType));
+		throw new TypeError(`unknown package type found: ${inspect(packageType)}`);
 	}
 	const { base, legacy } = getExtensions(packageType);
 	return (usingExports ? base : legacy).includes(path.extname(filename));
@@ -147,7 +147,7 @@ function isCJS(filename, usingExports = false) {
 function isESM(filename) {
 	const packageType = getPackageType.sync(filename);
 	if (packageType !== 'commonjs' && packageType !== 'module') {
-		throw new TypeError('unknown package type found: ' + inspect(packageType));
+		throw new TypeError(`unknown package type found: ${inspect(packageType)}`);
 	}
 	const { esm } = getExtensions(packageType);
 	return esm.includes(path.extname(filename));
@@ -163,7 +163,7 @@ module.exports = async function listExports(packageJSON, options = {}) {
 		if (level === 'without conditions') {
 			supportsConditionalExports = false;
 		} else {
-			throw new TypeError('unknown level: ' + level);
+			throw new TypeError(`unknown level: ${level}`);
 		}
 	}
 
@@ -172,7 +172,7 @@ module.exports = async function listExports(packageJSON, options = {}) {
 		version,
 		main,
 		bin,
-		'private': isPrivate,
+		private: isPrivate,
 		exports,
 		engines,
 		type: rootType,
@@ -438,14 +438,14 @@ module.exports = async function listExports(packageJSON, options = {}) {
 	return {
 		name,
 		version,
-		'engines': {
+		engines: {
 			node: '*',
 			...engines,
 		},
-		'binaries': Object.keys(bin || {}),
-		'require': actualRequires,
-		'import': actualImports,
-		'files': actualFiles,
+		binaries: Object.keys(bin || {}),
+		require: actualRequires,
+		import: actualImports,
+		files: actualFiles,
 		tree,
 		'require (pre-exports)': actualLegacyRequires,
 		'files (pre-exports)': actualLegacyFiles,
