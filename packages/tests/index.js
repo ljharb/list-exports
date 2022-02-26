@@ -30,7 +30,7 @@ function readExpectedJson(expectedPath, packageData) {
 function diffApiOutput(t, message, { expected, results, expectedPath }) {
 	const diff = diffString(expected, results);
 	if (diff) {
-		console.error('# ' + diff.split('\n').join('\n# '));
+		console.error(`# ${diff.split('\n').join('\n# ')}`);
 	}
 	t.deepEqual(results, expected, message);
 	if (WRITE) {
@@ -38,7 +38,7 @@ function diffApiOutput(t, message, { expected, results, expectedPath }) {
 		if (expected.name === 'ls-exports' || expected.name === 'list-exports') {
 			resultsToWrite = { ...resultsToWrite, version: null };
 		}
-		fs.writeFileSync(expectedPath, JSON.stringify(resultsToWrite, null, '\t').trim() + '\n');
+		fs.writeFileSync(expectedPath, `${JSON.stringify(resultsToWrite, null, '\t').trim()}\n`);
 	}
 }
 
@@ -47,7 +47,7 @@ test('listExports', (t) => {
 
 	fixtures.forEach((fixture) => {
 		const skip = re && !re.test(fixture);
-		t.test(`fixture: ${fixture}`, { skip: skip }, async (st) => {
+		t.test(`fixture: ${fixture}`, { skip }, async (st) => {
 			const checkNPM = !isOffline && !fixture.startsWith('ex-') && fixture !== 'list-exports' && fixture !== 'ls-exports';
 
 			st.plan(3);
@@ -60,15 +60,15 @@ test('listExports', (t) => {
 			const packageData = JSON.parse(fs.readFileSync(packageJSON));
 			const expected = readExpectedJson(expectedPath, packageData);
 
-			const results = await listExports(packageJSON)['catch']((e) => {
+			const results = await listExports(packageJSON).catch((e) => {
 				console.error(e);
 				throw e;
 			});
 
 			diffApiOutput(st, `${fixture}: API results match expectation`, {
-				expected: expected,
-				results: results,
-				expectedPath: expectedPath
+				expected,
+				results,
+				expectedPath,
 			});
 
 			st.test(`fixture: ${fixture}: without conditions`, async (s2t) => {
@@ -77,7 +77,7 @@ test('listExports', (t) => {
 				const expectedWithoutConditionsPath = path.join(fixtureDir, 'expected-without-conditions.json');
 				const expectedWithoutConditions = readExpectedJson(expectedWithoutConditionsPath, packageData);
 
-				const resultsWithoutConditions = await listExports(packageJSON, { level: 'without conditions' })['catch']((e) => {
+				const resultsWithoutConditions = await listExports(packageJSON, { level: 'without conditions' }).catch((e) => {
 					console.error(e);
 					throw e;
 				});
@@ -85,7 +85,7 @@ test('listExports', (t) => {
 				diffApiOutput(s2t, `${fixture}: API results match expectation without conditions`, {
 					expected: expectedWithoutConditions,
 					results: resultsWithoutConditions,
-					expectedPath: expectedWithoutConditionsPath
+					expectedPath: expectedWithoutConditionsPath,
 				});
 			});
 
@@ -99,7 +99,7 @@ test('listExports', (t) => {
 					const npmResults = JSON.parse(execSync(`${cli} package "${results.name}@${results.version}" --json`));
 					const npmDiff = diffString(expected, npmResults);
 					if (npmDiff) {
-						console.error('# ' + npmDiff.split('\n').join('\n# '));
+						console.error(`# ${npmDiff.split('\n').join('\n# ')}`);
 					}
 					s2t.deepEqual(npmResults, expected, `${fixture}: npm package results match expectation`);
 				}

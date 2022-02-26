@@ -1,11 +1,7 @@
 {
 	"root": true,
 
-	"extends": ["@ljharb", "@ljharb/eslint-config/tests"],
-
-	"parserOptions": {
-		"ecmaVersion": 2018,
-	},
+	"extends": ["@ljharb/eslint-config/node/10", "@ljharb/eslint-config/tests"],
 
 	"rules": {
 		"complexity": 0,
@@ -14,4 +10,21 @@
 		"max-lines-per-function": 0,
 		"no-negated-condition": 0,
 	},
+
+	"overrides": [
+		{
+			"files": [
+				"conditions.js",
+				"conditions-expected.js",
+			],
+			"extends": ["@ljharb", "@ljharb/eslint-config/tests"],
+			"rules": {
+				"complexity": 0,
+				"func-style": 0,
+				"id-length": 0,
+				"max-lines-per-function": 0,
+				"no-negated-condition": 0,
+			}
+		}
+	],
 }

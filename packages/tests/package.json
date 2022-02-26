@@ -9,15 +9,15 @@
 		"regen": "node fixtures/ex-conditions/project/gen"
 	},
 	"devDependencies": {
-		"@ljharb/eslint-config": "^18.0.0",
+		"@ljharb/eslint-config": "^20.2.3",
 		"conditions": "file:./fixtures/ex-conditions/project",
-		"eslint": "^7.32.0",
+		"eslint": "=8.8.0",
 		"for-each": "^0.3.3",
 		"has-package-exports": "^1.2.3",
 		"is-equal": "^1.6.3",
 		"json-diff": "^0.5.4",
 		"list-exports": "*",
-		"ls-engines": "^0.6.1",
+		"ls-engines": "^0.6.5",
 		"object.entries": "^1.1.5",
 		"object.fromentries": "^2.0.5",
 		"resolve": "^2.0.0-next.3",
