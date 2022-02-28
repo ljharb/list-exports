@@ -1,4 +1,5 @@
 {
+  "bundleDependencies": true,
   "_from": "flatted@3",
   "_id": "flatted@3.0.2",
   "_inBundle": false,
@@ -28,7 +29,6 @@
   "bugs": {
     "url": "https://github.com/WebReflection/flatted/issues"
   },
-  "bundleDependencies": false,
   "deprecated": false,
   "description": "A super light and fast circular JSON parser.",
   "devDependencies": {

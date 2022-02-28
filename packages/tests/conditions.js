@@ -4,7 +4,7 @@ var test = require('tape');
 var semver = require('semver');
 var whyNotEqual = require('is-equal/why');
 var forEach = require('for-each');
-var resolve = require('resolve');
+var resolve = require('resolve/sync');
 
 var hasBrokenExports = semver.satisfies(process.version, '~13.0 || ~13.1', { includePrerelease: true });
 var hasPackageExports = require('has-package-exports');
@@ -40,12 +40,12 @@ test('condition ordering', { skip: re && !re.test('condition ordering') }, funct
 
 	forEach([
 		['require.resolve', getExpected(require.resolve)],
-		['resolve', getExpected(function (x) { return resolve.sync(x); })]
+		['resolve', getExpected(function (x) { return resolve(x); })]
 	], function (entry) {
 		var desc = entry[0];
 		var results = entry[1];
 
-		t.test(desc, { todo: desc === 'resolve' }, function (st) {
+		t.test(desc, { todo: desc === 'resolve' || (desc === 'require.resolve' && semver.satisfies(process.version, '< 6')) }, function (st) {
 			st.deepEqual(
 				Object.keys(results.expected).map(function (e) { return e === '.' ? e : './' + e; }),
 				Object.keys(results['package'].exports),

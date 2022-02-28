@@ -42,7 +42,6 @@
   "bugs": {
     "url": "https://github.com/inspect-js/has-package-exports/issues"
   },
-  "bundleDependencies": false,
   "dependencies": {
     "@ljharb/has-package-exports-patterns": "0.0.1"
   },

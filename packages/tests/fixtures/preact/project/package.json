@@ -1,4 +1,5 @@
 {
+  "bundleDependencies": true,
   "_from": "preact",
   "_id": "preact@10.4.1",
   "_inBundle": false,
@@ -29,7 +30,7 @@
   "bugs": {
     "url": "https://github.com/preactjs/preact/issues"
   },
-  "bundleDependencies": false,
+  "bundleDependencies": true,
   "deprecated": false,
   "description": "Fast 3kb React-compatible Virtual DOM library.",
   "devDependencies": {

@@ -1,4 +1,5 @@
 {
+	"bundleDependencies": true,
 	"name": "nonexistent-dir",
 	"main": "./index.js",
 	"exports": {

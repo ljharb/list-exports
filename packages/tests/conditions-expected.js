@@ -58,7 +58,7 @@ module.exports = function getExpectedConditions(resolve) {
 		var result;
 		var resolved;
 		try {
-			var exportPath = 'ex-conditions' + (entry[0] === '.' ? '' : '/' + entry[0]);
+			var exportPath = '@fixtures/ex-conditions' + (entry[0] === '.' ? '' : '/' + entry[0]);
 			// eslint-disable-next-line global-require
 			result = entry[0] === 'package.json' ? empty : require(exportPath);
 			resolved = path.basename(resolve(exportPath));

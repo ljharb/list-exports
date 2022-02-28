@@ -1,4 +1,5 @@
 {
+	"bundleDependencies": true,
 	"name": "es-abstract",
 	"version": "1.17.5",
 	"author": {

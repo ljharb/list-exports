@@ -36,6 +36,7 @@ function permute(input) {
 permute(Object.keys(conditionsMap).join(''));
 
 const pkg = {
+	bundleDependencies: true,
 	name: 'ex-conditions',
 	version: '0.0.0',
 	main: './main.js',
@@ -64,7 +65,7 @@ if (isTest) {
 	var actual = String(fs.readFileSync(pkgJSONpath));
 	assert.equal(actual, pkgJSONcontents);
 } else {
-	fs.writeFileSync(pkgJSONpath, pkgJSONcontents);
+	fs.writeFileSync(pkgJSONpath, pkgJSONcontents + '\n');
 }
 
 permutations.forEach((permutation) => {

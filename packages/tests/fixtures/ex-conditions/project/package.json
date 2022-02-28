@@ -1,4 +1,5 @@
 {
+	"bundleDependencies": true,
 	"name": "ex-conditions",
 	"version": "0.0.0",
 	"main": "./main.js",
