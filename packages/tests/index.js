@@ -19,9 +19,13 @@ const cli = path.join(__dirname, '..', 'ls-exports', 'bin', 'ls-exports');
 
 const re = GREP && new RegExp(GREP);
 
+function isInternalPackage(name) {
+	return name === 'ls-exports' || name === 'list-exports';
+}
+
 function readExpectedJson(expectedPath, packageData) {
 	const expected = JSON.parse(fs.readFileSync(expectedPath));
-	if (expected.name === 'ls-exports' || expected.name === 'list-exports') {
+	if (isInternalPackage(expected.name)) {
 		expected.version = packageData.version;
 	}
 	return expected;
@@ -35,7 +39,7 @@ function diffApiOutput(t, message, { expected, results, expectedPath }) {
 	t.deepEqual(results, expected, message);
 	if (WRITE) {
 		let resultsToWrite = results;
-		if (expected.name === 'ls-exports' || expected.name === 'list-exports') {
+		if (isInternalPackage(expected.name)) {
 			resultsToWrite = { ...resultsToWrite, version: null };
 		}
 		fs.writeFileSync(expectedPath, `${JSON.stringify(resultsToWrite, null, '\t').trim()}\n`);
@@ -48,7 +52,7 @@ test('listExports', (t) => {
 	fixtures.forEach((fixture) => {
 		const skip = re && !re.test(fixture);
 		t.test(`fixture: ${fixture}`, { skip }, async (st) => {
-			const checkNPM = !isOffline && !fixture.startsWith('ex-') && fixture !== 'list-exports' && fixture !== 'ls-exports';
+			const checkNPM = !isOffline && !fixture.startsWith('ex-') && !isInternalPackage(fixture);
 
 			st.plan(3);
 
