@@ -1,6 +1,6 @@
 {
 	"bundleDependencies": true,
-	"name": "resolve",
+	"name": "resolve-1",
 	"description": "resolve like require.resolve() on behalf of files asynchronously and synchronously",
 	"version": "1.17.0",
 	"repository": {

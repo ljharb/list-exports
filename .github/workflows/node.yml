@@ -12,8 +12,8 @@ jobs:
       - uses: ljharb/actions/node/matrix@main
         id: set-matrix
         with:
-          requireds: '10.17 || ^10.22 || >= 11'
-          optionals: '10.18 || 10.19 || 10.20 || 10.21'
+          requireds: '>= 16 || ^14.19 || ^12.22'
+          optionals: '16.0 - 16.13 || 14.18 || 14.17 || 14.16 || 14.15'
           type: 'minors'
 
   latest:
@@ -65,7 +65,7 @@ jobs:
       - uses: ljharb/actions/node/matrix@main
         id: set-matrix
         with:
-          preset: '10.0 - 10.16'
+          preset: '15.x || 14.0 - 14.18 || 12.0 - 12.22'
           type: 'minors'
 
   skip-cli-latest:

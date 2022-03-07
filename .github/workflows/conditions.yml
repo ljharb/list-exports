@@ -10,11 +10,12 @@ jobs:
       fail-fast: false
       matrix:
         node-version:
-          - '17'
+          - '17'   # ↥ pattern-trailers-no-dir-slash
           - '16'
 
           - '16.9' # ⤓ with pattern trailers
           - '16.8' # ↥ no pattern trailers
+          - '16.0' # ↥ patterns
 
           - '15'
 
@@ -26,6 +27,9 @@ jobs:
 
           - '14.0'  # ⤓ with conditions
           - '13'    # ↥ no conditions
+
+          - '13.14' # ⤓ first conditions with broken dir slash
+          - '13.13' # ↥ last conditions without broken dir slash
 
           - '13.7'  # ⤓ with conditions
           - '13.6'  # ↥ no conditions

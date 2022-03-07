@@ -6,6 +6,8 @@ const path = require('path');
 const npa = require('npm-package-arg');
 const colorize = require('json-colorizer');
 const yargs = require('yargs');
+const fromEntries = require('object.fromentries');
+const arrayFrom = require('array.from');
 
 const listExports = require('list-exports');
 const exportsTable = require('../exportsTable');
@@ -49,8 +51,18 @@ const argv = yargs
 
 const packageDirP = argv.path ? Promise.resolve(argv.path) : getPackageJSONPath(argv.specifier);
 
+function serializer(key, value) {
+	if (value instanceof Set) {
+		return arrayFrom(value);
+	}
+	if (value instanceof Map) {
+		return fromEntries(arrayFrom(value));
+	}
+	return value;
+}
+
 const promise = packageDirP.then((packageDir) => (argv.json
-	? listExports(packageDir).then((x) => console.log(colorize(JSON.stringify(x, null, '\t'))))
+	? listExports(packageDir).then((x) => console.log(colorize(JSON.stringify(x, serializer))))
 	: exportsTable(packageDir, (x) => console.log(x))));
 
 promise.catch((err) => {
