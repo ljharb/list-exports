@@ -50,7 +50,7 @@
   "license": "ISC",
   "main": "cjs/index.js",
   "module": "esm/index.js",
-  "name": "flatted",
+  "name": "flatted-1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WebReflection/flatted.git"

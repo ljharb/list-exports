@@ -98,7 +98,7 @@
   ],
   "license": "MIT",
   "main": "index.js",
-  "name": "resolve",
+  "name": "resolve-2",
   "repository": {
     "type": "git",
     "url": "git://github.com/browserify/resolve.git"

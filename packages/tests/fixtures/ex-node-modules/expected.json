@@ -77,8 +77,7 @@
 	},
 	"errors": [
 		"`./packages/tests/fixtures/ex-node-modules/project` has a `package.json`, but either lacks a `main`, or its `main` is invalid!",
-		"package `exports` is invalid; the value of `./local` (`./node_modules/dep/dep.js`) contains `node_modules`!",
-		"package `exports` is invalid; the value of `./local-encoded` (`./no%64e_modules/dep/dep.js`) contains `node_modules`!",
+		"ERR_INVALID_PACKAGE_TARGET: package `exports` is invalid; values may not contain a `node_modules` path segment (`./local-encoded`: `./no%64e_modules/dep/dep.js`, `./local`: `./node_modules/dep/dep.js`).",
 		"package “main” (`./main.js`) does not appear to exist!"
 	]
 }

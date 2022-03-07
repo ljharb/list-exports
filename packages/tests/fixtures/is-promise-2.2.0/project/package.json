@@ -46,7 +46,7 @@
   "homepage": "https://github.com/then/is-promise#readme",
   "license": "MIT",
   "main": "index.js",
-  "name": "is-promise",
+  "name": "is-promise-2.2.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/then/is-promise.git"

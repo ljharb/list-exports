@@ -9,106 +9,202 @@
 
 Given a path to a package.json, what specifiers does it expose?
 
-The package export defaults an `async function`. It fulfills with an object with the following keys:
+The package export defaults an `async function`. It takes a path to a `package.json` as the only required argument.
+
+It fulfills with an object with the following structure:
   - `name` the package name
   - `version`: the package version
   - `engines`: the package's `engines` requirements
-  - `binaries`: the files that are made available as executable programs
-  - `errors`: any validation errors encountered during parsing. <sub>Note that these errors *do not* necessarily interfere with the listed entry points being accessible at runtime.</sub>
+  - `problems`: a Set of strings describing problems or validation issues encountered during exports traversal. <sub>Note that these errors *do not* necessarily interfere with the listed entry points being accessible at runtime.</sub>
+  - `exports`: an object with the following structure:
+    - `binaries`: a Map of executable program names, to the relative file path that name will execute.
+	- `latest`: a string describing the latest “[category][]” in the given node version range. This [category][] will be present in the following list.
+	- `...categories`: each [category][] that the node version range overlaps will have an object with this structure:
+	  - `import`: a Map of import specifier, to relative file path
+	  - `require`: a Map of require specifier, to relative file path
+	  - `files`: a Set of relative file paths that are included in `import` and/or `require`
+	  - `tree`: a Map. Its keys are filenames (no leading `./`), whose values are a Set of `import` or `require` specifiers that point to it; or, directory names, whose values are a Map of the same recursive structure as `tree` itself.
+	- `pre-exports`: this [category][] will always be present, whether it's in the above list or not, with the above structure.
 
-In addition to the required package.json path, it also takes a second argument, an options object. This object supports the following properties:
- - `level`: must be `'all'` (the default), or `'without conditions'`
-   - `'all'` means "supports everything latest node supports", which includes export conditions. (note: subpath patterns are not yet supported)
-   - `'without conditions'` means "support what node v13.2 - v13.6 support", which in the "exports" field only allows the string form or an object with the "default" property set
-
-For ESM-supporting node versions (at the time of this writing, `^12.17 || >= 13.2`):
-  - `require`: valid specifiers to pass into `require`
-  - `import`: valid specifiers to pass into `import()`, or to use in a static `import` statement
-  - `files`: all files on the filesystem that are directly exposed by the above entry points
-  - `tree`: a hierarchical object structure where each directory is represented as a key containing an object, and each file is represented as a key containing a list of the entry points that expose that file
-
-For node versions prior to ESM support (at the time of this writing, `< 12.17 || ~13.0 || ~13.1`):
-  - `require (pre-exports)`: valid specifiers to pass into `require`
-  - `files (pre-exports)`: all files on the filesystem that are directly exposed by the above entry points
-  - `tree (pre-exports)`: a hierarchical object structure where each directory is represented as a key containing an object, and each file is represented as a key containing a list of the entry points that expose that file
+In addition to the required `package.json` path, it also takes a second argument, an options object. This object supports the following properties:
+ - `node`: either `true`, which reads the `engines.node` field in `package.json`, or a valid semver range of node versions to target. Defaults to the current node version.
 
 ## Example
 
-`expected.json`:
-```json
-{
-	"name": "list-exports",
-	"version": "1.0.0",
-	"engines": {
-		"node": ">= 10"
+<details>
+<summary>`const expected`:</summary>
+
+```js
+const expected = {
+	name: 'list-exports',
+	version: '1.0.4',
+	engines: {
+		node: '>= 10',
 	},
-	"binaries": [],
-	"require": [
-		"list-exports",
-		"list-exports/package.json"
-	],
-	"import": [
-		"list-exports",
-		"list-exports/package.json"
-	],
-	"files": [
-		"./index.js",
-		"./index.mjs",
-		"./package.json"
-	],
-	"tree": {
-		"list-exports": {
-			"index.js": [
-				"list-exports"
-			],
-			"index.mjs": [
-				"list-exports"
-			],
-			"package.json": [
-				"list-exports/package.json"
-			]
-		}
+	problems: new Set(),
+	exports: {
+		binaries: {},
+		latest: 'pattern-trailers-no-dir-slash',
+		'pattern-trailers-no-dir-slash': {
+			import: new Map([['.', './index.mjs']]),
+			require: new Map([
+				['.', './index.js'],
+				['./package.json', './package.json'],
+			]),
+			files: new Set([
+				'./index.js',
+				'./index.mjs',
+				'./package.json',
+			]),
+			tree: new Map([
+				['index.js', new Set(['.'])],
+				['package.json', new Set(['./package.json'])],
+				['index.mjs', new Set(['.'])],
+			]),
+		},
+		'pattern-trailers': {
+			import: new Map([['.', './index.mjs']]),
+			require: new Map([
+				['.', './index.js'],
+				['./package.json', './package.json'],
+			]),
+			files: new Set([
+				'./index.js',
+				'./index.mjs',
+				'./package.json',
+			]),
+			tree: new Map([
+				['index.js', new Set(['.'])],
+				['package.json', new Set(['./package.json'])],
+				['index.mjs', new Set(['.'])],
+			]),
+		},
+		patterns: {
+			import: new Map([['.', './index.mjs']]),
+			require: new Map([
+				['.', './index.js'],
+				['./package.json', './package.json'],
+			]),
+			files: new Set([
+				'./index.js',
+				'./index.mjs',
+				'./package.json',
+			]),
+			tree: new Map([
+				['index.js', new Set(['.'])],
+				['package.json', new Set(['./package.json'])],
+				['index.mjs', new Set(['.'])],
+			]),
+		},
+		conditions: {
+			import: new Map([['.', './index.mjs']]),
+			require: new Map([
+				['.', './index.js'],
+				['./package.json', './package.json'],
+			]),
+			files: new Set([
+				'./index.js',
+				'./index.mjs',
+				'./package.json',
+			]),
+			tree: new Map([
+				['index.js', new Set(['.'])],
+				['package.json', new Set(['./package.json'])],
+				['index.mjs', new Set(['.'])],
+			]),
+		},
+		'broken-dir-slash-conditions': {
+			import: new Map([['.', './index.mjs']]),
+			require: new Map([
+				['.', './index.js'],
+				['./package.json', './package.json'],
+			]),
+			files: new Set([
+				'./index.js',
+				'./index.mjs',
+				'./package.json',
+			]),
+			tree: new Map([
+				['index.js', new Set(['.'])],
+				['package.json', new Set(['./package.json'])],
+				['index.mjs', new Set(['.'])],
+			]),
+		},
+		experimental: {
+			import: new Map([['.', './index.js']]),
+			require: new Map([
+				['.', './index.js'],
+				['./package.json', './package.json'],
+			]),
+			files: new Set([
+				'./index.js',
+				'./package.json',
+			]),
+			tree: new Map([
+				['index.js', new Set(['.'])],
+				['package.json', new Set(['./package.json'])],
+			]),
+		},
+		broken: {
+			import: new Map(),
+			require: new Map([
+				['.', './index.js'],
+				['./package.json', './package.json'],
+			]),
+			files: new Set([
+				'./index.js',
+				'./package.json',
+			]),
+			tree: new Map([
+				['index.js', new Set(['.'])],
+				['package.json', new Set(['./package.json'])],
+			]),
+		},
+		'pre-exports': {
+			import: new Map(),
+			require: new Map([
+				['.', './index.js'],
+				['./', './index.js'],
+				['./index', './index.js'],
+				['./index.js', './index.js'],
+				['./index.mjs', './index.mjs'],
+				['./package', './package.json'],
+				['./package.json', './package.json'],
+			]),
+			files: new Set([
+				'./index.js',
+				'./index.mjs',
+				'./package.json',
+			]),
+			tree: new Map([
+				[
+					'index.js', new Set([
+						'.',
+						'./',
+						'./index.js',
+						'./index',
+					]),
+				],
+				['index.mjs', new Set(['./index.mjs'])],
+				[
+					'package.json', new Set([
+						'./package.json',
+						'./package',
+					]),
+				],
+			]),
+		},
 	},
-	"require (pre-exports)": [
-		"list-exports",
-		"list-exports/",
-		"list-exports/index",
-		"list-exports/index.js",
-		"list-exports/package",
-		"list-exports/package.json"
-	],
-	"files (pre-exports)": [
-		"./index.js",
-		"./index.mjs",
-		"./package.json"
-	],
-	"tree (pre-exports)": {
-		"list-exports": {
-			"index.js": [
-				"list-exports",
-				"list-exports/",
-				"list-exports/index",
-				"list-exports/index.js"
-			],
-			"index.mjs": [
-				"list-exports/index.mjs"
-			],
-			"package.json": [
-				"list-exports/package",
-				"list-exports/package.json"
-			]
-		}
-	},
-	"errors": []
-}
+};
 ```
+</details>
 
 ```js
 const assert = require('assert');
+const path = require('path');
 const listExports = require('list-exports');
-const expected = require('./expected.json');
 
-listExports('list-exports@1').then((data) => {
+listExports('./package.json', { node: true }).then((data) => {
 	assert.deepEqual(data, expected);
 }).catch((e) => {
 	console.error(e);
