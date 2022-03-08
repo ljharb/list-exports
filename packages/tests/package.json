@@ -15,7 +15,7 @@
 		"for-each": "^0.3.3",
 		"has-package-exports": "^1.2.3",
 		"is-equal": "^1.6.4",
-		"json-diff": "^0.7.1",
+		"json-diff": "=0.7.1",
 		"list-exports": "*",
 		"ls-engines": "^0.6.5",
 		"object.entries": "^1.1.5",
