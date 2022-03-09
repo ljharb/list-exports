@@ -43,21 +43,38 @@ jobs:
         node-version:
           - '17'
           - '16'
+
+          - '16.9' # ⤓ with pattern trailers
+          - '16.8' # ↥ no pattern trailers
+
           - '15'
-          - '14.18'
-          - '14.13'
-          - '14.12'
-          - '13.7'
-          - '13.6'
+
+          - '14.19' # ⤓ with pattern trailers
+          - '14.18' # ↥ no pattern trailers
+
+          - '14.13' # ⤓ with patterns
+          - '14.12' # ↥ no patterns
+
+          - '14.0'  # ⤓ with conditions
+          - '13'    # ↥ no conditions
+
+          - '13.7'  # ⤓ with conditions
+          - '13.6'  # ↥ no conditions
           - '13.5'
           - '13.4'
           - '13.3'
-          - '13.2'
-          - '13.1'
-          - '13.0'
-          - '12.20'
-          - '12.17'
-          - '12.16'
+          - '13.2'  # ⤓ experimental
+          - '13.1'  # broken
+          - '13.0'  # broken
+
+          - '12'
+
+          - '12.20' # ⤓ with patterns
+          - '12.19' # ↥ no patterns
+          - '12.18'
+          - '12.17' # ⤓ with conditions
+          - '12.16' # ↥ no conditions
+
           - '8'
           - '6'
           - '4'
@@ -67,15 +84,20 @@ jobs:
           - '0.8'
     steps:
       - uses: actions/checkout@v2
-      - run: cd packages/tests
       - uses: ljharb/actions/node/install@main
-        name: 'nvm install ${{ matrix.node-version }} && npm install'
+        name: 'nvm install lts/* && npm install'
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 'lts/*'
           before_install: 'cd packages/tests'
           after_install: 'cd ../..'
           skip-ls-check: true
-      - run: node packages/tests/conditions.js
+      - uses: ljharb/actions/node/install@main
+        name: 'nvm install ${{ matrix.node-version }}'
+        with:
+          node-version: ${{ matrix.node-version }}
+          skip-install: true
+          skip-ls-check: true
+      - run: node packages/tests/conditions
 
   exports-conditions:
     name: 'exports conditions'
