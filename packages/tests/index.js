@@ -11,7 +11,7 @@ const listExports = require('list-exports');
 const { OFFLINE, GREP, WRITE, SKIP_CLI } = process.env;
 
 const fixturesDir = path.join(__dirname, 'fixtures');
-const fixtures = fs.readdirSync(fixturesDir);
+const fixtures = fs.readdirSync(fixturesDir).filter((x) => !x.startsWith('.'));
 
 const isOffline = !!OFFLINE;
 
