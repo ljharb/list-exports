@@ -7,8 +7,9 @@
 		"postinstall": "lerna bootstrap",
 		"lint": "eslint . '**/bin/*'",
 		"pretest": "if [ -n \"${LERNA-}\" ]; then npm run lint ; else LERNA=1 lerna run pretest; fi",
-		"tests-only": "tape \"packages/tests/*.js\"",
-		"test": "npm run tests-only",
+		"tests-only": "tape packages/tests",
+		"tests:conditions": "tape packages/tests/conditions",
+		"test": "npm run tests-only && npm run tests:conditions",
 		"posttest": "if [ -n \"${LERNA-}\" ]; then aud --production ; else LERNA=1 lerna run posttest; fi",
 		"since": "node since"
 	},

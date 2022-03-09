@@ -88,8 +88,6 @@ jobs:
         name: 'nvm install lts/* && npm install'
         with:
           node-version: 'lts/*'
-          before_install: 'cd packages/tests'
-          after_install: 'cd ../..'
           skip-ls-check: true
       - uses: ljharb/actions/node/install@main
         name: 'nvm install ${{ matrix.node-version }}'
@@ -97,7 +95,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           skip-install: true
           skip-ls-check: true
-      - run: node packages/tests/conditions
+      - run: npm run tests:conditions
 
   exports-conditions:
     name: 'exports conditions'
