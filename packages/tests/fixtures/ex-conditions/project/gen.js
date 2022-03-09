@@ -36,7 +36,7 @@ function permute(input) {
 permute(Object.keys(conditionsMap).join(''));
 
 const pkg = {
-	name: 'conditions',
+	name: 'ex-conditions',
 	version: '0.0.0',
 	main: './main.js',
 	exports: {

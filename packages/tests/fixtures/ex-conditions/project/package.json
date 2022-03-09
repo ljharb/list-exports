@@ -1,5 +1,5 @@
 {
-	"name": "conditions",
+	"name": "ex-conditions",
 	"version": "0.0.0",
 	"main": "./main.js",
 	"exports": {

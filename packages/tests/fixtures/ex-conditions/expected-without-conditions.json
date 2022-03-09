@@ -1,169 +1,169 @@
 {
-	"name": "conditions",
+	"name": "ex-conditions",
 	"version": "0.0.0",
 	"engines": {
 		"node": "*"
 	},
 	"binaries": [],
 	"require": [
-		"conditions",
-		"conditions/dinr",
-		"conditions/dirn",
-		"conditions/dnir",
-		"conditions/dnri",
-		"conditions/drin",
-		"conditions/drni",
-		"conditions/idnr",
-		"conditions/idrn",
-		"conditions/indr",
-		"conditions/inrd",
-		"conditions/irdn",
-		"conditions/irnd",
-		"conditions/ndir",
-		"conditions/ndri",
-		"conditions/nidr",
-		"conditions/nird",
-		"conditions/nrdi",
-		"conditions/nrid",
-		"conditions/package.json",
-		"conditions/rdin",
-		"conditions/rdni",
-		"conditions/ridn",
-		"conditions/rind",
-		"conditions/rndi",
-		"conditions/rnid"
+		"ex-conditions",
+		"ex-conditions/dinr",
+		"ex-conditions/dirn",
+		"ex-conditions/dnir",
+		"ex-conditions/dnri",
+		"ex-conditions/drin",
+		"ex-conditions/drni",
+		"ex-conditions/idnr",
+		"ex-conditions/idrn",
+		"ex-conditions/indr",
+		"ex-conditions/inrd",
+		"ex-conditions/irdn",
+		"ex-conditions/irnd",
+		"ex-conditions/ndir",
+		"ex-conditions/ndri",
+		"ex-conditions/nidr",
+		"ex-conditions/nird",
+		"ex-conditions/nrdi",
+		"ex-conditions/nrid",
+		"ex-conditions/package.json",
+		"ex-conditions/rdin",
+		"ex-conditions/rdni",
+		"ex-conditions/ridn",
+		"ex-conditions/rind",
+		"ex-conditions/rndi",
+		"ex-conditions/rnid"
 	],
 	"import": [
-		"conditions",
-		"conditions/dinr",
-		"conditions/dirn",
-		"conditions/dnir",
-		"conditions/dnri",
-		"conditions/drin",
-		"conditions/drni",
-		"conditions/idnr",
-		"conditions/idrn",
-		"conditions/indr",
-		"conditions/inrd",
-		"conditions/irdn",
-		"conditions/irnd",
-		"conditions/ndir",
-		"conditions/ndri",
-		"conditions/nidr",
-		"conditions/nird",
-		"conditions/nrdi",
-		"conditions/nrid",
-		"conditions/package.json",
-		"conditions/rdin",
-		"conditions/rdni",
-		"conditions/ridn",
-		"conditions/rind",
-		"conditions/rndi",
-		"conditions/rnid"
+		"ex-conditions",
+		"ex-conditions/dinr",
+		"ex-conditions/dirn",
+		"ex-conditions/dnir",
+		"ex-conditions/dnri",
+		"ex-conditions/drin",
+		"ex-conditions/drni",
+		"ex-conditions/idnr",
+		"ex-conditions/idrn",
+		"ex-conditions/indr",
+		"ex-conditions/inrd",
+		"ex-conditions/irdn",
+		"ex-conditions/irnd",
+		"ex-conditions/ndir",
+		"ex-conditions/ndri",
+		"ex-conditions/nidr",
+		"ex-conditions/nird",
+		"ex-conditions/nrdi",
+		"ex-conditions/nrid",
+		"ex-conditions/package.json",
+		"ex-conditions/rdin",
+		"ex-conditions/rdni",
+		"ex-conditions/ridn",
+		"ex-conditions/rind",
+		"ex-conditions/rndi",
+		"ex-conditions/rnid"
 	],
 	"files": [
 		"./fallback.js",
 		"./package.json"
 	],
 	"tree": {
-		"conditions": {
+		"ex-conditions": {
 			"fallback.js": [
-				"conditions",
-				"conditions/dinr",
-				"conditions/dirn",
-				"conditions/dnir",
-				"conditions/dnri",
-				"conditions/drin",
-				"conditions/drni",
-				"conditions/idnr",
-				"conditions/idrn",
-				"conditions/indr",
-				"conditions/inrd",
-				"conditions/irdn",
-				"conditions/irnd",
-				"conditions/ndir",
-				"conditions/ndri",
-				"conditions/nidr",
-				"conditions/nird",
-				"conditions/nrdi",
-				"conditions/nrid",
-				"conditions/rdin",
-				"conditions/rdni",
-				"conditions/ridn",
-				"conditions/rind",
-				"conditions/rndi",
-				"conditions/rnid"
+				"ex-conditions",
+				"ex-conditions/dinr",
+				"ex-conditions/dirn",
+				"ex-conditions/dnir",
+				"ex-conditions/dnri",
+				"ex-conditions/drin",
+				"ex-conditions/drni",
+				"ex-conditions/idnr",
+				"ex-conditions/idrn",
+				"ex-conditions/indr",
+				"ex-conditions/inrd",
+				"ex-conditions/irdn",
+				"ex-conditions/irnd",
+				"ex-conditions/ndir",
+				"ex-conditions/ndri",
+				"ex-conditions/nidr",
+				"ex-conditions/nird",
+				"ex-conditions/nrdi",
+				"ex-conditions/nrid",
+				"ex-conditions/rdin",
+				"ex-conditions/rdni",
+				"ex-conditions/ridn",
+				"ex-conditions/rind",
+				"ex-conditions/rndi",
+				"ex-conditions/rnid"
 			],
 			"package.json": [
-				"conditions/package.json"
+				"ex-conditions/package.json"
 			]
 		}
 	},
 	"require (pre-exports)": [
-		"conditions",
-		"conditions/",
-		"conditions/default",
-		"conditions/default.js",
-		"conditions/dinr",
-		"conditions/dinr.js",
-		"conditions/dirn",
-		"conditions/dirn.js",
-		"conditions/dnir",
-		"conditions/dnir.js",
-		"conditions/dnri",
-		"conditions/dnri.js",
-		"conditions/drin",
-		"conditions/drin.js",
-		"conditions/drni",
-		"conditions/drni.js",
-		"conditions/fallback",
-		"conditions/fallback.js",
-		"conditions/gen",
-		"conditions/gen.js",
-		"conditions/idnr",
-		"conditions/idnr.js",
-		"conditions/idrn",
-		"conditions/idrn.js",
-		"conditions/indr",
-		"conditions/indr.js",
-		"conditions/inrd",
-		"conditions/inrd.js",
-		"conditions/irdn",
-		"conditions/irdn.js",
-		"conditions/irnd",
-		"conditions/irnd.js",
-		"conditions/main",
-		"conditions/main.js",
-		"conditions/ndir",
-		"conditions/ndir.js",
-		"conditions/ndri",
-		"conditions/ndri.js",
-		"conditions/nidr",
-		"conditions/nidr.js",
-		"conditions/nird",
-		"conditions/nird.js",
-		"conditions/node",
-		"conditions/node.js",
-		"conditions/nrdi",
-		"conditions/nrdi.js",
-		"conditions/nrid",
-		"conditions/nrid.js",
-		"conditions/package",
-		"conditions/package.json",
-		"conditions/rdin",
-		"conditions/rdin.js",
-		"conditions/rdni",
-		"conditions/rdni.js",
-		"conditions/require",
-		"conditions/require.js",
-		"conditions/ridn",
-		"conditions/ridn.js",
-		"conditions/rind",
-		"conditions/rind.js",
-		"conditions/rndi",
-		"conditions/rndi.js",
-		"conditions/rnid",
-		"conditions/rnid.js"
+		"ex-conditions",
+		"ex-conditions/",
+		"ex-conditions/default",
+		"ex-conditions/default.js",
+		"ex-conditions/dinr",
+		"ex-conditions/dinr.js",
+		"ex-conditions/dirn",
+		"ex-conditions/dirn.js",
+		"ex-conditions/dnir",
+		"ex-conditions/dnir.js",
+		"ex-conditions/dnri",
+		"ex-conditions/dnri.js",
+		"ex-conditions/drin",
+		"ex-conditions/drin.js",
+		"ex-conditions/drni",
+		"ex-conditions/drni.js",
+		"ex-conditions/fallback",
+		"ex-conditions/fallback.js",
+		"ex-conditions/gen",
+		"ex-conditions/gen.js",
+		"ex-conditions/idnr",
+		"ex-conditions/idnr.js",
+		"ex-conditions/idrn",
+		"ex-conditions/idrn.js",
+		"ex-conditions/indr",
+		"ex-conditions/indr.js",
+		"ex-conditions/inrd",
+		"ex-conditions/inrd.js",
+		"ex-conditions/irdn",
+		"ex-conditions/irdn.js",
+		"ex-conditions/irnd",
+		"ex-conditions/irnd.js",
+		"ex-conditions/main",
+		"ex-conditions/main.js",
+		"ex-conditions/ndir",
+		"ex-conditions/ndir.js",
+		"ex-conditions/ndri",
+		"ex-conditions/ndri.js",
+		"ex-conditions/nidr",
+		"ex-conditions/nidr.js",
+		"ex-conditions/nird",
+		"ex-conditions/nird.js",
+		"ex-conditions/node",
+		"ex-conditions/node.js",
+		"ex-conditions/nrdi",
+		"ex-conditions/nrdi.js",
+		"ex-conditions/nrid",
+		"ex-conditions/nrid.js",
+		"ex-conditions/package",
+		"ex-conditions/package.json",
+		"ex-conditions/rdin",
+		"ex-conditions/rdin.js",
+		"ex-conditions/rdni",
+		"ex-conditions/rdni.js",
+		"ex-conditions/require",
+		"ex-conditions/require.js",
+		"ex-conditions/ridn",
+		"ex-conditions/ridn.js",
+		"ex-conditions/rind",
+		"ex-conditions/rind.js",
+		"ex-conditions/rndi",
+		"ex-conditions/rndi.js",
+		"ex-conditions/rnid",
+		"ex-conditions/rnid.js"
 	],
 	"files (pre-exports)": [
 		"./default.js",
@@ -200,135 +200,135 @@
 		"./rnid.js"
 	],
 	"tree (pre-exports)": {
-		"conditions": {
+		"ex-conditions": {
 			"main.js": [
-				"conditions",
-				"conditions/",
-				"conditions/main",
-				"conditions/main.js"
+				"ex-conditions",
+				"ex-conditions/",
+				"ex-conditions/main",
+				"ex-conditions/main.js"
 			],
 			"default.js": [
-				"conditions/default",
-				"conditions/default.js"
+				"ex-conditions/default",
+				"ex-conditions/default.js"
 			],
 			"dinr.js": [
-				"conditions/dinr",
-				"conditions/dinr.js"
+				"ex-conditions/dinr",
+				"ex-conditions/dinr.js"
 			],
 			"dirn.js": [
-				"conditions/dirn",
-				"conditions/dirn.js"
+				"ex-conditions/dirn",
+				"ex-conditions/dirn.js"
 			],
 			"dnir.js": [
-				"conditions/dnir",
-				"conditions/dnir.js"
+				"ex-conditions/dnir",
+				"ex-conditions/dnir.js"
 			],
 			"dnri.js": [
-				"conditions/dnri",
-				"conditions/dnri.js"
+				"ex-conditions/dnri",
+				"ex-conditions/dnri.js"
 			],
 			"drin.js": [
-				"conditions/drin",
-				"conditions/drin.js"
+				"ex-conditions/drin",
+				"ex-conditions/drin.js"
 			],
 			"drni.js": [
-				"conditions/drni",
-				"conditions/drni.js"
+				"ex-conditions/drni",
+				"ex-conditions/drni.js"
 			],
 			"fallback.js": [
-				"conditions/fallback",
-				"conditions/fallback.js"
+				"ex-conditions/fallback",
+				"ex-conditions/fallback.js"
 			],
 			"gen.js": [
-				"conditions/gen",
-				"conditions/gen.js"
+				"ex-conditions/gen",
+				"ex-conditions/gen.js"
 			],
 			"idnr.js": [
-				"conditions/idnr",
-				"conditions/idnr.js"
+				"ex-conditions/idnr",
+				"ex-conditions/idnr.js"
 			],
 			"idrn.js": [
-				"conditions/idrn",
-				"conditions/idrn.js"
+				"ex-conditions/idrn",
+				"ex-conditions/idrn.js"
 			],
 			"import.mjs": [
-				"conditions/import.mjs"
+				"ex-conditions/import.mjs"
 			],
 			"indr.js": [
-				"conditions/indr",
-				"conditions/indr.js"
+				"ex-conditions/indr",
+				"ex-conditions/indr.js"
 			],
 			"inrd.js": [
-				"conditions/inrd",
-				"conditions/inrd.js"
+				"ex-conditions/inrd",
+				"ex-conditions/inrd.js"
 			],
 			"irdn.js": [
-				"conditions/irdn",
-				"conditions/irdn.js"
+				"ex-conditions/irdn",
+				"ex-conditions/irdn.js"
 			],
 			"irnd.js": [
-				"conditions/irnd",
-				"conditions/irnd.js"
+				"ex-conditions/irnd",
+				"ex-conditions/irnd.js"
 			],
 			"ndir.js": [
-				"conditions/ndir",
-				"conditions/ndir.js"
+				"ex-conditions/ndir",
+				"ex-conditions/ndir.js"
 			],
 			"ndri.js": [
-				"conditions/ndri",
-				"conditions/ndri.js"
+				"ex-conditions/ndri",
+				"ex-conditions/ndri.js"
 			],
 			"nidr.js": [
-				"conditions/nidr",
-				"conditions/nidr.js"
+				"ex-conditions/nidr",
+				"ex-conditions/nidr.js"
 			],
 			"nird.js": [
-				"conditions/nird",
-				"conditions/nird.js"
+				"ex-conditions/nird",
+				"ex-conditions/nird.js"
 			],
 			"node.js": [
-				"conditions/node",
-				"conditions/node.js"
+				"ex-conditions/node",
+				"ex-conditions/node.js"
 			],
 			"nrdi.js": [
-				"conditions/nrdi",
-				"conditions/nrdi.js"
+				"ex-conditions/nrdi",
+				"ex-conditions/nrdi.js"
 			],
 			"nrid.js": [
-				"conditions/nrid",
-				"conditions/nrid.js"
+				"ex-conditions/nrid",
+				"ex-conditions/nrid.js"
 			],
 			"package.json": [
-				"conditions/package",
-				"conditions/package.json"
+				"ex-conditions/package",
+				"ex-conditions/package.json"
 			],
 			"rdin.js": [
-				"conditions/rdin",
-				"conditions/rdin.js"
+				"ex-conditions/rdin",
+				"ex-conditions/rdin.js"
 			],
 			"rdni.js": [
-				"conditions/rdni",
-				"conditions/rdni.js"
+				"ex-conditions/rdni",
+				"ex-conditions/rdni.js"
 			],
 			"require.js": [
-				"conditions/require",
-				"conditions/require.js"
+				"ex-conditions/require",
+				"ex-conditions/require.js"
 			],
 			"ridn.js": [
-				"conditions/ridn",
-				"conditions/ridn.js"
+				"ex-conditions/ridn",
+				"ex-conditions/ridn.js"
 			],
 			"rind.js": [
-				"conditions/rind",
-				"conditions/rind.js"
+				"ex-conditions/rind",
+				"ex-conditions/rind.js"
 			],
 			"rndi.js": [
-				"conditions/rndi",
-				"conditions/rndi.js"
+				"ex-conditions/rndi",
+				"ex-conditions/rndi.js"
 			],
 			"rnid.js": [
-				"conditions/rnid",
-				"conditions/rnid.js"
+				"ex-conditions/rnid",
+				"ex-conditions/rnid.js"
 			]
 		}
 	},
