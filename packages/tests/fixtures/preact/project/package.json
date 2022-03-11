@@ -244,7 +244,7 @@
     "dev:hooks": "microbundle watch --raw --format cjs --cwd hooks",
     "lint": "eslint src test debug compat hooks test-utils",
     "postbuild": "node ./config/node-13-exports.js",
-    "prepare": "run-s build",
+    "xprepare": "run-s build",
     "test": "npm-run-all build lint test:unit",
     "test:karma": "cross-env COVERAGE=true karma start karma.conf.js --single-run",
     "test:karma:bench": "cross-env PERFORMANCE=true COVERAGE=false karma start karma.conf.js --grep=test/benchmarks/**.js --single-run",
