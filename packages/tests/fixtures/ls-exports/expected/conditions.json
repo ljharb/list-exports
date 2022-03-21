@@ -1,12 +1,10 @@
 {
 	"name": "ls-exports",
-	"version": "1.1.0",
+	"version": null,
 	"engines": {
-		"node": ">= 16 || ^14.15 || ^12.22"
+		"node": ">= 18 || ^16.13 || ^14.17"
 	},
-	"problems": [
-		"the provided node version (13.7 - 13.12) does not match the package’s `engines.node` declaration (>= 16 || ^14.15 || ^12.22)"
-	],
+	"problems": [],
 	"exports": {
 		"binaries": {
 			"ls-exports": "./bin/ls-exports"

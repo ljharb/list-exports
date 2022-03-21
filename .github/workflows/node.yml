@@ -12,8 +12,7 @@ jobs:
       - uses: ljharb/actions/node/matrix@main
         id: set-matrix
         with:
-          requireds: '>= 16 || ^14.19 || ^12.22'
-          optionals: '16.0 - 16.13 || 14.18 || 14.17 || 14.16 || 14.15'
+          preset: '>= 18 || ^16.13 || ^14.17'
           type: 'minors'
 
   latest:
@@ -110,7 +109,7 @@ jobs:
       - uses: codecov/codecov-action@v2
 
   node:
-    name: 'node 10+'
+    name: 'node 14+'
     needs: [latest, minors, skip-cli-latest, skip-cli-minors]
     runs-on: ubuntu-latest
     steps:

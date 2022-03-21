@@ -104,11 +104,15 @@ test('listExports', (t) => {
 					s2t.test(`${fixture} (${category}): API`, (s3t) => {
 						s3t.plan(1 + (rangeMatchesCurrent ? 1 : 0));
 
-						const resultsJSON = JSON.stringify(results, serializer);
+						const resultsParsed = JSON.parse(JSON.stringify(results, serializer));
+						// to avoid the "engine mismatch" in "problems" in nodes that ls-exports doesn't support
+						if (fixture === 'ls-exports') {
+							resultsParsed.problems = [];
+						}
 
 						diffApiOutput(s3t, `${fixture} (${category}): API results match expectation`, {
 							expected,
-							results: JSON.parse(resultsJSON),
+							results: resultsParsed,
 							expectedPath,
 						});
 
@@ -118,7 +122,7 @@ test('listExports', (t) => {
 									console.error(e);
 									throw e;
 								});
-								// to avoid the "engine mismatch" in "problems" in node 10-10.16
+								// to avoid the "engine mismatch" in "problems" in nodes that ls-exports doesn't support
 								if (fixture === 'ls-exports') {
 									resultsNative.problems = [];
 								}
@@ -202,6 +206,10 @@ test('listExports', (t) => {
 							s3t.plan(checkNPM ? 2 : 1);
 
 							const cliResults = JSON.parse(execSync(`${cli} path "./${path.relative(process.cwd(), projectDir)}" --json`));
+							// to avoid the "engine mismatch" in "problems" in nodes that ls-exports doesn't support
+							if (fixture === 'ls-exports') {
+								cliResults.problems = [];
+							}
 							s3t.deepEqual(cliResults, expected, `${fixture}: CLI results match expectation`);
 
 							if (checkNPM) {

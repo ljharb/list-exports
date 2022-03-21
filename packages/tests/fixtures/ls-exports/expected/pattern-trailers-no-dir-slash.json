@@ -2,7 +2,7 @@
 	"name": "ls-exports",
 	"version": null,
 	"engines": {
-		"node": ">= 16 || ^14.15 || ^12.22"
+		"node": ">= 18 || ^16.13 || ^14.17"
 	},
 	"problems": [],
 	"exports": {
