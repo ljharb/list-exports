@@ -56,7 +56,7 @@ jobs:
       - uses: codecov/codecov-action@v2
 
   node:
-    name: 'node 10+'
+    name: 'node 18+'
     needs: [latest, minors]
     runs-on: ubuntu-latest
     steps:

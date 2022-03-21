@@ -37,116 +37,16 @@ In addition to the required `package.json` path, it also takes a second argument
 ```js
 const expected = {
 	name: 'list-exports',
-	version: '1.0.4',
-	engines: {
-		node: '>= 10',
-	},
+	version: '1.1.0',
+	engines: { node: '^18.17.0 || >=20.5.0' },
 	problems: new Set(),
 	exports: {
 		binaries: {},
 		latest: 'pattern-trailers-no-dir-slash',
 		'pattern-trailers-no-dir-slash': {
-			import: new Map([['.', './index.mjs']]),
-			require: new Map([
+			import: new Map([
 				['.', './index.js'],
-				['./package.json', './package.json'],
 			]),
-			files: new Set([
-				'./index.js',
-				'./index.mjs',
-				'./package.json',
-			]),
-			tree: new Map([
-				['index.js', new Set(['.'])],
-				['package.json', new Set(['./package.json'])],
-				['index.mjs', new Set(['.'])],
-			]),
-		},
-		'pattern-trailers': {
-			import: new Map([['.', './index.mjs']]),
-			require: new Map([
-				['.', './index.js'],
-				['./package.json', './package.json'],
-			]),
-			files: new Set([
-				'./index.js',
-				'./index.mjs',
-				'./package.json',
-			]),
-			tree: new Map([
-				['index.js', new Set(['.'])],
-				['package.json', new Set(['./package.json'])],
-				['index.mjs', new Set(['.'])],
-			]),
-		},
-		patterns: {
-			import: new Map([['.', './index.mjs']]),
-			require: new Map([
-				['.', './index.js'],
-				['./package.json', './package.json'],
-			]),
-			files: new Set([
-				'./index.js',
-				'./index.mjs',
-				'./package.json',
-			]),
-			tree: new Map([
-				['index.js', new Set(['.'])],
-				['package.json', new Set(['./package.json'])],
-				['index.mjs', new Set(['.'])],
-			]),
-		},
-		conditions: {
-			import: new Map([['.', './index.mjs']]),
-			require: new Map([
-				['.', './index.js'],
-				['./package.json', './package.json'],
-			]),
-			files: new Set([
-				'./index.js',
-				'./index.mjs',
-				'./package.json',
-			]),
-			tree: new Map([
-				['index.js', new Set(['.'])],
-				['package.json', new Set(['./package.json'])],
-				['index.mjs', new Set(['.'])],
-			]),
-		},
-		'broken-dir-slash-conditions': {
-			import: new Map([['.', './index.mjs']]),
-			require: new Map([
-				['.', './index.js'],
-				['./package.json', './package.json'],
-			]),
-			files: new Set([
-				'./index.js',
-				'./index.mjs',
-				'./package.json',
-			]),
-			tree: new Map([
-				['index.js', new Set(['.'])],
-				['package.json', new Set(['./package.json'])],
-				['index.mjs', new Set(['.'])],
-			]),
-		},
-		experimental: {
-			import: new Map([['.', './index.js']]),
-			require: new Map([
-				['.', './index.js'],
-				['./package.json', './package.json'],
-			]),
-			files: new Set([
-				'./index.js',
-				'./package.json',
-			]),
-			tree: new Map([
-				['index.js', new Set(['.'])],
-				['package.json', new Set(['./package.json'])],
-			]),
-		},
-		broken: {
-			import: new Map(),
 			require: new Map([
 				['.', './index.js'],
 				['./package.json', './package.json'],
@@ -167,31 +67,24 @@ const expected = {
 				['./', './index.js'],
 				['./index', './index.js'],
 				['./index.js', './index.js'],
-				['./index.mjs', './index.mjs'],
 				['./package', './package.json'],
 				['./package.json', './package.json'],
 			]),
 			files: new Set([
 				'./index.js',
-				'./index.mjs',
 				'./package.json',
 			]),
 			tree: new Map([
-				[
-					'index.js', new Set([
-						'.',
-						'./',
-						'./index.js',
-						'./index',
-					]),
-				],
-				['index.mjs', new Set(['./index.mjs'])],
-				[
-					'package.json', new Set([
-						'./package.json',
-						'./package',
-					]),
-				],
+				['index.js', new Set([
+					'.',
+					'./',
+					'./index.js',
+					'./index',
+				])],
+				['package.json', new Set([
+					'./package.json',
+					'./package',
+				])],
 			]),
 		},
 	},
