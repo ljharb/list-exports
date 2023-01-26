@@ -42,7 +42,7 @@
 	"dependencies": {
 		"colors": "=1.4.0",
 		"json-colorizer": "^2.2.2",
-		"list-exports": "^1.0.4",
+		"list-exports": "^1.1.0",
 		"npm-package-arg": "^8.1.5",
 		"object.fromentries": "^2.0.6",
 		"object.values": "^1.1.6",
