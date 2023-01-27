@@ -1,12 +1,11 @@
-# ls-exports <sup>[![Version Badge][2]][1]</sup>
+# ls-exports <sup>[![Version Badge][npm-version-svg]][package-url]</sup>
 
-[![Build Status][3]][4]
-[![dependency status][5]][6]
-[![dev dependency status][7]][8]
+[![github actions][actions-image]][actions-url]
+[![coverage][codecov-image]][codecov-url]
 [![License][license-image]][license-url]
 [![Downloads][downloads-image]][downloads-url]
 
-[![npm badge][11]][1]
+[![npm badge][npm-badge-png]][package-url]
 
 Given a package name and a version number, or a path to a package.json, what specifiers does it expose?
 
@@ -34,16 +33,19 @@ For node versions prior to ESM support (at the time of this writing, `< 12.17 ||
 ls-exports package resolve@1
 ```
 
-[1]: https://npmjs.org/package/ls-exports
-[2]: http://versionbadg.es/ljharb/list-exports.svg
-[3]: https://travis-ci.com/ljharb/list-exports.svg
-[4]: https://travis-ci.com/ljharb/list-exports
-[5]: https://david-dm.org/ljharb/list-exports.svg
-[6]: https://david-dm.org/ljharb/list-exports
-[7]: https://david-dm.org/ljharb/list-exports/dev-status.svg
-[8]: https://david-dm.org/ljharb/list-exports?type=dev
-[11]: https://nodei.co/npm/ls-exports.png?downloads=true&stars=true
+[package-url]: https://npmjs.org/package/ls-exports
+[npm-version-svg]: https://versionbadg.es/ljharb/list-exports.svg
+[deps-svg]: https://david-dm.org/ljharb/list-exports.svg
+[deps-url]: https://david-dm.org/ljharb/list-exports
+[dev-deps-svg]: https://david-dm.org/ljharb/list-exports/dev-status.svg
+[dev-deps-url]: https://david-dm.org/ljharb/list-exports#info=devDependencies
+[npm-badge-png]: https://nodei.co/npm/ls-exports.png?downloads=true&stars=true
 [license-image]: https://img.shields.io/npm/l/ls-exports.svg
 [license-url]: LICENSE
 [downloads-image]: https://img.shields.io/npm/dm/ls-exports.svg
 [downloads-url]: https://npm-stat.com/charts.html?package=ls-exports
+[codecov-image]: https://codecov.io/gh/ljharb/list-exports/branch/main/graphs/badge.svg
+[codecov-url]: https://app.codecov.io/gh/ljharb/list-exports/
+[actions-image]: https://img.shields.io/endpoint?url=https://github-actions-badge-u3jn4tfpocch.runkit.sh/ljharb/list-exports
+[actions-url]: https://github.com/ljharb/list-exports/actions
+[category]: https://github.com/inspect-js/node-exports-info#categories
