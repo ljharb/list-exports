@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
+const { diffString } = require('json-diff');
 
 const isTest = process.env.NODE_ENV === 'test';
 
@@ -60,12 +61,12 @@ const pkg = {
 };
 
 const pkgJSONpath = path.join(__dirname, 'package.json');
-const pkgJSONcontents = JSON.stringify(pkg, null, '\t');
+const pkgJSONcontents = JSON.stringify(pkg, null, '\t').replace(/\n?$/g, '\n');
 if (isTest) {
 	var actual = String(fs.readFileSync(pkgJSONpath));
-	assert.equal(actual, pkgJSONcontents);
+	assert.equal(actual, pkgJSONcontents, pkgJSONpath);
 } else {
-	fs.writeFileSync(pkgJSONpath, pkgJSONcontents + '\n');
+	fs.writeFileSync(pkgJSONpath, pkgJSONcontents);
 }
 
 permutations.forEach((permutation) => {
