@@ -43,15 +43,15 @@
 		"colors": "=1.4.0",
 		"json-colorizer": "^2.2.2",
 		"list-exports": "^1.1.0",
-		"npm-package-arg": "^8.1.5",
+		"npm-package-arg": "^11.0.1",
 		"object.fromentries": "^2.0.7",
 		"object.values": "^1.1.7",
-		"pacote": "^11.3.5",
+		"pacote": "^17.0.4",
 		"strip-ansi": "^6.0.1",
 		"table": "^6.8.1",
 		"tmp": "^0.2.1",
 		"tree-walk": "^0.4.0",
-		"yargs": "^16.2.0"
+		"yargs": "^17.7.2"
 	},
 	"devDependencies": {
 		"@ljharb/eslint-config": "^21.1.0",
