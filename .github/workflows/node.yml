@@ -26,7 +26,7 @@ jobs:
       matrix: ${{ fromJson(needs.matrix.outputs.latest) }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: ljharb/actions/node/install@main
         name: 'nvm install ${{ matrix.node-version }} && npm install'
         with:
@@ -47,7 +47,7 @@ jobs:
       matrix: ${{ fromJson(needs.matrix.outputs.minors) }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: ljharb/actions/node/install@main
         name: 'nvm install ${{ matrix.node-version }} && npm install'
         with:
@@ -77,7 +77,7 @@ jobs:
       matrix: ${{ fromJson(needs.matrix-skip-cli.outputs.latest) }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: ljharb/actions/node/install@main
         name: 'nvm install ${{ matrix.node-version }} && npm install'
         with:
@@ -98,7 +98,7 @@ jobs:
       matrix: ${{ fromJson(needs.matrix-skip-cli.outputs.minors) }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: ljharb/actions/node/install@main
         name: 'nvm install ${{ matrix.node-version }} && npm install'
         with:
