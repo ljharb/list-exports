@@ -12,8 +12,7 @@ jobs:
       - uses: ljharb/actions/node/matrix@main
         id: set-matrix
         with:
-          requireds: '10.17 || ^10.22 || >= 11'
-          optionals: '10.18 || 10.19 || 10.20 || 10.21'
+          preset: '^18.17.0 || >=20.5.0'
           type: 'minors'
 
   latest:
@@ -56,62 +55,9 @@ jobs:
       - run: npm run tests-only
       - uses: codecov/codecov-action@v2
 
-  matrix-skip-cli:
-    runs-on: ubuntu-latest
-    outputs:
-      latest: ${{ steps.set-matrix.outputs.requireds }}
-      minors: ${{ steps.set-matrix.outputs.optionals }}
-    steps:
-      - uses: ljharb/actions/node/matrix@main
-        id: set-matrix
-        with:
-          preset: '10.0 - 10.16'
-          type: 'minors'
-
-  skip-cli-latest:
-    needs: [matrix-skip-cli]
-    name: 'list-exports only'
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix: ${{ fromJson(needs.matrix-skip-cli.outputs.latest) }}
-
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ljharb/actions/node/install@main
-        name: 'nvm install ${{ matrix.node-version }} && npm install'
-        with:
-          node-version: ${{ matrix.node-version }}
-          skip-ls-check: true
-      - run: npm run tests-only
-        env:
-          SKIP_CLI: true
-      - uses: codecov/codecov-action@v2
-
-  skip-cli-minors:
-    needs: [matrix-skip-cli]
-    name: 'list-exports only (opt)'
-    continue-on-error: true
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix: ${{ fromJson(needs.matrix-skip-cli.outputs.minors) }}
-
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ljharb/actions/node/install@main
-        name: 'nvm install ${{ matrix.node-version }} && npm install'
-        with:
-          node-version: ${{ matrix.node-version }}
-          skip-ls-check: true
-      - run: npm run tests-only
-        env:
-          SKIP_CLI: ${{ matrix.envs.SKIP_CLI }}
-      - uses: codecov/codecov-action@v2
-
   node:
     name: 'node 10+'
-    needs: [latest, minors, skip-cli-latest, skip-cli-minors]
+    needs: [latest, minors]
     runs-on: ubuntu-latest
     steps:
       - run: 'echo tests completed'

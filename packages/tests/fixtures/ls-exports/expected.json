@@ -2,7 +2,7 @@
 	"name": "ls-exports",
 	"version": null,
 	"engines": {
-		"node": ">= 12 || ^10.17"
+		"node": "^18.17.0 || >=20.5.0"
 	},
 	"binaries": [
 		"ls-exports"

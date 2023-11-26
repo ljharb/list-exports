@@ -64,6 +64,6 @@
 		"safe-publish-latest": "^2.0.0"
 	},
 	"engines": {
-		"node": ">= 10"
+		"node": "^18.17.0 || >=20.5.0"
 	}
 }
