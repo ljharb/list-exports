@@ -9,6 +9,7 @@ const resolve = require('resolve');
 const packlist = require('npm-packlist');
 const getPackageType = require('get-package-type');
 const inspect = require('object-inspect');
+const Arborist = require('@npmcli/arborist');
 
 /* eslint-disable no-inner-declarations */
 
@@ -194,7 +195,9 @@ module.exports = async function listExports(packageJSON, options = {}) {
 	}
 
 	const { all: rootAllExtensions, base: rootBaseExtensions } = getExtensions(rootType);
-	const packedFiles = await packlist({ path: packageDir });
+	const arborist = new Arborist({ path: packageDir });
+	const arbTree = await arborist.loadActual();
+	const packedFiles = await packlist(arbTree, { path: packageDir });
 	const filteredFiles = new Set(flatMap(
 		packedFiles,
 		(x) => {
