@@ -47,13 +47,13 @@
 	},
 	"homepage": "https://github.com/ljharb/list-exports#readme",
 	"dependencies": {
-		"array.prototype.flatmap": "^1.3.1",
+		"array.prototype.flatmap": "^1.3.2",
 		"get-package-type": "^0.1.0",
 		"npm-packlist": "^3.0.0",
-		"object-inspect": "^1.12.3",
-		"object.entries": "^1.1.6",
+		"object-inspect": "^1.13.1",
+		"object.entries": "^1.1.7",
 		"read-package-json": "^4.1.2",
-		"resolve": "^2.0.0-next.4"
+		"resolve": "^2.0.0-next.5"
 	},
 	"devDependencies": {
 		"@ljharb/eslint-config": "^21.1.0",
