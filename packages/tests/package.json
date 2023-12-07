@@ -9,7 +9,7 @@
 		"regen": "node fixtures/ex-conditions/project/gen",
 		"fixtures:ls": "git ls-files fixtures/*/project/package.json | cut -d / -f 2",
 		"fixtures:bundleCheck": "npm run --silent fixtures:ls | grep -v list-exports | grep -v ls-exports | xargs -I {} sh -c \"printf '{} ' && cat fixtures/{}/project/package.json | jq .bundleDependencies\" | grep -ve ' true' && exit 2 || exit 0",
-		"fixtures:install": "npm run --silent fixtures:ls | xargs -I {} echo @fixtures/{}@file:./fixtures/{}/project | xargs npm install --save-dev"
+		"fixtures:install": "npm run --silent fixtures:ls | xargs -I {} echo @fixtures/{}@file:./fixtures/{}/project | xargs npm install --save-dev --prefix=. --no-workspaces"
 	},
 	"devDependencies": {
 		"@fixtures/es-abstract": "file:fixtures/es-abstract/project",

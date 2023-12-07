@@ -13,7 +13,7 @@ jobs:
           node-version: 'lts/*'
       - id: set-matrix
         run: |
-          echo "::set-output name=matrix::$(npx lerna list --all --parseable 2>/dev/null | xargs node -pe 'JSON.stringify(process.argv.slice(1).map(x => path.relative(__dirname, x)).map(x => x ? "./"+x : "."))')"
+          echo "matrix=$(npm query --no-workspaces .workspace | npx json -a location | { cat; echo; } | sort | node -pe 'JSON.stringify(fs.readFileSync(0, "utf-8").split("\n").slice(0,-1).map(x => "./"+x))')" >> $GITHUB_OUTPUT
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
 

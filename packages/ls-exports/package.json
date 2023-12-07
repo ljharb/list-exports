@@ -12,7 +12,7 @@
 		"lint": "eslint . 'bin/**'",
 		"pretest": "npm run lint",
 		"test": ">&2 echo tests are ran in the monorepo only",
-		"posttest": "npx aud --production"
+		"posttest": "aud --production"
 	},
 	"repository": {
 		"type": "git",
