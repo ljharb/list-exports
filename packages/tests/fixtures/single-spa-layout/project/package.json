@@ -34,9 +34,6 @@
   "bugs": {
     "url": "https://github.com/single-spa/single-spa-layout/issues"
   },
-  "dependencies": {
-    "@types/parse5": "^5.0.3"
-  },
   "deprecated": false,
   "description": "Layout engine for single-spa applications",
   "devDependencies": {
