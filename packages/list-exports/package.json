@@ -4,14 +4,7 @@
 	"description": "Given a package name and a version number, or a path to a package.json, what specifiers does it expose?",
 	"main": "index.js",
 	"exports": {
-		".": [
-			{
-				"import": "./index.mjs",
-				"require": "./index.js",
-				"default": "./index.js"
-			},
-			"./index.js"
-		],
+		".": "./index.js",
 		"./package.json": "./package.json"
 	},
 	"scripts": {

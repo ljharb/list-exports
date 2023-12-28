@@ -15,15 +15,11 @@
 	],
 	"files": [
 		"./index.js",
-		"./index.mjs",
 		"./package.json"
 	],
 	"tree": {
 		"list-exports": {
 			"index.js": [
-				"list-exports"
-			],
-			"index.mjs": [
 				"list-exports"
 			],
 			"package.json": [
@@ -41,7 +37,6 @@
 	],
 	"files (pre-exports)": [
 		"./index.js",
-		"./index.mjs",
 		"./package.json"
 	],
 	"tree (pre-exports)": {
@@ -51,9 +46,6 @@
 				"list-exports/",
 				"list-exports/index",
 				"list-exports/index.js"
-			],
-			"index.mjs": [
-				"list-exports/index.mjs"
 			],
 			"package.json": [
 				"list-exports/package",
