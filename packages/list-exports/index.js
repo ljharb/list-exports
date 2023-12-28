@@ -107,9 +107,6 @@ function normalizeExports(exports, errors) {
 		if (starts.has('.') && starts.size !== 1) {
 			errors.push('package `exports` is invalid; either all keys in an object, or no keys in it, must start with `.`');
 		}
-		if (exportKeys.some((x) => x.includes('node_modules'))) {
-			errors.push('package `exports` is invalid; keys may not contain `node_modules`');
-		}
 		if (starts.has('.')) {
 			normalizedExports = exports;
 		}
@@ -324,7 +321,7 @@ module.exports = async function listExports(packageJSON, options = {}) {
 				'import',
 			]) {
 				if (typeof target === 'string') {
-					if (target.startsWith('./') && !target.includes('node_modules')) {
+					if (target.startsWith('./')) {
 						const resolvedTarget = resolveFrom(target, packageDir, rootAllExtensions);
 						if (resolvedTarget) {
 							addFile(target, true, true);
@@ -332,14 +329,14 @@ module.exports = async function listExports(packageJSON, options = {}) {
 							errors.push(`“${lhs}”: ${target} does not appear to exist!`);
 						}
 					} else {
-						errors.push(`\`exports.${lhs}\`: ${target} must start with \`./\` and must not contain \`node_modules\``);
+						errors.push(`\`exports.${lhs}\`: ${target} must start with \`./\``);
 					}
 				} else if (target && typeof target === 'object') {
 					if (supportsConditionalExports) {
 						conditions.forEach((key) => {
 							const targetValue = target[key];
 							if (typeof targetValue === 'string') {
-								if (targetValue.startsWith('./') && !targetValue.includes('node_modules')) {
+								if (targetValue.startsWith('./')) {
 									const resolvedTarget = resolveFrom(targetValue, packageDir, rootAllExtensions);
 									if (resolvedTarget) {
 										addFile(targetValue, key !== 'require', key !== 'import');
@@ -347,7 +344,7 @@ module.exports = async function listExports(packageJSON, options = {}) {
 										errors.push(`“${specifier ? `${lhs}.` : ''}${key}”: ${targetValue} does not appear to exist!`);
 									}
 								} else {
-									errors.push(`\`exports.${specifier ? `${lhs}.` : ''}${key}\`: ${targetValue} must start with \`./\` and must not contain \`node_modules\``);
+									errors.push(`\`exports.${specifier ? `${lhs}.` : ''}${key}\`: ${targetValue} must start with \`./\``);
 								}
 							} else if (targetValue != null) {
 								processRHSItem(targetValue, [

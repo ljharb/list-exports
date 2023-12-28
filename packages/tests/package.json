@@ -24,6 +24,7 @@
 		"@fixtures/ex-main-exports-string": "file:fixtures/ex-main-exports-string/project",
 		"@fixtures/ex-main-exports-TL-object": "file:fixtures/ex-main-exports-TL-object/project",
 		"@fixtures/ex-main-implicit": "file:fixtures/ex-main-implicit/project",
+		"@fixtures/ex-node-modules": "file:fixtures/ex-node-modules/project",
 		"@fixtures/ex-nonexistent-dir": "file:fixtures/ex-nonexistent-dir/project",
 		"@fixtures/ex-private": "file:fixtures/ex-private/project",
 		"@fixtures/flatted-1": "file:fixtures/flatted-1/project",

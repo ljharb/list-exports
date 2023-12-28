@@ -1,0 +1,79 @@
+{
+	"name": "ex-node-modules",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"binaries": [],
+	"require": [
+		"ex-node-modules",
+		"ex-node-modules/local",
+		"ex-node-modules/node_modules/dep",
+		"ex-node-modules/package.json"
+	],
+	"import": [
+		"ex-node-modules",
+		"ex-node-modules/local",
+		"ex-node-modules/node_modules/dep",
+		"ex-node-modules/package.json"
+	],
+	"files": [
+		"./default.js",
+		"./dep.js",
+		"./node_modules/dep/dep.js",
+		"./package.json"
+	],
+	"tree": {
+		"ex-node-modules": {
+			"default.js": [
+				"ex-node-modules"
+			],
+			"package.json": [
+				"ex-node-modules/package.json"
+			],
+			"dep.js": [
+				"ex-node-modules/node_modules/dep"
+			],
+			"node_modules": {
+				"dep": {
+					"dep.js": [
+						"ex-node-modules/local"
+					]
+				}
+			}
+		}
+	},
+	"require (pre-exports)": [
+		"ex-node-modules/default",
+		"ex-node-modules/default.js",
+		"ex-node-modules/dep",
+		"ex-node-modules/dep.js",
+		"ex-node-modules/package",
+		"ex-node-modules/package.json"
+	],
+	"files (pre-exports)": [
+		"./default.js",
+		"./dep.js",
+		"./package.json"
+	],
+	"tree (pre-exports)": {
+		"ex-node-modules": {
+			"default.js": [
+				"ex-node-modules/default",
+				"ex-node-modules/default.js"
+			],
+			"dep.js": [
+				"ex-node-modules/dep",
+				"ex-node-modules/dep.js"
+			],
+			"package.json": [
+				"ex-node-modules/package",
+				"ex-node-modules/package.json"
+			]
+		}
+	},
+	"errors": [
+		"`./packages/tests/fixtures/ex-node-modules/project` has a `package.json`, but either lacks a `main`, or its `main` is invalid!",
+		"package “main” (`./main.js`) does not appear to exist!"
+	]
+}
