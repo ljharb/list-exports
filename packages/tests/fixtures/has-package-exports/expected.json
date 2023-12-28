@@ -65,10 +65,6 @@
 	],
 	"tree (pre-exports)": {
 		"has-package-exports": {
-			"conditional.js": [
-				"has-package-exports/conditional",
-				"has-package-exports/conditional.js"
-			],
 			"no.js": [
 				"has-package-exports",
 				"has-package-exports/",
@@ -78,6 +74,10 @@
 			"browser.js": [
 				"has-package-exports/browser",
 				"has-package-exports/browser.js"
+			],
+			"conditional.js": [
+				"has-package-exports/conditional",
+				"has-package-exports/conditional.js"
 			],
 			"package.json": [
 				"has-package-exports/package",
