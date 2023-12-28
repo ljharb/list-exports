@@ -1,6 +1,6 @@
 {
 	"name": "nonexistent-dir",
-	"version": "",
+	"version": "0.0.0",
 	"engines": {
 		"node": "*"
 	},
