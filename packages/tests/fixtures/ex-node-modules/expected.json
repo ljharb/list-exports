@@ -8,12 +8,14 @@
 	"require": [
 		"ex-node-modules",
 		"ex-node-modules/local",
+		"ex-node-modules/local-encoded",
 		"ex-node-modules/node_modules/dep",
 		"ex-node-modules/package.json"
 	],
 	"import": [
 		"ex-node-modules",
 		"ex-node-modules/local",
+		"ex-node-modules/local-encoded",
 		"ex-node-modules/node_modules/dep",
 		"ex-node-modules/package.json"
 	],
@@ -37,7 +39,8 @@
 			"node_modules": {
 				"dep": {
 					"dep.js": [
-						"ex-node-modules/local"
+						"ex-node-modules/local",
+						"ex-node-modules/local-encoded"
 					]
 				}
 			}
@@ -74,6 +77,8 @@
 	},
 	"errors": [
 		"`./packages/tests/fixtures/ex-node-modules/project` has a `package.json`, but either lacks a `main`, or its `main` is invalid!",
+		"package `exports` is invalid; the value of `./local` (`./node_modules/dep/dep.js`) contains `node_modules`!",
+		"package `exports` is invalid; the value of `./local-encoded` (`./no%64e_modules/dep/dep.js`) contains `node_modules`!",
 		"package “main” (`./main.js`) does not appear to exist!"
 	]
 }

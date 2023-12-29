@@ -107,6 +107,12 @@ function normalizeExports(exports, errors) {
 		if (starts.has('.') && starts.size !== 1) {
 			errors.push('package `exports` is invalid; either all keys in an object, or no keys in it, must start with `.`');
 		}
+		exportKeys.forEach((key) => {
+			const value = exports[key];
+			if ((/(?:^|\/)node_modules(?:\/|$)/).test(decodeURI(value))) {
+				errors.push(`package \`exports\` is invalid; the value of \`${key}\` (\`${value}\`) contains \`node_modules\`!`);
+			}
+		});
 		if (starts.has('.')) {
 			normalizedExports = exports;
 		}
