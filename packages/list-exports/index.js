@@ -10,6 +10,7 @@ const packlist = require('npm-packlist');
 const getPackageType = require('get-package-type');
 const inspect = require('object-inspect');
 const Arborist = require('@npmcli/arborist');
+const forEach = require('for-each');
 
 /* eslint-disable no-inner-declarations */
 
@@ -74,7 +75,7 @@ function traverseDir(
 	const contents = fs.readdirSync(dir);
 
 	const files = contents.filter((x) => filteredFiles.has(path.join(dir.slice(packageDir.length + 1), x)));
-	files.forEach((file) => {
+	forEach(files, (file) => {
 		const pkgRelativeFilename = `./${path.join(dirRelative, file)}`;
 		process(dirRelative, {
 			isMain: false,
@@ -86,7 +87,7 @@ function traverseDir(
 	const dirs = contents.filter((x) => x !== 'node_modules'
 		&& isDirectory(path.join(dir, x))
 		&& [...filteredFiles].some((y) => y.startsWith(path.join(dirRelative, x))));
-	dirs.forEach((x) => traverseDir(
+	forEach(dirs, (x) => traverseDir(
 		path.join(dir, x),
 		usingExports,
 		{
@@ -107,7 +108,7 @@ function normalizeExports(exports, errors) {
 		if (starts.has('.') && starts.size !== 1) {
 			errors.push('package `exports` is invalid; either all keys in an object, or no keys in it, must start with `.`');
 		}
-		exportKeys.forEach((key) => {
+		forEach(exportKeys, (key) => {
 			const value = exports[key];
 			if ((/(?:^|\/)node_modules(?:\/|$)/).test(decodeURI(value))) {
 				errors.push(`package \`exports\` is invalid; the value of \`${key}\` (\`${value}\`) contains \`node_modules\`!`);
@@ -328,9 +329,10 @@ module.exports = async function listExports(packageJSON, options = {}) {
 			]) {
 				if (typeof target === 'string') {
 					if (target.startsWith('./')) {
-						const resolvedTarget = resolveFrom(target, packageDir, rootAllExtensions);
+						const decoded = decodeURI(target);
+						const resolvedTarget = resolveFrom(decoded, packageDir, rootAllExtensions);
 						if (resolvedTarget) {
-							addFile(target, true, true);
+							addFile(decoded, true, true);
 						} else {
 							errors.push(`“${lhs}”: ${target} does not appear to exist!`);
 						}
@@ -339,7 +341,7 @@ module.exports = async function listExports(packageJSON, options = {}) {
 					}
 				} else if (target && typeof target === 'object') {
 					if (supportsConditionalExports) {
-						conditions.forEach((key) => {
+						forEach(conditions, (key) => {
 							const targetValue = target[key];
 							if (typeof targetValue === 'string') {
 								if (targetValue.startsWith('./')) {
@@ -369,10 +371,10 @@ module.exports = async function listExports(packageJSON, options = {}) {
 			}
 
 			if (Array.isArray(rhs)) {
-				rhs.forEach((x) => processExportsEntry([lhs, x]));
+				forEach(rhs, (x) => processExportsEntry([lhs, x]));
 			} else if (!lhs.endsWith('/')) { // eslint-disable-line no-negated-condition
 				// rhs is a string, an object, or an array of both
-				[].concat(rhs).forEach((x) => processRHSItem(x));
+				forEach([].concat(rhs), (x) => processRHSItem(x));
 			} else {
 				const rhsPath = path.join(packageDir, rhs);
 				const rhsType = pathType(rhsPath);
@@ -397,7 +399,7 @@ module.exports = async function listExports(packageJSON, options = {}) {
 		}
 
 		const normalizedExports = normalizeExports(exports, errors);
-		entries(normalizedExports).forEach(processExportsEntry);
+		forEach(entries(normalizedExports), processExportsEntry);
 	} else {
 		exportSpecifiersCJS = legacyRequires;
 		exposedFiles = legacyFiles;
