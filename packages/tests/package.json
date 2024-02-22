@@ -63,7 +63,7 @@
 		"resolve": "^2.0.0-next.4",
 		"safe-publish-latest": "^2.0.0",
 		"semver": "^6.3.1",
-		"tape": "^5.7.2"
+		"tape": "^5.7.5"
 	},
 	"engines": {
 		"node": "^18.17.0 || >=20.5.0"
