@@ -1,0 +1,10 @@
+version: 2
+
+projectIgnorePaths:
+  - "/package.json"
+  - "/packages/*/node_modules"
+  - "/packages/tests/fixtures"
+
+triggerPaths:
+  - "packages/*"
+  - "!packages/tests"
