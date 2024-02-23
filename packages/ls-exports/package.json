@@ -7,6 +7,7 @@
 	"exports": {
 		"./package.json": "./package.json"
 	},
+	"sideEffects": false,
 	"scripts": {
 		"prepublish": "not-in-publish || (safe-publish-latest && cp ../../LICENSE ./)",
 		"lint": "eslint . 'bin/**'",
