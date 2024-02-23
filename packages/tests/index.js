@@ -18,7 +18,7 @@ const listExports = require('list-exports');
 const { OFFLINE, GREP, WRITE, SKIP_CLI } = process.env;
 
 const fixturesDir = path.join(__dirname, 'fixtures');
-const fixtures = fs.readdirSync(fixturesDir).filter((x) => !x.startsWith('.'));
+const fixtures = fs.readdirSync(fixturesDir).filter((x) => !x.startsWith('.')).map((x) => x.replace('~', '/'));
 
 const isOffline = !!OFFLINE;
 
@@ -78,7 +78,7 @@ test('listExports', (t) => {
 		t.test(`fixture: ${fixture}`, { skip }, async (st) => {
 			const checkNPM = !isOffline && !fixture.startsWith('ex-') && !isInternalPackage(fixture);
 
-			const fixtureDir = path.join(fixturesDir, fixture);
+			const fixtureDir = path.join(fixturesDir, fixture.replace('/', '~'));
 			const projectDir = path.join(fixtureDir, 'project');
 
 			const packageJSON = path.resolve(path.join(projectDir, 'package.json'));
