@@ -27,6 +27,12 @@
 				"max-lines-per-function": 0,
 				"no-negated-condition": 0,
 			}
-		}
+		},
+		{
+			"files": "add-fixture.mjs",
+			"parserOptions": {
+				"ecmaVersion": 2023,
+			},
+		},
 	],
 }
