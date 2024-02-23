@@ -57,7 +57,6 @@ const $localeCompare = callBound('String.prototype.localeCompare');
 const $replace = callBound('String.prototype.replace');
 const $split = callBound('String.prototype.split');
 const $all = callBind(GetIntrinsic('%Promise.all%'), Promise);
-const $resolve = callBind(GetIntrinsic('%Promise.resolve%'), Promise);
 
 function isDirectory(file) {
 	try {
@@ -143,17 +142,6 @@ async function readPackage(packageJSON) {
 			}
 		});
 	});
-}
-
-async function serial(items, cb) {
-	return reduce(
-		items,
-		async (prev, item) => {
-			await prev;
-			return cb(item);
-		},
-		$resolve(),
-	);
 }
 
 async function asyncReduce(items, task, initial = void undefined) {
@@ -341,7 +329,7 @@ async function traverseDir(
 		}
 	}
 
-	await serial(arrayFrom(subFiles), (file) => forEachSubfile(file, {
+	await asyncForEach(arrayFrom(subFiles), (file) => forEachSubfile(file, {
 		dir,
 		options,
 		rootDir,
