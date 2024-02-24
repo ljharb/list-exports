@@ -8,7 +8,8 @@
 		"pretest": "npm run lint",
 		"tests-only": "tape packages/tests",
 		"tests:conditions": "tape packages/tests/conditions",
-		"test": "npm run tests-only && npm run tests:conditions",
+		"tests:resolving": "tape packages/tests/resolving",
+		"test": "npm run tests-only && npm run tests:conditions && npm run tests:resolving",
 		"posttest": "npx npm@'>=10.2' audit --production",
 		"since": "node since"
 	},
