@@ -51,7 +51,7 @@ const validateExportsObject = require('validate-exports-object');
 const getCategoriesForRange = require('node-exports-info/getCategoriesForRange');
 const getConditionsForCategory = require('node-exports-info/getConditionsForCategory');
 
-const $concat = callBound('Array.prototype.concat');
+const $concat = require('safe-array-concat');
 const $sort = callBound('Array.prototype.sort');
 const $localeCompare = callBound('String.prototype.localeCompare');
 const $replace = callBound('String.prototype.replace');
