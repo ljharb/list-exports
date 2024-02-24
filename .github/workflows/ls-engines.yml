@@ -39,4 +39,4 @@ jobs:
     needs: [engines-job]
     runs-on: ubuntu-latest
     steps:
-      - run: 'echo tests completed'
+      - run: true
