@@ -8,4 +8,4 @@ jobs:
     with:
       range: '^18.17.0 || >=20.5.0'
       type: minors
-      command: npm run tests-only
+      command: TODO_IS_OK=true npm run tests-only
