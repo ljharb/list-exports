@@ -34,5 +34,17 @@
 				"ecmaVersion": 2023,
 			},
 		},
+		{
+			"files": "resolving.js",
+			"extends": "@ljharb/eslint-config/node/10",
+			"rules": {
+				"func-style": 0,
+				"id-length": 0,
+				"max-len": 0,
+				"max-lines-per-function": 0,
+				"max-nested-callbacks": 0,
+				"sort-keys": 0,
+			},
+		},
 	],
 }
