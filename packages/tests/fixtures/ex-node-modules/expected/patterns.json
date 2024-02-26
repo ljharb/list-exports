@@ -15,22 +15,17 @@
 		"patterns": {
 			"import": {
 				".": "./default.js",
-				"./local": "./node_modules/dep/dep.js",
-				"./local-encoded": "./node_modules/dep/dep.js",
 				"./node_modules/dep": "./dep.js"
 			},
 			"require": {
 				".": "./default.js",
-				"./local": "./node_modules/dep/dep.js",
-				"./local-encoded": "./node_modules/dep/dep.js",
 				"./package.json": "./package.json",
 				"./node_modules/dep": "./dep.js"
 			},
 			"files": [
 				"./default.js",
 				"./dep.js",
-				"./package.json",
-				"./node_modules/dep/dep.js"
+				"./package.json"
 			],
 			"tree": {
 				"default.js": [
@@ -41,15 +36,7 @@
 				],
 				"dep.js": [
 					"./node_modules/dep"
-				],
-				"node_modules": {
-					"dep": {
-						"dep.js": [
-							"./local",
-							"./local-encoded"
-						]
-					}
-				}
+				]
 			}
 		},
 		"pre-exports": {

@@ -426,10 +426,12 @@ function addFullPath(
 					!isESM(fullPath) // not type module
 					|| ext !== '.js' // not .js
 				)
-				&& !includes(conditionChain, 'import');
+				&& !includes(conditionChain, 'import')
+				&& !(/(?:^|\/)node_modules(?:\/|$)/).test(rhs);
 			const canImport = category !== 'broken'
 				&& ext !== '.json'
-				&& !includes(conditionChain, 'require');
+				&& !includes(conditionChain, 'require')
+				&& !(/(?:^|\/)node_modules(?:\/|$)/).test(rhs);
 			if (canImport) {
 				safeSet(tree.import, lhs, rhs);
 			}
