@@ -15,7 +15,6 @@
 		"broken-dir-slash-conditions": {
 			"import": {
 				".": "./default.js",
-				"./local": "./node_modules/dep/dep.js",
 				"./local-encoded": "./node_modules/dep/dep.js",
 				"./node_modules/dep": "./dep.js"
 			},
