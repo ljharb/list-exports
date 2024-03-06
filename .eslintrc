@@ -3,6 +3,10 @@
 
 	"extends": "@ljharb/eslint-config/node/10",
 
+	"ignorePatterns": [
+		"packages/tests/fixtures/**",
+	],
+
 	"overrides": [
 		{
 			"files": "since.js",
