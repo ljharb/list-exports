@@ -1,0 +1,171 @@
+{
+	"name": "@twipped/react-utils",
+	"version": "3.0.0",
+	"engines": {
+		"node": ">=14.13"
+	},
+	"problems": [
+		"“.”: ./index.js does not appear to exist!",
+		"“./*”: ./src/*.js does not appear to exist!",
+		"“./quick/*”: ./src/quick/*.js does not appear to exist!",
+		"`.` has a `package.json`, but both its `main` and `index.js` do not exist!",
+		"`.` has a `package.json`, but lacks both a `main` and an `index.js`!",
+		"the provided node version (13.0 - 13.2) does not match the package’s `engines.node` declaration (>=14.13)"
+	],
+	"exports": {
+		"binaries": {},
+		"latest": "broken",
+		"broken": {
+			"import": {},
+			"require": {},
+			"files": [],
+			"tree": {}
+		},
+		"pre-exports": {
+			"import": {},
+			"require": {
+				"./package": "./package.json",
+				"./package.json": "./package.json",
+				"./src/children": "./src/children.js",
+				"./src/children.js": "./src/children.js",
+				"./src/easing": "./src/easing.js",
+				"./src/easing.js": "./src/easing.js",
+				"./src/env": "./src/env.js",
+				"./src/env.js": "./src/env.js",
+				"./src/fetch": "./src/fetch.js",
+				"./src/fetch.js": "./src/fetch.js",
+				"./src/focus": "./src/focus.js",
+				"./src/focus.js": "./src/focus.js",
+				"./src/if": "./src/if.js",
+				"./src/if.js": "./src/if.js",
+				"./src/isobound": "./src/isobound.js",
+				"./src/isobound.js": "./src/isobound.js",
+				"./src/keyboard": "./src/keyboard.js",
+				"./src/keyboard.js": "./src/keyboard.js",
+				"./src/log": "./src/log.js",
+				"./src/log.js": "./src/log.js",
+				"./src/mount": "./src/mount.js",
+				"./src/mount.js": "./src/mount.js",
+				"./src/prop-types": "./src/prop-types.js",
+				"./src/prop-types.js": "./src/prop-types.js",
+				"./src/provider-stack": "./src/provider-stack.js",
+				"./src/provider-stack.js": "./src/provider-stack.js",
+				"./src/qs": "./src/qs.js",
+				"./src/qs.js": "./src/qs.js",
+				"./src/update-binding": "./src/update-binding.js",
+				"./src/update-binding.js": "./src/update-binding.js",
+				"./src/with": "./src/with.js",
+				"./src/with.js": "./src/with.js",
+				"./src/quick/component": "./src/quick/component.js",
+				"./src/quick/component.js": "./src/quick/component.js",
+				"./src/quick/context": "./src/quick/context.js",
+				"./src/quick/context.js": "./src/quick/context.js",
+				"./src/quick/state": "./src/quick/state.js",
+				"./src/quick/state.js": "./src/quick/state.js"
+			},
+			"files": [
+				"./package.json",
+				"./src/children.js",
+				"./src/easing.js",
+				"./src/env.js",
+				"./src/fetch.js",
+				"./src/focus.js",
+				"./src/if.js",
+				"./src/isobound.js",
+				"./src/keyboard.js",
+				"./src/log.js",
+				"./src/mount.js",
+				"./src/prop-types.js",
+				"./src/provider-stack.js",
+				"./src/qs.js",
+				"./src/update-binding.js",
+				"./src/with.js",
+				"./src/quick/component.js",
+				"./src/quick/context.js",
+				"./src/quick/state.js"
+			],
+			"tree": {
+				"package.json": [
+					"./package.json",
+					"./package"
+				],
+				"src": {
+					"children.js": [
+						"./src/children.js",
+						"./src/children"
+					],
+					"easing.js": [
+						"./src/easing.js",
+						"./src/easing"
+					],
+					"env.js": [
+						"./src/env.js",
+						"./src/env"
+					],
+					"fetch.js": [
+						"./src/fetch.js",
+						"./src/fetch"
+					],
+					"focus.js": [
+						"./src/focus.js",
+						"./src/focus"
+					],
+					"if.js": [
+						"./src/if.js",
+						"./src/if"
+					],
+					"isobound.js": [
+						"./src/isobound.js",
+						"./src/isobound"
+					],
+					"keyboard.js": [
+						"./src/keyboard.js",
+						"./src/keyboard"
+					],
+					"log.js": [
+						"./src/log.js",
+						"./src/log"
+					],
+					"mount.js": [
+						"./src/mount.js",
+						"./src/mount"
+					],
+					"prop-types.js": [
+						"./src/prop-types.js",
+						"./src/prop-types"
+					],
+					"provider-stack.js": [
+						"./src/provider-stack.js",
+						"./src/provider-stack"
+					],
+					"qs.js": [
+						"./src/qs.js",
+						"./src/qs"
+					],
+					"update-binding.js": [
+						"./src/update-binding.js",
+						"./src/update-binding"
+					],
+					"with.js": [
+						"./src/with.js",
+						"./src/with"
+					],
+					"quick": {
+						"component.js": [
+							"./src/quick/component.js",
+							"./src/quick/component"
+						],
+						"context.js": [
+							"./src/quick/context.js",
+							"./src/quick/context"
+						],
+						"state.js": [
+							"./src/quick/state.js",
+							"./src/quick/state"
+						]
+					}
+				}
+			}
+		}
+	}
+}

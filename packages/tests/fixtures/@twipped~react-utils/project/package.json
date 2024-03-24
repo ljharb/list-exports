@@ -1,0 +1,26 @@
+{
+  "name": "@twipped/react-utils",
+  "version": "3.0.0",
+  "description": "A collection of my frequently used react tools and components",
+  "engines": {
+    "node": ">=14.13"
+  },
+  "author": "Jocelyn Badgley <joc@twipped.com> (http://twipped.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Twipped/hooks"
+  },
+  "files": [
+    "src",
+    "CHANGELOG.md",
+    "LICENSE.txt",
+    "README.md"
+  ],
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./*": "./src/*.js",
+    "./quick/*": "./src/quick/*.js"
+  }
+}

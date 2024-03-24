@@ -1,0 +1,9 @@
+{
+	"bundleDependencies": true,
+	"name": "ex-folder-mapped-patterns",
+	"version": "0.0.0",
+	"exports": {
+		"./mapped/*": "./unmapped/*",
+		"./*": "./*"
+	}
+}
