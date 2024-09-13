@@ -9,7 +9,7 @@
 		"tests-only": "tape packages/tests",
 		"tests:conditions": "tape packages/tests/conditions",
 		"test": "npm run tests-only && npm run tests:conditions",
-		"posttest": "aud --production",
+		"posttest": "npx npm@'>=10.2' audit --production",
 		"since": "node since"
 	},
 	"repository": {
@@ -33,7 +33,6 @@
 	},
 	"devDependencies": {
 		"@ljharb/eslint-config": "^21.1.0",
-		"aud": "^2.0.4",
 		"eslint": "=8.8.0",
 		"evalmd": "^0.0.19",
 		"glob-gitignore": "^1.0.14",
