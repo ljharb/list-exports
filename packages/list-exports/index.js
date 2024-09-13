@@ -504,6 +504,12 @@ function traverseExportsSubtree({
 	});
 }
 
+function hasPatterns(category) {
+	return category === 'patterns'
+		|| category === 'pattern-trailers'
+		|| category === 'pattern-trailers-no-dir-slash';
+}
+
 function traverseExportsSubdir({
 	packageDir,
 	packageExports,
@@ -514,15 +520,25 @@ function traverseExportsSubdir({
 	legacy,
 	mains,
 	category,
+	overriddenKeys = [],
 }) {
+	if (lhs.includes('*')) {
+		if (hasPatterns(category)) {
+			console.log({ lhs, rhs });
+		} else {
+			problems.add(`\`${lhs}\`: patterns are not supported in this category of node versions`);
+		}
+		return;
+	}
 	const fullRHS = pathJoin(packageDir, rhs);
 
 	// traverse into rhs, mapping paths to lhs
 	if (!existsSync(fullRHS)) {
+		// TODO: handle "ends in *, when pattern trailers"
 		problems.add(`\`${lhs}\`: \`${rhs}\` does not appear to exist!`);
 	} else if (!isDirectory(fullRHS)) {
 		problems.add(`\`${lhs}\`: \`${rhs}\` is not a directory!`);
-	} else {
+	} else { // if (overriddenKeys.some((x) => x !== lhs)) {
 		const subtree = rhs === './' ? legacy.tree : legacy.tree.get(rhs);
 		if (subtree) {
 			traverseExportsSubtree({
@@ -538,7 +554,11 @@ function traverseExportsSubdir({
 				category,
 			});
 		}
-	}
+	} /* else {
+		console.log({
+			lhs, rhs, overriddenKeys,
+		});
+	}*/
 }
 
 async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
@@ -556,12 +576,23 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 		if (await prev) {
 			return true;
 		}
+		console.log({ lhs, rhs });
+		if (lhs.includes('*')) {
+			if (hasPatterns(category)) {
+				console.log('trace');
+			} else {
+				problems.add(`\`${lhs}\`: patterns are not supported in this category of node versions`);
+			}
+			return false;
+		}
 		if (typeof rhs === 'string') {
 			rhs = decodeURI(rhs); // eslint-disable-line no-param-reassign
 			if (endsWith(lhs, '/') && endsWith(rhs, '/')) {
+				// keys(packageExports).filter((key) => startsWith(key, lhs));
 				if (category === 'pattern-trailers-no-dir-slash') {
 					return false;
 				}
+				const overriddenKeys = keys(packageExports).filter((key) => startsWith(key, lhs)).slice(0, -1);
 				tree.hasDirSlash = true; // eslint-disable-line no-param-reassign
 				traverseExportsSubdir({
 					packageDir,
@@ -573,6 +604,7 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 					legacy,
 					mains,
 					category,
+					overriddenKeys,
 				});
 				return true;
 			}
