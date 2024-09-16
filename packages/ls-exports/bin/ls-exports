@@ -4,7 +4,7 @@
 
 const path = require('path');
 const npa = require('npm-package-arg');
-const colorize = require('json-colorizer');
+const { colorize } = require('json-colorizer');
 const yargs = require('yargs');
 const fromEntries = require('object.fromentries');
 const arrayFrom = require('array.from');
