@@ -68,9 +68,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           skip-install: true
           skip-ls-check: true
-      - run: npm run tests:resolving
-        env:
-          TODO_IS_OK: 'true'
+      - run: TODO_IS_OK=true npm run tests:resolving
 
   exports-conditions:
     name: 'native resolution'
