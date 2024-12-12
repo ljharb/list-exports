@@ -52,6 +52,7 @@
 		"array.prototype.reduce": "^1.0.7",
 		"array.prototype.some": "^1.1.6",
 		"call-bind": "^1.0.8",
+		"call-bound": "^1.0.2",
 		"for-each": "^0.3.3",
 		"get-intrinsic": "^1.2.6",
 		"get-package-type": "^0.1.0",
