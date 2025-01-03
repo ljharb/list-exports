@@ -16,6 +16,9 @@
 		"type": "git",
 		"url": "git+https://github.com/ljharb/list-exports.git"
 	},
+	"directories": {
+		"test": "packages/test"
+	},
 	"keywords": [
 		"exports",
 		"cjs",

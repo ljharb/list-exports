@@ -20,6 +20,9 @@
 		"url": "git+https://github.com/ljharb/list-exports.git",
 		"directory": "./packages/ls-exports"
 	},
+	"directories": {
+		"test": false
+	},
 	"keywords": [
 		"exports",
 		"cjs",
