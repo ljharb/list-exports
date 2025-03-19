@@ -524,7 +524,8 @@ function traverseExportsSubdir({
 }) {
 	if (lhs.includes('*')) {
 		if (hasPatterns(category)) {
-			console.log({ lhs, rhs });
+			// Debugging disabled
+			// console.log({ lhs, rhs });
 		} else {
 			problems.add(`\`${lhs}\`: patterns are not supported in this category of node versions`);
 		}
@@ -555,9 +556,10 @@ function traverseExportsSubdir({
 			});
 		}
 	} /* else {
-		console.log({
-			lhs, rhs, overriddenKeys,
-		});
+		// Debugging disabled
+		// console.log({
+		//	lhs, rhs, overriddenKeys,
+		// });
 	}*/
 }
 
@@ -576,10 +578,11 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 		if (await prev) {
 			return true;
 		}
-		console.log({ lhs, rhs });
+		// Debugging disabled
+		// console.log({ lhs, rhs });
 		if (lhs.includes('*')) {
 			if (hasPatterns(category)) {
-				console.log('trace');
+				// console.log('trace');
 			} else {
 				problems.add(`\`${lhs}\`: patterns are not supported in this category of node versions`);
 			}
