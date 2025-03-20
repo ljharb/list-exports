@@ -319,7 +319,7 @@ async function traverseDir(
 		const canImport = options.useType && isESM(fullDirMain);
 
 		if (canImport) {
-			tree.import.set(dir, dirMain);
+			safeSet(tree.import, dir, dirMain);
 		}
 
 		if (canRequire) {
@@ -391,16 +391,16 @@ function addMainString(string, packageDir, tree) {
 		const resolved = `./${pathRelative(packageDir, fullMain)}`;
 		if (isESM(main)) {
 			if (!tree.import.has(main)) {
-				tree.import.set('.', resolved);
+				safeSet(tree.import, '.', resolved);
 				tree.files.add(main);
 			}
 		} else if (isCJS(main, true)) {
 			if (!tree.import.has(main)) {
-				tree.import.set('.', resolved);
+				safeSet(tree.import, '.', resolved);
 				tree.files.add(main);
 			}
 			if (!tree.require.has(main)) {
-				tree.require.set('.', resolved);
+				safeSet(tree.require, '.', resolved);
 				tree.files.add(main);
 			}
 		}
@@ -666,7 +666,7 @@ async function traverseExports(category, packageDir, pkgData, filteredFiles, leg
 				} else if (!item) {
 					item = new Map();
 				}
-				acc.set(part, item);
+				safeSet(acc, part, item);
 				return item;
 			}, tree);
 		}
