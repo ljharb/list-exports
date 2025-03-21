@@ -32,12 +32,6 @@
   "deprecated": false,
   "description": "A super light and fast circular JSON parser.",
   "devDependencies": {
-    "circular-json": "^0.5.9",
-    "circular-json-es6": "^2.0.2",
-    "coveralls": "^3.0.11",
-    "jsan": "^3.1.13",
-    "nyc": "^15.0.0",
-    "uglify-js": "^3.8.1"
   },
   "homepage": "https://github.com/WebReflection/flatted#readme",
   "keywords": [
