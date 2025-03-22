@@ -30,7 +30,6 @@
   "bugs": {
     "url": "https://github.com/preactjs/preact/issues"
   },
-  "bundleDependencies": true,
   "deprecated": false,
   "description": "Fast 3kb React-compatible Virtual DOM library.",
   "devDependencies": {
