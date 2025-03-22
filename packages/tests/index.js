@@ -222,12 +222,14 @@ test('listExports', (t) => {
 						s2t.test(`${fixture} (${category}): CLI`, { skip: SKIP_CLI || !exists }, (s3t) => {
 							s3t.plan(checkNPM ? 2 : 1);
 
-							const cliResults = JSON.parse(execSync(`${cli} path "./${path.relative(process.cwd(), projectDir)}" --json`));
+							const env = { ...process.env, NO_COLOR: 1 };
+
+							const cliResults = JSON.parse(`${execSync(`${cli} path "./${path.relative(process.cwd(), projectDir)}" --json`, { env })}`);
 							s3t.deepEqual(cliResults, expected, `${fixture}: CLI results match expectation`);
 
 							if (checkNPM) {
 								const actualName = results.name.replace(/-\d+(?:\.\d+(?:\.\d+)?)?$/, '');
-								const npmResults = JSON.parse(execSync(`${cli} package "${actualName}@${results.version}" --json`));
+								const npmResults = JSON.parse(`${execSync(`${cli} package "${actualName}@${results.version}" --json`, { env })}`);
 								expected.name = actualName;
 								const npmDiff = diffString(expected, npmResults);
 								if (npmDiff) {
