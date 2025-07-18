@@ -61,7 +61,7 @@
 		"npm-package-arg": "^11.0.3",
 		"object.entries": "^1.1.9",
 		"object.fromentries": "^2.0.8",
-		"pacote": "^17.0.7",
+		"pacote": "^18.0.6",
 		"resolve": "^2.0.0-next.4",
 		"safe-publish-latest": "^2.0.0",
 		"semver": "^6.3.1",
