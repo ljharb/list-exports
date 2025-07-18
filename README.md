@@ -1,9 +1,19 @@
 # list-exports <sup>[![Version Badge][npm-version-svg]][package-url]</sup>
-[![github actions][actions-image]][actions-url]  
+[![github actions][actions-image]][actions-url]
 [![coverage][codecov-image]][codecov-url]  
 [![License][license-image]][license-url]  
-[![Downloads][downloads-image]][downloads-url]
-[![npm badge][npm-badge-png]][package-url]
+[![Downloads][downloads-image]][downloads-url]  
+[![npm badge][npm-badge-png]][package-url]  
+
+---
+
+## 📦 About This Repository
+
+This repository is a **monorepo** that hosts two related packages:  
+- **`list-exports`** — a Node.js library that analyzes a `package.json`, lists all its export specifiers, and provides validation and diagnostics.  
+- **`ls-exports`** — a command-line interface (CLI) tool that offers the same functionality as `list-exports`, accessible directly from the terminal.
+
+These packages help developers inspect and troubleshoot the `exports` field in `package.json`, either programmatically (via the library) or interactively (via the CLI).
 
 ---
 
@@ -22,7 +32,7 @@ npm install list-exports
 ✅ Lists all export specifiers from a `package.json`  
 ✅ Handles Node.js `exports` field & categories (`import`, `require`, etc.)  
 ✅ Detects potential problems in the export map  
-✅ Async function — easy to integrate
+✅ Async function — easy to integrate  
 
 ---
 
@@ -53,6 +63,25 @@ It resolves to an object with:
     - `files`: Set of relative file paths
     - `tree`: Map of filenames & directories → their specifiers
   - `pre-exports`: always present, whether in above list or not, with the above structure
+
+---
+
+## 🗺️ Output Structure Diagram
+
+```mermaid
+graph TD
+  A[Output] --> B[name]
+  A --> C[version]
+  A --> D[problems]
+  A --> E[exports]
+  E --> F[binaries]
+  E --> G[latest]
+  E --> H[category]
+  H --> I[import]
+  H --> J[require]
+  H --> K[files]
+  H --> L[tree]
+```
 
 ---
 
@@ -107,13 +136,32 @@ Make sure tests pass before submitting a PR.
 
 ---
 
+## 📦 Packages
+
+This monorepo contains the following packages:
+
+- [`list-exports`](./packages/list-exports/) — core library that lists export specifiers from `package.json`.  
+  [View README](./packages/list-exports/README.md)
+
+- [`ls-exports`](./packages/ls-exports/) — CLI tool for listing exports.  
+  [View README](./packages/ls-exports/README.md)
+
+---
+
 ## 📁 Repository Structure
 
-- Root README with badges & examples
-- Source code in `/packages/list-exports/`
-- CLI code in `/packages/ls-exports/`
-- Tests & fixtures in `/packages/list-exports/tests/`
-- Configs: `.eslintrc`, `.eslintignore`, `.npmrc`, `.gitignore`, etc.
+- `.github/` → GitHub workflows, funding info
+- `packages/`
+  - `list-exports/` → core library
+    - `index.js`, `package.json`, `README.md`
+  - `ls-exports/` → CLI tool
+    - `exportsTable.js`, `getPackageJSONPath.js`, `table.js`, `package.json`, `README.md`
+- `tests/` → test files and fixtures
+  - `add-fixture.mjs`, `conditions.js`, `conditions-expected.js`, `index.js`, `package.json`
+- Root configs:
+  - `.eslintrc`, `.eslintignore`, `.npmrc`, `.gitignore`
+- `LICENSE`
+- `README.md`
 
 ---
 
@@ -123,10 +171,6 @@ We welcome contributions! Please:
 - Fork the repo and create your branch from `main`.
 - Run `npm install` to install dependencies.
 - Run tests with `npm test` before opening a PR.
-- Make sure your code is formatted with Prettier:
-  ```bash
-  npx prettier --write .
-  ```
 - Follow the existing code style and conventions.
 
 ---
@@ -134,12 +178,6 @@ We welcome contributions! Please:
 ## 🙌 Shoutouts
 
 Thanks to [Jordan Harband](https://github.com/ljharb) and all contributors for maintaining this project.
-
----
-
-## 📜 License
-
-MIT © [Jordan Harband](https://github.com/ljharb)
 
 ---
 
