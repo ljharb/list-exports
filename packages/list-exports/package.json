@@ -69,7 +69,7 @@
 		"read-package-json": "^7.0.1",
 		"resolve": "^2.0.0-next.5",
 		"safe-array-concat": "^1.1.2",
-		"semver": "^7.6.3",
+		"semver": "^7.7.2",
 		"sort-paths": "^1.1.1",
 		"string.prototype.endswith": "^1.0.2",
 		"string.prototype.startswith": "^1.0.1",
