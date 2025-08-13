@@ -28,14 +28,14 @@
 				"./package.json"
 			],
 			"tree": {
-				"dep.js": [
-					"./node_modules/dep"
-				],
 				"default.js": [
 					"."
 				],
 				"package.json": [
 					"./package.json"
+				],
+				"dep.js": [
+					"./node_modules/dep"
 				]
 			}
 		},
