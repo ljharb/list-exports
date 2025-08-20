@@ -1,0 +1,77 @@
+{
+	"name": "ex-stars-basic",
+	"version": "1.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"problems": [
+		"`.` has a `package.json`, but lacks both a `main` and an `index.js`!"
+	],
+	"exports": {
+		"binaries": {},
+		"latest": "pre-exports",
+		"pre-exports": {
+			"import": {},
+			"require": {
+				"./package": "./package.json",
+				"./package.json": "./package.json",
+				"./src/hooks/useA": "./src/hooks/useA.js",
+				"./src/hooks/useA.js": "./src/hooks/useA.js",
+				"./src/mismatch/a": "./src/mismatch/a.js",
+				"./src/mismatch/a.js": "./src/mismatch/a.js",
+				"./src/multi/a/x/z": "./src/multi/a/x/z.js",
+				"./src/multi/a/x/z.js": "./src/multi/a/x/z.js",
+				"./src/rhs-extra/a/b": "./src/rhs-extra/a/b.js",
+				"./src/rhs-extra/a/b.js": "./src/rhs-extra/a/b.js"
+			},
+			"files": [
+				"./package.json",
+				"./src/hooks/useA.js",
+				"./src/mismatch/a.js",
+				"./src/multi/a/x/z.js",
+				"./src/rhs-extra/a/b.js"
+			],
+			"tree": {
+				"package.json": [
+					"./package.json",
+					"./package"
+				],
+				"src": {
+					"hooks": {
+						"useA.js": [
+							"./src/hooks/useA.js",
+							"./src/hooks/useA"
+						]
+					},
+					"mismatch": {
+						"a.js": [
+							"./src/mismatch/a.js",
+							"./src/mismatch/a"
+						]
+					},
+					"rhs-extra": {
+						"a": {
+							"b.js": [
+								"./src/rhs-extra/a/b.js",
+								"./src/rhs-extra/a/b"
+							]
+						}
+					},
+					"multi": {
+						"a": {
+							"x": {
+								"z.js": [
+									"./src/multi/a/x/z.js",
+									"./src/multi/a/x/z"
+								]
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"devDependencies": {
+		"@fixtures/ex-stars-basic": "file:fixtures/ex-stars-basic/project"
+	}
+}
