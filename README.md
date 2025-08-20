@@ -1,9 +1,6 @@
 # list-exports <sup>[![Version Badge][npm-version-svg]][package-url]</sup>
 [![github actions][actions-image]][actions-url]
-[![coverage][codecov-image]][codecov-url]  
-[![License][license-image]][license-url]  
-[![Downloads][downloads-image]][downloads-url]  
-[![npm badge][npm-badge-png]][package-url]  
+[![coverage][codecov-image]][codecov-url]
 
 ---
 
@@ -14,55 +11,6 @@ This repository is a **monorepo** that hosts two related packages:
 - **`ls-exports`** — a command-line interface (CLI) tool that offers the same functionality as `list-exports`, accessible directly from the terminal.
 
 These packages help developers inspect and troubleshoot the `exports` field in `package.json`, either programmatically (via the library) or interactively (via the CLI).
-
----
-
-## 🚀 Installation
-
-Install via npm:
-
-```bash
-npm install list-exports
-```
-
----
-
-## 📋 Features
-
-✅ Lists all export specifiers from a `package.json`  
-✅ Handles Node.js `exports` field & categories (`import`, `require`, etc.)  
-✅ Detects potential problems in the export map  
-✅ Async function — easy to integrate  
-
----
-
-## 📄 What does it do?
-
-Given a path to a `package.json`, what specifiers does it expose?
-
-The package export defaults to an `async function`.  
-It takes a path to a `package.json` as the only required argument.
-
----
-
-## 📋 Output structure
-
-It resolves to an object with:
-
-- `name`: the package name
-- `version`: the package version
-- `engines`: the package's `engines` requirements
-- `problems`: a Set of strings describing problems or validation issues encountered during exports traversal.  
-  <sub>Note that these errors _do not_ necessarily interfere with the listed entry points being accessible at runtime.</sub>
-- `exports`: an object:
-  - `binaries`: Map of executable program names → file paths
-  - `latest`: the latest `[category][]` in the given Node version range
-  - `...categories`: each overlapping Node version category with:
-    - `import`: Map of import specifier → file path
-    - `require`: Map of require specifier → file path
-    - `files`: Set of relative file paths
-    - `tree`: Map of filenames & directories → their specifiers
-  - `pre-exports`: always present, whether in above list or not, with the above structure
 
 ---
 
