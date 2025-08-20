@@ -490,7 +490,7 @@ function traverseExportsSubtree({
 			// it's a dir
 			traverseExportsSubtree({
 				tree,
-				subtree,
+				subtree: value,
 				problems,
 				packageDir,
 				packageExports,
@@ -578,47 +578,6 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 				});
 				return true;
 			}
-
-			if (lhs.includes('*') || rhs.includes('*')) {
-				const rhsStarIdx = rhs.indexOf('*');
-				const rhsPrefix = rhsStarIdx === -1 ? rhs : rhs.slice(0, rhsStarIdx);
-				const rhsSuffix = rhsStarIdx === -1 ? '' : rhs.slice(rhsStarIdx + 1);
-
-				let matchedAny = false;
-
-				await asyncForEach(arrayFrom(filteredFiles), async (rel) => {
-					const candidate = `./${rel}`;
-
-					if (rhsStarIdx !== -1) {
-						if (!candidate.startsWith(rhsPrefix) || !candidate.endsWith(rhsSuffix)) return;
-					} else {
-						if (candidate !== rhs) return;
-					}
-
-					const mapped = mapStars(lhs, rhs, candidate);
-					if (!mapped) return;
-
-					const lhsStarIdx = lhs.indexOf('*');
-					const lhsMapped = lhsStarIdx === -1
-						? lhs
-						: (lhs.slice(0, lhsStarIdx) + mapped.captured + lhs.slice(lhsStarIdx + 1));
-
-					const ok = addFullPath(
-						packageDir,
-						category,
-						tree,
-						lhsMapped,
-						mapped.target,
-						conditionChain,
-						problems,
-						filteredFiles,
-					);
-					if (ok) { matchedAny = true; }
-				});
-
-				return matchedAny;
-			}
-
 			return addFullPath(
 				packageDir,
 				category,
@@ -659,56 +618,15 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 							tree,
 							legacy,
 							mains,
-							category,
 						});
 					}
-
-					if (lhs.includes('*') || conditionRHS.includes('*')) {
-						const rhsStr = conditionRHS;
-						const rhsStarIdx = rhsStr.indexOf('*');
-						const rhsPrefix = rhsStarIdx === -1 ? rhsStr : rhsStr.slice(0, rhsStarIdx);
-						const rhsSuffix = rhsStarIdx === -1 ? '' : rhsStr.slice(rhsStarIdx + 1);
-
-						let matchedAnyInner = false;
-
-						return asyncForEach(arrayFrom(filteredFiles), async (rel) => {
-							const candidate = `./${rel}`;
-
-							if (rhsStarIdx !== -1) {
-								if (!candidate.startsWith(rhsPrefix) || !candidate.endsWith(rhsSuffix)) return;
-							} else {
-								if (candidate !== rhsStr) return;
-							}
-
-							const mapped = mapStars(lhs, rhsStr, candidate);
-							if (!mapped) return;
-
-							const lhsStarIdx = lhs.indexOf('*');
-							const lhsMapped = lhsStarIdx === -1
-								? lhs
-								: (lhs.slice(0, lhsStarIdx) + mapped.captured + lhs.slice(lhsStarIdx + 1));
-
-							const ok = addFullPath(
-								packageDir,
-								category,
-								tree,
-								lhsMapped,
-								mapped.target,
-								$concat(conditionChain, condition),
-								problems,
-								filteredFiles,
-							);
-							if (ok) { matchedAnyInner = true; }
-						}).then(() => matchedAnyInner || matchedSomething);
-					}
-
 					return addFullPath(
 						packageDir,
 						category,
 						tree,
 						lhs,
 						conditionRHS,
-						$concat(conditionChain, condition),
+						conditionChain.concat(condition),
 						problems,
 						filteredFiles,
 					) || matchedSomething;
@@ -920,7 +838,7 @@ async function getExports(packageDir, pkgData, nodeRange, problems) {
 			binaries,
 			latest: 'conditions',
 			conditions: postExports,
-			'pre-exports': pre-exports, // eslint-disable-line no-undef
+			'pre-exports': preExports,
 		};
 	}
 
