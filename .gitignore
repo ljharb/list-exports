@@ -114,3 +114,7 @@ testerfolder/
 
 #local testerfolder
 testerfolder/
+
+# local debug/probe scripts
+debug-stars.cjs
+probe-node-stars.cjs
