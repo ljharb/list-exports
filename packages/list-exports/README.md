@@ -118,6 +118,6 @@ listExports('./package.json', { node: true }).then((data) => {
 [downloads-url]: https://npm-stat.com/charts.html?package=list-exports
 [codecov-image]: https://codecov.io/gh/ljharb/list-exports/branch/main/graphs/badge.svg
 [codecov-url]: https://app.codecov.io/gh/ljharb/list-exports/
-[actions-image]: https://img.shields.io/endpoint?url=https://github-actions-badge-u3jn4tfpocch.runkit.sh/ljharb/list-exports
+[actions-image]: https://img.shields.io/github/check-runs/ljharb/list-exports/main
 [actions-url]: https://github.com/ljharb/list-exports/actions
 [category]: https://github.com/inspect-js/node-exports-info#categories
