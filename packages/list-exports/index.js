@@ -33,6 +33,7 @@ const forEach = require('for-each');
 const {
 	validRange,
 	intersects,
+	subset,
 } = require('semver');
 const includes = require('array-includes');
 const map = require('array.prototype.map');
@@ -104,17 +105,39 @@ function sortFiles(tree) {
 	}));
 }
 
-function getExtensions(packageType = 'commonjs') {
+// Node 22.6.0+ has native TypeScript support (type stripping)
+// Use subset to ensure the ENTIRE range supports native TS, not just part of it
+function hasNativeTS(nodeRange) {
+	return subset(nodeRange, '>=22.6');
+}
+
+function getExtensions(packageType = 'commonjs', nodeRange = process.version) {
 	if (packageType !== 'commonjs' && packageType !== 'module') {
 		throw new TypeError(`unknown package type found: ${inspect(packageType)}`);
 	}
 
-	const base = filter(
+	const nativeTS = hasNativeTS(nodeRange);
+
+	let baseExts = filter(
 		keys(require.extensions),
-		(x) => startsWith(x, '.') && (packageType !== 'module' || x !== '.js') && x !== '.mjs',
+		(x) => startsWith(x, '.')
+			&& (packageType !== 'module' || x !== '.js')
+			&& x !== '.mjs'
+			&& x !== '.ts'
+			&& x !== '.cts'
+			&& x !== '.mts', // always exclude TS from require.extensions; we add them explicitly below when needed
 	);
+	// when native TS is available, ensure TS extensions are included
+	if (nativeTS) {
+		baseExts = $concat(baseExts, '.ts', '.cts');
+	}
+	const base = baseExts;
 	const legacy = packageType === 'module' ? $concat(base, '.js') : base;
-	const esm = $concat(['.mjs'], packageType === 'module' ? '.js' : []);
+	let esmExts = $concat(['.mjs'], packageType === 'module' ? '.js' : []);
+	if (nativeTS) {
+		esmExts = $concat(esmExts, '.mts');
+	}
+	const esm = esmExts;
 	const all = $concat([], esm, '.cjs', base);
 
 	return {
@@ -125,21 +148,21 @@ function getExtensions(packageType = 'commonjs') {
 	};
 }
 
-function isCJS(filename, usingExports = false) {
+function isCJS(filename, usingExports = false, nodeRange = process.version) {
 	const packageType = getPackageType(filename);
 	if (packageType !== 'commonjs' && packageType !== 'module') {
 		throw new TypeError(`unknown package type found: ${inspect(packageType)}`);
 	}
-	const { base, legacy } = getExtensions(packageType);
+	const { base, legacy } = getExtensions(packageType, nodeRange);
 	return includes(usingExports ? base : legacy, extname(filename));
 }
 
-function isESM(filename) {
+function isESM(filename, nodeRange = process.version) {
 	const packageType = getPackageType(filename);
 	if (packageType !== 'commonjs' && packageType !== 'module') {
 		throw new TypeError(`unknown package type found: ${inspect(packageType)}`);
 	}
-	const { esm } = getExtensions(packageType);
+	const { esm } = getExtensions(packageType, nodeRange);
 	return includes(esm, extname(filename));
 }
 
@@ -335,8 +358,8 @@ async function traverseDir(
 	const dirMain = mains.get(dir);
 	if (dirMain) {
 		const fullDirMain = pathJoin(rootDir, dir, dirMain);
-		const canRequire = isCJS(fullDirMain, options.useType);
-		const canImport = options.useType && isESM(fullDirMain);
+		const canRequire = isCJS(fullDirMain, options.useType, options.nodeRange);
+		const canImport = options.useType && isESM(fullDirMain, options.nodeRange);
 
 		if (canImport) {
 			safeSet(tree.import, dir, dirMain);
@@ -404,17 +427,17 @@ async function traverseDir(
 	return sortFiles(tree);
 }
 
-function addMainString(string, packageDir, tree) {
+function addMainString(string, packageDir, tree, nodeRange) {
 	const main = `./${pathNormalize(string)}`;
 	const fullMain = pathJoin(packageDir, main);
 	if (existsSync(fullMain)) {
 		const resolved = `./${pathRelative(packageDir, fullMain)}`;
-		if (isESM(main)) {
+		if (isESM(main, nodeRange)) {
 			if (!tree.import.has(main)) {
 				safeSet(tree.import, '.', resolved);
 				tree.files.add(main);
 			}
-		} else if (isCJS(main, true)) {
+		} else if (isCJS(main, true, nodeRange)) {
 			if (!tree.import.has(main)) {
 				safeSet(tree.import, '.', resolved);
 				tree.files.add(main);
@@ -436,6 +459,7 @@ function addFullPath(
 	conditionChain,
 	problems,
 	filteredFiles,
+	nodeRange,
 ) {
 	if (startsWith(rhs, './')) {
 		const fullPath = pathJoin(packageDir, rhs);
@@ -443,7 +467,7 @@ function addFullPath(
 			const ext = extname(fullPath);
 			const canRequire = ext !== '.mjs'
 				&& (
-					!isESM(fullPath) // not type module
+					!isESM(fullPath, nodeRange) // not type module
 					|| ext !== '.js' // not .js
 				)
 				&& !includes(conditionChain, 'import')
@@ -573,6 +597,7 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 	legacy,
 	filteredFiles,
 	mains,
+	nodeRange,
 }) {
 	return asyncReduce($concat([], maybeRHS), async (prev, rhs) => {
 		if (await prev) {
@@ -607,6 +632,7 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 				conditionChain,
 				problems,
 				filteredFiles,
+				nodeRange,
 			);
 		}
 		const rhsResults = validateExportsObject(rhs);
@@ -649,6 +675,7 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 						conditionChain.concat(condition),
 						problems,
 						filteredFiles,
+						nodeRange,
 					) || matchedSomething;
 				}
 				return forEachExportEntry([lhs, conditionRHS], $concat(conditionChain, condition), {
@@ -661,6 +688,7 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 					legacy,
 					filteredFiles,
 					mains,
+					nodeRange,
 				}) || matchedSomething;
 			}, false);
 		}
@@ -669,7 +697,7 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 	}, false);
 }
 
-async function traverseExports(category, packageDir, pkgData, filteredFiles, legacy, mains, problems) {
+async function traverseExports(category, packageDir, pkgData, filteredFiles, legacy, mains, problems, nodeRange) {
 	const tree = newTree();
 
 	function addToTree(file, specifier) {
@@ -697,7 +725,7 @@ async function traverseExports(category, packageDir, pkgData, filteredFiles, leg
 	const conditions = new Set(getConditionsForCategory(category));
 
 	if (typeof pkgData.exports === 'string') {
-		addMainString(pkgData.exports, packageDir, tree);
+		addMainString(pkgData.exports, packageDir, tree, nodeRange);
 	} else {
 		// handle array fallback for main
 		const exportValues = flat($concat([], pkgData.exports), Infinity);
@@ -707,7 +735,7 @@ async function traverseExports(category, packageDir, pkgData, filteredFiles, leg
 				return true;
 			}
 			if (typeof value === 'string') {
-				addMainString(value, packageDir, tree);
+				addMainString(value, packageDir, tree, nodeRange);
 				return true;
 			}
 			if (value && typeof value === 'object') {
@@ -736,6 +764,7 @@ async function traverseExports(category, packageDir, pkgData, filteredFiles, leg
 						legacy,
 						filteredFiles,
 						mains,
+						nodeRange,
 					});
 				}
 
@@ -757,6 +786,7 @@ async function traverseExports(category, packageDir, pkgData, filteredFiles, leg
 							legacy,
 							filteredFiles,
 							mains,
+							nodeRange,
 						});
 						if (!matched) {
 							safeSet(tree.import, lhs, false);
@@ -795,7 +825,7 @@ async function getExports(packageDir, pkgData, nodeRange, problems) {
 		type: rootType = 'commonjs',
 	} = pkgData;
 
-	const { all: rootAllExtensions, base: rootBaseExtensions } = getExtensions(rootType);
+	const { all: rootAllExtensions, base: rootBaseExtensions } = getExtensions(rootType, nodeRange);
 	const arborist = new Arborist({ path: packageDir });
 	const arbTree = await arborist.loadActual();
 	const packedFiles = await packlist(arbTree, { path: packageDir });
@@ -820,7 +850,7 @@ async function getExports(packageDir, pkgData, nodeRange, problems) {
 
 	const mains = await traverseMains(packageDir, filteredFiles, rootBaseExtensions, problems);
 
-	const legacyP = traverseDir('.', packageDir, filteredFiles, mains, {});
+	const legacyP = traverseDir('.', packageDir, filteredFiles, mains, {}, { nodeRange });
 
 	const categories = getCategoriesForRange(nodeRange);
 	const latest = categories[0];
@@ -850,7 +880,7 @@ async function getExports(packageDir, pkgData, nodeRange, problems) {
 			postExports,
 			preExports,
 		] = await $all([
-			traverseDir('.', packageDir, filteredFiles, mains, pkgData.exports, { useType: true }),
+			traverseDir('.', packageDir, filteredFiles, mains, pkgData.exports, { useType: true, nodeRange }),
 			legacyP,
 		]);
 
@@ -869,7 +899,7 @@ async function getExports(packageDir, pkgData, nodeRange, problems) {
 		category,
 		category === 'pre-exports'
 			? legacy
-			: await traverseExports(category, packageDir, pkgData, filteredFiles, legacy, mains, problems),
+			: await traverseExports(category, packageDir, pkgData, filteredFiles, legacy, mains, problems, nodeRange),
 	]));
 
 	return {

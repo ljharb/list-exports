@@ -13,6 +13,7 @@
 				".": "./cjs/index.js",
 				"./index.js": "./index.js",
 				"./min.js": "./min.js",
+				"./types.d.ts": "./types.d.ts",
 				"./cjs/index.js": "./cjs/index.js",
 				"./esm/index.js": "./esm/index.js"
 			},
@@ -27,6 +28,8 @@
 				"./min.js": "./min.js",
 				"./package": "./package.json",
 				"./package.json": "./package.json",
+				"./types.d": "./types.d.ts",
+				"./types.d.ts": "./types.d.ts",
 				"./cjs/": "./cjs/index.js",
 				"./cjs/index": "./cjs/index.js",
 				"./cjs/index.js": "./cjs/index.js",
@@ -38,6 +41,7 @@
 				"./index.js",
 				"./min.js",
 				"./package.json",
+				"./types.d.ts",
 				"./cjs/index.js",
 				"./esm/index.js"
 			],
@@ -71,6 +75,10 @@
 				"package.json": [
 					"./package.json",
 					"./package"
+				],
+				"types.d.ts": [
+					"./types.d.ts",
+					"./types.d"
 				]
 			}
 		},
@@ -87,6 +95,8 @@
 				"./min.js": "./min.js",
 				"./package": "./package.json",
 				"./package.json": "./package.json",
+				"./types.d": "./types.d.ts",
+				"./types.d.ts": "./types.d.ts",
 				"./cjs/": "./cjs/index.js",
 				"./cjs/index": "./cjs/index.js",
 				"./cjs/index.js": "./cjs/index.js",
@@ -98,6 +108,7 @@
 				"./index.js",
 				"./min.js",
 				"./package.json",
+				"./types.d.ts",
 				"./cjs/index.js",
 				"./esm/index.js"
 			],
@@ -131,6 +142,10 @@
 				"package.json": [
 					"./package.json",
 					"./package"
+				],
+				"types.d.ts": [
+					"./types.d.ts",
+					"./types.d"
 				]
 			}
 		}

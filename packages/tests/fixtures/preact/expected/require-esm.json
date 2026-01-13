@@ -38,16 +38,12 @@
 				"./compat/src/Children.js",
 				"./compat/src/events.js",
 				"./compat/src/forwardRef.js",
-				"./compat/src/index.d.ts",
 				"./compat/src/index.js",
-				"./compat/src/internal.d.ts",
 				"./compat/src/memo.js",
 				"./compat/src/portals.js",
 				"./compat/src/PureComponent.js",
 				"./compat/src/render.js",
-				"./compat/src/suspense-list.d.ts",
 				"./compat/src/suspense-list.js",
-				"./compat/src/suspense.d.ts",
 				"./compat/src/suspense.js",
 				"./compat/src/util.js",
 				"./debug/package.json",
@@ -60,7 +56,6 @@
 				"./debug/src/constants.js",
 				"./debug/src/debug.js",
 				"./debug/src/index.js",
-				"./debug/src/internal.d.ts",
 				"./devtools/package.json",
 				"./devtools/dist/devtools.js",
 				"./devtools/dist/devtools.mjs",
@@ -78,18 +73,13 @@
 				"./hooks/dist/hooks.mjs",
 				"./hooks/dist/hooks.module.js",
 				"./hooks/dist/hooks.umd.js",
-				"./hooks/src/index.d.ts",
 				"./hooks/src/index.js",
-				"./hooks/src/internal.d.ts",
 				"./src/clone-element.js",
 				"./src/component.js",
 				"./src/constants.js",
 				"./src/create-context.js",
 				"./src/create-element.js",
-				"./src/index.d.ts",
 				"./src/index.js",
-				"./src/internal.d.ts",
-				"./src/jsx.d.ts",
 				"./src/options.js",
 				"./src/render.js",
 				"./src/util.js",
@@ -102,7 +92,6 @@
 				"./test-utils/dist/testUtils.mjs",
 				"./test-utils/dist/testUtils.module.js",
 				"./test-utils/dist/testUtils.umd.js",
-				"./test-utils/src/index.d.ts",
 				"./test-utils/src/index.js"
 			],
 			"tree": {
@@ -206,11 +195,7 @@
 				"./compat/src/forwardRef": "./compat/src/forwardRef.js",
 				"./compat/src/forwardRef.js": "./compat/src/forwardRef.js",
 				"./compat/src/index": "./compat/src/index.js",
-				"./compat/src/index.d": "./compat/src/index.d.ts",
-				"./compat/src/index.d.ts": "./compat/src/index.d.ts",
 				"./compat/src/index.js": "./compat/src/index.js",
-				"./compat/src/internal.d": "./compat/src/internal.d.ts",
-				"./compat/src/internal.d.ts": "./compat/src/internal.d.ts",
 				"./compat/src/memo": "./compat/src/memo.js",
 				"./compat/src/memo.js": "./compat/src/memo.js",
 				"./compat/src/portals": "./compat/src/portals.js",
@@ -221,11 +206,7 @@
 				"./compat/src/render.js": "./compat/src/render.js",
 				"./compat/src/suspense": "./compat/src/suspense.js",
 				"./compat/src/suspense-list": "./compat/src/suspense-list.js",
-				"./compat/src/suspense-list.d": "./compat/src/suspense-list.d.ts",
-				"./compat/src/suspense-list.d.ts": "./compat/src/suspense-list.d.ts",
 				"./compat/src/suspense-list.js": "./compat/src/suspense-list.js",
-				"./compat/src/suspense.d": "./compat/src/suspense.d.ts",
-				"./compat/src/suspense.d.ts": "./compat/src/suspense.d.ts",
 				"./compat/src/suspense.js": "./compat/src/suspense.js",
 				"./compat/src/util": "./compat/src/util.js",
 				"./compat/src/util.js": "./compat/src/util.js",
@@ -251,8 +232,6 @@
 				"./debug/src/debug.js": "./debug/src/debug.js",
 				"./debug/src/index": "./debug/src/index.js",
 				"./debug/src/index.js": "./debug/src/index.js",
-				"./debug/src/internal.d": "./debug/src/internal.d.ts",
-				"./debug/src/internal.d.ts": "./debug/src/internal.d.ts",
 				"./devtools/": "./devtools/dist/devtools.js",
 				"./devtools/package": "./devtools/package.json",
 				"./devtools/package.json": "./devtools/package.json",
@@ -291,11 +270,7 @@
 				"./hooks/dist/hooks.umd.js": "./hooks/dist/hooks.umd.js",
 				"./hooks/src/": "./hooks/src/index.js",
 				"./hooks/src/index": "./hooks/src/index.js",
-				"./hooks/src/index.d": "./hooks/src/index.d.ts",
-				"./hooks/src/index.d.ts": "./hooks/src/index.d.ts",
 				"./hooks/src/index.js": "./hooks/src/index.js",
-				"./hooks/src/internal.d": "./hooks/src/internal.d.ts",
-				"./hooks/src/internal.d.ts": "./hooks/src/internal.d.ts",
 				"./src/": "./src/index.js",
 				"./src/clone-element": "./src/clone-element.js",
 				"./src/clone-element.js": "./src/clone-element.js",
@@ -309,13 +284,7 @@
 				"./src/create-element.js": "./src/create-element.js",
 				"./src/diff": "./src/diff/index.js",
 				"./src/index": "./src/index.js",
-				"./src/index.d": "./src/index.d.ts",
-				"./src/index.d.ts": "./src/index.d.ts",
 				"./src/index.js": "./src/index.js",
-				"./src/internal.d": "./src/internal.d.ts",
-				"./src/internal.d.ts": "./src/internal.d.ts",
-				"./src/jsx.d": "./src/jsx.d.ts",
-				"./src/jsx.d.ts": "./src/jsx.d.ts",
 				"./src/options": "./src/options.js",
 				"./src/options.js": "./src/options.js",
 				"./src/render": "./src/render.js",
@@ -344,8 +313,6 @@
 				"./test-utils/dist/testUtils.umd.js": "./test-utils/dist/testUtils.umd.js",
 				"./test-utils/src/": "./test-utils/src/index.js",
 				"./test-utils/src/index": "./test-utils/src/index.js",
-				"./test-utils/src/index.d": "./test-utils/src/index.d.ts",
-				"./test-utils/src/index.d.ts": "./test-utils/src/index.d.ts",
 				"./test-utils/src/index.js": "./test-utils/src/index.js"
 			},
 			"files": [
@@ -359,16 +326,12 @@
 				"./compat/src/Children.js",
 				"./compat/src/events.js",
 				"./compat/src/forwardRef.js",
-				"./compat/src/index.d.ts",
 				"./compat/src/index.js",
-				"./compat/src/internal.d.ts",
 				"./compat/src/memo.js",
 				"./compat/src/portals.js",
 				"./compat/src/PureComponent.js",
 				"./compat/src/render.js",
-				"./compat/src/suspense-list.d.ts",
 				"./compat/src/suspense-list.js",
-				"./compat/src/suspense.d.ts",
 				"./compat/src/suspense.js",
 				"./compat/src/util.js",
 				"./debug/package.json",
@@ -381,7 +344,6 @@
 				"./debug/src/constants.js",
 				"./debug/src/debug.js",
 				"./debug/src/index.js",
-				"./debug/src/internal.d.ts",
 				"./devtools/package.json",
 				"./devtools/dist/devtools.js",
 				"./devtools/dist/devtools.mjs",
@@ -399,18 +361,13 @@
 				"./hooks/dist/hooks.mjs",
 				"./hooks/dist/hooks.module.js",
 				"./hooks/dist/hooks.umd.js",
-				"./hooks/src/index.d.ts",
 				"./hooks/src/index.js",
-				"./hooks/src/internal.d.ts",
 				"./src/clone-element.js",
 				"./src/component.js",
 				"./src/constants.js",
 				"./src/create-context.js",
 				"./src/create-element.js",
-				"./src/index.d.ts",
 				"./src/index.js",
-				"./src/internal.d.ts",
-				"./src/jsx.d.ts",
 				"./src/options.js",
 				"./src/render.js",
 				"./src/util.js",
@@ -423,7 +380,6 @@
 				"./test-utils/dist/testUtils.mjs",
 				"./test-utils/dist/testUtils.module.js",
 				"./test-utils/dist/testUtils.umd.js",
-				"./test-utils/src/index.d.ts",
 				"./test-utils/src/index.js"
 			],
 			"tree": {
@@ -468,19 +424,11 @@
 							"./compat/src/forwardRef.js",
 							"./compat/src/forwardRef"
 						],
-						"index.d.ts": [
-							"./compat/src/index.d.ts",
-							"./compat/src/index.d"
-						],
 						"index.js": [
 							"./compat/src",
 							"./compat/src/",
 							"./compat/src/index.js",
 							"./compat/src/index"
-						],
-						"internal.d.ts": [
-							"./compat/src/internal.d.ts",
-							"./compat/src/internal.d"
 						],
 						"memo.js": [
 							"./compat/src/memo.js",
@@ -498,17 +446,9 @@
 							"./compat/src/render.js",
 							"./compat/src/render"
 						],
-						"suspense-list.d.ts": [
-							"./compat/src/suspense-list.d.ts",
-							"./compat/src/suspense-list.d"
-						],
 						"suspense-list.js": [
 							"./compat/src/suspense-list.js",
 							"./compat/src/suspense-list"
-						],
-						"suspense.d.ts": [
-							"./compat/src/suspense.d.ts",
-							"./compat/src/suspense.d"
 						],
 						"suspense.js": [
 							"./compat/src/suspense.js",
@@ -566,10 +506,6 @@
 							"./debug/src/",
 							"./debug/src/index.js",
 							"./debug/src/index"
-						],
-						"internal.d.ts": [
-							"./debug/src/internal.d.ts",
-							"./debug/src/internal.d"
 						]
 					}
 				},
@@ -658,19 +594,11 @@
 						"./hooks/package"
 					],
 					"src": {
-						"index.d.ts": [
-							"./hooks/src/index.d.ts",
-							"./hooks/src/index.d"
-						],
 						"index.js": [
 							"./hooks/src",
 							"./hooks/src/",
 							"./hooks/src/index.js",
 							"./hooks/src/index"
-						],
-						"internal.d.ts": [
-							"./hooks/src/internal.d.ts",
-							"./hooks/src/internal.d"
 						]
 					}
 				},
@@ -719,23 +647,11 @@
 							"./src/diff/props"
 						]
 					},
-					"index.d.ts": [
-						"./src/index.d.ts",
-						"./src/index.d"
-					],
 					"index.js": [
 						"./src",
 						"./src/",
 						"./src/index.js",
 						"./src/index"
-					],
-					"internal.d.ts": [
-						"./src/internal.d.ts",
-						"./src/internal.d"
-					],
-					"jsx.d.ts": [
-						"./src/jsx.d.ts",
-						"./src/jsx.d"
 					],
 					"options.js": [
 						"./src/options.js",
@@ -775,10 +691,6 @@
 						"./test-utils/package"
 					],
 					"src": {
-						"index.d.ts": [
-							"./test-utils/src/index.d.ts",
-							"./test-utils/src/index.d"
-						],
 						"index.js": [
 							"./test-utils/src",
 							"./test-utils/src/",
