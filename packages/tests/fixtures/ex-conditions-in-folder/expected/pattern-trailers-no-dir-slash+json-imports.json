@@ -1,0 +1,100 @@
+{
+	"name": "ex-conditions-in-folder",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"problems": [],
+	"exports": {
+		"binaries": {},
+		"latest": "pattern-trailers-no-dir-slash+json-imports",
+		"pattern-trailers-no-dir-slash+json-imports": {
+			"import": {
+				".": "./mjs/index.mjs"
+			},
+			"require": {
+				".": "./cjs/index.js",
+				"./package.json": "./package.json"
+			},
+			"files": [
+				"./package.json",
+				"./cjs/index.js",
+				"./mjs/index.mjs"
+			],
+			"tree": {
+				"cjs": {
+					"index.js": [
+						"."
+					]
+				},
+				"mjs": {
+					"index.mjs": [
+						"."
+					]
+				},
+				"package.json": [
+					"./package.json"
+				]
+			}
+		},
+		"pre-exports": {
+			"import": {},
+			"require": {
+				".": "./cjs/index.js",
+				"./": "./cjs/index.js",
+				"./cjs": "./cjs/index.js",
+				"./index": "./index.js",
+				"./index.js": "./index.js",
+				"./package": "./package.json",
+				"./package.json": "./package.json",
+				"./cjs/": "./cjs/index.js",
+				"./cjs/index": "./cjs/index.js",
+				"./cjs/index.js": "./cjs/index.js",
+				"./cjs/utils": "./cjs/utils.js",
+				"./cjs/utils.js": "./cjs/utils.js",
+				"./mjs/index.mjs": "./mjs/index.mjs",
+				"./mjs/utils.mjs": "./mjs/utils.mjs"
+			},
+			"files": [
+				"./index.js",
+				"./package.json",
+				"./cjs/index.js",
+				"./cjs/utils.js",
+				"./mjs/index.mjs",
+				"./mjs/utils.mjs"
+			],
+			"tree": {
+				"cjs": {
+					"index.js": [
+						".",
+						"./",
+						"./cjs",
+						"./cjs/",
+						"./cjs/index.js",
+						"./cjs/index"
+					],
+					"utils.js": [
+						"./cjs/utils.js",
+						"./cjs/utils"
+					]
+				},
+				"index.js": [
+					"./index.js",
+					"./index"
+				],
+				"mjs": {
+					"index.mjs": [
+						"./mjs/index.mjs"
+					],
+					"utils.mjs": [
+						"./mjs/utils.mjs"
+					]
+				},
+				"package.json": [
+					"./package.json",
+					"./package"
+				]
+			}
+		}
+	}
+}

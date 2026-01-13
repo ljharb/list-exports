@@ -60,7 +60,7 @@
 		"get-intrinsic": "^1.2.6",
 		"get-package-type": "^0.1.0",
 		"hasown": "^2.0.2",
-		"node-exports-info": "^1.3.1",
+		"node-exports-info": "^1.4.0",
 		"npm-packlist": "^8.0.2",
 		"object-inspect": "^1.13.3",
 		"object-keys": "^1.1.1",
