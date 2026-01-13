@@ -24,12 +24,12 @@
 				"./yes.js"
 			],
 			"tree": {
+				"pattern.js": [
+					"./pattern"
+				],
 				"yes.js": [
 					".",
 					"./conditional"
-				],
-				"pattern.js": [
-					"./pattern"
 				]
 			}
 		},
@@ -87,10 +87,6 @@
 					"./pattern.js",
 					"./pattern"
 				],
-				"yes.js": [
-					"./yes.js",
-					"./yes"
-				],
 				"test": {
 					"index.js": [
 						"./test",
@@ -98,7 +94,11 @@
 						"./test/index.js",
 						"./test/index"
 					]
-				}
+				},
+				"yes.js": [
+					"./yes.js",
+					"./yes"
+				]
 			}
 		}
 	}

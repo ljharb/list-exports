@@ -85,8 +85,15 @@
 					"./rdni",
 					"./rdin"
 				],
-				"package.json": [
-					"./package.json"
+				"import.mjs": [
+					"./ridn",
+					"./rind",
+					"./idnr",
+					"./idrn",
+					"./indr",
+					"./inrd",
+					"./irdn",
+					"./irnd"
 				],
 				"node.js": [
 					"./ndri",
@@ -100,6 +107,9 @@
 					"./rndi",
 					"./rnid"
 				],
+				"package.json": [
+					"./package.json"
+				],
 				"require.js": [
 					"./rdni",
 					"./rdin",
@@ -107,16 +117,6 @@
 					"./rnid",
 					"./ridn",
 					"./rind",
-					"./irdn",
-					"./irnd"
-				],
-				"import.mjs": [
-					"./ridn",
-					"./rind",
-					"./idnr",
-					"./idrn",
-					"./indr",
-					"./inrd",
 					"./irdn",
 					"./irnd"
 				]

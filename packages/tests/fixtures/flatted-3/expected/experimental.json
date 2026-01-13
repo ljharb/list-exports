@@ -60,22 +60,6 @@
 				"./esm/index.js"
 			],
 			"tree": {
-				"es.js": [
-					"./es.js",
-					"./es"
-				],
-				"index.js": [
-					"./index.js",
-					"./index"
-				],
-				"min.js": [
-					"./min.js",
-					"./min"
-				],
-				"package.json": [
-					"./package.json",
-					"./package"
-				],
 				"cjs": {
 					"index.js": [
 						".",
@@ -90,6 +74,10 @@
 						"./cjs/package"
 					]
 				},
+				"es.js": [
+					"./es.js",
+					"./es"
+				],
 				"esm": {
 					"index.js": [
 						"./esm",
@@ -97,7 +85,19 @@
 						"./esm/index.js",
 						"./esm/index"
 					]
-				}
+				},
+				"index.js": [
+					"./index.js",
+					"./index"
+				],
+				"min.js": [
+					"./min.js",
+					"./min"
+				],
+				"package.json": [
+					"./package.json",
+					"./package"
+				]
 			}
 		}
 	}

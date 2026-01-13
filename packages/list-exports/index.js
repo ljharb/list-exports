@@ -78,6 +78,14 @@ function stringSort(a, b) {
 	return $localeCompare(a, b);
 }
 
+function sortTree(treeMap) {
+	return new Map(sortPaths(
+		map(arrayFrom(treeMap), ([k, v]) => [k, v instanceof Map ? sortTree(v) : v]),
+		([a]) => a,
+		'/',
+	));
+}
+
 function sortFiles(tree) {
 	return fromEntries(flatMap(entries(tree), ([k, v]) => {
 		if (k === 'hasDirSlash') {
@@ -88,6 +96,9 @@ function sortFiles(tree) {
 		}
 		if (k === 'require' || k === 'import') {
 			return [[k, new Map(sortPaths(filter(arrayFrom(v), ([, vv]) => vv), ([a]) => a, '/'))]];
+		}
+		if (k === 'tree') {
+			return [[k, sortTree(v)]];
 		}
 		return [[k, v]];
 	}));

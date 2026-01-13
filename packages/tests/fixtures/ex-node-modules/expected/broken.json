@@ -25,11 +25,11 @@
 				"./package.json"
 			],
 			"tree": {
-				"dep.js": [
-					"./node_modules/dep"
-				],				  
 				"default.js": [
 					"."
+				],
+				"dep.js": [
+					"./node_modules/dep"
 				],
 				"package.json": [
 					"./package.json"

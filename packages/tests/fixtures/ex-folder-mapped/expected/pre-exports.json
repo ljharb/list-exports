@@ -41,10 +41,6 @@
 					"./index.js",
 					"./index"
 				],
-				"package.json": [
-					"./package.json",
-					"./package"
-				],
 				"mapped": {
 					"in-mapped-only.js": [
 						"./mapped/in-mapped-only.js",
@@ -55,6 +51,10 @@
 						"./mapped/shared"
 					]
 				},
+				"package.json": [
+					"./package.json",
+					"./package"
+				],
 				"unmapped": {
 					"in-unmapped-only.js": [
 						"./unmapped/in-unmapped-only.js",

@@ -49,14 +49,6 @@
 				"./mjs/utils.mjs"
 			],
 			"tree": {
-				"index.js": [
-					"./index.js",
-					"./index"
-				],
-				"package.json": [
-					"./package.json",
-					"./package"
-				],
 				"cjs": {
 					"index.js": [
 						".",
@@ -71,6 +63,10 @@
 						"./cjs/utils"
 					]
 				},
+				"index.js": [
+					"./index.js",
+					"./index"
+				],
 				"mjs": {
 					"index.mjs": [
 						"./mjs/index.mjs"
@@ -78,7 +74,11 @@
 					"utils.mjs": [
 						"./mjs/utils.mjs"
 					]
-				}
+				},
+				"package.json": [
+					"./package.json",
+					"./package"
+				]
 			}
 		}
 	}

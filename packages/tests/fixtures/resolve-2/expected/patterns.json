@@ -41,7 +41,13 @@
 				"index.js": [
 					"."
 				],
+				"index.mjs": [
+					"."
+				],
 				"lib": {
+					"async.js": [
+						"./async"
+					],
 					"core.js": [
 						"./core"
 					],
@@ -53,14 +59,8 @@
 					],
 					"sync.js": [
 						"./sync"
-					],
-					"async.js": [
-						"./async"
 					]
-				},
-				"index.mjs": [
-					"."
-				]
+				}
 			}
 		},
 		"pre-exports": {
@@ -347,19 +347,6 @@
 				"./test/resolver/without_basedir/main.js"
 			],
 			"tree": {
-				"index.js": [
-					".",
-					"./",
-					"./index.js",
-					"./index"
-				],
-				"index.mjs": [
-					"./index.mjs"
-				],
-				"package.json": [
-					"./package.json",
-					"./package"
-				],
 				"example": {
 					"async.js": [
 						"./example/async.js",
@@ -370,6 +357,15 @@
 						"./example/sync"
 					]
 				},
+				"index.js": [
+					".",
+					"./",
+					"./index.js",
+					"./index"
+				],
+				"index.mjs": [
+					"./index.mjs"
+				],
 				"lib": {
 					"async.js": [
 						"./lib/async.js",
@@ -403,11 +399,30 @@
 						"./lib/sync"
 					]
 				},
+				"package.json": [
+					"./package.json",
+					"./package"
+				],
 				"test": {
 					"core.js": [
 						"./test/core.js",
 						"./test/core"
 					],
+					"dotdot": {
+						"abc": {
+							"index.js": [
+								"./test/dotdot/abc",
+								"./test/dotdot/abc/",
+								"./test/dotdot/abc/index.js",
+								"./test/dotdot/abc/index"
+							]
+						},
+						"index.js": [
+							"./test/dotdot/",
+							"./test/dotdot/index.js",
+							"./test/dotdot/index"
+						]
+					},
 					"dotdot.js": [
 						"./test/dotdot.js",
 						"./test/dotdot"
@@ -432,6 +447,42 @@
 						"./test/mock_sync.js",
 						"./test/mock_sync"
 					],
+					"module_dir": {
+						"xmodules": {
+							"aaa": {
+								"index.js": [
+									"./test/module_dir/xmodules/aaa",
+									"./test/module_dir/xmodules/aaa/",
+									"./test/module_dir/xmodules/aaa/index.js",
+									"./test/module_dir/xmodules/aaa/index"
+								]
+							}
+						},
+						"ymodules": {
+							"aaa": {
+								"index.js": [
+									"./test/module_dir/ymodules/aaa",
+									"./test/module_dir/ymodules/aaa/",
+									"./test/module_dir/ymodules/aaa/index.js",
+									"./test/module_dir/ymodules/aaa/index"
+								]
+							}
+						},
+						"zmodules": {
+							"bbb": {
+								"main.js": [
+									"./test/module_dir/zmodules/bbb",
+									"./test/module_dir/zmodules/bbb/",
+									"./test/module_dir/zmodules/bbb/main.js",
+									"./test/module_dir/zmodules/bbb/main"
+								],
+								"package.json": [
+									"./test/module_dir/zmodules/bbb/package.json",
+									"./test/module_dir/zmodules/bbb/package"
+								]
+							}
+						}
+					},
 					"module_dir.js": [
 						"./test/module_dir.js",
 						"./test/module_dir"
@@ -440,6 +491,44 @@
 						"./test/node-modules-paths.js",
 						"./test/node-modules-paths"
 					],
+					"node_path": {
+						"x": {
+							"aaa": {
+								"index.js": [
+									"./test/node_path/x/aaa",
+									"./test/node_path/x/aaa/",
+									"./test/node_path/x/aaa/index.js",
+									"./test/node_path/x/aaa/index"
+								]
+							},
+							"ccc": {
+								"index.js": [
+									"./test/node_path/x/ccc",
+									"./test/node_path/x/ccc/",
+									"./test/node_path/x/ccc/index.js",
+									"./test/node_path/x/ccc/index"
+								]
+							}
+						},
+						"y": {
+							"bbb": {
+								"index.js": [
+									"./test/node_path/y/bbb",
+									"./test/node_path/y/bbb/",
+									"./test/node_path/y/bbb/index.js",
+									"./test/node_path/y/bbb/index"
+								]
+							},
+							"ccc": {
+								"index.js": [
+									"./test/node_path/y/ccc",
+									"./test/node_path/y/ccc/",
+									"./test/node_path/y/ccc/index.js",
+									"./test/node_path/y/ccc/index"
+								]
+							}
+						}
+					},
 					"node_path.js": [
 						"./test/node_path.js",
 						"./test/node_path"
@@ -448,6 +537,14 @@
 						"./test/nonstring.js",
 						"./test/nonstring"
 					],
+					"pathfilter": {
+						"deep_ref": {
+							"main.js": [
+								"./test/pathfilter/deep_ref/main.js",
+								"./test/pathfilter/deep_ref/main"
+							]
+						}
+					},
 					"pathfilter.js": [
 						"./test/pathfilter.js",
 						"./test/pathfilter"
@@ -456,54 +553,7 @@
 						"./test/pathfilter_sync.js",
 						"./test/pathfilter_sync"
 					],
-					"precedence.js": [
-						"./test/precedence.js",
-						"./test/precedence"
-					],
-					"resolver.js": [
-						"./test/resolver.js",
-						"./test/resolver"
-					],
-					"resolver_sync.js": [
-						"./test/resolver_sync.js",
-						"./test/resolver_sync"
-					],
-					"shadowed_core.js": [
-						"./test/shadowed_core.js",
-						"./test/shadowed_core"
-					],
-					"subdirs.js": [
-						"./test/subdirs.js",
-						"./test/subdirs"
-					],
-					"symlinks.js": [
-						"./test/symlinks.js",
-						"./test/symlinks"
-					],
-					"dotdot": {
-						"index.js": [
-							"./test/dotdot/",
-							"./test/dotdot/index.js",
-							"./test/dotdot/index"
-						],
-						"abc": {
-							"index.js": [
-								"./test/dotdot/abc",
-								"./test/dotdot/abc/",
-								"./test/dotdot/abc/index.js",
-								"./test/dotdot/abc/index"
-							]
-						}
-					},
 					"precedence": {
-						"aaa.js": [
-							"./test/precedence/aaa.js",
-							"./test/precedence/aaa"
-						],
-						"bbb.js": [
-							"./test/precedence/bbb.js",
-							"./test/precedence/bbb"
-						],
 						"aaa": {
 							"index.js": [
 								"./test/precedence/aaa/",
@@ -515,36 +565,40 @@
 								"./test/precedence/aaa/main"
 							]
 						},
+						"aaa.js": [
+							"./test/precedence/aaa.js",
+							"./test/precedence/aaa"
+						],
 						"bbb": {
 							"main.js": [
 								"./test/precedence/bbb/main.js",
 								"./test/precedence/bbb/main"
 							]
-						}
+						},
+						"bbb.js": [
+							"./test/precedence/bbb.js",
+							"./test/precedence/bbb"
+						]
 					},
+					"precedence.js": [
+						"./test/precedence.js",
+						"./test/precedence"
+					],
 					"resolver": {
-						"foo.js": [
-							"./test/resolver/foo.js",
-							"./test/resolver/foo"
-						],
-						"mug.js": [
-							"./test/resolver/mug.js",
-							"./test/resolver/mug"
-						],
 						"baz": {
 							"doom.js": [
 								"./test/resolver/baz/doom.js",
 								"./test/resolver/baz/doom"
+							],
+							"package.json": [
+								"./test/resolver/baz/package.json",
+								"./test/resolver/baz/package"
 							],
 							"quux.js": [
 								"./test/resolver/baz",
 								"./test/resolver/baz/",
 								"./test/resolver/baz/quux.js",
 								"./test/resolver/baz/quux"
-							],
-							"package.json": [
-								"./test/resolver/baz/package.json",
-								"./test/resolver/baz/package"
 							]
 						},
 						"browser_field": {
@@ -587,6 +641,10 @@
 								"./test/resolver/dot_slash_main/package"
 							]
 						},
+						"foo.js": [
+							"./test/resolver/foo.js",
+							"./test/resolver/foo"
+						],
 						"incorrect_main": {
 							"index.js": [
 								"./test/resolver/incorrect_main",
@@ -605,6 +663,10 @@
 								"./test/resolver/invalid_main/package"
 							]
 						},
+						"mug.js": [
+							"./test/resolver/mug.js",
+							"./test/resolver/mug"
+						],
 						"multirepo": {
 							"lerna.json": [
 								"./test/resolver/multirepo/lerna.json",
@@ -641,47 +703,6 @@
 								}
 							}
 						},
-						"other_path": {
-							"root.js": [
-								"./test/resolver/other_path/root.js",
-								"./test/resolver/other_path/root"
-							],
-							"lib": {
-								"other-lib.js": [
-									"./test/resolver/other_path/lib/other-lib.js",
-									"./test/resolver/other_path/lib/other-lib"
-								]
-							}
-						},
-						"same_names": {
-							"foo.js": [
-								"./test/resolver/same_names/foo.js",
-								"./test/resolver/same_names/foo"
-							],
-							"foo": {
-								"index.js": [
-									"./test/resolver/same_names/foo/",
-									"./test/resolver/same_names/foo/index.js",
-									"./test/resolver/same_names/foo/index"
-								]
-							}
-						},
-						"without_basedir": {
-							"main.js": [
-								"./test/resolver/without_basedir/main.js",
-								"./test/resolver/without_basedir/main"
-							]
-						},
-						"quux": {
-							"foo": {
-								"index.js": [
-									"./test/resolver/quux/foo",
-									"./test/resolver/quux/foo/",
-									"./test/resolver/quux/foo/index.js",
-									"./test/resolver/quux/foo/index"
-								]
-							}
-						},
 						"nested_symlinks": {
 							"mylib": {
 								"async.js": [
@@ -698,6 +719,41 @@
 								]
 							}
 						},
+						"other_path": {
+							"lib": {
+								"other-lib.js": [
+									"./test/resolver/other_path/lib/other-lib.js",
+									"./test/resolver/other_path/lib/other-lib"
+								]
+							},
+							"root.js": [
+								"./test/resolver/other_path/root.js",
+								"./test/resolver/other_path/root"
+							]
+						},
+						"quux": {
+							"foo": {
+								"index.js": [
+									"./test/resolver/quux/foo",
+									"./test/resolver/quux/foo/",
+									"./test/resolver/quux/foo/index.js",
+									"./test/resolver/quux/foo/index"
+								]
+							}
+						},
+						"same_names": {
+							"foo": {
+								"index.js": [
+									"./test/resolver/same_names/foo/",
+									"./test/resolver/same_names/foo/index.js",
+									"./test/resolver/same_names/foo/index"
+								]
+							},
+							"foo.js": [
+								"./test/resolver/same_names/foo.js",
+								"./test/resolver/same_names/foo"
+							]
+						},
 						"symlinked": {
 							"package": {
 								"bar.js": [
@@ -711,90 +767,34 @@
 									"./test/resolver/symlinked/package/package"
 								]
 							}
-						}
-					},
-					"pathfilter": {
-						"deep_ref": {
+						},
+						"without_basedir": {
 							"main.js": [
-								"./test/pathfilter/deep_ref/main.js",
-								"./test/pathfilter/deep_ref/main"
+								"./test/resolver/without_basedir/main.js",
+								"./test/resolver/without_basedir/main"
 							]
 						}
 					},
-					"module_dir": {
-						"xmodules": {
-							"aaa": {
-								"index.js": [
-									"./test/module_dir/xmodules/aaa",
-									"./test/module_dir/xmodules/aaa/",
-									"./test/module_dir/xmodules/aaa/index.js",
-									"./test/module_dir/xmodules/aaa/index"
-								]
-							}
-						},
-						"ymodules": {
-							"aaa": {
-								"index.js": [
-									"./test/module_dir/ymodules/aaa",
-									"./test/module_dir/ymodules/aaa/",
-									"./test/module_dir/ymodules/aaa/index.js",
-									"./test/module_dir/ymodules/aaa/index"
-								]
-							}
-						},
-						"zmodules": {
-							"bbb": {
-								"main.js": [
-									"./test/module_dir/zmodules/bbb",
-									"./test/module_dir/zmodules/bbb/",
-									"./test/module_dir/zmodules/bbb/main.js",
-									"./test/module_dir/zmodules/bbb/main"
-								],
-								"package.json": [
-									"./test/module_dir/zmodules/bbb/package.json",
-									"./test/module_dir/zmodules/bbb/package"
-								]
-							}
-						}
-					},
-					"node_path": {
-						"x": {
-							"aaa": {
-								"index.js": [
-									"./test/node_path/x/aaa",
-									"./test/node_path/x/aaa/",
-									"./test/node_path/x/aaa/index.js",
-									"./test/node_path/x/aaa/index"
-								]
-							},
-							"ccc": {
-								"index.js": [
-									"./test/node_path/x/ccc",
-									"./test/node_path/x/ccc/",
-									"./test/node_path/x/ccc/index.js",
-									"./test/node_path/x/ccc/index"
-								]
-							}
-						},
-						"y": {
-							"bbb": {
-								"index.js": [
-									"./test/node_path/y/bbb",
-									"./test/node_path/y/bbb/",
-									"./test/node_path/y/bbb/index.js",
-									"./test/node_path/y/bbb/index"
-								]
-							},
-							"ccc": {
-								"index.js": [
-									"./test/node_path/y/ccc",
-									"./test/node_path/y/ccc/",
-									"./test/node_path/y/ccc/index.js",
-									"./test/node_path/y/ccc/index"
-								]
-							}
-						}
-					}
+					"resolver.js": [
+						"./test/resolver.js",
+						"./test/resolver"
+					],
+					"resolver_sync.js": [
+						"./test/resolver_sync.js",
+						"./test/resolver_sync"
+					],
+					"shadowed_core.js": [
+						"./test/shadowed_core.js",
+						"./test/shadowed_core"
+					],
+					"subdirs.js": [
+						"./test/subdirs.js",
+						"./test/subdirs"
+					],
+					"symlinks.js": [
+						"./test/symlinks.js",
+						"./test/symlinks"
+					]
 				}
 			}
 		}

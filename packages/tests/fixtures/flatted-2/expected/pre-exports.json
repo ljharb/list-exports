@@ -36,18 +36,6 @@
 				"./esm/index.js"
 			],
 			"tree": {
-				"index.js": [
-					"./index.js",
-					"./index"
-				],
-				"min.js": [
-					"./min.js",
-					"./min"
-				],
-				"package.json": [
-					"./package.json",
-					"./package"
-				],
 				"cjs": {
 					"index.js": [
 						".",
@@ -65,7 +53,19 @@
 						"./esm/index.js",
 						"./esm/index"
 					]
-				}
+				},
+				"index.js": [
+					"./index.js",
+					"./index"
+				],
+				"min.js": [
+					"./min.js",
+					"./min"
+				],
+				"package.json": [
+					"./package.json",
+					"./package"
+				]
 			}
 		}
 	}

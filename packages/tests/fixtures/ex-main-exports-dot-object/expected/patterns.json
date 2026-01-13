@@ -58,6 +58,21 @@
 				"./dir/index.js"
 			],
 			"tree": {
+				"dir": {
+					"extra.js": [
+						"./dir/extra.js",
+						"./dir/extra"
+					],
+					"extra.mjs": [
+						"./dir/extra.mjs"
+					],
+					"index.js": [
+						"./dir",
+						"./dir/",
+						"./dir/index.js",
+						"./dir/index"
+					]
+				},
 				"file.js": [
 					"./file.js",
 					"./file"
@@ -74,22 +89,7 @@
 				"package.json": [
 					"./package.json",
 					"./package"
-				],
-				"dir": {
-					"extra.js": [
-						"./dir/extra.js",
-						"./dir/extra"
-					],
-					"extra.mjs": [
-						"./dir/extra.mjs"
-					],
-					"index.js": [
-						"./dir",
-						"./dir/",
-						"./dir/index.js",
-						"./dir/index"
-					]
-				}
+				]
 			}
 		}
 	}

@@ -29,19 +29,7 @@
 				"./dist/umd/single-spa-layout.min.js"
 			],
 			"tree": {
-				"package.json": [
-					"./package.json",
-					"./package"
-				],
 				"dist": {
-					"umd": {
-						"single-spa-layout.min.js": [
-							".",
-							"./",
-							"./dist/umd/single-spa-layout.min.js",
-							"./dist/umd/single-spa-layout.min"
-						]
-					},
 					"esm": {
 						"single-spa-layout.min.js": [
 							"./dist/esm/single-spa-layout.min.js",
@@ -53,8 +41,20 @@
 							"./dist/system/single-spa-layout.min.js",
 							"./dist/system/single-spa-layout.min"
 						]
+					},
+					"umd": {
+						"single-spa-layout.min.js": [
+							".",
+							"./",
+							"./dist/umd/single-spa-layout.min.js",
+							"./dist/umd/single-spa-layout.min"
+						]
 					}
-				}
+				},
+				"package.json": [
+					"./package.json",
+					"./package"
+				]
 			}
 		}
 	}

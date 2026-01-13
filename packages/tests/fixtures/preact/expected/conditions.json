@@ -285,36 +285,16 @@
 				"./test-utils/src/index.js"
 			],
 			"tree": {
-				"dist": {
-					"preact.js": [
-						".",
-						"./",
-						"./dist/preact.js",
-						"./dist/preact"
-					],
-					"preact.min.js": [
-						"./dist/preact.min.js",
-						"./dist/preact.min"
-					],
-					"preact.module.js": [
-						"./dist/preact.module.js",
-						"./dist/preact.module"
-					],
-					"preact.umd.js": [
-						"./dist/preact.umd.js",
-						"./dist/preact.umd"
-					],
-					"preact.mjs": [
-						".",
-						"./dist/preact.mjs"
-					]
-				},
 				"compat": {
 					"dist": {
 						"compat.js": [
 							"./compat",
 							"./compat/dist/compat.js",
 							"./compat/dist/compat"
+						],
+						"compat.mjs": [
+							"./compat",
+							"./compat/dist/compat.mjs"
 						],
 						"compat.module.js": [
 							"./compat/dist/compat.module.js",
@@ -323,34 +303,20 @@
 						"compat.umd.js": [
 							"./compat/dist/compat.umd.js",
 							"./compat/dist/compat.umd"
-						],
-						"compat.mjs": [
-							"./compat",
-							"./compat/dist/compat.mjs"
 						]
 					},
-					"server.js": [
-						"./compat/server",
-						"./compat/server.js"
-					],
 					"package.json": [
 						"./compat/package.json",
 						"./compat/package"
+					],
+					"server.js": [
+						"./compat/server",
+						"./compat/server.js"
 					],
 					"src": {
 						"Children.js": [
 							"./compat/src/Children.js",
 							"./compat/src/Children"
-						],
-						"index.js": [
-							"./compat/src",
-							"./compat/src/",
-							"./compat/src/index.js",
-							"./compat/src/index"
-						],
-						"PureComponent.js": [
-							"./compat/src/PureComponent.js",
-							"./compat/src/PureComponent"
 						],
 						"events.js": [
 							"./compat/src/events.js",
@@ -360,6 +326,12 @@
 							"./compat/src/forwardRef.js",
 							"./compat/src/forwardRef"
 						],
+						"index.js": [
+							"./compat/src",
+							"./compat/src/",
+							"./compat/src/index.js",
+							"./compat/src/index"
+						],
 						"memo.js": [
 							"./compat/src/memo.js",
 							"./compat/src/memo"
@@ -367,6 +339,10 @@
 						"portals.js": [
 							"./compat/src/portals.js",
 							"./compat/src/portals"
+						],
+						"PureComponent.js": [
+							"./compat/src/PureComponent.js",
+							"./compat/src/PureComponent"
 						],
 						"render.js": [
 							"./compat/src/render.js",
@@ -393,6 +369,10 @@
 							"./debug/dist/debug.js",
 							"./debug/dist/debug"
 						],
+						"debug.mjs": [
+							"./debug",
+							"./debug/dist/debug.mjs"
+						],
 						"debug.module.js": [
 							"./debug/dist/debug.module.js",
 							"./debug/dist/debug.module"
@@ -400,10 +380,6 @@
 						"debug.umd.js": [
 							"./debug/dist/debug.umd.js",
 							"./debug/dist/debug.umd"
-						],
-						"debug.mjs": [
-							"./debug",
-							"./debug/dist/debug.mjs"
 						]
 					},
 					"package.json": [
@@ -411,12 +387,6 @@
 						"./debug/package"
 					],
 					"src": {
-						"index.js": [
-							"./debug/src",
-							"./debug/src/",
-							"./debug/src/index.js",
-							"./debug/src/index"
-						],
 						"check-props.js": [
 							"./debug/src/check-props.js",
 							"./debug/src/check-props"
@@ -432,6 +402,12 @@
 						"debug.js": [
 							"./debug/src/debug.js",
 							"./debug/src/debug"
+						],
+						"index.js": [
+							"./debug/src",
+							"./debug/src/",
+							"./debug/src/index.js",
+							"./debug/src/index"
 						]
 					}
 				},
@@ -442,6 +418,10 @@
 							"./devtools/dist/devtools.js",
 							"./devtools/dist/devtools"
 						],
+						"devtools.mjs": [
+							"./devtools",
+							"./devtools/dist/devtools.mjs"
+						],
 						"devtools.module.js": [
 							"./devtools/dist/devtools.module.js",
 							"./devtools/dist/devtools.module"
@@ -449,10 +429,6 @@
 						"devtools.umd.js": [
 							"./devtools/dist/devtools.umd.js",
 							"./devtools/dist/devtools.umd"
-						],
-						"devtools.mjs": [
-							"./devtools",
-							"./devtools/dist/devtools.mjs"
 						]
 					},
 					"package.json": [
@@ -460,17 +436,41 @@
 						"./devtools/package"
 					],
 					"src": {
+						"devtools.js": [
+							"./devtools/src/devtools.js",
+							"./devtools/src/devtools"
+						],
 						"index.js": [
 							"./devtools/src",
 							"./devtools/src/",
 							"./devtools/src/index.js",
 							"./devtools/src/index"
-						],
-						"devtools.js": [
-							"./devtools/src/devtools.js",
-							"./devtools/src/devtools"
 						]
 					}
+				},
+				"dist": {
+					"preact.js": [
+						".",
+						"./",
+						"./dist/preact.js",
+						"./dist/preact"
+					],
+					"preact.min.js": [
+						"./dist/preact.min.js",
+						"./dist/preact.min"
+					],
+					"preact.mjs": [
+						".",
+						"./dist/preact.mjs"
+					],
+					"preact.module.js": [
+						"./dist/preact.module.js",
+						"./dist/preact.module"
+					],
+					"preact.umd.js": [
+						"./dist/preact.umd.js",
+						"./dist/preact.umd"
+					]
 				},
 				"hooks": {
 					"dist": {
@@ -479,6 +479,10 @@
 							"./hooks/dist/hooks.js",
 							"./hooks/dist/hooks"
 						],
+						"hooks.mjs": [
+							"./hooks",
+							"./hooks/dist/hooks.mjs"
+						],
 						"hooks.module.js": [
 							"./hooks/dist/hooks.module.js",
 							"./hooks/dist/hooks.module"
@@ -486,10 +490,6 @@
 						"hooks.umd.js": [
 							"./hooks/dist/hooks.umd.js",
 							"./hooks/dist/hooks.umd"
-						],
-						"hooks.mjs": [
-							"./hooks",
-							"./hooks/dist/hooks.mjs"
 						]
 					},
 					"package.json": [
@@ -502,39 +502,6 @@
 							"./hooks/src/",
 							"./hooks/src/index.js",
 							"./hooks/src/index"
-						]
-					}
-				},
-				"test-utils": {
-					"dist": {
-						"testUtils.js": [
-							"./test-utils",
-							"./test-utils/dist/testUtils.js",
-							"./test-utils/dist/testUtils"
-						],
-						"testUtils.module.js": [
-							"./test-utils/dist/testUtils.module.js",
-							"./test-utils/dist/testUtils.module"
-						],
-						"testUtils.umd.js": [
-							"./test-utils/dist/testUtils.umd.js",
-							"./test-utils/dist/testUtils.umd"
-						],
-						"testUtils.mjs": [
-							"./test-utils",
-							"./test-utils/dist/testUtils.mjs"
-						]
-					},
-					"package.json": [
-						"./test-utils/package.json",
-						"./test-utils/package"
-					],
-					"src": {
-						"index.js": [
-							"./test-utils/src",
-							"./test-utils/src/",
-							"./test-utils/src/index.js",
-							"./test-utils/src/index"
 						]
 					}
 				},
@@ -551,12 +518,6 @@
 						"./src/component.js",
 						"./src/component"
 					],
-					"index.js": [
-						"./src",
-						"./src/",
-						"./src/index.js",
-						"./src/index"
-					],
 					"constants.js": [
 						"./src/constants.js",
 						"./src/constants"
@@ -568,18 +529,6 @@
 					"create-element.js": [
 						"./src/create-element.js",
 						"./src/create-element"
-					],
-					"options.js": [
-						"./src/options.js",
-						"./src/options"
-					],
-					"render.js": [
-						"./src/render.js",
-						"./src/render"
-					],
-					"util.js": [
-						"./src/util.js",
-						"./src/util"
 					],
 					"diff": {
 						"catch-error.js": [
@@ -599,6 +548,57 @@
 						"props.js": [
 							"./src/diff/props.js",
 							"./src/diff/props"
+						]
+					},
+					"index.js": [
+						"./src",
+						"./src/",
+						"./src/index.js",
+						"./src/index"
+					],
+					"options.js": [
+						"./src/options.js",
+						"./src/options"
+					],
+					"render.js": [
+						"./src/render.js",
+						"./src/render"
+					],
+					"util.js": [
+						"./src/util.js",
+						"./src/util"
+					]
+				},
+				"test-utils": {
+					"dist": {
+						"testUtils.js": [
+							"./test-utils",
+							"./test-utils/dist/testUtils.js",
+							"./test-utils/dist/testUtils"
+						],
+						"testUtils.mjs": [
+							"./test-utils",
+							"./test-utils/dist/testUtils.mjs"
+						],
+						"testUtils.module.js": [
+							"./test-utils/dist/testUtils.module.js",
+							"./test-utils/dist/testUtils.module"
+						],
+						"testUtils.umd.js": [
+							"./test-utils/dist/testUtils.umd.js",
+							"./test-utils/dist/testUtils.umd"
+						]
+					},
+					"package.json": [
+						"./test-utils/package.json",
+						"./test-utils/package"
+					],
+					"src": {
+						"index.js": [
+							"./test-utils/src",
+							"./test-utils/src/",
+							"./test-utils/src/index.js",
+							"./test-utils/src/index"
 						]
 					}
 				}
@@ -826,10 +826,169 @@
 				"./test-utils/src/index.js"
 			],
 			"tree": {
-				"package.json": [
-					"./package.json",
-					"./package"
-				],
+				"compat": {
+					"dist": {
+						"compat.js": [
+							"./compat",
+							"./compat/",
+							"./compat/dist/compat.js",
+							"./compat/dist/compat"
+						],
+						"compat.mjs": [
+							"./compat/dist/compat.mjs"
+						],
+						"compat.module.js": [
+							"./compat/dist/compat.module.js",
+							"./compat/dist/compat.module"
+						],
+						"compat.umd.js": [
+							"./compat/dist/compat.umd.js",
+							"./compat/dist/compat.umd"
+						]
+					},
+					"package.json": [
+						"./compat/package.json",
+						"./compat/package"
+					],
+					"server.js": [
+						"./compat/server.js",
+						"./compat/server"
+					],
+					"src": {
+						"Children.js": [
+							"./compat/src/Children.js",
+							"./compat/src/Children"
+						],
+						"events.js": [
+							"./compat/src/events.js",
+							"./compat/src/events"
+						],
+						"forwardRef.js": [
+							"./compat/src/forwardRef.js",
+							"./compat/src/forwardRef"
+						],
+						"index.js": [
+							"./compat/src",
+							"./compat/src/",
+							"./compat/src/index.js",
+							"./compat/src/index"
+						],
+						"memo.js": [
+							"./compat/src/memo.js",
+							"./compat/src/memo"
+						],
+						"portals.js": [
+							"./compat/src/portals.js",
+							"./compat/src/portals"
+						],
+						"PureComponent.js": [
+							"./compat/src/PureComponent.js",
+							"./compat/src/PureComponent"
+						],
+						"render.js": [
+							"./compat/src/render.js",
+							"./compat/src/render"
+						],
+						"suspense-list.js": [
+							"./compat/src/suspense-list.js",
+							"./compat/src/suspense-list"
+						],
+						"suspense.js": [
+							"./compat/src/suspense.js",
+							"./compat/src/suspense"
+						],
+						"util.js": [
+							"./compat/src/util.js",
+							"./compat/src/util"
+						]
+					}
+				},
+				"debug": {
+					"dist": {
+						"debug.js": [
+							"./debug",
+							"./debug/",
+							"./debug/dist/debug.js",
+							"./debug/dist/debug"
+						],
+						"debug.mjs": [
+							"./debug/dist/debug.mjs"
+						],
+						"debug.module.js": [
+							"./debug/dist/debug.module.js",
+							"./debug/dist/debug.module"
+						],
+						"debug.umd.js": [
+							"./debug/dist/debug.umd.js",
+							"./debug/dist/debug.umd"
+						]
+					},
+					"package.json": [
+						"./debug/package.json",
+						"./debug/package"
+					],
+					"src": {
+						"check-props.js": [
+							"./debug/src/check-props.js",
+							"./debug/src/check-props"
+						],
+						"component-stack.js": [
+							"./debug/src/component-stack.js",
+							"./debug/src/component-stack"
+						],
+						"constants.js": [
+							"./debug/src/constants.js",
+							"./debug/src/constants"
+						],
+						"debug.js": [
+							"./debug/src/debug.js",
+							"./debug/src/debug"
+						],
+						"index.js": [
+							"./debug/src",
+							"./debug/src/",
+							"./debug/src/index.js",
+							"./debug/src/index"
+						]
+					}
+				},
+				"devtools": {
+					"dist": {
+						"devtools.js": [
+							"./devtools",
+							"./devtools/",
+							"./devtools/dist/devtools.js",
+							"./devtools/dist/devtools"
+						],
+						"devtools.mjs": [
+							"./devtools/dist/devtools.mjs"
+						],
+						"devtools.module.js": [
+							"./devtools/dist/devtools.module.js",
+							"./devtools/dist/devtools.module"
+						],
+						"devtools.umd.js": [
+							"./devtools/dist/devtools.umd.js",
+							"./devtools/dist/devtools.umd"
+						]
+					},
+					"package.json": [
+						"./devtools/package.json",
+						"./devtools/package"
+					],
+					"src": {
+						"devtools.js": [
+							"./devtools/src/devtools.js",
+							"./devtools/src/devtools"
+						],
+						"index.js": [
+							"./devtools/src",
+							"./devtools/src/",
+							"./devtools/src/index.js",
+							"./devtools/src/index"
+						]
+					}
+				},
 				"dist": {
 					"preact.js": [
 						".",
@@ -853,174 +1012,7 @@
 						"./dist/preact.umd"
 					]
 				},
-				"compat": {
-					"package.json": [
-						"./compat/package.json",
-						"./compat/package"
-					],
-					"server.js": [
-						"./compat/server.js",
-						"./compat/server"
-					],
-					"dist": {
-						"compat.js": [
-							"./compat",
-							"./compat/",
-							"./compat/dist/compat.js",
-							"./compat/dist/compat"
-						],
-						"compat.mjs": [
-							"./compat/dist/compat.mjs"
-						],
-						"compat.module.js": [
-							"./compat/dist/compat.module.js",
-							"./compat/dist/compat.module"
-						],
-						"compat.umd.js": [
-							"./compat/dist/compat.umd.js",
-							"./compat/dist/compat.umd"
-						]
-					},
-					"src": {
-						"Children.js": [
-							"./compat/src/Children.js",
-							"./compat/src/Children"
-						],
-						"index.js": [
-							"./compat/src",
-							"./compat/src/",
-							"./compat/src/index.js",
-							"./compat/src/index"
-						],
-						"PureComponent.js": [
-							"./compat/src/PureComponent.js",
-							"./compat/src/PureComponent"
-						],
-						"events.js": [
-							"./compat/src/events.js",
-							"./compat/src/events"
-						],
-						"forwardRef.js": [
-							"./compat/src/forwardRef.js",
-							"./compat/src/forwardRef"
-						],
-						"memo.js": [
-							"./compat/src/memo.js",
-							"./compat/src/memo"
-						],
-						"portals.js": [
-							"./compat/src/portals.js",
-							"./compat/src/portals"
-						],
-						"render.js": [
-							"./compat/src/render.js",
-							"./compat/src/render"
-						],
-						"suspense-list.js": [
-							"./compat/src/suspense-list.js",
-							"./compat/src/suspense-list"
-						],
-						"suspense.js": [
-							"./compat/src/suspense.js",
-							"./compat/src/suspense"
-						],
-						"util.js": [
-							"./compat/src/util.js",
-							"./compat/src/util"
-						]
-					}
-				},
-				"debug": {
-					"package.json": [
-						"./debug/package.json",
-						"./debug/package"
-					],
-					"dist": {
-						"debug.js": [
-							"./debug",
-							"./debug/",
-							"./debug/dist/debug.js",
-							"./debug/dist/debug"
-						],
-						"debug.mjs": [
-							"./debug/dist/debug.mjs"
-						],
-						"debug.module.js": [
-							"./debug/dist/debug.module.js",
-							"./debug/dist/debug.module"
-						],
-						"debug.umd.js": [
-							"./debug/dist/debug.umd.js",
-							"./debug/dist/debug.umd"
-						]
-					},
-					"src": {
-						"index.js": [
-							"./debug/src",
-							"./debug/src/",
-							"./debug/src/index.js",
-							"./debug/src/index"
-						],
-						"check-props.js": [
-							"./debug/src/check-props.js",
-							"./debug/src/check-props"
-						],
-						"component-stack.js": [
-							"./debug/src/component-stack.js",
-							"./debug/src/component-stack"
-						],
-						"constants.js": [
-							"./debug/src/constants.js",
-							"./debug/src/constants"
-						],
-						"debug.js": [
-							"./debug/src/debug.js",
-							"./debug/src/debug"
-						]
-					}
-				},
-				"devtools": {
-					"package.json": [
-						"./devtools/package.json",
-						"./devtools/package"
-					],
-					"dist": {
-						"devtools.js": [
-							"./devtools",
-							"./devtools/",
-							"./devtools/dist/devtools.js",
-							"./devtools/dist/devtools"
-						],
-						"devtools.mjs": [
-							"./devtools/dist/devtools.mjs"
-						],
-						"devtools.module.js": [
-							"./devtools/dist/devtools.module.js",
-							"./devtools/dist/devtools.module"
-						],
-						"devtools.umd.js": [
-							"./devtools/dist/devtools.umd.js",
-							"./devtools/dist/devtools.umd"
-						]
-					},
-					"src": {
-						"index.js": [
-							"./devtools/src",
-							"./devtools/src/",
-							"./devtools/src/index.js",
-							"./devtools/src/index"
-						],
-						"devtools.js": [
-							"./devtools/src/devtools.js",
-							"./devtools/src/devtools"
-						]
-					}
-				},
 				"hooks": {
-					"package.json": [
-						"./hooks/package.json",
-						"./hooks/package"
-					],
 					"dist": {
 						"hooks.js": [
 							"./hooks",
@@ -1040,6 +1032,10 @@
 							"./hooks/dist/hooks.umd"
 						]
 					},
+					"package.json": [
+						"./hooks/package.json",
+						"./hooks/package"
+					],
 					"src": {
 						"index.js": [
 							"./hooks/src",
@@ -1049,6 +1045,10 @@
 						]
 					}
 				},
+				"package.json": [
+					"./package.json",
+					"./package"
+				],
 				"src": {
 					"clone-element.js": [
 						"./src/clone-element.js",
@@ -1057,12 +1057,6 @@
 					"component.js": [
 						"./src/component.js",
 						"./src/component"
-					],
-					"index.js": [
-						"./src",
-						"./src/",
-						"./src/index.js",
-						"./src/index"
 					],
 					"constants.js": [
 						"./src/constants.js",
@@ -1075,18 +1069,6 @@
 					"create-element.js": [
 						"./src/create-element.js",
 						"./src/create-element"
-					],
-					"options.js": [
-						"./src/options.js",
-						"./src/options"
-					],
-					"render.js": [
-						"./src/render.js",
-						"./src/render"
-					],
-					"util.js": [
-						"./src/util.js",
-						"./src/util"
 					],
 					"diff": {
 						"catch-error.js": [
@@ -1107,13 +1089,27 @@
 							"./src/diff/props.js",
 							"./src/diff/props"
 						]
-					}
+					},
+					"index.js": [
+						"./src",
+						"./src/",
+						"./src/index.js",
+						"./src/index"
+					],
+					"options.js": [
+						"./src/options.js",
+						"./src/options"
+					],
+					"render.js": [
+						"./src/render.js",
+						"./src/render"
+					],
+					"util.js": [
+						"./src/util.js",
+						"./src/util"
+					]
 				},
 				"test-utils": {
-					"package.json": [
-						"./test-utils/package.json",
-						"./test-utils/package"
-					],
 					"dist": {
 						"testUtils.js": [
 							"./test-utils",
@@ -1133,6 +1129,10 @@
 							"./test-utils/dist/testUtils.umd"
 						]
 					},
+					"package.json": [
+						"./test-utils/package.json",
+						"./test-utils/package"
+					],
 					"src": {
 						"index.js": [
 							"./test-utils/src",

@@ -2729,13 +2729,13 @@
 						"./5/DayFromYear.js",
 						"./5/DayFromYear"
 					],
-					"DayWithinYear.js": [
-						"./5/DayWithinYear.js",
-						"./5/DayWithinYear"
-					],
 					"DaysInYear.js": [
 						"./5/DaysInYear.js",
 						"./5/DaysInYear"
+					],
+					"DayWithinYear.js": [
+						"./5/DayWithinYear.js",
+						"./5/DayWithinYear"
 					],
 					"FromPropertyDescriptor.js": [
 						"./5/FromPropertyDescriptor.js",
@@ -2785,9 +2785,17 @@
 						"./5/MinFromTime.js",
 						"./5/MinFromTime"
 					],
+					"modulo.js": [
+						"./5/modulo.js",
+						"./5/modulo"
+					],
 					"MonthFromTime.js": [
 						"./5/MonthFromTime.js",
 						"./5/MonthFromTime"
+					],
+					"msFromTime.js": [
+						"./5/msFromTime.js",
+						"./5/msFromTime"
 					],
 					"SameValue.js": [
 						"./5/SameValue.js",
@@ -2864,14 +2872,6 @@
 					"YearFromTime.js": [
 						"./5/YearFromTime.js",
 						"./5/YearFromTime"
-					],
-					"modulo.js": [
-						"./5/modulo.js",
-						"./5/modulo"
-					],
-					"msFromTime.js": [
-						"./5/msFromTime.js",
-						"./5/msFromTime"
 					]
 				},
 				"2015": {
@@ -2947,13 +2947,13 @@
 						"./2015/DayFromYear.js",
 						"./2015/DayFromYear"
 					],
-					"DayWithinYear.js": [
-						"./2015/DayWithinYear.js",
-						"./2015/DayWithinYear"
-					],
 					"DaysInYear.js": [
 						"./2015/DaysInYear.js",
 						"./2015/DaysInYear"
+					],
+					"DayWithinYear.js": [
+						"./2015/DayWithinYear.js",
+						"./2015/DayWithinYear"
 					],
 					"DefinePropertyOrThrow.js": [
 						"./2015/DefinePropertyOrThrow.js",
@@ -3111,9 +3111,17 @@
 						"./2015/MinFromTime.js",
 						"./2015/MinFromTime"
 					],
+					"modulo.js": [
+						"./2015/modulo.js",
+						"./2015/modulo"
+					],
 					"MonthFromTime.js": [
 						"./2015/MonthFromTime.js",
 						"./2015/MonthFromTime"
+					],
+					"msFromTime.js": [
+						"./2015/msFromTime.js",
+						"./2015/msFromTime"
 					],
 					"ObjectCreate.js": [
 						"./2015/ObjectCreate.js",
@@ -3182,6 +3190,22 @@
 					"TestIntegrityLevel.js": [
 						"./2015/TestIntegrityLevel.js",
 						"./2015/TestIntegrityLevel"
+					],
+					"thisBooleanValue.js": [
+						"./2015/thisBooleanValue.js",
+						"./2015/thisBooleanValue"
+					],
+					"thisNumberValue.js": [
+						"./2015/thisNumberValue.js",
+						"./2015/thisNumberValue"
+					],
+					"thisStringValue.js": [
+						"./2015/thisStringValue.js",
+						"./2015/thisStringValue"
+					],
+					"thisTimeValue.js": [
+						"./2015/thisTimeValue.js",
+						"./2015/thisTimeValue"
 					],
 					"TimeClip.js": [
 						"./2015/TimeClip.js",
@@ -3278,30 +3302,6 @@
 					"YearFromTime.js": [
 						"./2015/YearFromTime.js",
 						"./2015/YearFromTime"
-					],
-					"modulo.js": [
-						"./2015/modulo.js",
-						"./2015/modulo"
-					],
-					"msFromTime.js": [
-						"./2015/msFromTime.js",
-						"./2015/msFromTime"
-					],
-					"thisBooleanValue.js": [
-						"./2015/thisBooleanValue.js",
-						"./2015/thisBooleanValue"
-					],
-					"thisNumberValue.js": [
-						"./2015/thisNumberValue.js",
-						"./2015/thisNumberValue"
-					],
-					"thisStringValue.js": [
-						"./2015/thisStringValue.js",
-						"./2015/thisStringValue"
-					],
-					"thisTimeValue.js": [
-						"./2015/thisTimeValue.js",
-						"./2015/thisTimeValue"
 					]
 				},
 				"2016": {
@@ -3377,13 +3377,13 @@
 						"./2016/DayFromYear.js",
 						"./2016/DayFromYear"
 					],
-					"DayWithinYear.js": [
-						"./2016/DayWithinYear.js",
-						"./2016/DayWithinYear"
-					],
 					"DaysInYear.js": [
 						"./2016/DaysInYear.js",
 						"./2016/DaysInYear"
+					],
+					"DayWithinYear.js": [
+						"./2016/DayWithinYear.js",
+						"./2016/DayWithinYear"
 					],
 					"DefinePropertyOrThrow.js": [
 						"./2016/DefinePropertyOrThrow.js",
@@ -3545,9 +3545,17 @@
 						"./2016/MinFromTime.js",
 						"./2016/MinFromTime"
 					],
+					"modulo.js": [
+						"./2016/modulo.js",
+						"./2016/modulo"
+					],
 					"MonthFromTime.js": [
 						"./2016/MonthFromTime.js",
 						"./2016/MonthFromTime"
+					],
+					"msFromTime.js": [
+						"./2016/msFromTime.js",
+						"./2016/msFromTime"
 					],
 					"ObjectCreate.js": [
 						"./2016/ObjectCreate.js",
@@ -3628,6 +3636,22 @@
 					"TestIntegrityLevel.js": [
 						"./2016/TestIntegrityLevel.js",
 						"./2016/TestIntegrityLevel"
+					],
+					"thisBooleanValue.js": [
+						"./2016/thisBooleanValue.js",
+						"./2016/thisBooleanValue"
+					],
+					"thisNumberValue.js": [
+						"./2016/thisNumberValue.js",
+						"./2016/thisNumberValue"
+					],
+					"thisStringValue.js": [
+						"./2016/thisStringValue.js",
+						"./2016/thisStringValue"
+					],
+					"thisTimeValue.js": [
+						"./2016/thisTimeValue.js",
+						"./2016/thisTimeValue"
 					],
 					"TimeClip.js": [
 						"./2016/TimeClip.js",
@@ -3724,30 +3748,6 @@
 					"YearFromTime.js": [
 						"./2016/YearFromTime.js",
 						"./2016/YearFromTime"
-					],
-					"modulo.js": [
-						"./2016/modulo.js",
-						"./2016/modulo"
-					],
-					"msFromTime.js": [
-						"./2016/msFromTime.js",
-						"./2016/msFromTime"
-					],
-					"thisBooleanValue.js": [
-						"./2016/thisBooleanValue.js",
-						"./2016/thisBooleanValue"
-					],
-					"thisNumberValue.js": [
-						"./2016/thisNumberValue.js",
-						"./2016/thisNumberValue"
-					],
-					"thisStringValue.js": [
-						"./2016/thisStringValue.js",
-						"./2016/thisStringValue"
-					],
-					"thisTimeValue.js": [
-						"./2016/thisTimeValue.js",
-						"./2016/thisTimeValue"
 					]
 				},
 				"2017": {
@@ -3823,13 +3823,13 @@
 						"./2017/DayFromYear.js",
 						"./2017/DayFromYear"
 					],
-					"DayWithinYear.js": [
-						"./2017/DayWithinYear.js",
-						"./2017/DayWithinYear"
-					],
 					"DaysInYear.js": [
 						"./2017/DaysInYear.js",
 						"./2017/DaysInYear"
+					],
+					"DayWithinYear.js": [
+						"./2017/DayWithinYear.js",
+						"./2017/DayWithinYear"
 					],
 					"DefinePropertyOrThrow.js": [
 						"./2017/DefinePropertyOrThrow.js",
@@ -3991,9 +3991,17 @@
 						"./2017/MinFromTime.js",
 						"./2017/MinFromTime"
 					],
+					"modulo.js": [
+						"./2017/modulo.js",
+						"./2017/modulo"
+					],
 					"MonthFromTime.js": [
 						"./2017/MonthFromTime.js",
 						"./2017/MonthFromTime"
+					],
+					"msFromTime.js": [
+						"./2017/msFromTime.js",
+						"./2017/msFromTime"
 					],
 					"ObjectCreate.js": [
 						"./2017/ObjectCreate.js",
@@ -4074,6 +4082,22 @@
 					"TestIntegrityLevel.js": [
 						"./2017/TestIntegrityLevel.js",
 						"./2017/TestIntegrityLevel"
+					],
+					"thisBooleanValue.js": [
+						"./2017/thisBooleanValue.js",
+						"./2017/thisBooleanValue"
+					],
+					"thisNumberValue.js": [
+						"./2017/thisNumberValue.js",
+						"./2017/thisNumberValue"
+					],
+					"thisStringValue.js": [
+						"./2017/thisStringValue.js",
+						"./2017/thisStringValue"
+					],
+					"thisTimeValue.js": [
+						"./2017/thisTimeValue.js",
+						"./2017/thisTimeValue"
 					],
 					"TimeClip.js": [
 						"./2017/TimeClip.js",
@@ -4174,30 +4198,6 @@
 					"YearFromTime.js": [
 						"./2017/YearFromTime.js",
 						"./2017/YearFromTime"
-					],
-					"modulo.js": [
-						"./2017/modulo.js",
-						"./2017/modulo"
-					],
-					"msFromTime.js": [
-						"./2017/msFromTime.js",
-						"./2017/msFromTime"
-					],
-					"thisBooleanValue.js": [
-						"./2017/thisBooleanValue.js",
-						"./2017/thisBooleanValue"
-					],
-					"thisNumberValue.js": [
-						"./2017/thisNumberValue.js",
-						"./2017/thisNumberValue"
-					],
-					"thisStringValue.js": [
-						"./2017/thisStringValue.js",
-						"./2017/thisStringValue"
-					],
-					"thisTimeValue.js": [
-						"./2017/thisTimeValue.js",
-						"./2017/thisTimeValue"
 					]
 				},
 				"2018": {
@@ -4281,13 +4281,13 @@
 						"./2018/DayFromYear.js",
 						"./2018/DayFromYear"
 					],
-					"DayWithinYear.js": [
-						"./2018/DayWithinYear.js",
-						"./2018/DayWithinYear"
-					],
 					"DaysInYear.js": [
 						"./2018/DaysInYear.js",
 						"./2018/DaysInYear"
+					],
+					"DayWithinYear.js": [
+						"./2018/DayWithinYear.js",
+						"./2018/DayWithinYear"
 					],
 					"DefinePropertyOrThrow.js": [
 						"./2018/DefinePropertyOrThrow.js",
@@ -4449,9 +4449,17 @@
 						"./2018/MinFromTime.js",
 						"./2018/MinFromTime"
 					],
+					"modulo.js": [
+						"./2018/modulo.js",
+						"./2018/modulo"
+					],
 					"MonthFromTime.js": [
 						"./2018/MonthFromTime.js",
 						"./2018/MonthFromTime"
+					],
+					"msFromTime.js": [
+						"./2018/msFromTime.js",
+						"./2018/msFromTime"
 					],
 					"NumberToString.js": [
 						"./2018/NumberToString.js",
@@ -4540,6 +4548,26 @@
 					"TestIntegrityLevel.js": [
 						"./2018/TestIntegrityLevel.js",
 						"./2018/TestIntegrityLevel"
+					],
+					"thisBooleanValue.js": [
+						"./2018/thisBooleanValue.js",
+						"./2018/thisBooleanValue"
+					],
+					"thisNumberValue.js": [
+						"./2018/thisNumberValue.js",
+						"./2018/thisNumberValue"
+					],
+					"thisStringValue.js": [
+						"./2018/thisStringValue.js",
+						"./2018/thisStringValue"
+					],
+					"thisSymbolValue.js": [
+						"./2018/thisSymbolValue.js",
+						"./2018/thisSymbolValue"
+					],
+					"thisTimeValue.js": [
+						"./2018/thisTimeValue.js",
+						"./2018/thisTimeValue"
 					],
 					"TimeClip.js": [
 						"./2018/TimeClip.js",
@@ -4644,34 +4672,6 @@
 					"YearFromTime.js": [
 						"./2018/YearFromTime.js",
 						"./2018/YearFromTime"
-					],
-					"modulo.js": [
-						"./2018/modulo.js",
-						"./2018/modulo"
-					],
-					"msFromTime.js": [
-						"./2018/msFromTime.js",
-						"./2018/msFromTime"
-					],
-					"thisBooleanValue.js": [
-						"./2018/thisBooleanValue.js",
-						"./2018/thisBooleanValue"
-					],
-					"thisNumberValue.js": [
-						"./2018/thisNumberValue.js",
-						"./2018/thisNumberValue"
-					],
-					"thisStringValue.js": [
-						"./2018/thisStringValue.js",
-						"./2018/thisStringValue"
-					],
-					"thisSymbolValue.js": [
-						"./2018/thisSymbolValue.js",
-						"./2018/thisSymbolValue"
-					],
-					"thisTimeValue.js": [
-						"./2018/thisTimeValue.js",
-						"./2018/thisTimeValue"
 					]
 				},
 				"2019": {
@@ -4759,13 +4759,13 @@
 						"./2019/DayFromYear.js",
 						"./2019/DayFromYear"
 					],
-					"DayWithinYear.js": [
-						"./2019/DayWithinYear.js",
-						"./2019/DayWithinYear"
-					],
 					"DaysInYear.js": [
 						"./2019/DaysInYear.js",
 						"./2019/DaysInYear"
+					],
+					"DayWithinYear.js": [
+						"./2019/DayWithinYear.js",
+						"./2019/DayWithinYear"
 					],
 					"DefinePropertyOrThrow.js": [
 						"./2019/DefinePropertyOrThrow.js",
@@ -4931,9 +4931,17 @@
 						"./2019/MinFromTime.js",
 						"./2019/MinFromTime"
 					],
+					"modulo.js": [
+						"./2019/modulo.js",
+						"./2019/modulo"
+					],
 					"MonthFromTime.js": [
 						"./2019/MonthFromTime.js",
 						"./2019/MonthFromTime"
+					],
+					"msFromTime.js": [
+						"./2019/msFromTime.js",
+						"./2019/msFromTime"
 					],
 					"NumberToString.js": [
 						"./2019/NumberToString.js",
@@ -5022,6 +5030,26 @@
 					"TestIntegrityLevel.js": [
 						"./2019/TestIntegrityLevel.js",
 						"./2019/TestIntegrityLevel"
+					],
+					"thisBooleanValue.js": [
+						"./2019/thisBooleanValue.js",
+						"./2019/thisBooleanValue"
+					],
+					"thisNumberValue.js": [
+						"./2019/thisNumberValue.js",
+						"./2019/thisNumberValue"
+					],
+					"thisStringValue.js": [
+						"./2019/thisStringValue.js",
+						"./2019/thisStringValue"
+					],
+					"thisSymbolValue.js": [
+						"./2019/thisSymbolValue.js",
+						"./2019/thisSymbolValue"
+					],
+					"thisTimeValue.js": [
+						"./2019/thisTimeValue.js",
+						"./2019/thisTimeValue"
 					],
 					"TimeClip.js": [
 						"./2019/TimeClip.js",
@@ -5130,40 +5158,8 @@
 					"YearFromTime.js": [
 						"./2019/YearFromTime.js",
 						"./2019/YearFromTime"
-					],
-					"modulo.js": [
-						"./2019/modulo.js",
-						"./2019/modulo"
-					],
-					"msFromTime.js": [
-						"./2019/msFromTime.js",
-						"./2019/msFromTime"
-					],
-					"thisBooleanValue.js": [
-						"./2019/thisBooleanValue.js",
-						"./2019/thisBooleanValue"
-					],
-					"thisNumberValue.js": [
-						"./2019/thisNumberValue.js",
-						"./2019/thisNumberValue"
-					],
-					"thisStringValue.js": [
-						"./2019/thisStringValue.js",
-						"./2019/thisStringValue"
-					],
-					"thisSymbolValue.js": [
-						"./2019/thisSymbolValue.js",
-						"./2019/thisSymbolValue"
-					],
-					"thisTimeValue.js": [
-						"./2019/thisTimeValue.js",
-						"./2019/thisTimeValue"
 					]
 				},
-				"GetIntrinsic.js": [
-					"./GetIntrinsic.js",
-					"./GetIntrinsic"
-				],
 				"es2015.js": [
 					"./es2015.js",
 					"./es2015"
@@ -5196,25 +5192,11 @@
 					"./es7.js",
 					"./es7"
 				],
-				"index.js": [
-					".",
-					"./",
-					"./index.js",
-					"./index"
-				],
-				"package.json": [
-					"./package.json",
-					"./package"
+				"GetIntrinsic.js": [
+					"./GetIntrinsic.js",
+					"./GetIntrinsic"
 				],
 				"helpers": {
-					"DefineOwnProperty.js": [
-						"./helpers/DefineOwnProperty.js",
-						"./helpers/DefineOwnProperty"
-					],
-					"OwnPropertyKeys.js": [
-						"./helpers/OwnPropertyKeys.js",
-						"./helpers/OwnPropertyKeys"
-					],
 					"assertRecord.js": [
 						"./helpers/assertRecord.js",
 						"./helpers/assertRecord"
@@ -5230,6 +5212,10 @@
 					"callBound.js": [
 						"./helpers/callBound.js",
 						"./helpers/callBound"
+					],
+					"DefineOwnProperty.js": [
+						"./helpers/DefineOwnProperty.js",
+						"./helpers/DefineOwnProperty"
 					],
 					"every.js": [
 						"./helpers/every.js",
@@ -5291,6 +5277,10 @@
 						"./helpers/mod.js",
 						"./helpers/mod"
 					],
+					"OwnPropertyKeys.js": [
+						"./helpers/OwnPropertyKeys.js",
+						"./helpers/OwnPropertyKeys"
+					],
 					"padTimeComponent.js": [
 						"./helpers/padTimeComponent.js",
 						"./helpers/padTimeComponent"
@@ -5312,6 +5302,12 @@
 						"./helpers/timeConstants"
 					]
 				},
+				"index.js": [
+					".",
+					"./",
+					"./index.js",
+					"./index"
+				],
 				"operations": {
 					"2015.js": [
 						"./operations/2015.js",
@@ -5334,11 +5330,11 @@
 						"./operations/2019"
 					]
 				},
+				"package.json": [
+					"./package.json",
+					"./package"
+				],
 				"test": {
-					"GetIntrinsic.js": [
-						"./test/GetIntrinsic.js",
-						"./test/GetIntrinsic"
-					],
 					"diffOps.js": [
 						"./test/diffOps.js",
 						"./test/diffOps"
@@ -5359,12 +5355,6 @@
 						"./test/es2018.js",
 						"./test/es2018"
 					],
-					"index.js": [
-						"./test",
-						"./test/",
-						"./test/index.js",
-						"./test/index"
-					],
 					"es2019.js": [
 						"./test/es2019.js",
 						"./test/es2019"
@@ -5381,15 +5371,11 @@
 						"./test/es7.js",
 						"./test/es7"
 					],
-					"tests.js": [
-						"./test/tests.js",
-						"./test/tests"
+					"GetIntrinsic.js": [
+						"./test/GetIntrinsic.js",
+						"./test/GetIntrinsic"
 					],
 					"helpers": {
-						"OwnPropertyKeys.js": [
-							"./test/helpers/OwnPropertyKeys.js",
-							"./test/helpers/OwnPropertyKeys"
-						],
 						"assertRecord.js": [
 							"./test/helpers/assertRecord.js",
 							"./test/helpers/assertRecord"
@@ -5402,6 +5388,10 @@
 							"./test/helpers/getSymbolDescription.js",
 							"./test/helpers/getSymbolDescription"
 						],
+						"OwnPropertyKeys.js": [
+							"./test/helpers/OwnPropertyKeys.js",
+							"./test/helpers/OwnPropertyKeys"
+						],
 						"runManifestTest.js": [
 							"./test/helpers/runManifestTest.js",
 							"./test/helpers/runManifestTest"
@@ -5410,7 +5400,17 @@
 							"./test/helpers/values.js",
 							"./test/helpers/values"
 						]
-					}
+					},
+					"index.js": [
+						"./test",
+						"./test/",
+						"./test/index.js",
+						"./test/index"
+					],
+					"tests.js": [
+						"./test/tests.js",
+						"./test/tests"
+					]
 				}
 			}
 		},
@@ -7463,13 +7463,13 @@
 						"./5/DayFromYear.js",
 						"./5/DayFromYear"
 					],
-					"DayWithinYear.js": [
-						"./5/DayWithinYear.js",
-						"./5/DayWithinYear"
-					],
 					"DaysInYear.js": [
 						"./5/DaysInYear.js",
 						"./5/DaysInYear"
+					],
+					"DayWithinYear.js": [
+						"./5/DayWithinYear.js",
+						"./5/DayWithinYear"
 					],
 					"FromPropertyDescriptor.js": [
 						"./5/FromPropertyDescriptor.js",
@@ -7519,9 +7519,17 @@
 						"./5/MinFromTime.js",
 						"./5/MinFromTime"
 					],
+					"modulo.js": [
+						"./5/modulo.js",
+						"./5/modulo"
+					],
 					"MonthFromTime.js": [
 						"./5/MonthFromTime.js",
 						"./5/MonthFromTime"
+					],
+					"msFromTime.js": [
+						"./5/msFromTime.js",
+						"./5/msFromTime"
 					],
 					"SameValue.js": [
 						"./5/SameValue.js",
@@ -7598,14 +7606,6 @@
 					"YearFromTime.js": [
 						"./5/YearFromTime.js",
 						"./5/YearFromTime"
-					],
-					"modulo.js": [
-						"./5/modulo.js",
-						"./5/modulo"
-					],
-					"msFromTime.js": [
-						"./5/msFromTime.js",
-						"./5/msFromTime"
 					]
 				},
 				"2015": {
@@ -7681,13 +7681,13 @@
 						"./2015/DayFromYear.js",
 						"./2015/DayFromYear"
 					],
-					"DayWithinYear.js": [
-						"./2015/DayWithinYear.js",
-						"./2015/DayWithinYear"
-					],
 					"DaysInYear.js": [
 						"./2015/DaysInYear.js",
 						"./2015/DaysInYear"
+					],
+					"DayWithinYear.js": [
+						"./2015/DayWithinYear.js",
+						"./2015/DayWithinYear"
 					],
 					"DefinePropertyOrThrow.js": [
 						"./2015/DefinePropertyOrThrow.js",
@@ -7845,9 +7845,17 @@
 						"./2015/MinFromTime.js",
 						"./2015/MinFromTime"
 					],
+					"modulo.js": [
+						"./2015/modulo.js",
+						"./2015/modulo"
+					],
 					"MonthFromTime.js": [
 						"./2015/MonthFromTime.js",
 						"./2015/MonthFromTime"
+					],
+					"msFromTime.js": [
+						"./2015/msFromTime.js",
+						"./2015/msFromTime"
 					],
 					"ObjectCreate.js": [
 						"./2015/ObjectCreate.js",
@@ -7916,6 +7924,22 @@
 					"TestIntegrityLevel.js": [
 						"./2015/TestIntegrityLevel.js",
 						"./2015/TestIntegrityLevel"
+					],
+					"thisBooleanValue.js": [
+						"./2015/thisBooleanValue.js",
+						"./2015/thisBooleanValue"
+					],
+					"thisNumberValue.js": [
+						"./2015/thisNumberValue.js",
+						"./2015/thisNumberValue"
+					],
+					"thisStringValue.js": [
+						"./2015/thisStringValue.js",
+						"./2015/thisStringValue"
+					],
+					"thisTimeValue.js": [
+						"./2015/thisTimeValue.js",
+						"./2015/thisTimeValue"
 					],
 					"TimeClip.js": [
 						"./2015/TimeClip.js",
@@ -8012,30 +8036,6 @@
 					"YearFromTime.js": [
 						"./2015/YearFromTime.js",
 						"./2015/YearFromTime"
-					],
-					"modulo.js": [
-						"./2015/modulo.js",
-						"./2015/modulo"
-					],
-					"msFromTime.js": [
-						"./2015/msFromTime.js",
-						"./2015/msFromTime"
-					],
-					"thisBooleanValue.js": [
-						"./2015/thisBooleanValue.js",
-						"./2015/thisBooleanValue"
-					],
-					"thisNumberValue.js": [
-						"./2015/thisNumberValue.js",
-						"./2015/thisNumberValue"
-					],
-					"thisStringValue.js": [
-						"./2015/thisStringValue.js",
-						"./2015/thisStringValue"
-					],
-					"thisTimeValue.js": [
-						"./2015/thisTimeValue.js",
-						"./2015/thisTimeValue"
 					]
 				},
 				"2016": {
@@ -8111,13 +8111,13 @@
 						"./2016/DayFromYear.js",
 						"./2016/DayFromYear"
 					],
-					"DayWithinYear.js": [
-						"./2016/DayWithinYear.js",
-						"./2016/DayWithinYear"
-					],
 					"DaysInYear.js": [
 						"./2016/DaysInYear.js",
 						"./2016/DaysInYear"
+					],
+					"DayWithinYear.js": [
+						"./2016/DayWithinYear.js",
+						"./2016/DayWithinYear"
 					],
 					"DefinePropertyOrThrow.js": [
 						"./2016/DefinePropertyOrThrow.js",
@@ -8279,9 +8279,17 @@
 						"./2016/MinFromTime.js",
 						"./2016/MinFromTime"
 					],
+					"modulo.js": [
+						"./2016/modulo.js",
+						"./2016/modulo"
+					],
 					"MonthFromTime.js": [
 						"./2016/MonthFromTime.js",
 						"./2016/MonthFromTime"
+					],
+					"msFromTime.js": [
+						"./2016/msFromTime.js",
+						"./2016/msFromTime"
 					],
 					"ObjectCreate.js": [
 						"./2016/ObjectCreate.js",
@@ -8362,6 +8370,22 @@
 					"TestIntegrityLevel.js": [
 						"./2016/TestIntegrityLevel.js",
 						"./2016/TestIntegrityLevel"
+					],
+					"thisBooleanValue.js": [
+						"./2016/thisBooleanValue.js",
+						"./2016/thisBooleanValue"
+					],
+					"thisNumberValue.js": [
+						"./2016/thisNumberValue.js",
+						"./2016/thisNumberValue"
+					],
+					"thisStringValue.js": [
+						"./2016/thisStringValue.js",
+						"./2016/thisStringValue"
+					],
+					"thisTimeValue.js": [
+						"./2016/thisTimeValue.js",
+						"./2016/thisTimeValue"
 					],
 					"TimeClip.js": [
 						"./2016/TimeClip.js",
@@ -8458,30 +8482,6 @@
 					"YearFromTime.js": [
 						"./2016/YearFromTime.js",
 						"./2016/YearFromTime"
-					],
-					"modulo.js": [
-						"./2016/modulo.js",
-						"./2016/modulo"
-					],
-					"msFromTime.js": [
-						"./2016/msFromTime.js",
-						"./2016/msFromTime"
-					],
-					"thisBooleanValue.js": [
-						"./2016/thisBooleanValue.js",
-						"./2016/thisBooleanValue"
-					],
-					"thisNumberValue.js": [
-						"./2016/thisNumberValue.js",
-						"./2016/thisNumberValue"
-					],
-					"thisStringValue.js": [
-						"./2016/thisStringValue.js",
-						"./2016/thisStringValue"
-					],
-					"thisTimeValue.js": [
-						"./2016/thisTimeValue.js",
-						"./2016/thisTimeValue"
 					]
 				},
 				"2017": {
@@ -8557,13 +8557,13 @@
 						"./2017/DayFromYear.js",
 						"./2017/DayFromYear"
 					],
-					"DayWithinYear.js": [
-						"./2017/DayWithinYear.js",
-						"./2017/DayWithinYear"
-					],
 					"DaysInYear.js": [
 						"./2017/DaysInYear.js",
 						"./2017/DaysInYear"
+					],
+					"DayWithinYear.js": [
+						"./2017/DayWithinYear.js",
+						"./2017/DayWithinYear"
 					],
 					"DefinePropertyOrThrow.js": [
 						"./2017/DefinePropertyOrThrow.js",
@@ -8725,9 +8725,17 @@
 						"./2017/MinFromTime.js",
 						"./2017/MinFromTime"
 					],
+					"modulo.js": [
+						"./2017/modulo.js",
+						"./2017/modulo"
+					],
 					"MonthFromTime.js": [
 						"./2017/MonthFromTime.js",
 						"./2017/MonthFromTime"
+					],
+					"msFromTime.js": [
+						"./2017/msFromTime.js",
+						"./2017/msFromTime"
 					],
 					"ObjectCreate.js": [
 						"./2017/ObjectCreate.js",
@@ -8808,6 +8816,22 @@
 					"TestIntegrityLevel.js": [
 						"./2017/TestIntegrityLevel.js",
 						"./2017/TestIntegrityLevel"
+					],
+					"thisBooleanValue.js": [
+						"./2017/thisBooleanValue.js",
+						"./2017/thisBooleanValue"
+					],
+					"thisNumberValue.js": [
+						"./2017/thisNumberValue.js",
+						"./2017/thisNumberValue"
+					],
+					"thisStringValue.js": [
+						"./2017/thisStringValue.js",
+						"./2017/thisStringValue"
+					],
+					"thisTimeValue.js": [
+						"./2017/thisTimeValue.js",
+						"./2017/thisTimeValue"
 					],
 					"TimeClip.js": [
 						"./2017/TimeClip.js",
@@ -8908,30 +8932,6 @@
 					"YearFromTime.js": [
 						"./2017/YearFromTime.js",
 						"./2017/YearFromTime"
-					],
-					"modulo.js": [
-						"./2017/modulo.js",
-						"./2017/modulo"
-					],
-					"msFromTime.js": [
-						"./2017/msFromTime.js",
-						"./2017/msFromTime"
-					],
-					"thisBooleanValue.js": [
-						"./2017/thisBooleanValue.js",
-						"./2017/thisBooleanValue"
-					],
-					"thisNumberValue.js": [
-						"./2017/thisNumberValue.js",
-						"./2017/thisNumberValue"
-					],
-					"thisStringValue.js": [
-						"./2017/thisStringValue.js",
-						"./2017/thisStringValue"
-					],
-					"thisTimeValue.js": [
-						"./2017/thisTimeValue.js",
-						"./2017/thisTimeValue"
 					]
 				},
 				"2018": {
@@ -9015,13 +9015,13 @@
 						"./2018/DayFromYear.js",
 						"./2018/DayFromYear"
 					],
-					"DayWithinYear.js": [
-						"./2018/DayWithinYear.js",
-						"./2018/DayWithinYear"
-					],
 					"DaysInYear.js": [
 						"./2018/DaysInYear.js",
 						"./2018/DaysInYear"
+					],
+					"DayWithinYear.js": [
+						"./2018/DayWithinYear.js",
+						"./2018/DayWithinYear"
 					],
 					"DefinePropertyOrThrow.js": [
 						"./2018/DefinePropertyOrThrow.js",
@@ -9183,9 +9183,17 @@
 						"./2018/MinFromTime.js",
 						"./2018/MinFromTime"
 					],
+					"modulo.js": [
+						"./2018/modulo.js",
+						"./2018/modulo"
+					],
 					"MonthFromTime.js": [
 						"./2018/MonthFromTime.js",
 						"./2018/MonthFromTime"
+					],
+					"msFromTime.js": [
+						"./2018/msFromTime.js",
+						"./2018/msFromTime"
 					],
 					"NumberToString.js": [
 						"./2018/NumberToString.js",
@@ -9274,6 +9282,26 @@
 					"TestIntegrityLevel.js": [
 						"./2018/TestIntegrityLevel.js",
 						"./2018/TestIntegrityLevel"
+					],
+					"thisBooleanValue.js": [
+						"./2018/thisBooleanValue.js",
+						"./2018/thisBooleanValue"
+					],
+					"thisNumberValue.js": [
+						"./2018/thisNumberValue.js",
+						"./2018/thisNumberValue"
+					],
+					"thisStringValue.js": [
+						"./2018/thisStringValue.js",
+						"./2018/thisStringValue"
+					],
+					"thisSymbolValue.js": [
+						"./2018/thisSymbolValue.js",
+						"./2018/thisSymbolValue"
+					],
+					"thisTimeValue.js": [
+						"./2018/thisTimeValue.js",
+						"./2018/thisTimeValue"
 					],
 					"TimeClip.js": [
 						"./2018/TimeClip.js",
@@ -9378,34 +9406,6 @@
 					"YearFromTime.js": [
 						"./2018/YearFromTime.js",
 						"./2018/YearFromTime"
-					],
-					"modulo.js": [
-						"./2018/modulo.js",
-						"./2018/modulo"
-					],
-					"msFromTime.js": [
-						"./2018/msFromTime.js",
-						"./2018/msFromTime"
-					],
-					"thisBooleanValue.js": [
-						"./2018/thisBooleanValue.js",
-						"./2018/thisBooleanValue"
-					],
-					"thisNumberValue.js": [
-						"./2018/thisNumberValue.js",
-						"./2018/thisNumberValue"
-					],
-					"thisStringValue.js": [
-						"./2018/thisStringValue.js",
-						"./2018/thisStringValue"
-					],
-					"thisSymbolValue.js": [
-						"./2018/thisSymbolValue.js",
-						"./2018/thisSymbolValue"
-					],
-					"thisTimeValue.js": [
-						"./2018/thisTimeValue.js",
-						"./2018/thisTimeValue"
 					]
 				},
 				"2019": {
@@ -9493,13 +9493,13 @@
 						"./2019/DayFromYear.js",
 						"./2019/DayFromYear"
 					],
-					"DayWithinYear.js": [
-						"./2019/DayWithinYear.js",
-						"./2019/DayWithinYear"
-					],
 					"DaysInYear.js": [
 						"./2019/DaysInYear.js",
 						"./2019/DaysInYear"
+					],
+					"DayWithinYear.js": [
+						"./2019/DayWithinYear.js",
+						"./2019/DayWithinYear"
 					],
 					"DefinePropertyOrThrow.js": [
 						"./2019/DefinePropertyOrThrow.js",
@@ -9665,9 +9665,17 @@
 						"./2019/MinFromTime.js",
 						"./2019/MinFromTime"
 					],
+					"modulo.js": [
+						"./2019/modulo.js",
+						"./2019/modulo"
+					],
 					"MonthFromTime.js": [
 						"./2019/MonthFromTime.js",
 						"./2019/MonthFromTime"
+					],
+					"msFromTime.js": [
+						"./2019/msFromTime.js",
+						"./2019/msFromTime"
 					],
 					"NumberToString.js": [
 						"./2019/NumberToString.js",
@@ -9756,6 +9764,26 @@
 					"TestIntegrityLevel.js": [
 						"./2019/TestIntegrityLevel.js",
 						"./2019/TestIntegrityLevel"
+					],
+					"thisBooleanValue.js": [
+						"./2019/thisBooleanValue.js",
+						"./2019/thisBooleanValue"
+					],
+					"thisNumberValue.js": [
+						"./2019/thisNumberValue.js",
+						"./2019/thisNumberValue"
+					],
+					"thisStringValue.js": [
+						"./2019/thisStringValue.js",
+						"./2019/thisStringValue"
+					],
+					"thisSymbolValue.js": [
+						"./2019/thisSymbolValue.js",
+						"./2019/thisSymbolValue"
+					],
+					"thisTimeValue.js": [
+						"./2019/thisTimeValue.js",
+						"./2019/thisTimeValue"
 					],
 					"TimeClip.js": [
 						"./2019/TimeClip.js",
@@ -9864,40 +9892,8 @@
 					"YearFromTime.js": [
 						"./2019/YearFromTime.js",
 						"./2019/YearFromTime"
-					],
-					"modulo.js": [
-						"./2019/modulo.js",
-						"./2019/modulo"
-					],
-					"msFromTime.js": [
-						"./2019/msFromTime.js",
-						"./2019/msFromTime"
-					],
-					"thisBooleanValue.js": [
-						"./2019/thisBooleanValue.js",
-						"./2019/thisBooleanValue"
-					],
-					"thisNumberValue.js": [
-						"./2019/thisNumberValue.js",
-						"./2019/thisNumberValue"
-					],
-					"thisStringValue.js": [
-						"./2019/thisStringValue.js",
-						"./2019/thisStringValue"
-					],
-					"thisSymbolValue.js": [
-						"./2019/thisSymbolValue.js",
-						"./2019/thisSymbolValue"
-					],
-					"thisTimeValue.js": [
-						"./2019/thisTimeValue.js",
-						"./2019/thisTimeValue"
 					]
 				},
-				"GetIntrinsic.js": [
-					"./GetIntrinsic.js",
-					"./GetIntrinsic"
-				],
 				"es2015.js": [
 					"./es2015.js",
 					"./es2015"
@@ -9930,25 +9926,11 @@
 					"./es7.js",
 					"./es7"
 				],
-				"index.js": [
-					".",
-					"./",
-					"./index.js",
-					"./index"
-				],
-				"package.json": [
-					"./package.json",
-					"./package"
+				"GetIntrinsic.js": [
+					"./GetIntrinsic.js",
+					"./GetIntrinsic"
 				],
 				"helpers": {
-					"DefineOwnProperty.js": [
-						"./helpers/DefineOwnProperty.js",
-						"./helpers/DefineOwnProperty"
-					],
-					"OwnPropertyKeys.js": [
-						"./helpers/OwnPropertyKeys.js",
-						"./helpers/OwnPropertyKeys"
-					],
 					"assertRecord.js": [
 						"./helpers/assertRecord.js",
 						"./helpers/assertRecord"
@@ -9964,6 +9946,10 @@
 					"callBound.js": [
 						"./helpers/callBound.js",
 						"./helpers/callBound"
+					],
+					"DefineOwnProperty.js": [
+						"./helpers/DefineOwnProperty.js",
+						"./helpers/DefineOwnProperty"
 					],
 					"every.js": [
 						"./helpers/every.js",
@@ -10025,6 +10011,10 @@
 						"./helpers/mod.js",
 						"./helpers/mod"
 					],
+					"OwnPropertyKeys.js": [
+						"./helpers/OwnPropertyKeys.js",
+						"./helpers/OwnPropertyKeys"
+					],
 					"padTimeComponent.js": [
 						"./helpers/padTimeComponent.js",
 						"./helpers/padTimeComponent"
@@ -10046,6 +10036,12 @@
 						"./helpers/timeConstants"
 					]
 				},
+				"index.js": [
+					".",
+					"./",
+					"./index.js",
+					"./index"
+				],
 				"operations": {
 					"2015.js": [
 						"./operations/2015.js",
@@ -10068,11 +10064,11 @@
 						"./operations/2019"
 					]
 				},
+				"package.json": [
+					"./package.json",
+					"./package"
+				],
 				"test": {
-					"GetIntrinsic.js": [
-						"./test/GetIntrinsic.js",
-						"./test/GetIntrinsic"
-					],
 					"diffOps.js": [
 						"./test/diffOps.js",
 						"./test/diffOps"
@@ -10093,12 +10089,6 @@
 						"./test/es2018.js",
 						"./test/es2018"
 					],
-					"index.js": [
-						"./test",
-						"./test/",
-						"./test/index.js",
-						"./test/index"
-					],
 					"es2019.js": [
 						"./test/es2019.js",
 						"./test/es2019"
@@ -10115,15 +10105,11 @@
 						"./test/es7.js",
 						"./test/es7"
 					],
-					"tests.js": [
-						"./test/tests.js",
-						"./test/tests"
+					"GetIntrinsic.js": [
+						"./test/GetIntrinsic.js",
+						"./test/GetIntrinsic"
 					],
 					"helpers": {
-						"OwnPropertyKeys.js": [
-							"./test/helpers/OwnPropertyKeys.js",
-							"./test/helpers/OwnPropertyKeys"
-						],
 						"assertRecord.js": [
 							"./test/helpers/assertRecord.js",
 							"./test/helpers/assertRecord"
@@ -10136,6 +10122,10 @@
 							"./test/helpers/getSymbolDescription.js",
 							"./test/helpers/getSymbolDescription"
 						],
+						"OwnPropertyKeys.js": [
+							"./test/helpers/OwnPropertyKeys.js",
+							"./test/helpers/OwnPropertyKeys"
+						],
 						"runManifestTest.js": [
 							"./test/helpers/runManifestTest.js",
 							"./test/helpers/runManifestTest"
@@ -10144,7 +10134,17 @@
 							"./test/helpers/values.js",
 							"./test/helpers/values"
 						]
-					}
+					},
+					"index.js": [
+						"./test",
+						"./test/",
+						"./test/index.js",
+						"./test/index"
+					],
+					"tests.js": [
+						"./test/tests.js",
+						"./test/tests"
+					]
 				}
 			}
 		}
