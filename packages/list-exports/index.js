@@ -244,35 +244,44 @@ async function forEachSubfile(realFile, {
 	);
 	const dirMain = mains && mains.get(dir);
 
+	const hasExports = packageExports && keys(packageExports).length > 0;
+
 	const canImport = options.useType && ext !== '.json';
 	if (canImport) {
-		if (!options.skipMainDot && mains && mains.get('.') === realFile && !hasOwn(packageExports || {}, '.')) {
+		// only add "." if there's no exports field, or if exports explicitly includes "."
+		if (!options.skipMainDot && mains && mains.get('.') === realFile && !hasExports) {
 			safeSet(tree.import, '.', realFile);
 		}
-		if (!hasOwn(packageExports || {}, fakeFile)) {
+		// only add files not in exports when there's no exports field
+		if (!hasExports && !hasOwn(packageExports || {}, fakeFile)) {
 			safeSet(tree.import, fakeFile, realFile);
 		}
 	}
 
 	if (canRequire) {
-		if (dirMain === realFile) {
+		// only add dir mappings when there's no exports field
+		if (!hasExports && dirMain === realFile) {
 			safeSet(tree.require, dir, realFile);
 			safeSet(tree.require, `${dir}/`, realFile);
 		}
 		if (mains && mains.get('.') === realFile) {
-			if (!options.skipMainDot && !hasOwn(packageExports || {}, '.')) {
+			// only add "." if there's no exports field, or if exports explicitly includes "."
+			if (!options.skipMainDot && !hasExports) {
 				safeSet(tree.require, '.', realFile);
 			}
-			if (!options.skipDirSlash) {
+			// only add "./" if there's no exports field
+			if (!options.skipDirSlash && !hasExports) {
 				safeSet(tree.require, './', realFile);
 			}
 		}
-		if (!hasOwn(packageExports || {}, fakeFile)) {
+		// only add files not in exports when there's no exports field
+		if (!hasExports && !hasOwn(packageExports || {}, fakeFile)) {
 			safeSet(tree.require, fakeFile, realFile);
 		}
 		if (ext !== '.cjs' && ext !== '.mjs') {
 			const extlessFile = `${dir}/${extensionless}`;
-			if (!hasOwn(packageExports || {}, extlessFile)) {
+			// only add extensionless when there's no exports field
+			if (!hasExports && !hasOwn(packageExports || {}, extlessFile)) {
 				safeSet(tree.require, extlessFile, realFile);
 			}
 		}
