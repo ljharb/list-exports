@@ -1,7 +1,7 @@
 {
 	"root": true,
 
-	"extends": "@ljharb/eslint-config/node/10",
+	"extends": "@ljharb/eslint-config/node/22",
 
 	"rules": {
 		"func-style": 1,
