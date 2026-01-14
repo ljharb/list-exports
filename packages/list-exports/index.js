@@ -58,6 +58,7 @@ const $localeCompare = callBound('String.prototype.localeCompare');
 const $replace = callBound('String.prototype.replace');
 const $split = callBound('String.prototype.split');
 const $all = callBind(GetIntrinsic('%Promise.all%'), Promise);
+const fg = require('fast-glob');
 
 function isDirectory(file) {
 	try {
@@ -534,7 +535,7 @@ function traverseExportsSubtree({
 			// it's a dir
 			traverseExportsSubtree({
 				tree,
-				subtree: value,
+				subtree,
 				problems,
 				packageDir,
 				packageExports,
@@ -587,6 +588,60 @@ function traverseExportsSubdir({
 	}
 }
 
+function mapAndEmitPattern({
+	packageDir, category, tree, lhs, rhs, conditionChain, problems, filteredFiles,
+}) {
+	const lhsStar = lhs.indexOf('*');
+	const rhsStar = rhs.indexOf('*');
+	const lhsPrefix = lhs.slice(0, lhsStar);
+	const lhsSuffix = lhs.slice(lhsStar + 1);
+	const rhsPrefix = rhs.slice(0, rhsStar);
+	const rhsSuffix = rhs.slice(rhsStar + 1);
+
+	const candidates = fg.sync(rhs.replace(/^\.\//, ''), {
+		cwd: packageDir,
+		dot: false,
+		onlyFiles: true,
+		followSymbolicLinks: false,
+	});
+
+	let matchedAny = false;
+	for (const rel of candidates) {
+		const candidate = `./${String(rel).replace(/\\/g, '/')}`;
+
+		const startsOk = candidate.startsWith(rhsPrefix);
+		const endsOk = candidate.endsWith(rhsSuffix);
+
+		if (startsOk && endsOk) {
+			const starVal = candidate.slice(
+				rhsPrefix.length,
+				candidate.length - rhsSuffix.length,
+			);
+			const lhsMapped = `${lhsPrefix}${starVal}${lhsSuffix}`;
+
+			const relT = candidate.replace(/^\.\//, '');
+			if (!filteredFiles.has(relT) && existsSync(pathJoin(packageDir, relT))) {
+				filteredFiles.add(relT);
+			}
+
+			const ok = addFullPath(
+				packageDir,
+				category,
+				tree,
+				lhsMapped,
+				candidate,
+				conditionChain,
+				problems,
+				filteredFiles,
+			);
+			if (ok) {
+				matchedAny = true;
+			}
+		}
+	}
+	return matchedAny;
+}
+
 async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 	packageDir,
 	packageExports,
@@ -623,6 +678,23 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 				});
 				return true;
 			}
+
+			if (lhs.includes('*') && rhs.includes('*')) {
+				const matchedAny = mapAndEmitPattern({
+					packageDir,
+					category,
+					tree,
+					lhs,
+					rhs,
+					conditionChain,
+					problems,
+					filteredFiles,
+				});
+				if (matchedAny) {
+					return true;
+				}
+			}
+
 			return addFullPath(
 				packageDir,
 				category,
@@ -666,13 +738,30 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 							mains,
 						});
 					}
+
+					if (lhs.includes('*') && conditionRHS.includes('*')) {
+						const matchedAnyInner = mapAndEmitPattern({
+							packageDir,
+							category,
+							tree,
+							lhs,
+							rhs: conditionRHS,
+							conditionChain: $concat(conditionChain, condition),
+							problems,
+							filteredFiles,
+						});
+						if (matchedAnyInner) {
+							return true;
+						}
+					}
+
 					return addFullPath(
 						packageDir,
 						category,
 						tree,
 						lhs,
 						conditionRHS,
-						conditionChain.concat(condition),
+						$concat(conditionChain, condition),
 						problems,
 						filteredFiles,
 						nodeRange,

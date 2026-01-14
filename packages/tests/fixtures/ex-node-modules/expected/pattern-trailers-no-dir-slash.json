@@ -36,6 +36,9 @@
 				],
 				"package.json": [
 					"./package.json"
+				],
+				"dep.js": [
+					"./node_modules/dep"
 				]
 			}
 		},

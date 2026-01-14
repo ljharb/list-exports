@@ -1,0 +1,12 @@
+{
+  "name": "ex-stars-basic",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    "./hooks/*": "./src/hooks/*.js",
+    "./multi/*/x/*": "./src/multi/*/x/*.js",
+    "./mismatch/*/*": "./src/mismatch/*.js",
+    "./rhs-extra/*": "./src/rhs-extra/*/*.js",
+    "./literal/**": "./src/literal/**.js"
+  }
+}

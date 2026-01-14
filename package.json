@@ -50,5 +50,9 @@
 	},
 	"workspaces": [
 		"packages/*"
-	]
+	],
+	"dependencies": {
+		"glob": "^7.2.3",
+		"fast-glob": "^3.2.11"
+	}
 }
