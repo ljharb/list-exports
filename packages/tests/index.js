@@ -225,6 +225,10 @@ test('listExports', (t) => {
 							const env = { ...process.env, NO_COLOR: 1 };
 
 							const cliResults = JSON.parse(`${execSync(`${cli} path "./${path.relative(process.cwd(), projectDir)}" --json`, { env })}`);
+							// to avoid the "engine mismatch" in "problems" in nodes that ls-exports doesn't support
+							if (fixture === 'ls-exports') {
+								cliResults.problems = [];
+							}
 							s3t.deepEqual(cliResults, expected, `${fixture}: CLI results match expectation`);
 
 							if (checkNPM) {
