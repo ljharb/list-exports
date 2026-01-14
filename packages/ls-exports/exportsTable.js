@@ -4,29 +4,24 @@ const { styleText } = require('util');
 const fromEntries = require('object.fromentries');
 const values = require('object.values');
 const stripANSI = require('strip-ansi');
-const walk = require('tree-walk');
+
+const { keys } = Object;
 
 const listExports = require('list-exports');
 const table = require('./table');
 
-function sumTreeLeaves(root) {
-	walk.postorder(root, (value, key, parent) => {
-		/* eslint no-param-reassign: 1 */
-		if (Array.isArray(parent) || parent === root) {
-			return;
-		}
-		if (Array.isArray(value)) {
-			parent[key] = value.length;
-		} else if (parent) {
-			if (typeof value !== 'number') { // TODO: remove this, once this function no longer mutates
-				const sum = values(value).reduce((a, b) => a + b, 0);
-				if (typeof sum === 'number') {
-					delete parent[key];
-					parent[`${key}/`] = sum;
-				}
-			}
+function sumTreeLeaves(treeMap) {
+	const result = {};
+	treeMap.forEach((value, key) => {
+		if (value instanceof Set) {
+			result[key] = value.size;
+		} else if (value instanceof Map) {
+			const subResult = sumTreeLeaves(value);
+			const sum = values(subResult).reduce((a, b) => a + b, 0);
+			result[`${key}/`] = sum;
 		}
 	});
+	return result;
 }
 
 module.exports = async function exportsTable(packageDir, log) {
@@ -38,6 +33,12 @@ module.exports = async function exportsTable(packageDir, log) {
 		return;
 	}
 
+	const { exports: exp } = x;
+	const latest = exp[exp.latest];
+	const preExports = exp['pre-exports'];
+
+	const binariesCount = keys(exp.binaries).length;
+
 	const summaryRows = [
 		[
 			`${styleText('blue', x.name)} @ ${x.version}`,
@@ -46,23 +47,23 @@ module.exports = async function exportsTable(packageDir, log) {
 		].map((r) => styleText('bold', r)),
 		[
 			styleText('red', 'Binaries'),
-			x.binaries.length || '',
-			x.binaries.length || '',
+			binariesCount || '',
+			binariesCount || '',
 		],
 		[
 			styleText('red', 'CJS + ESM Export Specifiers'),
-			x.require.length,
-			x['require (pre-exports)'].length,
+			latest.require.size,
+			preExports.require.size,
 		],
 		[
 			styleText('red', 'ESM-only Export Specifiers'),
-			x.import.length,
+			latest.import.size,
 			'',
 		],
 		[
 			styleText('red', 'Exposed Files'),
-			x.files.length,
-			x['files (pre-exports)'].length,
+			latest.files.size,
+			preExports.files.size,
 		],
 	];
 	const widths = summaryRows.reduce(
@@ -78,21 +79,21 @@ module.exports = async function exportsTable(packageDir, log) {
 	const tableOptions = { columns };
 	log(table(summaryRows, tableOptions));
 
-	sumTreeLeaves(x.tree);
-	sumTreeLeaves(x['tree (pre-exports)']);
+	const latestTreeSums = sumTreeLeaves(latest.tree);
+	const preExportsTreeSums = sumTreeLeaves(preExports.tree);
 	log(styleText('bold', 'Top-level ') + styleText('magenta', 'files') + styleText('bold', '/') + styleText(['bold', 'cyan'], 'directories') + styleText('bold', ' that contribute specifiers:'));
-	const treeRows = Object.keys({ ...x.tree[x.name], ...x['tree (pre-exports)'][x.name] })
+	const treeRows = keys({ ...latestTreeSums, ...preExportsTreeSums })
 		.sort((a, b) => (a.endsWith('/') ? b.endsWith('/') ? a.localeCompare(b) : -1 : 1))
 		.map((file) => [
 			file.endsWith('/') ? styleText(['bold', 'cyan'], file) : styleText('magenta', file),
-			x.tree[x.name][file],
-			x['tree (pre-exports)'][x.name][file],
+			latestTreeSums[file],
+			preExportsTreeSums[file],
 		]);
 	log(table(treeRows, tableOptions));
 
-	if (x.errors.length > 0) {
+	if (x.problems.size > 0) {
 		log(styleText(['bold', 'red'], '!! Errors:'));
-		log(table([x.errors.map((e) => e.replace(process.cwd(), '$PWD'))]));
+		log(table([Array.from(x.problems, (e) => e.replace(process.cwd(), '$PWD'))]));
 	}
 
 	log(styleText('dim', 'run the same command with `--json` for full details'));

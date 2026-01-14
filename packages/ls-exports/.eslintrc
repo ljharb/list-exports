@@ -4,7 +4,7 @@
 	"extends": "@ljharb/eslint-config/node/22",
 
 	"rules": {
-		"func-style": 1,
+		"func-style": 0,
 		"function-call-argument-newline": ["off", "consistent"],
 		"max-lines-per-function": 0,
 		"sort-keys": 0,

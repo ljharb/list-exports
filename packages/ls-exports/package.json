@@ -46,15 +46,14 @@
 	"dependencies": {
 		"array.from": "^1.1.6",
 		"json-colorizer": "^3.0.1",
-		"list-exports": "^1.1.0",
+		"list-exports": "^2.0.0",
 		"npm-package-arg": "^11.0.3",
 		"object.fromentries": "^2.0.8",
-		"object.values": "^1.2.0",
+		"object.values": "^1.2.1",
 		"pacote": "^18.0.6",
 		"strip-ansi": "^6.0.1",
 		"table": "^6.8.2",
 		"tmp": "^0.2.3",
-		"tree-walk": "^0.4.0",
 		"yargs": "^17.7.2"
 	},
 	"devDependencies": {
