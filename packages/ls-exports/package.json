@@ -45,7 +45,6 @@
 	"homepage": "https://github.com/ljharb/list-exports#readme",
 	"dependencies": {
 		"array.from": "^1.1.6",
-		"colors": "=1.4.0",
 		"json-colorizer": "^3.0.1",
 		"list-exports": "^1.1.0",
 		"npm-package-arg": "^11.0.3",

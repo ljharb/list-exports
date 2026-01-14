@@ -1,6 +1,6 @@
 'use strict';
 
-const colors = require('colors/safe');
+const { styleText } = require('util');
 const fromEntries = require('object.fromentries');
 const values = require('object.values');
 const stripANSI = require('strip-ansi');
@@ -33,34 +33,34 @@ module.exports = async function exportsTable(packageDir, log) {
 	const x = await listExports(packageDir);
 
 	if (x.private) {
-		log(`${colors.blue(x.name)} @ ${x.version}`);
-		log(colors.bold.red('package is private'));
+		log(`${styleText('blue', x.name)} @ ${x.version}`);
+		log(styleText(['bold', 'red'], 'package is private'));
 		return;
 	}
 
 	const summaryRows = [
 		[
-			`${colors.blue(x.name)} @ ${x.version}`,
-			colors.green('node with ESM (>= 13.1)'),
-			colors.green('node pre-ESM (> 13.1)'),
-		].map((r) => colors.bold(r)),
+			`${styleText('blue', x.name)} @ ${x.version}`,
+			styleText('green', 'node with ESM (>= 13.1)'),
+			styleText('green', 'node pre-ESM (> 13.1)'),
+		].map((r) => styleText('bold', r)),
 		[
-			colors.red('Binaries'),
+			styleText('red', 'Binaries'),
 			x.binaries.length || '',
 			x.binaries.length || '',
 		],
 		[
-			colors.red('CJS + ESM Export Specifiers'),
+			styleText('red', 'CJS + ESM Export Specifiers'),
 			x.require.length,
 			x['require (pre-exports)'].length,
 		],
 		[
-			colors.red('ESM-only Export Specifiers'),
+			styleText('red', 'ESM-only Export Specifiers'),
 			x.import.length,
 			'',
 		],
 		[
-			colors.red('Exposed Files'),
+			styleText('red', 'Exposed Files'),
 			x.files.length,
 			x['files (pre-exports)'].length,
 		],
@@ -80,20 +80,20 @@ module.exports = async function exportsTable(packageDir, log) {
 
 	sumTreeLeaves(x.tree);
 	sumTreeLeaves(x['tree (pre-exports)']);
-	log(colors.bold(`Top-level ${colors.reset.magenta('files')}/${colors.bold.cyan('directories')} that contribute specifiers:`));
+	log(styleText('bold', 'Top-level ') + styleText('magenta', 'files') + styleText('bold', '/') + styleText(['bold', 'cyan'], 'directories') + styleText('bold', ' that contribute specifiers:'));
 	const treeRows = Object.keys({ ...x.tree[x.name], ...x['tree (pre-exports)'][x.name] })
 		.sort((a, b) => (a.endsWith('/') ? b.endsWith('/') ? a.localeCompare(b) : -1 : 1))
 		.map((file) => [
-			file.endsWith('/') ? colors.bold.cyan(file) : colors.magenta(file),
+			file.endsWith('/') ? styleText(['bold', 'cyan'], file) : styleText('magenta', file),
 			x.tree[x.name][file],
 			x['tree (pre-exports)'][x.name][file],
 		]);
 	log(table(treeRows, tableOptions));
 
 	if (x.errors.length > 0) {
-		log(colors.bold(colors.red('!! Errors:')));
+		log(styleText(['bold', 'red'], '!! Errors:'));
 		log(table([x.errors.map((e) => e.replace(process.cwd(), '$PWD'))]));
 	}
 
-	log(colors.dim('run the same command with `--json` for full details'));
+	log(styleText('dim', 'run the same command with `--json` for full details'));
 };
