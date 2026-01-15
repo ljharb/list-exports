@@ -2,7 +2,7 @@
 	"name": "ls-exports",
 	"version": "1.1.1",
 	"description": "CLI for `list-exports`: Given a package name and a version number, or a path to a package.json, what specifiers does it expose?",
-	"bin": "./bin/ls-exports",
+	"bin": "./bin/ls-exports.mjs",
 	"main": false,
 	"exports": {
 		"./package.json": "./package.json"
@@ -51,10 +51,10 @@
 		"object.fromentries": "^2.0.8",
 		"object.values": "^1.2.1",
 		"pacote": "^18.0.6",
+		"pargs": "^1.2.2",
 		"strip-ansi": "^6.0.1",
 		"table": "^6.8.2",
-		"tmp": "^0.2.3",
-		"yargs": "^17.7.2"
+		"tmp": "^0.2.3"
 	},
 	"devDependencies": {
 		"@ljharb/eslint-config": "^22.1.3",

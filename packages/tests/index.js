@@ -22,7 +22,7 @@ const fixtures = fs.readdirSync(fixturesDir).filter((x) => !x.startsWith('.')).m
 
 const isOffline = !!OFFLINE;
 
-const cli = path.join(__dirname, '..', 'ls-exports', 'bin', 'ls-exports');
+const cli = path.join(__dirname, '..', 'ls-exports', 'bin', 'ls-exports.mjs');
 
 const re = GREP && new RegExp(GREP);
 

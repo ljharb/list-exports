@@ -7,7 +7,7 @@
 	"problems": [],
 	"exports": {
 		"binaries": {
-			"ls-exports": "./bin/ls-exports"
+			"ls-exports": "./bin/ls-exports.mjs"
 		},
 		"latest": "pattern-trailers",
 		"pattern-trailers": {
@@ -34,15 +34,22 @@
 				"./package": "./package.json",
 				"./package.json": "./package.json",
 				"./table": "./table.js",
-				"./table.js": "./table.js"
+				"./table.js": "./table.js",
+				"./bin/ls-exports.mjs": "./bin/ls-exports.mjs"
 			},
 			"files": [
 				"./exportsTable.js",
 				"./getPackageJSONPath.js",
 				"./package.json",
-				"./table.js"
+				"./table.js",
+				"./bin/ls-exports.mjs"
 			],
 			"tree": {
+				"bin": {
+					"ls-exports.mjs": [
+						"./bin/ls-exports.mjs"
+					]
+				},
 				"exportsTable.js": [
 					"./exportsTable.js",
 					"./exportsTable"

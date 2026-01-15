@@ -1,0 +1,13 @@
+ls-exports - List the exports for a package
+
+Usage:
+  ls-exports [options] <command>
+
+Commands:
+  package <specifier>  List exports for a package (with optional version)
+                       Examples: foo, @scope/foo, foo@^1
+  path <path>          List exports for a local directory containing package.json
+
+Options:
+  --json               Output the results as JSON
+  --help               Show this help message
