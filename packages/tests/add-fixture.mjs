@@ -37,7 +37,7 @@ const filesToTruncate = glob.sync('**/*', {
 	ignore: ['**/*.json'],
 });
 
-import { truncate, rm } from 'fs/promises';
+import { truncate, rm, mkdir } from 'fs/promises';
 await Promise.all(filesToTruncate.map((file) => {
 	if ((/\.(?:md|txt)$/).test(file)) {
 		return rm(path.join(projectDir, file));
@@ -54,8 +54,6 @@ execSync(
 console.log(`Added fixture: ${name}`);
 
 console.log('writing initial test results - YOU MUST REVIEW');
-
-import { mkdir } from 'fs/promises';
 
 await mkdir(path.join(fixtureDir, 'expected'), { __proto__: null, recursive: true }).catch();
 
