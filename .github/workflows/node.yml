@@ -8,4 +8,11 @@ jobs:
     with:
       range: '^18.17.0 || >=20.5.0'
       type: minors
+      command: TODO_IS_OK=1 SKIP_CLI=1 npm run tests-only
+
+  cli-tests:
+    uses: ljharb/actions/.github/workflows/node.yml@main
+    with:
+      range: '^22.22 || ^24.13 || >=25.3'
+      type: minors
       command: TODO_IS_OK=1 npm run tests-only
