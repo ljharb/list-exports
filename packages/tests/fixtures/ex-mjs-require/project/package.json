@@ -1,0 +1,12 @@
+{
+	"name": "ex-mjs-require",
+	"version": "0.0.0",
+	"bundleDependencies": true,
+	"main": "./main.js",
+	"exports": {
+		".": "./index.mjs",
+		"./esm": "./index.mjs",
+		"./cjs": "./main.js",
+		"./package.json": "./package.json"
+	}
+}

@@ -450,6 +450,11 @@ function addMainString(string, packageDir, tree, nodeRange) {
 	}
 }
 
+function supportsRequireESM(category) {
+	const conditions = getConditionsForCategory(category);
+	return conditions && includes(conditions, 'module-sync');
+}
+
 function addFullPath(
 	packageDir,
 	category,
@@ -465,11 +470,17 @@ function addFullPath(
 		const fullPath = pathJoin(packageDir, rhs);
 		if (filteredFiles.has($replace(rhs, /^\.\//, '')) && existsSync(fullPath)) {
 			const ext = extname(fullPath);
-			const canRequire = ext !== '.mjs'
-				&& (
-					!isESM(fullPath, nodeRange) // not type module
-					|| ext !== '.js' // not .js
+			const requiresESM = supportsRequireESM(category);
+			const canRequire = (
+				requiresESM // require(esm) categories can require .mjs and ESM .js
+				|| (
+					ext !== '.mjs'
+					&& (
+						!isESM(fullPath, nodeRange) // not type module
+						|| ext !== '.js' // not .js
+					)
 				)
+			)
 				&& !includes(conditionChain, 'import')
 				&& !(/(?:^|\/)node_modules(?:\/|$)/).test(rhs);
 			const canImport = category !== 'broken'

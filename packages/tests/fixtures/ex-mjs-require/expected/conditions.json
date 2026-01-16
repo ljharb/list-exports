@@ -1,0 +1,72 @@
+{
+	"name": "ex-mjs-require",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"problems": [],
+	"exports": {
+		"binaries": {},
+		"latest": "conditions",
+		"conditions": {
+			"import": {
+				".": "./index.mjs",
+				"./cjs": "./main.js",
+				"./esm": "./index.mjs"
+			},
+			"require": {
+				"./cjs": "./main.js",
+				"./package.json": "./package.json"
+			},
+			"files": [
+				"./index.mjs",
+				"./main.js",
+				"./package.json"
+			],
+			"tree": {
+				"index.mjs": [
+					".",
+					"./esm"
+				],
+				"main.js": [
+					"./cjs"
+				],
+				"package.json": [
+					"./package.json"
+				]
+			}
+		},
+		"pre-exports": {
+			"import": {},
+			"require": {
+				".": "./main.js",
+				"./": "./main.js",
+				"./index.mjs": "./index.mjs",
+				"./main": "./main.js",
+				"./main.js": "./main.js",
+				"./package": "./package.json",
+				"./package.json": "./package.json"
+			},
+			"files": [
+				"./index.mjs",
+				"./main.js",
+				"./package.json"
+			],
+			"tree": {
+				"index.mjs": [
+					"./index.mjs"
+				],
+				"main.js": [
+					".",
+					"./",
+					"./main.js",
+					"./main"
+				],
+				"package.json": [
+					"./package.json",
+					"./package"
+				]
+			}
+		}
+	}
+}
