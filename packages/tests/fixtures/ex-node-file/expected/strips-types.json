@@ -1,0 +1,74 @@
+{
+	"name": "ex-node-file",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"problems": [],
+	"exports": {
+		"binaries": {},
+		"latest": "strips-types",
+		"strips-types": {
+			"import": {
+				"./main": "./main.js"
+			},
+			"require": {
+				".": "./addon.node",
+				"./addon": "./addon.node",
+				"./main": "./main.js",
+				"./package.json": "./package.json"
+			},
+			"files": [
+				"./addon.node",
+				"./main.js",
+				"./package.json"
+			],
+			"tree": {
+				"addon.node": [
+					".",
+					"./addon"
+				],
+				"main.js": [
+					"./main"
+				],
+				"package.json": [
+					"./package.json"
+				]
+			}
+		},
+		"pre-exports": {
+			"import": {},
+			"require": {
+				".": "./main.js",
+				"./": "./main.js",
+				"./addon": "./addon.node",
+				"./addon.node": "./addon.node",
+				"./main": "./main.js",
+				"./main.js": "./main.js",
+				"./package": "./package.json",
+				"./package.json": "./package.json"
+			},
+			"files": [
+				"./addon.node",
+				"./main.js",
+				"./package.json"
+			],
+			"tree": {
+				"addon.node": [
+					"./addon.node",
+					"./addon"
+				],
+				"main.js": [
+					".",
+					"./",
+					"./main.js",
+					"./main"
+				],
+				"package.json": [
+					"./package.json",
+					"./package"
+				]
+			}
+		}
+	}
+}

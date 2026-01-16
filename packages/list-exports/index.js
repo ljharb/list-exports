@@ -474,6 +474,7 @@ function addFullPath(
 				&& !(/(?:^|\/)node_modules(?:\/|$)/).test(rhs);
 			const canImport = category !== 'broken'
 				&& ext !== '.json'
+				&& ext !== '.node'
 				&& !includes(conditionChain, 'require')
 				&& !(/(?:^|\/)node_modules(?:\/|$)/).test(rhs);
 			if (canImport) {

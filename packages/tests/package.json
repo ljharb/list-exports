@@ -28,6 +28,7 @@
 		"@fixtures/ex-main-implicit": "file:fixtures/ex-main-implicit/project",
 		"@fixtures/ex-no-exports-with-root-type-commonjs": "file:fixtures/ex-no-exports-with-root-type-commonjs/project",
 		"@fixtures/ex-no-exports-with-root-type-module": "file:fixtures/ex-no-exports-with-root-type-module/project",
+		"@fixtures/ex-node-file": "file:fixtures/ex-node-file/project",
 		"@fixtures/ex-node-modules": "file:fixtures/ex-node-modules/project",
 		"@fixtures/ex-nonexistent-dir": "file:fixtures/ex-nonexistent-dir/project",
 		"@fixtures/ex-private": "file:fixtures/ex-private/project",
