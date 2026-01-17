@@ -1,0 +1,34 @@
+{
+	"bundleDependencies": true,
+	"name": "ex-node-addons",
+	"version": "0.0.0",
+	"main": "./main.js",
+	"exports": {
+		".": {
+			"node-addons": "./node-addons.node",
+			"node": "./node.js",
+			"default": "./default.js"
+		},
+		"./package.json": "./package.json",
+		"./only-node-addons": {
+			"node-addons": "./node-addons.node",
+			"default": "./default.js"
+		},
+		"./node-before-addons": {
+			"node": "./node.js",
+			"node-addons": "./node-addons.node",
+			"default": "./default.js"
+		},
+		"./import-require-no-addons": {
+			"import": "./import.mjs",
+			"require": "./require.js",
+			"default": "./default.js"
+		},
+		"./addons-with-import-require": {
+			"import": "./import.mjs",
+			"node-addons": "./node-addons.node",
+			"require": "./require.js",
+			"default": "./default.js"
+		}
+	}
+}

@@ -1,0 +1,106 @@
+{
+	"name": "ex-module-sync",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"problems": [],
+	"exports": {
+		"binaries": {},
+		"latest": "pattern-trailers",
+		"pattern-trailers": {
+			"import": {
+				".": "./import.mjs",
+				"./all-conditions": "./import.mjs",
+				"./import-require-no-sync": "./import.mjs",
+				"./only-module-sync": "./default.js",
+				"./sync-before-import": "./import.mjs"
+			},
+			"require": {
+				".": "./default.js",
+				"./all-conditions": "./require.js",
+				"./import-require-no-sync": "./require.js",
+				"./only-module-sync": "./default.js",
+				"./package.json": "./package.json",
+				"./sync-before-import": "./default.js"
+			},
+			"files": [
+				"./default.js",
+				"./import.mjs",
+				"./package.json",
+				"./require.js"
+			],
+			"tree": {
+				"default.js": [
+					".",
+					"./only-module-sync",
+					"./sync-before-import"
+				],
+				"import.mjs": [
+					".",
+					"./import-require-no-sync",
+					"./all-conditions",
+					"./sync-before-import"
+				],
+				"package.json": [
+					"./package.json"
+				],
+				"require.js": [
+					"./import-require-no-sync",
+					"./all-conditions"
+				]
+			}
+		},
+		"pre-exports": {
+			"import": {},
+			"require": {
+				".": "./main.js",
+				"./": "./main.js",
+				"./default": "./default.js",
+				"./default.js": "./default.js",
+				"./import.mjs": "./import.mjs",
+				"./main": "./main.js",
+				"./main.js": "./main.js",
+				"./module-sync.mjs": "./module-sync.mjs",
+				"./package": "./package.json",
+				"./package.json": "./package.json",
+				"./require": "./require.js",
+				"./require.js": "./require.js"
+			},
+			"files": [
+				"./default.js",
+				"./import.mjs",
+				"./main.js",
+				"./module-sync.mjs",
+				"./package.json",
+				"./require.js"
+			],
+			"tree": {
+				"default.js": [
+					"./default.js",
+					"./default"
+				],
+				"import.mjs": [
+					"./import.mjs"
+				],
+				"main.js": [
+					".",
+					"./",
+					"./main.js",
+					"./main"
+				],
+				"module-sync.mjs": [
+					"./module-sync.mjs"
+				],
+				"package.json": [
+					"./package.json",
+					"./package"
+				],
+				"require.js": [
+					"./require.js",
+					"./require"
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,121 @@
+{
+	"name": "ex-node-addons",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"problems": [],
+	"exports": {
+		"binaries": {},
+		"latest": "pattern-trailers-no-dir-slash",
+		"pattern-trailers-no-dir-slash": {
+			"import": {
+				".": "./node.js",
+				"./addons-with-import-require": "./import.mjs",
+				"./import-require-no-addons": "./import.mjs",
+				"./node-before-addons": "./node.js",
+				"./only-node-addons": "./default.js"
+			},
+			"require": {
+				".": "./node-addons.node",
+				"./addons-with-import-require": "./node-addons.node",
+				"./import-require-no-addons": "./require.js",
+				"./node-before-addons": "./node.js",
+				"./only-node-addons": "./node-addons.node",
+				"./package.json": "./package.json"
+			},
+			"files": [
+				"./default.js",
+				"./import.mjs",
+				"./node-addons.node",
+				"./node.js",
+				"./package.json",
+				"./require.js"
+			],
+			"tree": {
+				"default.js": [
+					"./only-node-addons"
+				],
+				"import.mjs": [
+					"./import-require-no-addons",
+					"./addons-with-import-require"
+				],
+				"node-addons.node": [
+					".",
+					"./only-node-addons",
+					"./addons-with-import-require"
+				],
+				"node.js": [
+					"./node-before-addons",
+					"."
+				],
+				"package.json": [
+					"./package.json"
+				],
+				"require.js": [
+					"./import-require-no-addons"
+				]
+			}
+		},
+		"pre-exports": {
+			"import": {},
+			"require": {
+				".": "./main.js",
+				"./": "./main.js",
+				"./default": "./default.js",
+				"./default.js": "./default.js",
+				"./import.mjs": "./import.mjs",
+				"./main": "./main.js",
+				"./main.js": "./main.js",
+				"./node": "./node.js",
+				"./node-addons": "./node-addons.node",
+				"./node-addons.node": "./node-addons.node",
+				"./node.js": "./node.js",
+				"./package": "./package.json",
+				"./package.json": "./package.json",
+				"./require": "./require.js",
+				"./require.js": "./require.js"
+			},
+			"files": [
+				"./default.js",
+				"./import.mjs",
+				"./main.js",
+				"./node-addons.node",
+				"./node.js",
+				"./package.json",
+				"./require.js"
+			],
+			"tree": {
+				"default.js": [
+					"./default.js",
+					"./default"
+				],
+				"import.mjs": [
+					"./import.mjs"
+				],
+				"main.js": [
+					".",
+					"./",
+					"./main.js",
+					"./main"
+				],
+				"node-addons.node": [
+					"./node-addons.node",
+					"./node-addons"
+				],
+				"node.js": [
+					"./node.js",
+					"./node"
+				],
+				"package.json": [
+					"./package.json",
+					"./package"
+				],
+				"require.js": [
+					"./require.js",
+					"./require"
+				]
+			}
+		}
+	}
+}

@@ -190,6 +190,9 @@ test('listExports', (t) => {
 												} catch (e) {
 													if (e.code === 'ERR_INVALID_PACKAGE_TARGET') {
 														s4t.comment(`# SKIP (import) ${fixtureSpec} is not a valid package target`);
+													} else if (e.code === 'ERR_UNKNOWN_FILE_EXTENSION' && e.message.includes('.node')) {
+														s4t.comment(`# SKIP (import) ${fixtureSpec} resolved to a native addon (.node) which cannot be imported`);
+														return;
 													} else {
 														throw e;
 													}

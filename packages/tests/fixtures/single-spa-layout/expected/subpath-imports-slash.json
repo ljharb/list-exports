@@ -1,0 +1,137 @@
+{
+	"name": "single-spa-layout",
+	"version": "1.0.0-beta.6",
+	"engines": {
+		"node": "*"
+	},
+	"problems": [
+		"ERR_INVALID_PACKAGE_CONFIG: package `exports` (key `import`) is invalid; sub-object has keys that start with `./`.",
+		"ERR_INVALID_PACKAGE_CONFIG: package `exports` (key `require`) is invalid; sub-object has keys that start with `./`."
+	],
+	"exports": {
+		"binaries": {},
+		"latest": "subpath-imports-slash",
+		"subpath-imports-slash": {
+			"import": {},
+			"require": {},
+			"files": [],
+			"tree": {}
+		},
+		"pre-exports": {
+			"import": {},
+			"require": {
+				".": "./dist/umd/single-spa-layout.min.js",
+				"./": "./dist/umd/single-spa-layout.min.js",
+				"./package": "./package.json",
+				"./package.json": "./package.json",
+				"./dist/esm/single-spa-layout.min": "./dist/esm/single-spa-layout.min.js",
+				"./dist/esm/single-spa-layout.min.js": "./dist/esm/single-spa-layout.min.js",
+				"./dist/system/single-spa-layout.min": "./dist/system/single-spa-layout.min.js",
+				"./dist/system/single-spa-layout.min.js": "./dist/system/single-spa-layout.min.js",
+				"./dist/types/constructApplications.d": "./dist/types/constructApplications.d.ts",
+				"./dist/types/constructApplications.d.ts": "./dist/types/constructApplications.d.ts",
+				"./dist/types/constructLayoutEngine.d": "./dist/types/constructLayoutEngine.d.ts",
+				"./dist/types/constructLayoutEngine.d.ts": "./dist/types/constructLayoutEngine.d.ts",
+				"./dist/types/constructRoutes.d": "./dist/types/constructRoutes.d.ts",
+				"./dist/types/constructRoutes.d.ts": "./dist/types/constructRoutes.d.ts",
+				"./dist/types/environment-helpers.d": "./dist/types/environment-helpers.d.ts",
+				"./dist/types/environment-helpers.d.ts": "./dist/types/environment-helpers.d.ts",
+				"./dist/types/matchRoute.d": "./dist/types/matchRoute.d.ts",
+				"./dist/types/matchRoute.d.ts": "./dist/types/matchRoute.d.ts",
+				"./dist/types/single-spa-layout-main.d": "./dist/types/single-spa-layout-main.d.ts",
+				"./dist/types/single-spa-layout-main.d.ts": "./dist/types/single-spa-layout-main.d.ts",
+				"./dist/types/single-spa-layout.d": "./dist/types/single-spa-layout.d.ts",
+				"./dist/types/single-spa-layout.d.ts": "./dist/types/single-spa-layout.d.ts",
+				"./dist/types/validation-helpers.d": "./dist/types/validation-helpers.d.ts",
+				"./dist/types/validation-helpers.d.ts": "./dist/types/validation-helpers.d.ts",
+				"./dist/types/utils/find.d": "./dist/types/utils/find.d.ts",
+				"./dist/types/utils/find.d.ts": "./dist/types/utils/find.d.ts",
+				"./dist/umd/single-spa-layout.min": "./dist/umd/single-spa-layout.min.js",
+				"./dist/umd/single-spa-layout.min.js": "./dist/umd/single-spa-layout.min.js"
+			},
+			"files": [
+				"./package.json",
+				"./dist/esm/single-spa-layout.min.js",
+				"./dist/system/single-spa-layout.min.js",
+				"./dist/types/constructApplications.d.ts",
+				"./dist/types/constructLayoutEngine.d.ts",
+				"./dist/types/constructRoutes.d.ts",
+				"./dist/types/environment-helpers.d.ts",
+				"./dist/types/matchRoute.d.ts",
+				"./dist/types/single-spa-layout-main.d.ts",
+				"./dist/types/single-spa-layout.d.ts",
+				"./dist/types/validation-helpers.d.ts",
+				"./dist/types/utils/find.d.ts",
+				"./dist/umd/single-spa-layout.min.js"
+			],
+			"tree": {
+				"dist": {
+					"esm": {
+						"single-spa-layout.min.js": [
+							"./dist/esm/single-spa-layout.min.js",
+							"./dist/esm/single-spa-layout.min"
+						]
+					},
+					"system": {
+						"single-spa-layout.min.js": [
+							"./dist/system/single-spa-layout.min.js",
+							"./dist/system/single-spa-layout.min"
+						]
+					},
+					"types": {
+						"constructApplications.d.ts": [
+							"./dist/types/constructApplications.d.ts",
+							"./dist/types/constructApplications.d"
+						],
+						"constructLayoutEngine.d.ts": [
+							"./dist/types/constructLayoutEngine.d.ts",
+							"./dist/types/constructLayoutEngine.d"
+						],
+						"constructRoutes.d.ts": [
+							"./dist/types/constructRoutes.d.ts",
+							"./dist/types/constructRoutes.d"
+						],
+						"environment-helpers.d.ts": [
+							"./dist/types/environment-helpers.d.ts",
+							"./dist/types/environment-helpers.d"
+						],
+						"matchRoute.d.ts": [
+							"./dist/types/matchRoute.d.ts",
+							"./dist/types/matchRoute.d"
+						],
+						"single-spa-layout-main.d.ts": [
+							"./dist/types/single-spa-layout-main.d.ts",
+							"./dist/types/single-spa-layout-main.d"
+						],
+						"single-spa-layout.d.ts": [
+							"./dist/types/single-spa-layout.d.ts",
+							"./dist/types/single-spa-layout.d"
+						],
+						"utils": {
+							"find.d.ts": [
+								"./dist/types/utils/find.d.ts",
+								"./dist/types/utils/find.d"
+							]
+						},
+						"validation-helpers.d.ts": [
+							"./dist/types/validation-helpers.d.ts",
+							"./dist/types/validation-helpers.d"
+						]
+					},
+					"umd": {
+						"single-spa-layout.min.js": [
+							".",
+							"./",
+							"./dist/umd/single-spa-layout.min.js",
+							"./dist/umd/single-spa-layout.min"
+						]
+					}
+				},
+				"package.json": [
+					"./package.json",
+					"./package"
+				]
+			}
+		}
+	}
+}

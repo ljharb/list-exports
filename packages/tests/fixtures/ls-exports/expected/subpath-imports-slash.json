@@ -1,0 +1,72 @@
+{
+	"name": "ls-exports",
+	"version": "2.0.0",
+	"engines": {
+		"node": "^22.22 || ^24.13 || >=25.3"
+	},
+	"problems": [],
+	"exports": {
+		"binaries": {
+			"ls-exports": "./bin/ls-exports.mjs"
+		},
+		"latest": "subpath-imports-slash",
+		"subpath-imports-slash": {
+			"import": {},
+			"require": {
+				"./package.json": "./package.json"
+			},
+			"files": [
+				"./package.json"
+			],
+			"tree": {
+				"package.json": [
+					"./package.json"
+				]
+			}
+		},
+		"pre-exports": {
+			"import": {},
+			"require": {
+				"./exportsTable": "./exportsTable.js",
+				"./exportsTable.js": "./exportsTable.js",
+				"./getPackageJSONPath": "./getPackageJSONPath.js",
+				"./getPackageJSONPath.js": "./getPackageJSONPath.js",
+				"./package": "./package.json",
+				"./package.json": "./package.json",
+				"./table": "./table.js",
+				"./table.js": "./table.js",
+				"./bin/ls-exports.mjs": "./bin/ls-exports.mjs"
+			},
+			"files": [
+				"./exportsTable.js",
+				"./getPackageJSONPath.js",
+				"./package.json",
+				"./table.js",
+				"./bin/ls-exports.mjs"
+			],
+			"tree": {
+				"bin": {
+					"ls-exports.mjs": [
+						"./bin/ls-exports.mjs"
+					]
+				},
+				"exportsTable.js": [
+					"./exportsTable.js",
+					"./exportsTable"
+				],
+				"getPackageJSONPath.js": [
+					"./getPackageJSONPath.js",
+					"./getPackageJSONPath"
+				],
+				"package.json": [
+					"./package.json",
+					"./package"
+				],
+				"table.js": [
+					"./table.js",
+					"./table"
+				]
+			}
+		}
+	}
+}

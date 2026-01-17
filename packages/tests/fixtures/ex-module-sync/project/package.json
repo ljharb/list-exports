@@ -1,0 +1,34 @@
+{
+	"bundleDependencies": true,
+	"name": "ex-module-sync",
+	"version": "0.0.0",
+	"main": "./main.js",
+	"exports": {
+		".": {
+			"import": "./import.mjs",
+			"module-sync": "./module-sync.mjs",
+			"default": "./default.js"
+		},
+		"./package.json": "./package.json",
+		"./only-module-sync": {
+			"module-sync": "./module-sync.mjs",
+			"default": "./default.js"
+		},
+		"./import-require-no-sync": {
+			"import": "./import.mjs",
+			"require": "./require.js",
+			"default": "./default.js"
+		},
+		"./all-conditions": {
+			"import": "./import.mjs",
+			"require": "./require.js",
+			"module-sync": "./module-sync.mjs",
+			"default": "./default.js"
+		},
+		"./sync-before-import": {
+			"module-sync": "./module-sync.mjs",
+			"import": "./import.mjs",
+			"default": "./default.js"
+		}
+	}
+}

@@ -1,0 +1,77 @@
+{
+	"name": "ex-module-sync",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"problems": [],
+	"exports": {
+		"binaries": {},
+		"latest": "broken",
+		"broken": {
+			"import": {},
+			"require": {
+				"./package.json": "./package.json"
+			},
+			"files": [
+				"./package.json"
+			],
+			"tree": {
+				"package.json": [
+					"./package.json"
+				]
+			}
+		},
+		"pre-exports": {
+			"import": {},
+			"require": {
+				".": "./main.js",
+				"./": "./main.js",
+				"./default": "./default.js",
+				"./default.js": "./default.js",
+				"./import.mjs": "./import.mjs",
+				"./main": "./main.js",
+				"./main.js": "./main.js",
+				"./module-sync.mjs": "./module-sync.mjs",
+				"./package": "./package.json",
+				"./package.json": "./package.json",
+				"./require": "./require.js",
+				"./require.js": "./require.js"
+			},
+			"files": [
+				"./default.js",
+				"./import.mjs",
+				"./main.js",
+				"./module-sync.mjs",
+				"./package.json",
+				"./require.js"
+			],
+			"tree": {
+				"default.js": [
+					"./default.js",
+					"./default"
+				],
+				"import.mjs": [
+					"./import.mjs"
+				],
+				"main.js": [
+					".",
+					"./",
+					"./main.js",
+					"./main"
+				],
+				"module-sync.mjs": [
+					"./module-sync.mjs"
+				],
+				"package.json": [
+					"./package.json",
+					"./package"
+				],
+				"require.js": [
+					"./require.js",
+					"./require"
+				]
+			}
+		}
+	}
+}
