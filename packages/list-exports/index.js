@@ -81,7 +81,7 @@ function stringSort(a, b) {
 
 function sortTree(treeMap) {
 	return new Map(sortPaths(
-		map(arrayFrom(treeMap), ([k, v]) => [k, v instanceof Map ? sortTree(v) : v]),
+		arrayFrom(treeMap, ([k, v]) => [k, v instanceof Map ? sortTree(v) : v]),
 		([a]) => a,
 		'/',
 	));
