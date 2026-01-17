@@ -41,7 +41,7 @@ export default [
 		},
 	},
 	{
-		files: ['packages/ls-exports/**/*.js', 'packages/ls-exports/**/*.mjs'],
+		files: ['packages/ls-exports/**/*.*js'],
 		rules: {
 			'func-style': 'off',
 			'function-call-argument-newline': ['off', 'consistent'],

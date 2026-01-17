@@ -1,14 +1,12 @@
-'use strict';
+import { styleText } from 'util';
+import fromEntries from 'object.fromentries';
+import values from 'object.values';
+import stripANSI from 'strip-ansi';
 
-const { styleText } = require('util');
-const fromEntries = require('object.fromentries');
-const values = require('object.values');
-const stripANSI = require('strip-ansi');
+import listExports from 'list-exports';
+import table from './table.mjs';
 
 const { keys } = Object;
-
-const listExports = require('list-exports');
-const table = require('./table');
 
 function sumTreeLeaves(treeMap) {
 	const result = {};
@@ -24,7 +22,7 @@ function sumTreeLeaves(treeMap) {
 	return result;
 }
 
-module.exports = async function exportsTable(packageDir, log) {
+export default async function exportsTable(packageDir, log) {
 	const x = await listExports(packageDir);
 
 	if (x.private) {
@@ -97,4 +95,4 @@ module.exports = async function exportsTable(packageDir, log) {
 	}
 
 	log(styleText('dim', 'run the same command with `--json` for full details'));
-};
+}

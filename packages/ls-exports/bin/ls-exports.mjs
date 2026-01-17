@@ -8,8 +8,8 @@ import fromEntries from 'object.fromentries';
 import arrayFrom from 'array.from';
 
 import listExports from 'list-exports';
-import exportsTable from '../exportsTable.js';
-import getPackageJSONPath from '../getPackageJSONPath.js';
+import exportsTable from '../exportsTable.mjs';
+import getPackageJSONPath from '../getPackageJSONPath.mjs';
 
 const subcommandConfig = {
 	options: {
