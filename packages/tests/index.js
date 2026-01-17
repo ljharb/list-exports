@@ -37,7 +37,7 @@ function readExpectedJson(expectedPath, packageData) {
 			expected.version = packageData.version;
 		}
 		return expected;
-	} catch (e) {
+	} catch {
 		return {};
 	}
 }

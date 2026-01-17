@@ -62,7 +62,7 @@ const $all = callBind(GetIntrinsic('%Promise.all%'), Promise);
 function isDirectory(file) {
 	try {
 		return lstatSync(file).isDirectory();
-	} catch (e) {
+	} catch {
 		return false;
 	}
 }
@@ -70,7 +70,7 @@ function isDirectory(file) {
 function resolveFrom(file, basedir, extensions) {
 	try {
 		return resolve.sync(file, { basedir, extensions });
-	} catch (e) {
+	} catch {
 		return null;
 	}
 }
@@ -209,7 +209,7 @@ async function getMain(rootDir, dir, extensions, problems) {
 				}
 				main = $replace(pathNormalize(pkg.main), /^(?:\.\/)?/, './');
 			}
-		} catch (e) {
+		} catch {
 			problems.add(`\`${dir}\` has a \`package.json\`, but it is invalid!`);
 		}
 	}
@@ -865,7 +865,7 @@ async function getExports(packageDir, pkgData, nodeRange, problems) {
 	const legacyP = traverseDir('.', packageDir, filteredFiles, mains, {}, { nodeRange });
 
 	const categories = getCategoriesForRange(nodeRange);
-	const latest = categories[0];
+	const [latest] = categories;
 
 	const binaryEntries = typeof pkgData.bin === 'string'
 		? [[pkgData.name, pkgData.bin]]

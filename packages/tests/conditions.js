@@ -29,7 +29,7 @@ test('condition ordering', { skip: re && !re.test('condition ordering') }, funct
 	} else if (!hasConditions) {
 		t.ok(
 			semver.satisfies(process.version, '13.2 - 13.6', { includePrerelease: true }),
-			'node 13.2 - 13.6: supports the "exports" field‘s object form, but no conditions beyond "default"'
+			'node 13.2 - 13.6: supports the "exports" field\'s object form, but no conditions beyond "default"'
 		);
 	} else {
 		t.ok(
@@ -44,11 +44,10 @@ test('condition ordering', { skip: re && !re.test('condition ordering') }, funct
 	], function (entry) {
 		var desc = entry[0];
 		var results = entry[1];
-
 		t.test(desc, { todo: desc === 'resolve' || (desc === 'require.resolve' && semver.satisfies(process.version, '< 6')) }, function (st) {
 			st.deepEqual(
 				Object.keys(results.expected).map(function (e) { return e === '.' ? e : './' + e; }),
-				Object.keys(results['package'].exports),
+				Object.keys(results.package.exports),
 				'test expects proper exports'
 			);
 

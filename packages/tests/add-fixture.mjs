@@ -48,7 +48,11 @@ await Promise.all(filesToTruncate.map((file) => {
 import { execSync } from 'child_process';
 execSync(
 	'npm pkg delete dependencies devDependencies peerDependencies optionalDependencies bundleDependencies bundledDependencies publishConfig scripts',
-	{ __proto__: null, cwd: projectDir, stdio: 'inherit' },
+	{
+		__proto__: null,
+		cwd: projectDir,
+		stdio: 'inherit',
+	},
 );
 
 console.log(`Added fixture: ${name}`);

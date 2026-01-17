@@ -73,7 +73,7 @@ module.exports = function getExpectedConditions(resolve) {
 
 	return {
 		actual: actual,
-		'package': conditionsPkg,
+		package: conditionsPkg,
 		expected: expected
 	};
 };

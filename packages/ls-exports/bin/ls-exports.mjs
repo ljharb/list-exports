@@ -47,13 +47,13 @@ function serializer(key, value) {
 let packageDirP;
 
 if (command.name === 'path') {
-	const pathArg = command.positionals[0];
+	const [pathArg] = command.positionals;
 	packageDirP = Promise.resolve(path.join(path.resolve(pathArg), 'package.json'));
 } else if (command.name === 'package') {
-	const specifier = command.positionals[0];
+	const [specifier] = command.positionals;
 	try {
 		npa(specifier);
-	} catch (e) {
+	} catch {
 		console.error(`Invalid package specifier: ${specifier}`);
 		process.exitCode = 1;
 		process.exit();
