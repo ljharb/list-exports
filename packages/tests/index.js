@@ -176,7 +176,7 @@ test('listExports', (t) => {
 											}
 										});
 
-										if (hasDynamicImport()) {
+										if (await hasDynamicImport()) {
 											await arrayFrom(exportResults.import).reduce(async (prev, [specifier, file]) => {
 												await prev;
 
