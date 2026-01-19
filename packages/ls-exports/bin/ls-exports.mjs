@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
-import path from 'path';
+import { join, resolve } from 'path';
 import npa from 'npm-package-arg';
 import { colorize } from 'json-colorizer';
 import pargs from 'pargs';
-import fromEntries from 'object.fromentries';
-import arrayFrom from 'array.from';
+
+const { from: arrayFrom } = Array;
+const { fromEntries } = Object;
 
 import listExports from 'list-exports';
 import exportsTable from '../exportsTable.mjs';
@@ -48,7 +49,7 @@ let packageDirP;
 
 if (command.name === 'path') {
 	const [pathArg] = command.positionals;
-	packageDirP = Promise.resolve(path.join(path.resolve(pathArg), 'package.json'));
+	packageDirP = Promise.resolve(join(resolve(pathArg), 'package.json'));
 } else if (command.name === 'package') {
 	const [specifier] = command.positionals;
 	try {

@@ -44,12 +44,9 @@
 	},
 	"homepage": "https://github.com/ljharb/list-exports#readme",
 	"dependencies": {
-		"array.from": "^1.1.6",
 		"json-colorizer": "^3.0.1",
 		"list-exports": "^2.1.0",
 		"npm-package-arg": "^13.0.2",
-		"object.fromentries": "^2.0.8",
-		"object.values": "^1.2.1",
 		"pacote": "^21.0.4",
 		"pargs": "^1.2.2",
 		"table": "^6.9.0",

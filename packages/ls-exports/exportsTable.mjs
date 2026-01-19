@@ -1,11 +1,13 @@
 import { styleText, stripVTControlCharacters } from 'util';
-import fromEntries from 'object.fromentries';
-import values from 'object.values';
 
 import listExports from 'list-exports';
 import table from './table.mjs';
 
-const { keys } = Object;
+const {
+	fromEntries,
+	keys,
+	values,
+} = Object;
 
 function sumTreeLeaves(treeMap) {
 	const result = {};
