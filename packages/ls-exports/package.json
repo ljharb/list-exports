@@ -52,7 +52,6 @@
 		"object.values": "^1.2.1",
 		"pacote": "^21.0.4",
 		"pargs": "^1.2.2",
-		"strip-ansi": "^6.0.1",
 		"table": "^6.9.0",
 		"tmp": "^0.2.5"
 	},

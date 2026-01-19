@@ -1,7 +1,6 @@
-import { styleText } from 'util';
+import { styleText, stripVTControlCharacters } from 'util';
 import fromEntries from 'object.fromentries';
 import values from 'object.values';
-import stripANSI from 'strip-ansi';
 
 import listExports from 'list-exports';
 import table from './table.mjs';
@@ -66,7 +65,7 @@ export default async function exportsTable(packageDir, log) {
 	];
 	const widths = summaryRows.reduce(
 		(maxes, cols) => cols
-			.map((col) => stripANSI(String(col)).length)
+			.map((col) => stripVTControlCharacters(String(col)).length)
 			.map((len, i) => Math.max(maxes[i] || 0, len)),
 		[],
 	);
