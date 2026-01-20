@@ -6,6 +6,7 @@
 	"scripts": {
 		"lint": "eslint .",
 		"pretest": "npm run lint",
+		"pretests-only": "npm run prepack -w ls-exports",
 		"tests-only": "tape packages/tests",
 		"tests:conditions": "tape packages/tests/conditions",
 		"test": "npm run tests-only && npm run tests:conditions",

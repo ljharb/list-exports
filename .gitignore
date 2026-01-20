@@ -110,3 +110,5 @@ yarn.lock
 
 # subpackages LICENSE copy
 packages/*/LICENSE
+
+.npmignore
