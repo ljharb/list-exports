@@ -4,6 +4,7 @@
 	"private": true,
 	"description": "Given a package name and a version number, or a path to a package.json, what specifiers does it expose?",
 	"scripts": {
+		"version": "node release.mjs",
 		"lint": "eslint .",
 		"pretest": "npm run lint",
 		"pretests-only": "npm run prepack -w ls-exports",
