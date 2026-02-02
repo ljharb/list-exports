@@ -1,0 +1,12 @@
+{
+	"bundleDependencies": true,
+	"name": "ex-self-reference",
+	"version": "0.0.0",
+	"main": "./index.js",
+	"exports": {
+		".": "./index.js",
+		"./lib": "./lib/index.js",
+		"./utils": "./lib/utils.js",
+		"./package.json": "./package.json"
+	}
+}

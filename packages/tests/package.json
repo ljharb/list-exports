@@ -36,6 +36,7 @@
 		"@fixtures/ex-nonexistent-dir": "file:fixtures/ex-nonexistent-dir/project",
 		"@fixtures/ex-pattern-exports": "file:fixtures/ex-pattern-exports/project",
 		"@fixtures/ex-private": "file:fixtures/ex-private/project",
+		"@fixtures/ex-self-reference": "file:fixtures/ex-self-reference/project",
 		"@fixtures/ex-typescript-native": "file:fixtures/ex-typescript-native/project",
 		"@fixtures/flatted-1": "file:fixtures/flatted-1/project",
 		"@fixtures/flatted-2": "file:fixtures/flatted-2/project",

@@ -1,0 +1,94 @@
+{
+	"name": "ex-self-reference",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"problems": [],
+	"exports": {
+		"binaries": {},
+		"latest": "subpath-imports-slash",
+		"subpath-imports-slash": {
+			"import": {
+				".": "./index.js",
+				"./lib": "./lib/index.js",
+				"./utils": "./lib/utils.js"
+			},
+			"require": {
+				".": "./index.js",
+				"./lib": "./lib/index.js",
+				"./package.json": "./package.json",
+				"./utils": "./lib/utils.js"
+			},
+			"files": [
+				"./index.js",
+				"./package.json",
+				"./lib/index.js",
+				"./lib/utils.js"
+			],
+			"tree": {
+				"index.js": [
+					"."
+				],
+				"lib": {
+					"index.js": [
+						"./lib"
+					],
+					"utils.js": [
+						"./utils"
+					]
+				},
+				"package.json": [
+					"./package.json"
+				]
+			}
+		},
+		"pre-exports": {
+			"import": {},
+			"require": {
+				".": "./index.js",
+				"./": "./index.js",
+				"./index": "./index.js",
+				"./index.js": "./index.js",
+				"./lib": "./lib/index.js",
+				"./package": "./package.json",
+				"./package.json": "./package.json",
+				"./lib/": "./lib/index.js",
+				"./lib/index": "./lib/index.js",
+				"./lib/index.js": "./lib/index.js",
+				"./lib/utils": "./lib/utils.js",
+				"./lib/utils.js": "./lib/utils.js"
+			},
+			"files": [
+				"./index.js",
+				"./package.json",
+				"./lib/index.js",
+				"./lib/utils.js"
+			],
+			"tree": {
+				"index.js": [
+					".",
+					"./",
+					"./index.js",
+					"./index"
+				],
+				"lib": {
+					"index.js": [
+						"./lib",
+						"./lib/",
+						"./lib/index.js",
+						"./lib/index"
+					],
+					"utils.js": [
+						"./lib/utils.js",
+						"./lib/utils"
+					]
+				},
+				"package.json": [
+					"./package.json",
+					"./package"
+				]
+			}
+		}
+	}
+}
