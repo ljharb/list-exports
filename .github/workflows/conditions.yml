@@ -10,8 +10,26 @@ jobs:
       fail-fast: false
       matrix:
         node-version:
+          - '25'
+          - '25.4' # ⤓ subpath-imports-slash
+          - '25.3' # ↥ strips-types
+
+          - '24'
+
+          - '23'
+          - '23.6' # ⤓ strips-types improvements
+          - '23.5' # ↥ require-esm
+
+          - '22'
+          - '22.18' # ⤓ strips-types
+          - '22.17' # ↥ require-esm
+          - '22.12' # ⤓ require-esm (module-sync)
+          - '22.11' # ↥ pattern-trailers-no-dir-slash+json-imports
+
           - '21'
           - '20'
+          - '20.19' # ⤓ require-esm backport
+          - '20.18' # ↥ pattern-trailers-no-dir-slash+json-imports
           - '19'
           - '18'
 
