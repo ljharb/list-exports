@@ -1,0 +1,94 @@
+{
+	"name": "ex-null-exports",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"problems": [
+		"ERR_INVALID_PACKAGE_CONFIG: package `exports` (key `./conditional-null` -> `require`) is invalid; sub-object is empty.",
+		"ERR_INVALID_PACKAGE_CONFIG: package `exports` (key `./internal`) is invalid; sub-object is empty.",
+		"ERR_INVALID_PACKAGE_CONFIG: package `exports` (key `require`) is invalid; sub-object is empty."
+	],
+	"exports": {
+		"binaries": {},
+		"latest": "broken-dir-slash-conditions",
+		"broken-dir-slash-conditions": {
+			"import": {
+				".": "./index.js",
+				"./conditional-null": "./esm.mjs",
+				"./public": "./public.js"
+			},
+			"require": {
+				".": "./index.js",
+				"./package.json": "./package.json",
+				"./public": "./public.js"
+			},
+			"files": [
+				"./esm.mjs",
+				"./index.js",
+				"./package.json",
+				"./public.js"
+			],
+			"tree": {
+				"esm.mjs": [
+					"./conditional-null"
+				],
+				"index.js": [
+					"."
+				],
+				"package.json": [
+					"./package.json"
+				],
+				"public.js": [
+					"./public"
+				]
+			}
+		},
+		"pre-exports": {
+			"import": {},
+			"require": {
+				".": "./index.js",
+				"./": "./index.js",
+				"./esm.mjs": "./esm.mjs",
+				"./index": "./index.js",
+				"./index.js": "./index.js",
+				"./internal": "./internal.js",
+				"./internal.js": "./internal.js",
+				"./package": "./package.json",
+				"./package.json": "./package.json",
+				"./public": "./public.js",
+				"./public.js": "./public.js"
+			},
+			"files": [
+				"./esm.mjs",
+				"./index.js",
+				"./internal.js",
+				"./package.json",
+				"./public.js"
+			],
+			"tree": {
+				"esm.mjs": [
+					"./esm.mjs"
+				],
+				"index.js": [
+					".",
+					"./",
+					"./index.js",
+					"./index"
+				],
+				"internal.js": [
+					"./internal.js",
+					"./internal"
+				],
+				"package.json": [
+					"./package.json",
+					"./package"
+				],
+				"public.js": [
+					"./public.js",
+					"./public"
+				]
+			}
+		}
+	}
+}

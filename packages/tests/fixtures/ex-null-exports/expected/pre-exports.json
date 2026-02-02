@@ -1,0 +1,58 @@
+{
+	"name": "ex-null-exports",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"problems": [],
+	"exports": {
+		"binaries": {},
+		"latest": "pre-exports",
+		"pre-exports": {
+			"import": {},
+			"require": {
+				".": "./index.js",
+				"./": "./index.js",
+				"./esm.mjs": "./esm.mjs",
+				"./index": "./index.js",
+				"./index.js": "./index.js",
+				"./internal": "./internal.js",
+				"./internal.js": "./internal.js",
+				"./package": "./package.json",
+				"./package.json": "./package.json",
+				"./public": "./public.js",
+				"./public.js": "./public.js"
+			},
+			"files": [
+				"./esm.mjs",
+				"./index.js",
+				"./internal.js",
+				"./package.json",
+				"./public.js"
+			],
+			"tree": {
+				"esm.mjs": [
+					"./esm.mjs"
+				],
+				"index.js": [
+					".",
+					"./",
+					"./index.js",
+					"./index"
+				],
+				"internal.js": [
+					"./internal.js",
+					"./internal"
+				],
+				"package.json": [
+					"./package.json",
+					"./package"
+				],
+				"public.js": [
+					"./public.js",
+					"./public"
+				]
+			}
+		}
+	}
+}

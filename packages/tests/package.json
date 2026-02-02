@@ -35,6 +35,7 @@
 		"@fixtures/ex-node-file": "file:fixtures/ex-node-file/project",
 		"@fixtures/ex-node-modules": "file:fixtures/ex-node-modules/project",
 		"@fixtures/ex-nonexistent-dir": "file:fixtures/ex-nonexistent-dir/project",
+		"@fixtures/ex-null-exports": "file:fixtures/ex-null-exports/project",
 		"@fixtures/ex-pattern-exports": "file:fixtures/ex-pattern-exports/project",
 		"@fixtures/ex-private": "file:fixtures/ex-private/project",
 		"@fixtures/ex-self-reference": "file:fixtures/ex-self-reference/project",

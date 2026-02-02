@@ -615,6 +615,12 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 		if (await prev) {
 			return true;
 		}
+		if (rhs === null) {
+			// null exports explicitly exclude this subpath
+			safeSet(tree.import, lhs, false);
+			safeSet(tree.require, lhs, false);
+			return false;
+		}
 		if (typeof rhs === 'string') {
 			rhs = decodeURI(rhs); // eslint-disable-line no-param-reassign
 			if (endsWith(lhs, '/') && endsWith(rhs, '/')) {
@@ -665,6 +671,16 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 			}
 
 			return asyncReduce(validConditionEntries, (matchedSomething, [condition, conditionRHS]) => {
+				if (conditionRHS === null) {
+					// null in a condition explicitly excludes this path for this condition
+					if (condition === 'import' || !includes(conditionChain, 'require')) {
+						safeSet(tree.import, lhs, false);
+					}
+					if (condition === 'require' || !includes(conditionChain, 'import')) {
+						safeSet(tree.require, lhs, false);
+					}
+					return matchedSomething;
+				}
 				if (typeof conditionRHS === 'string') {
 					if (endsWith(lhs, '/') && endsWith(conditionRHS, '/')) {
 						return traverseExportsSubdir({
