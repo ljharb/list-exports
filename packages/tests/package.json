@@ -34,6 +34,7 @@
 		"@fixtures/ex-node-file": "file:fixtures/ex-node-file/project",
 		"@fixtures/ex-node-modules": "file:fixtures/ex-node-modules/project",
 		"@fixtures/ex-nonexistent-dir": "file:fixtures/ex-nonexistent-dir/project",
+		"@fixtures/ex-pattern-exports": "file:fixtures/ex-pattern-exports/project",
 		"@fixtures/ex-private": "file:fixtures/ex-private/project",
 		"@fixtures/flatted-1": "file:fixtures/flatted-1/project",
 		"@fixtures/flatted-2": "file:fixtures/flatted-2/project",

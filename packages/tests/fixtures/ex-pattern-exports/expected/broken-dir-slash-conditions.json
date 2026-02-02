@@ -1,0 +1,106 @@
+{
+	"name": "ex-pattern-exports",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"problems": [
+		"“./dist/*”: ./dist/*.js does not appear to exist!",
+		"“./features/*”: ./src/*.js does not appear to exist!",
+		"“./features/*”: ./src/*.mjs does not appear to exist!",
+		"“./src/*”: ./src/*.js does not appear to exist!"
+	],
+	"exports": {
+		"binaries": {},
+		"latest": "broken-dir-slash-conditions",
+		"broken-dir-slash-conditions": {
+			"import": {
+				".": "./src/index.js"
+			},
+			"require": {
+				".": "./src/index.js",
+				"./package.json": "./package.json"
+			},
+			"files": [
+				"./package.json",
+				"./src/index.js"
+			],
+			"tree": {
+				"package.json": [
+					"./package.json"
+				],
+				"src": {
+					"index.js": [
+						"."
+					]
+				}
+			}
+		},
+		"pre-exports": {
+			"import": {},
+			"require": {
+				".": "./src/index.js",
+				"./": "./src/index.js",
+				"./package": "./package.json",
+				"./package.json": "./package.json",
+				"./src": "./src/index.js",
+				"./dist/bundle": "./dist/bundle.js",
+				"./dist/bundle.js": "./dist/bundle.js",
+				"./src/": "./src/index.js",
+				"./src/bar": "./src/bar.js",
+				"./src/bar.js": "./src/bar.js",
+				"./src/bar.mjs": "./src/bar.mjs",
+				"./src/foo": "./src/foo.js",
+				"./src/foo.js": "./src/foo.js",
+				"./src/foo.mjs": "./src/foo.mjs",
+				"./src/index": "./src/index.js",
+				"./src/index.js": "./src/index.js"
+			},
+			"files": [
+				"./package.json",
+				"./dist/bundle.js",
+				"./src/bar.js",
+				"./src/bar.mjs",
+				"./src/foo.js",
+				"./src/foo.mjs",
+				"./src/index.js"
+			],
+			"tree": {
+				"dist": {
+					"bundle.js": [
+						"./dist/bundle.js",
+						"./dist/bundle"
+					]
+				},
+				"package.json": [
+					"./package.json",
+					"./package"
+				],
+				"src": {
+					"bar.js": [
+						"./src/bar.js",
+						"./src/bar"
+					],
+					"bar.mjs": [
+						"./src/bar.mjs"
+					],
+					"foo.js": [
+						"./src/foo.js",
+						"./src/foo"
+					],
+					"foo.mjs": [
+						"./src/foo.mjs"
+					],
+					"index.js": [
+						".",
+						"./",
+						"./src",
+						"./src/",
+						"./src/index.js",
+						"./src/index"
+					]
+				}
+			}
+		}
+	}
+}

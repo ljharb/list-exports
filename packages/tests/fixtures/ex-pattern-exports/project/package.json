@@ -1,0 +1,16 @@
+{
+	"bundleDependencies": true,
+	"name": "ex-pattern-exports",
+	"version": "0.0.0",
+	"main": "./src/index.js",
+	"exports": {
+		".": "./src/index.js",
+		"./package.json": "./package.json",
+		"./src/*": "./src/*.js",
+		"./dist/*": "./dist/*.js",
+		"./features/*": {
+			"import": "./src/*.mjs",
+			"require": "./src/*.js"
+		}
+	}
+}
