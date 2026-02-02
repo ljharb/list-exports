@@ -1,0 +1,30 @@
+{
+	"bundleDependencies": true,
+	"name": "ex-nested-conditions",
+	"version": "0.0.0",
+	"main": "./default.js",
+	"exports": {
+		".": {
+			"node": {
+				"import": {
+					"default": "./node-import-default.mjs"
+				},
+				"require": {
+					"default": "./node-require-default.js"
+				},
+				"default": "./node-default.js"
+			},
+			"default": "./default.js"
+		},
+		"./deeply-nested": {
+			"node": {
+				"import": "./node-import.mjs",
+				"require": "./node-require.js"
+			},
+			"import": "./import.mjs",
+			"require": "./require.js",
+			"default": "./default.js"
+		},
+		"./package.json": "./package.json"
+	}
+}

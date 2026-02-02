@@ -28,6 +28,7 @@
 		"@fixtures/ex-main-implicit": "file:fixtures/ex-main-implicit/project",
 		"@fixtures/ex-mjs-require": "file:fixtures/ex-mjs-require/project",
 		"@fixtures/ex-module-sync": "file:fixtures/ex-module-sync/project",
+		"@fixtures/ex-nested-conditions": "file:fixtures/ex-nested-conditions/project",
 		"@fixtures/ex-no-exports-with-root-type-commonjs": "file:fixtures/ex-no-exports-with-root-type-commonjs/project",
 		"@fixtures/ex-no-exports-with-root-type-module": "file:fixtures/ex-no-exports-with-root-type-module/project",
 		"@fixtures/ex-node-addons": "file:fixtures/ex-node-addons/project",

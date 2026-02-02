@@ -1,0 +1,112 @@
+{
+	"name": "ex-nested-conditions",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"problems": [],
+	"exports": {
+		"binaries": {},
+		"latest": "pattern-trailers+json-imports",
+		"pattern-trailers+json-imports": {
+			"import": {
+				".": "./node-import-default.mjs",
+				"./deeply-nested": "./node-import.mjs"
+			},
+			"require": {
+				"./deeply-nested": "./node-require.js",
+				"./package.json": "./package.json"
+			},
+			"files": [
+				"./node-import-default.mjs",
+				"./node-import.mjs",
+				"./node-require.js",
+				"./package.json"
+			],
+			"tree": {
+				"node-import-default.mjs": [
+					"."
+				],
+				"node-import.mjs": [
+					"./deeply-nested"
+				],
+				"node-require.js": [
+					"./deeply-nested"
+				],
+				"package.json": [
+					"./package.json"
+				]
+			}
+		},
+		"pre-exports": {
+			"import": {},
+			"require": {
+				".": "./default.js",
+				"./": "./default.js",
+				"./default": "./default.js",
+				"./default.js": "./default.js",
+				"./import.mjs": "./import.mjs",
+				"./node-default": "./node-default.js",
+				"./node-default.js": "./node-default.js",
+				"./node-import-default.mjs": "./node-import-default.mjs",
+				"./node-import.mjs": "./node-import.mjs",
+				"./node-require": "./node-require.js",
+				"./node-require-default": "./node-require-default.js",
+				"./node-require-default.js": "./node-require-default.js",
+				"./node-require.js": "./node-require.js",
+				"./package": "./package.json",
+				"./package.json": "./package.json",
+				"./require": "./require.js",
+				"./require.js": "./require.js"
+			},
+			"files": [
+				"./default.js",
+				"./import.mjs",
+				"./node-default.js",
+				"./node-import-default.mjs",
+				"./node-import.mjs",
+				"./node-require-default.js",
+				"./node-require.js",
+				"./package.json",
+				"./require.js"
+			],
+			"tree": {
+				"default.js": [
+					".",
+					"./",
+					"./default.js",
+					"./default"
+				],
+				"import.mjs": [
+					"./import.mjs"
+				],
+				"node-default.js": [
+					"./node-default.js",
+					"./node-default"
+				],
+				"node-import-default.mjs": [
+					"./node-import-default.mjs"
+				],
+				"node-import.mjs": [
+					"./node-import.mjs"
+				],
+				"node-require-default.js": [
+					"./node-require-default.js",
+					"./node-require-default"
+				],
+				"node-require.js": [
+					"./node-require.js",
+					"./node-require"
+				],
+				"package.json": [
+					"./package.json",
+					"./package"
+				],
+				"require.js": [
+					"./require.js",
+					"./require"
+				]
+			}
+		}
+	}
+}
