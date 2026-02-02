@@ -1,0 +1,28 @@
+{
+	"name": "ex-typescript-native",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"problems": [],
+	"exports": {
+		"binaries": {},
+		"latest": "pre-exports",
+		"pre-exports": {
+			"import": {},
+			"require": {
+				"./package": "./package.json",
+				"./package.json": "./package.json"
+			},
+			"files": [
+				"./package.json"
+			],
+			"tree": {
+				"package.json": [
+					"./package.json",
+					"./package"
+				]
+			}
+		}
+	}
+}

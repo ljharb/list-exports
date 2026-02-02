@@ -1,0 +1,94 @@
+{
+	"name": "ex-typescript-native",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"problems": [],
+	"exports": {
+		"binaries": {},
+		"latest": "subpath-imports-slash",
+		"subpath-imports-slash": {
+			"import": {
+				".": "./src/index.ts",
+				"./cjs": "./src/cjs.cts",
+				"./esm": "./src/esm.mts",
+				"./mixed": "./src/esm.mts"
+			},
+			"require": {
+				".": "./src/index.ts",
+				"./cjs": "./src/cjs.cts",
+				"./esm": "./src/esm.mts",
+				"./mixed": "./src/cjs.cts",
+				"./package.json": "./package.json"
+			},
+			"files": [
+				"./package.json",
+				"./src/cjs.cts",
+				"./src/esm.mts",
+				"./src/index.ts"
+			],
+			"tree": {
+				"package.json": [
+					"./package.json"
+				],
+				"src": {
+					"cjs.cts": [
+						"./cjs",
+						"./mixed"
+					],
+					"esm.mts": [
+						"./esm",
+						"./mixed"
+					],
+					"index.ts": [
+						"."
+					]
+				}
+			}
+		},
+		"pre-exports": {
+			"import": {},
+			"require": {
+				".": "./src/index.ts",
+				"./": "./src/index.ts",
+				"./package": "./package.json",
+				"./package.json": "./package.json",
+				"./src/cjs": "./src/cjs.cts",
+				"./src/cjs.cts": "./src/cjs.cts",
+				"./src/esm": "./src/esm.mts",
+				"./src/esm.mts": "./src/esm.mts",
+				"./src/index": "./src/index.ts",
+				"./src/index.ts": "./src/index.ts"
+			},
+			"files": [
+				"./package.json",
+				"./src/cjs.cts",
+				"./src/esm.mts",
+				"./src/index.ts"
+			],
+			"tree": {
+				"package.json": [
+					"./package.json",
+					"./package"
+				],
+				"src": {
+					"cjs.cts": [
+						"./src/cjs.cts",
+						"./src/cjs"
+					],
+					"esm.mts": [
+						"./src/esm.mts",
+						"./src/esm"
+					],
+					"index.ts": [
+						".",
+						"./",
+						"./src/index.ts",
+						"./src/index"
+					]
+				}
+			}
+		}
+	}
+}

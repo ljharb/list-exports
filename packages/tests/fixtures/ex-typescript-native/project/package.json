@@ -1,0 +1,16 @@
+{
+	"bundleDependencies": true,
+	"name": "ex-typescript-native",
+	"version": "0.0.0",
+	"main": "./src/index.ts",
+	"exports": {
+		".": "./src/index.ts",
+		"./esm": "./src/esm.mts",
+		"./cjs": "./src/cjs.cts",
+		"./mixed": {
+			"import": "./src/esm.mts",
+			"require": "./src/cjs.cts"
+		},
+		"./package.json": "./package.json"
+	}
+}

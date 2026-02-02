@@ -1,0 +1,48 @@
+{
+	"name": "ex-typescript-native",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"problems": [
+		"“.”: ./src/index.ts does not appear to exist!",
+		"“./cjs”: ./src/cjs.cts does not appear to exist!",
+		"“./esm”: ./src/esm.mts does not appear to exist!",
+		"“./mixed”: ./src/cjs.cts does not appear to exist!",
+		"“./mixed”: ./src/esm.mts does not appear to exist!"
+	],
+	"exports": {
+		"binaries": {},
+		"latest": "patterns",
+		"patterns": {
+			"import": {},
+			"require": {
+				"./package.json": "./package.json"
+			},
+			"files": [
+				"./package.json"
+			],
+			"tree": {
+				"package.json": [
+					"./package.json"
+				]
+			}
+		},
+		"pre-exports": {
+			"import": {},
+			"require": {
+				"./package": "./package.json",
+				"./package.json": "./package.json"
+			},
+			"files": [
+				"./package.json"
+			],
+			"tree": {
+				"package.json": [
+					"./package.json",
+					"./package"
+				]
+			}
+		}
+	}
+}
