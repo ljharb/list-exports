@@ -1,0 +1,13 @@
+{
+	"bundleDependencies": true,
+	"name": "ex-url-encoded",
+	"version": "0.0.0",
+	"main": "./index.js",
+	"exports": {
+		".": "./index.js",
+		"./hello%20world": "./src/hello world.js",
+		"./encoded%2Fslash": "./src/encoded-slash.js",
+		"./special%21char": "./src/special-char.js",
+		"./package.json": "./package.json"
+	}
+}

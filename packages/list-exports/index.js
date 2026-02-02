@@ -622,7 +622,13 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 			return false;
 		}
 		if (typeof rhs === 'string') {
-			rhs = decodeURI(rhs); // eslint-disable-line no-param-reassign
+			try {
+				rhs = decodeURI(rhs); // eslint-disable-line no-param-reassign
+			} catch {
+				// if decodeURI fails (malformed URI), Node will throw at runtime
+				problems.add(`\`${lhs}\`: target "${rhs}" contains an invalid URL escape sequence`);
+				return false;
+			}
 			if (endsWith(lhs, '/') && endsWith(rhs, '/')) {
 				if (category === 'pattern-trailers-no-dir-slash') {
 					return false;

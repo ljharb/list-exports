@@ -1,0 +1,103 @@
+{
+	"name": "ex-url-encoded",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"problems": [],
+	"exports": {
+		"binaries": {},
+		"latest": "subpath-imports-slash",
+		"subpath-imports-slash": {
+			"import": {
+				".": "./index.js",
+				"./encoded%2Fslash": "./src/encoded-slash.js",
+				"./hello%20world": "./src/hello world.js",
+				"./special%21char": "./src/special-char.js"
+			},
+			"require": {
+				".": "./index.js",
+				"./encoded%2Fslash": "./src/encoded-slash.js",
+				"./hello%20world": "./src/hello world.js",
+				"./package.json": "./package.json",
+				"./special%21char": "./src/special-char.js"
+			},
+			"files": [
+				"./index.js",
+				"./package.json",
+				"./src/encoded-slash.js",
+				"./src/hello world.js",
+				"./src/special-char.js"
+			],
+			"tree": {
+				"index.js": [
+					"."
+				],
+				"package.json": [
+					"./package.json"
+				],
+				"src": {
+					"encoded-slash.js": [
+						"./encoded%2Fslash"
+					],
+					"hello world.js": [
+						"./hello%20world"
+					],
+					"special-char.js": [
+						"./special%21char"
+					]
+				}
+			}
+		},
+		"pre-exports": {
+			"import": {},
+			"require": {
+				".": "./index.js",
+				"./": "./index.js",
+				"./index": "./index.js",
+				"./index.js": "./index.js",
+				"./package": "./package.json",
+				"./package.json": "./package.json",
+				"./src/encoded-slash": "./src/encoded-slash.js",
+				"./src/encoded-slash.js": "./src/encoded-slash.js",
+				"./src/hello world": "./src/hello world.js",
+				"./src/hello world.js": "./src/hello world.js",
+				"./src/special-char": "./src/special-char.js",
+				"./src/special-char.js": "./src/special-char.js"
+			},
+			"files": [
+				"./index.js",
+				"./package.json",
+				"./src/encoded-slash.js",
+				"./src/hello world.js",
+				"./src/special-char.js"
+			],
+			"tree": {
+				"index.js": [
+					".",
+					"./",
+					"./index.js",
+					"./index"
+				],
+				"package.json": [
+					"./package.json",
+					"./package"
+				],
+				"src": {
+					"encoded-slash.js": [
+						"./src/encoded-slash.js",
+						"./src/encoded-slash"
+					],
+					"hello world.js": [
+						"./src/hello world.js",
+						"./src/hello world"
+					],
+					"special-char.js": [
+						"./src/special-char.js",
+						"./src/special-char"
+					]
+				}
+			}
+		}
+	}
+}

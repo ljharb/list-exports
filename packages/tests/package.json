@@ -40,6 +40,7 @@
 		"@fixtures/ex-private": "file:fixtures/ex-private/project",
 		"@fixtures/ex-self-reference": "file:fixtures/ex-self-reference/project",
 		"@fixtures/ex-typescript-native": "file:fixtures/ex-typescript-native/project",
+		"@fixtures/ex-url-encoded": "file:fixtures/ex-url-encoded/project",
 		"@fixtures/flatted-1": "file:fixtures/flatted-1/project",
 		"@fixtures/flatted-2": "file:fixtures/flatted-2/project",
 		"@fixtures/flatted-3": "file:fixtures/flatted-3/project",
