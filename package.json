@@ -10,7 +10,8 @@
 		"pretests-only": "npm run prepack -w ls-exports",
 		"tests-only": "tape packages/tests",
 		"tests:conditions": "tape packages/tests/conditions",
-		"test": "npm run tests-only && npm run tests:conditions",
+		"tests:conditions-option": "tape packages/tests/conditions-option.js",
+		"test": "npm run tests-only && npm run tests:conditions && npm run tests:conditions-option",
 		"posttest": "npx npm@'>=10.2' audit --production",
 		"since": "node since"
 	},

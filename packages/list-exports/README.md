@@ -28,6 +28,29 @@ It fulfills with an object with the following structure:
 
 In addition to the required `package.json` path, it also takes a second argument, an options object. This object supports the following properties:
  - `node`: either `true`, which reads the `engines.node` field in `package.json`, or a valid semver range of node versions to target. Defaults to the current node version.
+ - `conditions`: either `true`, a string, or an array of strings specifying additional export conditions to recognize, similar to Node.js's `--conditions` flag. When `true`, auto-detects conditions from Node's `--conditions`/`-C` flag (via `process.execArgv` or `NODE_OPTIONS`). For example, `{ conditions: ['browser'] }` will include exports mapped to the `browser` condition.
+
+## Conditions
+
+This package tracks the conditions that Node.js recognizes in the `exports` field. Node.js supports the following conditions:
+
+**Standard conditions (all categories with exports support):**
+- `default` - Fallback condition, always evaluated last
+- `node` - Matches when running in Node.js
+- `require` - Matches for CommonJS `require()` calls
+- `import` - Matches for ESM `import` statements/expressions
+
+**Additional conditions (added in later versions):**
+- `node-addons` - For native addon modules (added in v14.19/v16.10, `pattern-trailers` category and later)
+- `module-sync` - For ESM files that can be synchronously required (added in v22.12, `require-esm` category and later)
+
+**Conditions NOT recognized by Node.js by default** (commonly used but require bundlers/tooling):
+- `browser` - For browser environments (handled by bundlers like webpack, Rollup)
+- `types` - For TypeScript type definitions (handled by TypeScript)
+- `development` / `production` - Environment-specific (handled by bundlers)
+- Custom conditions - Any other condition names are ignored by Node.js unless explicitly enabled via `--conditions` flag
+
+By default, `list-exports` matches Node.js behavior and skips conditions not recognized by the target Node.js version. To include additional conditions, use the `conditions` option (equivalent to Node.js's `--conditions` flag).
 
 ## Example
 

@@ -1,6 +1,6 @@
 {
 	"name": "list-exports",
-	"version": "2.0.0",
+	"version": null,
 	"engines": {
 		"node": "^18.17.0 || >=20.5.0"
 	},

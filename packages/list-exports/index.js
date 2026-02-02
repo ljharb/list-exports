@@ -731,7 +731,17 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 	}, false);
 }
 
-async function traverseExports(category, packageDir, pkgData, filteredFiles, legacy, mains, problems, nodeRange) {
+async function traverseExports(
+	category,
+	packageDir,
+	pkgData,
+	filteredFiles,
+	legacy,
+	mains,
+	problems,
+	nodeRange,
+	customConditions,
+) {
 	const tree = newTree();
 
 	function addToTree(file, specifier) {
@@ -757,6 +767,10 @@ async function traverseExports(category, packageDir, pkgData, filteredFiles, leg
 	}
 
 	const conditions = new Set(getConditionsForCategory(category));
+	// add custom conditions (like Node's --conditions flag)
+	if (customConditions) {
+		forEach(customConditions, (c) => conditions.add(c));
+	}
 
 	if (typeof pkgData.exports === 'string') {
 		addMainString(pkgData.exports, packageDir, tree, nodeRange);
@@ -854,7 +868,7 @@ async function traverseMains(rootDir, filteredFiles, extensions, problems) {
 	));
 }
 
-async function getExports(packageDir, pkgData, nodeRange, problems) {
+async function getExports(packageDir, pkgData, nodeRange, problems, customConditions) {
 	const {
 		type: rootType = 'commonjs',
 	} = pkgData;
@@ -933,7 +947,17 @@ async function getExports(packageDir, pkgData, nodeRange, problems) {
 		category,
 		category === 'pre-exports'
 			? legacy
-			: await traverseExports(category, packageDir, pkgData, filteredFiles, legacy, mains, problems, nodeRange),
+			: await traverseExports(
+				category,
+				packageDir,
+				pkgData,
+				filteredFiles,
+				legacy,
+				mains,
+				problems,
+				nodeRange,
+				customConditions,
+			),
 	]));
 
 	return {
@@ -974,8 +998,56 @@ module.exports = async function listExports(packageJSON, options = {}) {
 
 	if (!intersects(engines.node || '*', node)) {
 		problems.add('node' in options
-			? `the provided node version (${node}) does not match the package’s \`engines.node\` declaration (${engines.node || '*'})`
-			: `the current node version (${node}) does not match the package’s \`engines.node\` declaration (${engines.node || '*'})`);
+			? `the provided node version (${node}) does not match the package's \`engines.node\` declaration (${engines.node || '*'})`
+			: `the current node version (${node}) does not match the package's \`engines.node\` declaration (${engines.node || '*'})`);
+	}
+
+	// validate and process custom conditions (like Node's --conditions flag)
+	let customConditions = null;
+	if ('conditions' in options) {
+		const rawConditions = options.conditions;
+		if (rawConditions === true) {
+			// auto-detect from Node's --conditions flag (execArgv or NODE_OPTIONS)
+			customConditions = [];
+			// check process.execArgv for --conditions=X or -C X
+			forEach(process.execArgv, (arg, i) => {
+				if (startsWith(arg, '--conditions=')) {
+					customConditions.push($replace(arg, /^--conditions=/, ''));
+				} else if (startsWith(arg, '-C=')) {
+					customConditions.push($replace(arg, /^-C=/, ''));
+				} else if ((arg === '--conditions' || arg === '-C') && process.execArgv[i + 1]) {
+					customConditions.push(process.execArgv[i + 1]);
+				}
+			});
+			// check NODE_OPTIONS environment variable
+			const nodeOpts = process.env.NODE_OPTIONS || '';
+			if (nodeOpts) {
+				const optsParts = $split(nodeOpts, /\s+/);
+				forEach(optsParts, (arg, i) => {
+					if (startsWith(arg, '--conditions=')) {
+						customConditions.push($replace(arg, /^--conditions=/, ''));
+					} else if (startsWith(arg, '-C=')) {
+						customConditions.push($replace(arg, /^-C=/, ''));
+					} else if ((arg === '--conditions' || arg === '-C') && optsParts[i + 1]) {
+						customConditions.push(optsParts[i + 1]);
+					}
+				});
+			}
+			if (customConditions.length === 0) {
+				customConditions = null;
+			}
+		} else {
+			if (!Array.isArray(rawConditions) && typeof rawConditions !== 'string') {
+				throw new TypeError('`conditions` option must be `true`, a string, or an array of strings');
+			}
+			customConditions = $concat([], rawConditions);
+			if (some(customConditions, (c) => typeof c !== 'string' || c.length === 0)) {
+				throw new TypeError('`conditions` option must contain only non-empty strings');
+			}
+		}
+		if (customConditions) {
+			customConditions = arrayFrom(new Set(customConditions));
+		}
 	}
 
 	if (isPrivate) {
@@ -987,7 +1059,7 @@ module.exports = async function listExports(packageJSON, options = {}) {
 		};
 	}
 
-	const exports = await getExports(packageDir, pkgData, node, problems);
+	const exports = await getExports(packageDir, pkgData, node, problems, customConditions);
 
 	return {
 		name,
