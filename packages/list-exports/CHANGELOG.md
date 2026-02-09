@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0](https://github.com/ljharb/list-exports/compare/list-exports@2.1.0...2.2.0)
+
+### Commits
+
+- [{ls,list}-exports] [meta] use a release script [`920a109`](https://github.com/ljharb/list-exports/commit/920a1096f7cb2502b08564c64949fdaa7f4de128)
+- [list-exports] [new] add `conditions` option for custom export conditions [`11aef95`](https://github.com/ljharb/list-exports/commit/11aef95d81713d5aa268d63b36ede1534d2354be)
+- [list-exports] [fix] handle `null` exports values [`366a26d`](https://github.com/ljharb/list-exports/commit/366a26d9163d81aaf83e14f78197ed17615eafb0)
+- [list-exports] [fix] handle malformed URI sequences in export targets [`97d5932`](https://github.com/ljharb/list-exports/commit/97d5932953fcc561073a193853a5fb90e9437031)
+- [list-exports] [deps] update `@npmcli/arborist`, `node-exports-info`, `semver` [`1519229`](https://github.com/ljharb/list-exports/commit/151922925838acdcb334a90deeeef490aef3c028)
+- [*] [deps] update `ls-engines` [`f4b8466`](https://github.com/ljharb/list-exports/commit/f4b84665f7445331c7bb206c49e07fe567b6115b)
+
 ## [list-exports@2.1.0](https://github.com/ljharb/list-exports/compare/list-exports@2.0.0...list-exports@2.1.0) - 2026-01-19
 
 ### Commits
