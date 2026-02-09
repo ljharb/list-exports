@@ -84,7 +84,7 @@
 		"eslint": "^8.57.1",
 		"evalmd": "^0.0.19",
 		"in-publish": "^2.0.1",
-		"ls-engines": "^0.9.3",
+		"ls-engines": "^0.10.0",
 		"safe-publish-latest": "^2.0.0"
 	},
 	"engines": {

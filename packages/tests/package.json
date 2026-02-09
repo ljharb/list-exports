@@ -66,7 +66,7 @@
 		"jackspeak": "=2.1.1",
 		"json-diff": "^1.0.6",
 		"list-exports": "file:../list-exports",
-		"ls-engines": "^0.9.3",
+		"ls-engines": "^0.10.0",
 		"node-exports-info": "^1.5.0",
 		"npm-package-arg": "^11.0.3",
 		"object.entries": "^1.1.9",
