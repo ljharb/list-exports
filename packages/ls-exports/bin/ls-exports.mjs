@@ -12,24 +12,34 @@ import listExports from 'list-exports';
 import exportsTable from '../exportsTable.mjs';
 import getPackageJSONPath from '../getPackageJSONPath.mjs';
 
-const subcommandConfig = {
-	options: {
-		json: {
-			type: 'boolean',
-			default: false,
-		},
+const commonOptions = {
+	json: {
+		default: false,
+		description: 'Output the results as JSON',
+		type: 'boolean',
 	},
-	allowPositionals: 1,
-	minPositionals: 1,
 };
 
 const {
 	help,
 	command,
 } = await pargs(import.meta.filename, {
+	description: { summary: 'ls-exports - List the exports for a package' },
 	subcommands: {
-		package: subcommandConfig,
-		path: subcommandConfig,
+		package: {
+			allowPositionals: 1,
+			description: 'List exports for a package (with optional version)',
+			minPositionals: 1,
+			options: commonOptions,
+			positionals: [{ description: 'eg, foo, @scope/foo, foo@^1', name: 'specifier' }],
+		},
+		path: {
+			allowPositionals: 1,
+			description: 'List exports for a local directory containing package.json',
+			minPositionals: 1,
+			options: commonOptions,
+			positionals: [{ name: 'path' }],
+		},
 	},
 });
 
