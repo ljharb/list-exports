@@ -53,7 +53,7 @@
 		"pacote": "^22.0.0",
 		"pargs": "^1.4.2",
 		"table": "^6.9.0",
-		"tmp": "^0.2.5"
+		"tmp": "^0.2.7"
 	},
 	"devDependencies": {
 		"@ljharb/eslint-config": "^22.2.3",

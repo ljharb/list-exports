@@ -59,6 +59,8 @@
 	"dependencies": {
 		"@npmcli/arborist": "^9.8.0",
 		"list-exports": "^2.2.0",
-		"pacote": "^21.5.1"
+		"pacote": "^21.5.1",
+		"pargs": "^1.4.2",
+		"tmp": "^0.2.7"
 	}
 }
