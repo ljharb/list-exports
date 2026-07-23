@@ -1,12 +1,10 @@
-'use strict';
+import fs from 'fs';
+import path from 'path';
+import { spawnSync } from 'child_process';
+import glob from 'glob-gitignore';
 
-const fs = require('fs');
-const path = require('path');
-const { spawnSync } = require('child_process');
-const glob = require('glob-gitignore');
-
-const packagesDir = path.join(__dirname, 'packages');
-const docsDir = path.join(__dirname, 'docs');
+const packagesDir = path.join(import.meta.dirname, 'packages');
+const docsDir = path.join(import.meta.dirname, 'docs');
 
 const packages = (process.argv.length > 2 ? [process.argv[2]] : glob.sync('*', { cwd: packagesDir }))
 	.map((name) => path.join(packagesDir, name, 'package.json'))
