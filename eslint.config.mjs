@@ -74,4 +74,10 @@ export default [
 			'sort-keys': 'off',
 		},
 	},
+	{
+		files: ['release.mjs'],
+		rules: {
+			'array-bracket-newline': 'off',
+		},
+	},
 ];
