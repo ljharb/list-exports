@@ -39,14 +39,9 @@
 	},
 	"devDependencies": {
 		"@ljharb/eslint-config": "^22.2.3",
-		"auto-changelog": "^2.6.0",
 		"eslint": "^10.7.0",
 		"glob-gitignore": "^1.0.15",
-		"has-dynamic-import": "^2.1.1",
 		"jiti": "^0.0.0",
-		"ls-engines": "^0.10.1",
-		"node-exports-info": "^1.6.0",
-		"semver": "^7.8.5",
 		"tape": "^5.10.2"
 	},
 	"engines": {
@@ -54,12 +49,5 @@
 	},
 	"workspaces": [
 		"packages/*"
-	],
-	"dependencies": {
-		"@npmcli/arborist": "^9.8.0",
-		"list-exports": "^2.2.0",
-		"pacote": "^21.5.1",
-		"pargs": "^1.4.2",
-		"tmp": "^0.2.7"
-	}
+	]
 }
