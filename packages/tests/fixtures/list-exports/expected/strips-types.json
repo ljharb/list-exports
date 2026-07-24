@@ -35,15 +35,22 @@
 				".": "./index.js",
 				"./": "./index.js",
 				"./index": "./index.js",
+				"./index.d": "./index.d.ts",
+				"./index.d.ts": "./index.d.ts",
 				"./index.js": "./index.js",
 				"./package": "./package.json",
 				"./package.json": "./package.json"
 			},
 			"files": [
+				"./index.d.ts",
 				"./index.js",
 				"./package.json"
 			],
 			"tree": {
+				"index.d.ts": [
+					"./index.d.ts",
+					"./index.d"
+				],
 				"index.js": [
 					".",
 					"./",

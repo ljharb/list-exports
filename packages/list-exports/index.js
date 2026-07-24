@@ -57,8 +57,36 @@ const $sort = callBound('Array.prototype.sort');
 const $localeCompare = callBound('String.prototype.localeCompare');
 const $replace = callBound('String.prototype.replace');
 const $split = callBound('String.prototype.split');
-const $all = callBind(GetIntrinsic('%Promise.all%'), Promise);
+const $all = /** @type {<T>(values: Iterable<T | PromiseLike<T>>) => Promise<T[]>} */ (
+	/** @type {unknown} */ (callBind(GetIntrinsic('%Promise.all%'), Promise))
+);
 
+/** @typedef {import('.').Category} Category */
+/** @typedef {import('.').Tree} Tree */
+/** @typedef {import('.').CategoryExports} CategoryExports */
+/** @typedef {import('read-package-json').PackageData} PackageData */
+/** @typedef {Set<string>} Problems */
+/** @typedef {Map<string, string>} Mains */
+/** @typedef {{ all: string[], base: string[], esm: string[], legacy: string[] }} Extensions */
+/** @typedef {{ useType?: boolean, skipMainDot?: boolean, skipDirSlash?: boolean, nodeRange?: string }} TraverseOptions */
+/**
+ * The mutable tree built up during traversal. `sortFiles` turns it into a
+ * `CategoryExports`, dropping `hasDirSlash` and the `false` (null-export) values.
+ * @typedef {{
+ *   import: Map<string, string | false>,
+ *   require: Map<string, string | false>,
+ *   files: Set<string>,
+ *   tree: Tree,
+ *   hasDirSlash: boolean | null,
+ * }} WorkingTree
+ */
+/**
+ * Walking a path down the tree starts at the `WorkingTree` (whose `.tree` holds
+ * the root Map), then descends through `Tree` nodes to a `Set` of specifiers.
+ * @typedef {WorkingTree | Tree | Set<string>} TreeCursor
+ */
+
+/** @param {string} file */
 function isDirectory(file) {
 	try {
 		return lstatSync(file).isDirectory();
@@ -67,6 +95,12 @@ function isDirectory(file) {
 	}
 }
 
+/**
+ * @param {string} file
+ * @param {string} basedir
+ * @param {readonly string[]} extensions
+ * @returns {string | null}
+ */
 function resolveFrom(file, basedir, extensions) {
 	try {
 		return resolve.sync(file, { basedir, extensions });
@@ -75,42 +109,62 @@ function resolveFrom(file, basedir, extensions) {
 	}
 }
 
+/**
+ * @param {string} a
+ * @param {string} b
+ */
 function stringSort(a, b) {
 	return $localeCompare(a, b);
 }
 
+/**
+ * @param {Tree} treeMap
+ * @returns {Tree}
+ */
 function sortTree(treeMap) {
 	return new Map(sortPaths(
-		arrayFrom(treeMap, ([k, v]) => [k, v instanceof Map ? sortTree(v) : v]),
+		arrayFrom(treeMap, ([k, v]) => /** @type {[string, Set<string> | Tree]} */ (
+			[k, v instanceof Map ? sortTree(v) : v]
+		)),
 		([a]) => a,
 		'/',
 	));
 }
 
+/**
+ * @param {WorkingTree} tree
+ * @returns {CategoryExports}
+ */
 function sortFiles(tree) {
-	return fromEntries(flatMap(entries(tree), ([k, v]) => {
+	return /** @type {CategoryExports} */ (fromEntries(flatMap(entries(tree), ([k, v]) => {
 		if (k === 'hasDirSlash') {
 			return [];
 		}
 		if (k === 'files') {
-			return [[k, new Set(sortPaths(filter(arrayFrom(v), Boolean), '/'))]];
+			return [[k, new Set(sortPaths(filter(arrayFrom(/** @type {Set<string>} */ (v)), Boolean), '/'))]];
 		}
 		if (k === 'require' || k === 'import') {
-			return [[k, new Map(sortPaths(filter(arrayFrom(v), ([, vv]) => vv), ([a]) => a, '/'))]];
+			return [[k, new Map(sortPaths(filter(arrayFrom(/** @type {Map<string, string | false>} */ (v)), ([, vv]) => vv), ([a]) => a, '/'))]];
 		}
 		if (k === 'tree') {
-			return [[k, sortTree(v)]];
+			return [[k, sortTree(/** @type {Tree} */ (v))]];
 		}
 		return [[k, v]];
-	}));
+	})));
 }
 
 // Node 22.6.0+ has native TypeScript support (type stripping)
 // Use subset to ensure the ENTIRE range supports native TS, not just part of it
+/** @param {string} nodeRange */
 function hasNativeTS(nodeRange) {
 	return subset(nodeRange, '>=22.6');
 }
 
+/**
+ * @param {string} [packageType]
+ * @param {string} [nodeRange]
+ * @returns {Extensions}
+ */
 function getExtensions(packageType = 'commonjs', nodeRange = process.version) {
 	if (packageType !== 'commonjs' && packageType !== 'module') {
 		throw new TypeError(`unknown package type found: ${inspect(packageType)}`);
@@ -148,6 +202,11 @@ function getExtensions(packageType = 'commonjs', nodeRange = process.version) {
 	};
 }
 
+/**
+ * @param {string} filename
+ * @param {boolean} [usingExports]
+ * @param {string} [nodeRange]
+ */
 function isCJS(filename, usingExports = false, nodeRange = process.version) {
 	const packageType = getPackageType(filename);
 	if (packageType !== 'commonjs' && packageType !== 'module') {
@@ -161,6 +220,10 @@ function isCJS(filename, usingExports = false, nodeRange = process.version) {
 	return includes(usingExports ? base : legacy, extname(filename));
 }
 
+/**
+ * @param {string} filename
+ * @param {string} [nodeRange]
+ */
 function isESM(filename, nodeRange = process.version) {
 	const packageType = getPackageType(filename);
 	if (packageType !== 'commonjs' && packageType !== 'module') {
@@ -170,6 +233,10 @@ function isESM(filename, nodeRange = process.version) {
 	return includes(esm, extname(filename));
 }
 
+/**
+ * @param {string} packageJSON
+ * @returns {Promise<PackageData>}
+ */
 async function readPackage(packageJSON) {
 	return new Promise((resolveP, rejectP) => {
 		readPackageJSON(packageJSON, (err, data) => {
@@ -182,21 +249,44 @@ async function readPackage(packageJSON) {
 	});
 }
 
+/**
+ * `task` returning `void` leaves the accumulator `undefined` for the remaining
+ * items; some callers below rely on that, so it is permitted here.
+ * @template T, U
+ * @param {ArrayLike<T>} items
+ * @param {(prev: U, value: T) => U | void | Promise<U | void>} task
+ * @param {U} [initial]
+ * @returns {Promise<U>}
+ */
 async function asyncReduce(items, task, initial = void undefined) {
 	return reduce(
 		items,
-		async (prev, value) => task(await prev, value),
-		initial,
+		/** @type {(prev: U | Promise<U>, value: T) => U | Promise<U>} */
+		(async (prev, value) => task(await prev, value)),
+		/** @type {U | Promise<U>} */ (initial),
 	);
 }
 
+/**
+ * @template T, U
+ * @param {ArrayLike<T>} items
+ * @param {(item: T) => U | Promise<U>} task
+ * @returns {Promise<U>}
+ */
 async function asyncForEach(items, task) {
 	return asyncReduce(
 		items,
-		async (prev, item) => task(item),
+		async (_prev, item) => task(item),
 	);
 }
 
+/**
+ * @param {string} rootDir
+ * @param {string} dir
+ * @param {readonly string[]} extensions
+ * @param {Problems} problems
+ * @returns {Promise<string | null>}
+ */
 async function getMain(rootDir, dir, extensions, problems) {
 	let hasExplicitMain = false;
 	let main;
@@ -219,8 +309,8 @@ async function getMain(rootDir, dir, extensions, problems) {
 	}
 
 	if (hasExplicitMain) {
-		const fullMain = resolveFrom(main, fullDir, extensions);
-		const fullMainExists = existsSync(fullMain);
+		const fullMain = resolveFrom(/** @type {string} */ (main), fullDir, extensions);
+		const fullMainExists = !!fullMain && existsSync(fullMain);
 
 		if (fullMainExists) {
 			return `./${pathRelative(rootDir, fullMain)}`;
@@ -228,7 +318,7 @@ async function getMain(rootDir, dir, extensions, problems) {
 	}
 
 	const indexMain = resolveFrom('./index.js', fullDir, extensions);
-	if (existsSync(indexMain)) {
+	if (indexMain && existsSync(indexMain)) {
 		if (hasExplicitMain) {
 			problems.add(`\`${dir}\` has a \`package.json\`, but its \`main\` does not exist, although \`index.js\` does.`);
 		}
@@ -243,12 +333,30 @@ async function getMain(rootDir, dir, extensions, problems) {
 	return null;
 }
 
+/**
+ * @template K, V
+ * @param {Map<K, V>} mapInstance
+ * @param {K} key
+ * @param {V} newVal
+ */
 function safeSet(mapInstance, key, newVal) {
 	if (!mapInstance.has(key)) {
 		mapInstance.set(key, newVal);
 	}
 }
 
+/**
+ * @param {string} realFile
+ * @param {{
+ *   dir: string,
+ *   options: TraverseOptions,
+ *   rootDir: string,
+ *   mains: Mains | undefined,
+ *   tree: WorkingTree,
+ *   packageExports: unknown,
+ * }} context
+ * @param {string} [fakeFile]
+ */
 async function forEachSubfile(realFile, {
 	dir,
 	options,
@@ -319,6 +427,7 @@ async function forEachSubfile(realFile, {
 	}
 }
 
+/** @returns {WorkingTree} */
 function newTree() {
 	return {
 		import: new Map(),
@@ -329,6 +438,16 @@ function newTree() {
 	};
 }
 
+/**
+ * @param {string} dir
+ * @param {string} rootDir
+ * @param {Set<string>} filteredFiles
+ * @param {Mains} mains
+ * @param {unknown} packageExports
+ * @param {TraverseOptions} [options]
+ * @param {WorkingTree} [tree]
+ * @returns {Promise<CategoryExports>}
+ */
 async function traverseDir(
 	dir,
 	rootDir,
@@ -388,35 +507,41 @@ async function traverseDir(
 	// build up the tree structure, from all included files
 	tree.files.forEach((file) => {
 		const parts = $split(file, '/');
-		reduce(parts, (acc, part, i) => {
+		reduce(parts, /** @type {(acc: TreeCursor, part: string, i: number) => TreeCursor} */ ((acc, part, i) => {
 			if (part === '.') {
-				return acc.tree;
+				return /** @type {WorkingTree} */ (acc).tree;
 			}
 			const isLastPart = i + 1 === parts.length;
-			safeSet(acc, part, isLastPart ? new Set() : new Map());
-			return acc.get(part);
-		}, tree);
+			const node = /** @type {Tree} */ (acc);
+			safeSet(node, part, isLastPart ? new Set() : new Map());
+			return /** @type {TreeCursor} */ (node.get(part));
+		}), tree);
 	});
 
+	/**
+	 * @param {string} file
+	 * @param {string} specifier
+	 */
 	function addToTree(file, specifier) {
 		const parts = $split(file, '/');
-		reduce(parts, (acc, part, i) => {
+		reduce(parts, /** @type {(acc: TreeCursor, part: string, i: number) => TreeCursor} */ ((acc, part, i) => {
 			if (part === '.') {
-				return acc.tree;
+				return /** @type {WorkingTree} */ (acc).tree;
 			}
 			const isLastPart = i + 1 === parts.length;
-			if (!acc.has(part)) {
-				safeSet(acc, part, isLastPart ? new Set() : new Map());
+			const node = /** @type {Tree} */ (acc);
+			if (!node.has(part)) {
+				safeSet(node, part, isLastPart ? new Set() : new Map());
 			}
-			const item = acc.get(part);
+			const item = /** @type {TreeCursor} */ (node.get(part));
 			if (isLastPart) {
-				item.add(specifier);
+				/** @type {Set<string>} */ (item).add(specifier);
 			}
 			return item;
-		}, tree);
+		}), tree);
 	}
-	tree.require.forEach(addToTree);
-	tree.import.forEach(addToTree);
+	tree.require.forEach(/** @type {(file: string | false, specifier: string) => void} */ (addToTree));
+	tree.import.forEach(/** @type {(file: string | false, specifier: string) => void} */ (addToTree));
 
 	await $all(arrayFrom(subDirs, (subDir) => traverseDir(
 		`./${pathJoin(dir, subDir)}`,
@@ -431,6 +556,12 @@ async function traverseDir(
 	return sortFiles(tree);
 }
 
+/**
+ * @param {string} string
+ * @param {string} packageDir
+ * @param {WorkingTree} tree
+ * @param {string} nodeRange
+ */
 function addMainString(string, packageDir, tree, nodeRange) {
 	const main = `./${pathNormalize(string)}`;
 	const fullMain = pathJoin(packageDir, main);
@@ -454,11 +585,23 @@ function addMainString(string, packageDir, tree, nodeRange) {
 	}
 }
 
+/** @param {Category} category */
 function supportsRequireESM(category) {
 	const conditions = getConditionsForCategory(category);
 	return conditions && includes(conditions, 'module-sync');
 }
 
+/**
+ * @param {string} packageDir
+ * @param {Category} category
+ * @param {WorkingTree} tree
+ * @param {string} lhs
+ * @param {string} rhs
+ * @param {readonly string[]} conditionChain
+ * @param {Problems} problems
+ * @param {Set<string>} filteredFiles
+ * @param {string} nodeRange
+ */
 function addFullPath(
 	packageDir,
 	category,
@@ -511,10 +654,25 @@ function addFullPath(
 	return false;
 }
 
+/** @param {Category} [category] */
 function hasDirSlash(category) {
 	return category !== 'broken-dir-slash-conditions' && category !== 'patterns' && category !== 'pattern-trailers-no-dir-slash';
 }
 
+/**
+ * @param {{
+ *   tree: WorkingTree,
+ *   subtree: Tree,
+ *   problems: Problems,
+ *   packageDir: string,
+ *   packageExports: unknown,
+ *   mains: Mains | undefined,
+ *   dir: string,
+ *   lhs: string,
+ *   rhs: string,
+ *   category?: Category,
+ * }} context
+ */
 function traverseExportsSubtree({
 	tree,
 	subtree,
@@ -566,6 +724,19 @@ function traverseExportsSubtree({
 	});
 }
 
+/**
+ * @param {{
+ *   packageDir: string,
+ *   packageExports: unknown,
+ *   lhs: string,
+ *   rhs: string,
+ *   problems: Problems,
+ *   tree: WorkingTree,
+ *   legacy: CategoryExports,
+ *   mains: Mains | undefined,
+ *   category?: Category,
+ * }} context
+ */
 function traverseExportsSubdir({
 	packageDir,
 	packageExports,
@@ -585,7 +756,7 @@ function traverseExportsSubdir({
 	} else if (!isDirectory(fullRHS)) {
 		problems.add(`\`${lhs}\`: \`${rhs}\` is not a directory!`);
 	} else {
-		const subtree = rhs === './' ? legacy.tree : legacy.tree.get(rhs);
+		const subtree = /** @type {Tree | undefined} */ (rhs === './' ? legacy.tree : legacy.tree.get(rhs));
 		if (subtree) {
 			traverseExportsSubtree({
 				tree,
@@ -603,6 +774,23 @@ function traverseExportsSubdir({
 	}
 }
 
+/**
+ * @param {[string, unknown]} entry
+ * @param {readonly string[]} conditionChain
+ * @param {{
+ *   packageDir: string,
+ *   packageExports: unknown,
+ *   problems: Problems,
+ *   category: Category,
+ *   conditions: Set<string>,
+ *   tree: WorkingTree,
+ *   legacy: CategoryExports,
+ *   filteredFiles: Set<string>,
+ *   mains: Mains | undefined,
+ *   nodeRange: string,
+ * }} context
+ * @returns {Promise<boolean>}
+ */
 async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 	packageDir,
 	packageExports,
@@ -633,7 +821,7 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 				problems.add(`\`${lhs}\`: target "${rhs}" contains an invalid URL escape sequence`);
 				return false;
 			}
-			if (endsWith(lhs, '/') && endsWith(rhs, '/')) {
+			if (endsWith(lhs, '/') && endsWith(/** @type {string} */ (rhs), '/')) {
 				if (category === 'pattern-trailers-no-dir-slash') {
 					return false;
 				}
@@ -642,7 +830,7 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 					packageDir,
 					packageExports,
 					lhs,
-					rhs,
+					rhs: /** @type {string} */ (rhs),
 					problems,
 					tree,
 					legacy,
@@ -656,7 +844,7 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 				category,
 				tree,
 				lhs,
-				rhs,
+				/** @type {string} */ (rhs),
 				conditionChain,
 				problems,
 				filteredFiles,
@@ -673,73 +861,90 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 			return false;
 		}
 		if (category !== 'broken') {
-			const validConditionEntries = filter(entries(rhs), ([x]) => conditions.has(x));
+			const validConditionEntries = filter(entries(/** @type {object} */ (rhs)), ([x]) => conditions.has(x));
 			if (validConditionEntries.length === 0) {
 				safeSet(tree.import, lhs, false);
 				safeSet(tree.require, lhs, false);
 				return false;
 			}
 
-			return asyncReduce(validConditionEntries, (matchedSomething, [condition, conditionRHS]) => {
-				if (conditionRHS === null) {
+			/** @typedef {(matchedSomething: boolean, entry: [string, unknown]) => boolean | void | Promise<boolean>} ConditionReducer */
+			return /** @type {Promise<boolean>} */ (asyncReduce(
+				validConditionEntries,
+				/** @type {ConditionReducer} */ ((matchedSomething, [condition, conditionRHS]) => {
+					if (conditionRHS === null) {
 					// null in a condition explicitly excludes this path for this condition
-					if (condition === 'import' || !includes(conditionChain, 'require')) {
-						safeSet(tree.import, lhs, false);
-					}
-					if (condition === 'require' || !includes(conditionChain, 'import')) {
-						safeSet(tree.require, lhs, false);
-					}
-					return matchedSomething;
-				}
-				if (typeof conditionRHS === 'string') {
-					if (endsWith(lhs, '/') && endsWith(conditionRHS, '/')) {
-						// node 17+ removed trailing-slash folder mappings; the top-level string branch guards this, so the conditional branch must too
-						if (category === 'pattern-trailers-no-dir-slash') {
-							return matchedSomething;
+						if (condition === 'import' || !includes(conditionChain, 'require')) {
+							safeSet(tree.import, lhs, false);
 						}
-						return traverseExportsSubdir({
-							packageDir,
-							packageExports,
-							lhs,
-							rhs: conditionRHS,
-							problems,
-							tree,
-							legacy,
-							mains,
-							category,
-						});
+						if (condition === 'require' || !includes(conditionChain, 'import')) {
+							safeSet(tree.require, lhs, false);
+						}
+						return matchedSomething;
 					}
-					return addFullPath(
+					if (typeof conditionRHS === 'string') {
+						if (endsWith(lhs, '/') && endsWith(conditionRHS, '/')) {
+							// node 17+ removed trailing-slash folder mappings; the top-level string branch guards this, so the conditional branch must too
+							if (category === 'pattern-trailers-no-dir-slash') {
+								return matchedSomething;
+							}
+							return traverseExportsSubdir({
+								packageDir,
+								packageExports,
+								lhs,
+								rhs: conditionRHS,
+								problems,
+								tree,
+								legacy,
+								mains,
+								category,
+							});
+						}
+						return addFullPath(
+							packageDir,
+							category,
+							tree,
+							lhs,
+							conditionRHS,
+							conditionChain.concat(condition),
+							problems,
+							filteredFiles,
+							nodeRange,
+						) || matchedSomething;
+					}
+					return forEachExportEntry([lhs, conditionRHS], $concat(conditionChain, condition), {
 						packageDir,
-						category,
-						tree,
-						lhs,
-						conditionRHS,
-						conditionChain.concat(condition),
+						packageExports,
 						problems,
+						category,
+						conditions,
+						tree,
+						legacy,
 						filteredFiles,
+						mains,
 						nodeRange,
-					) || matchedSomething;
-				}
-				return forEachExportEntry([lhs, conditionRHS], $concat(conditionChain, condition), {
-					packageDir,
-					packageExports,
-					problems,
-					category,
-					conditions,
-					tree,
-					legacy,
-					filteredFiles,
-					mains,
-					nodeRange,
-				}) || matchedSomething;
-			}, false);
+					}) || matchedSomething;
+				}),
+				false,
+			));
 		}
 
 		return false;
 	}, false);
 }
 
+/**
+ * @param {Category} category
+ * @param {string} packageDir
+ * @param {PackageData} pkgData
+ * @param {Set<string>} filteredFiles
+ * @param {CategoryExports} legacy
+ * @param {Mains} mains
+ * @param {Problems} problems
+ * @param {string} nodeRange
+ * @param {readonly string[] | null} customConditions
+ * @returns {Promise<CategoryExports>}
+ */
 async function traverseExports(
 	category,
 	packageDir,
@@ -753,28 +958,34 @@ async function traverseExports(
 ) {
 	const tree = newTree();
 
+	/**
+	 * @param {string | false} file
+	 * @param {string} specifier
+	 */
 	function addToTree(file, specifier) {
 		if (file !== false) {
 			const parts = $split(file, '/');
-			reduce(parts, (acc, part, i) => {
+			reduce(parts, /** @type {(acc: TreeCursor, part: string, i: number) => TreeCursor} */ ((acc, part, i) => {
 				if (part === '.') {
-					return acc.tree;
+					return /** @type {WorkingTree} */ (acc).tree;
 				}
-				let item = acc.get(part);
+				const node = /** @type {Tree} */ (acc);
+				let item = node.get(part);
 				if (i + 1 === parts.length) {
 					if (!item) {
 						item = new Set();
 					}
-					item.add(specifier);
+					/** @type {Set<string>} */ (item).add(specifier);
 				} else if (!item) {
 					item = new Map();
 				}
-				safeSet(acc, part, item);
+				safeSet(node, part, item);
 				return item;
-			}, tree);
+			}), tree);
 		}
 	}
 
+	/** @type {Set<string>} */
 	const conditions = new Set(getConditionsForCategory(category));
 	// add custom conditions (like Node's --conditions flag)
 	if (customConditions) {
@@ -861,22 +1072,39 @@ async function traverseExports(
 
 	return sortFiles(tree);
 }
+/**
+ * @param {string} rootDir
+ * @param {Set<string>} filteredFiles
+ * @param {readonly string[]} extensions
+ * @param {Problems} problems
+ * @returns {Promise<Mains>}
+ */
 async function traverseMains(rootDir, filteredFiles, extensions, problems) {
 	// first pass: get every dir and its alleged main
 	const dirs = new Map(await $all(arrayFrom(
 		new Set(arrayFrom(filteredFiles, (file) => dirname(`./${file}`))),
-		async (dir) => [dir, await getMain(rootDir, dir, extensions, problems)],
+		async (dir) => /** @type {[string, string | null]} */ (
+			[dir, await getMain(rootDir, dir, extensions, problems)]
+		),
 	)));
 	// second pass: any alleged main that points to a dir, remap it to an actual main
 	return new Map(filter(
 		arrayFrom(dirs, ([dir, maybeMain]) => {
 			const found = maybeMain && dirs.get($replace(maybeMain, /\/?$/, ''));
-			return [dir, found && endsWith(found, '/') ? `./${pathJoin(found, 'index.js')}` : found || maybeMain];
+			return /** @type {[string, string]} */ ([dir, found && endsWith(found, '/') ? `./${pathJoin(found, 'index.js')}` : found || maybeMain]);
 		}),
 		([, x]) => x,
 	));
 }
 
+/**
+ * @param {string} packageDir
+ * @param {PackageData} pkgData
+ * @param {string} nodeRange
+ * @param {Problems} problems
+ * @param {readonly string[] | null} customConditions
+ * @returns {Promise<import('.').Exports>}
+ */
 async function getExports(packageDir, pkgData, nodeRange, problems, customConditions) {
 	const {
 		type: rootType = 'commonjs',
@@ -952,7 +1180,7 @@ async function getExports(packageDir, pkgData, nodeRange, problems, customCondit
 	// traverse "exports", respect "type" field, etc
 
 	const legacy = await legacyP;
-	const categoryExports = await $all(map(categories, async (category) => [
+	const categoryExports = await $all(map(categories, async (category) => /** @type {[Category, CategoryExports]} */ ([
 		category,
 		category === 'pre-exports'
 			? legacy
@@ -967,7 +1195,7 @@ async function getExports(packageDir, pkgData, nodeRange, problems, customCondit
 				nodeRange,
 				customConditions,
 			),
-	]));
+	])));
 
 	return {
 		binaries,
@@ -977,6 +1205,7 @@ async function getExports(packageDir, pkgData, nodeRange, problems, customCondit
 	};
 }
 
+/** @type {typeof import('.')} */
 module.exports = async function listExports(packageJSON, options = {}) {
 	const packageJSONpath = realpathSync(packageJSON);
 	const packageDir = dirname(packageJSONpath);
@@ -994,7 +1223,7 @@ module.exports = async function listExports(packageJSON, options = {}) {
 	let node = process.version;
 
 	if (options.node === true) {
-		({ node } = engines);
+		({ node } = /** @type {{ node: string }} */ (engines));
 		if (!validRange(node)) {
 			throw new RangeError('when the provided node version is `true`, this package’s `engines.node` declaration must be a valid semver range');
 		}
@@ -1002,7 +1231,7 @@ module.exports = async function listExports(packageJSON, options = {}) {
 		if (!validRange(options.node)) {
 			throw new RangeError('`node` option must be `true`, or a valid semver range');
 		}
-		({ node } = options);
+		({ node } = /** @type {{ node: string }} */ (options));
 	}
 
 	const problems = new Set();

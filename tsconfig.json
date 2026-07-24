@@ -1,0 +1,19 @@
+{
+	"extends": "@ljharb/tsconfig",
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "nodenext",
+		"maxNodeModuleJsDepth": 0,
+		"typeRoots": ["./types", "./node_modules/@types"],
+		"types": ["node"],
+		"skipLibCheck": true
+	},
+	"include": [
+		"**/*"
+	],
+	"exclude": [
+		"**/node_modules",
+		"**/coverage",
+		"packages/tests/fixtures"
+	]
+}

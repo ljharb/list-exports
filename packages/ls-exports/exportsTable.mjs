@@ -21,7 +21,12 @@ const {
 	values,
 } = Object;
 
+/**
+ * @param {import('list-exports').Tree} treeMap
+ * @returns {Record<string, number>}
+ */
 function sumTreeLeaves(treeMap) {
+	/** @type {Record<string, number>} */
 	const result = {};
 	treeMap.forEach((value, key) => {
 		if (value instanceof Set) {
@@ -35,6 +40,10 @@ function sumTreeLeaves(treeMap) {
 	return result;
 }
 
+/**
+ * @param {string} packageDir
+ * @param {(line: string) => void} log
+ */
 export default async function exportsTable(packageDir, log) {
 	const x = await listExports(packageDir);
 
@@ -45,7 +54,8 @@ export default async function exportsTable(packageDir, log) {
 	}
 
 	const { exports: exp } = x;
-	const latest = exp[exp.latest];
+	// `exp.latest` is always present as a key on `exp`
+	const latest = /** @type {import('list-exports').CategoryExports} */ (exp[exp.latest]);
 	const preExports = exp['pre-exports'];
 
 	const binariesCount = keys(exp.binaries).length;
@@ -78,15 +88,16 @@ export default async function exportsTable(packageDir, log) {
 		],
 	];
 	const widths = summaryRows.reduce(
-		(maxes, cols) => cols
+		/** @type {(maxes: number[], cols: readonly (string | number)[]) => number[]} */ ((maxes, cols) => cols
 			.map((col) => stripVTControlCharacters(String(col)).length)
-			.map((len, i) => Math.max(maxes[i] || 0, len)),
-		[],
+			.map((len, i) => Math.max(maxes[i] || 0, len))),
+		/** @type {number[]} */ ([]),
 	);
-	const columns = fromEntries(widths.map((width, i) => [
+	/** @typedef {[number, { width: number, alignment: 'left' | 'right' }]} ColumnEntry */
+	const columns = fromEntries(widths.map((width, i) => /** @type {ColumnEntry} */ ([
 		i,
 		{ width, alignment: i === 0 ? 'left' : 'right' },
-	]));
+	])));
 	const tableOptions = { columns };
 	log(table(summaryRows, tableOptions));
 

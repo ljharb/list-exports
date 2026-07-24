@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"lint": "eslint .",
+		"postlint": "tsc -p .",
 		"pretest": "npm run lint",
 		"posttest": "NODE_ENV=test npm run regen",
 		"regen": "node fixtures/ex-conditions/project/gen",
@@ -59,6 +60,7 @@
 		"@fixtures/resolve-2": "file:fixtures/resolve-2/project",
 		"@fixtures/single-spa-layout": "file:fixtures/single-spa-layout/project",
 		"@ljharb/eslint-config": "^22.2.3",
+		"@types/json-diff": "^1.0.3",
 		"array.from": "^1.1.6",
 		"eslint": "^10.7.0",
 		"for-each": "^0.3.5",

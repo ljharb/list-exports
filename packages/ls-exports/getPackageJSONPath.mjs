@@ -8,14 +8,15 @@ import { dir, setGracefulCleanup } from 'tmp';
 // cleanup is deferred to process exit: the caller reads the extracted package.json after this resolves
 setGracefulCleanup();
 
-const tmpDir = promisify(dir);
+const tmpDir = /** @type {(options?: { unsafeCleanup?: boolean }) => Promise<string>} */ (promisify(dir));
 
+/** @param {string} specifier */
 export default async function getPackageJSONPath(specifier) {
 	const { name } = npa(specifier);
 
 	const cwd = await tmpDir({ unsafeCleanup: true });
 
-	const packageDir = path.join(cwd, 'node_modules', name);
+	const packageDir = path.join(cwd, 'node_modules', /** @type {string} */ (name));
 	await pacote.extract(specifier, packageDir);
 
 	return path.join(packageDir, 'package.json');

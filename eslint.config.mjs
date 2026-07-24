@@ -80,4 +80,9 @@ export default [
 			'array-bracket-newline': 'off',
 		},
 	},
+	{
+		rules: {
+			'no-extra-parens': 'off', // conflicts with JSDoc type casts
+		},
+	},
 ];
