@@ -1,0 +1,66 @@
+{
+	"name": "ls-exports",
+	"version": null,
+	"engines": {
+		"node": "^22.22 || ^24.13 || >=25.3"
+	},
+	"problems": [],
+	"exports": {
+		"binaries": {
+			"ls-exports": "./bin/ls-exports.mjs"
+		},
+		"latest": "pattern-trailers-no-node-addons",
+		"pattern-trailers-no-node-addons": {
+			"import": {},
+			"require": {
+				"./package.json": "./package.json"
+			},
+			"files": [
+				"./package.json"
+			],
+			"tree": {
+				"package.json": [
+					"./package.json"
+				]
+			}
+		},
+		"pre-exports": {
+			"import": {},
+			"require": {
+				"./exportsTable.mjs": "./exportsTable.mjs",
+				"./getPackageJSONPath.mjs": "./getPackageJSONPath.mjs",
+				"./package": "./package.json",
+				"./package.json": "./package.json",
+				"./table.mjs": "./table.mjs",
+				"./bin/ls-exports.mjs": "./bin/ls-exports.mjs"
+			},
+			"files": [
+				"./exportsTable.mjs",
+				"./getPackageJSONPath.mjs",
+				"./package.json",
+				"./table.mjs",
+				"./bin/ls-exports.mjs"
+			],
+			"tree": {
+				"bin": {
+					"ls-exports.mjs": [
+						"./bin/ls-exports.mjs"
+					]
+				},
+				"exportsTable.mjs": [
+					"./exportsTable.mjs"
+				],
+				"getPackageJSONPath.mjs": [
+					"./getPackageJSONPath.mjs"
+				],
+				"package.json": [
+					"./package.json",
+					"./package"
+				],
+				"table.mjs": [
+					"./table.mjs"
+				]
+			}
+		}
+	}
+}

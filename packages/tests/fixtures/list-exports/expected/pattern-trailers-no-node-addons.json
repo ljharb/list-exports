@@ -5,12 +5,12 @@
 		"node": "^18.17.0 || >=20.5.0"
 	},
 	"problems": [
-		"the provided node version (^14.19 || 16.10 - 16.13) does not match the package's `engines.node` declaration (^18.17.0 || >=20.5.0)"
+		"the provided node version (16.9.x) does not match the package's `engines.node` declaration (^18.17.0 || >=20.5.0)"
 	],
 	"exports": {
 		"binaries": {},
-		"latest": "pattern-trailers",
-		"pattern-trailers": {
+		"latest": "pattern-trailers-no-node-addons",
+		"pattern-trailers-no-node-addons": {
 			"import": {
 				".": "./index.js"
 			},
