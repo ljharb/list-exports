@@ -181,7 +181,9 @@ test('listExports', (t) => {
 												await prev;
 
 												const fixtureSpec = `@fixtures/${specifier.replace(/^\./, resultsNative.name)}`;
-												const fullFilename = fs.realpathSync(path.join(__dirname, `../../node_modules/@fixtures/${file.replace(/^\./, resultsNative.name)}`));
+												const fixtureNM = fixtureSpec.split(path.sep).slice(0, 2).join(path.sep);
+												const fixtureNMdir = path.dirname(resolve(path.join(fixtureNM, 'package.json'), { preserveSymlinks: true }));
+												const fullFilename = fs.realpathSync(path.join(fixtureNMdir, file));
 												const ext = path.extname(fullFilename);
 												const isESM = ext === '.mjs' || (ext === '.js' && getPackageType.sync(fullFilename) === 'module');
 												delete require.cache[fullFilename];
@@ -190,7 +192,8 @@ test('listExports', (t) => {
 												} catch (e) {
 													if (e.code === 'ERR_INVALID_PACKAGE_TARGET') {
 														s4t.comment(`# SKIP (import) ${fixtureSpec} is not a valid package target`);
-													} else if (e.code === 'ERR_UNKNOWN_FILE_EXTENSION' && e.message.includes('.node')) {
+													} else if (e.code === 'ERR_DLOPEN_FAILED' || (e.code === 'ERR_UNKNOWN_FILE_EXTENSION' && e.message.includes('.node'))) {
+														// native addons can't be imported: older node throws ERR_UNKNOWN_FILE_EXTENSION, newer node attempts dlopen and throws ERR_DLOPEN_FAILED
 														s4t.comment(`# SKIP (import) ${fixtureSpec} resolved to a native addon (.node) which cannot be imported`);
 														return;
 													} else {
