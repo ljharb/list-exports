@@ -1,33 +1,28 @@
 {
-	"name": "list-exports",
-	"version": null,
+	"name": "ex-nonexistent-dir",
+	"version": "0.0.0",
 	"engines": {
-		"node": "^18.17.0 || >=20.5.0"
+		"node": "*"
 	},
 	"problems": [
-		"the provided node version (^14.19 || 16.10 - 16.13) does not match the package's `engines.node` declaration (^18.17.0 || >=20.5.0)"
+		"`./nope/`: `./404/` does not appear to exist!"
 	],
 	"exports": {
 		"binaries": {},
-		"latest": "pattern-trailers",
-		"pattern-trailers": {
+		"latest": "pattern-trailers-no-node-addons",
+		"pattern-trailers-no-node-addons": {
 			"import": {
 				".": "./index.js"
 			},
 			"require": {
-				".": "./index.js",
-				"./package.json": "./package.json"
+				".": "./index.js"
 			},
 			"files": [
-				"./index.js",
-				"./package.json"
+				"./index.js"
 			],
 			"tree": {
 				"index.js": [
 					"."
-				],
-				"package.json": [
-					"./package.json"
 				]
 			}
 		},
