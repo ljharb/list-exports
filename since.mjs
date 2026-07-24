@@ -6,10 +6,12 @@ import glob from 'glob-gitignore';
 const packagesDir = path.join(import.meta.dirname, 'packages');
 const docsDir = path.join(import.meta.dirname, 'docs');
 
+/** @typedef {{ private?: boolean, name: string, version: string }} PackageJSON */
+
 const packages = (process.argv.length > 2 ? [process.argv[2]] : glob.sync('*', { cwd: packagesDir }))
 	.map((name) => path.join(packagesDir, name, 'package.json'))
 	.filter((packagePath) => fs.existsSync(packagePath))
-	.map((packagePath) => JSON.parse(fs.readFileSync(packagePath)))
+	.map((packagePath) => /** @type {PackageJSON} */ (JSON.parse(`${fs.readFileSync(packagePath)}`)))
 	.filter((x) => !x.private && x.name !== 'enzyme-example-mocha');
 
 packages.forEach((pkg) => {

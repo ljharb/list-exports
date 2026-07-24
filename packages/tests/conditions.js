@@ -40,10 +40,10 @@ test('condition ordering', { skip: re && !re.test('condition ordering') }, funct
 
 	forEach([
 		['require.resolve', getExpected(require.resolve)],
-		['resolve', getExpected(function (x) { return resolve(x); })]
+		['resolve', getExpected(/** @param {string} x */ function (x) { return resolve(x); })]
 	], function (entry) {
-		var desc = entry[0];
-		var results = entry[1];
+		var desc = /** @type {string} */ (entry[0]);
+		var results = /** @type {ReturnType<typeof getExpected>} */ (entry[1]);
 		t.test(desc, { todo: desc === 'resolve' || (desc === 'require.resolve' && semver.satisfies(process.version, '< 6')) }, function (st) {
 			st.deepEqual(
 				Object.keys(results.expected).map(function (e) { return e === '.' ? e : './' + e; }),

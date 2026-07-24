@@ -7,6 +7,7 @@ const arrayFrom = require('array.from');
 const listExports = require('list-exports');
 
 const fixturesDir = path.join(__dirname, 'fixtures');
+/** @param {string} name */
 function fixturePkgJSON(name) {
 	return path.join(fixturesDir, name, 'project', 'package.json');
 }
@@ -14,14 +15,16 @@ function fixturePkgJSON(name) {
 test('conditions option: validation', function (t) {
 	t.test('rejects non-true, non-string, non-array values', async function (st) {
 		try {
+			// @ts-expect-error deliberately invalid input
 			await listExports(fixturePkgJSON('has-package-exports'), { conditions: 123 });
 			st.fail('should have thrown for number');
 		} catch (e) {
 			st.ok(e instanceof TypeError, 'throws TypeError for number');
-			st.match(e.message, /`conditions` option must be `true`, a string, or an array of strings/);
+			st.match(/** @type {Error} */ (e).message, /`conditions` option must be `true`, a string, or an array of strings/);
 		}
 
 		try {
+			// @ts-expect-error deliberately invalid input
 			await listExports(fixturePkgJSON('has-package-exports'), { conditions: {} });
 			st.fail('should have thrown for object');
 		} catch (e) {
@@ -29,6 +32,7 @@ test('conditions option: validation', function (t) {
 		}
 
 		try {
+			// @ts-expect-error deliberately invalid input
 			await listExports(fixturePkgJSON('has-package-exports'), { conditions: null });
 			st.fail('should have thrown for null');
 		} catch (e) {
@@ -38,11 +42,12 @@ test('conditions option: validation', function (t) {
 
 	t.test('rejects arrays with non-string or empty-string elements', async function (st) {
 		try {
+			// @ts-expect-error deliberately invalid input
 			await listExports(fixturePkgJSON('has-package-exports'), { conditions: [123] });
 			st.fail('should have thrown for array with number');
 		} catch (e) {
 			st.ok(e instanceof TypeError, 'throws TypeError for array with number');
-			st.match(e.message, /`conditions` option must contain only non-empty strings/);
+			st.match(/** @type {Error} */ (e).message, /`conditions` option must contain only non-empty strings/);
 		}
 
 		try {
@@ -75,10 +80,10 @@ test('conditions option: execArgv parsing', function (t) {
 		var savedExecArgv = process.execArgv;
 		process.execArgv = ['--conditions=browser'];
 		try {
-			var results = await listExports(fixturePkgJSON('has-package-exports'), { conditions: true });
-			var allExportKeys = [];
+			var results = /** @type {import('list-exports').Results} */ (await listExports(fixturePkgJSON('has-package-exports'), { conditions: true }));
+			var allExportKeys = /** @type {string[]} */ ([]);
 			Object.keys(results.exports).forEach(function (category) {
-				var catExports = results.exports[category];
+				var catExports = results.exports[/** @type {import('list-exports').Category} */ (category)];
 				if (catExports && catExports.require) {
 					arrayFrom(catExports.require.keys()).forEach(function (key) {
 						allExportKeys.push(key);
@@ -95,10 +100,10 @@ test('conditions option: execArgv parsing', function (t) {
 		var savedExecArgv = process.execArgv;
 		process.execArgv = ['-C=browser'];
 		try {
-			var results = await listExports(fixturePkgJSON('has-package-exports'), { conditions: true });
-			var allExportKeys = [];
+			var results = /** @type {import('list-exports').Results} */ (await listExports(fixturePkgJSON('has-package-exports'), { conditions: true }));
+			var allExportKeys = /** @type {string[]} */ ([]);
 			Object.keys(results.exports).forEach(function (category) {
-				var catExports = results.exports[category];
+				var catExports = results.exports[/** @type {import('list-exports').Category} */ (category)];
 				if (catExports && catExports.require) {
 					arrayFrom(catExports.require.keys()).forEach(function (key) {
 						allExportKeys.push(key);
@@ -115,10 +120,10 @@ test('conditions option: execArgv parsing', function (t) {
 		var savedExecArgv = process.execArgv;
 		process.execArgv = ['--conditions', 'browser'];
 		try {
-			var results = await listExports(fixturePkgJSON('has-package-exports'), { conditions: true });
-			var allExportKeys = [];
+			var results = /** @type {import('list-exports').Results} */ (await listExports(fixturePkgJSON('has-package-exports'), { conditions: true }));
+			var allExportKeys = /** @type {string[]} */ ([]);
 			Object.keys(results.exports).forEach(function (category) {
-				var catExports = results.exports[category];
+				var catExports = results.exports[/** @type {import('list-exports').Category} */ (category)];
 				if (catExports && catExports.require) {
 					arrayFrom(catExports.require.keys()).forEach(function (key) {
 						allExportKeys.push(key);
@@ -141,10 +146,10 @@ test('conditions option: NODE_OPTIONS parsing', function (t) {
 		process.execArgv = [];
 		process.env.NODE_OPTIONS = '--conditions=browser';
 		try {
-			var results = await listExports(fixturePkgJSON('has-package-exports'), { conditions: true });
-			var allExportKeys = [];
+			var results = /** @type {import('list-exports').Results} */ (await listExports(fixturePkgJSON('has-package-exports'), { conditions: true }));
+			var allExportKeys = /** @type {string[]} */ ([]);
 			Object.keys(results.exports).forEach(function (category) {
-				var catExports = results.exports[category];
+				var catExports = results.exports[/** @type {import('list-exports').Category} */ (category)];
 				if (catExports && catExports.require) {
 					arrayFrom(catExports.require.keys()).forEach(function (key) {
 						allExportKeys.push(key);
@@ -168,10 +173,10 @@ test('conditions option: NODE_OPTIONS parsing', function (t) {
 		process.execArgv = [];
 		process.env.NODE_OPTIONS = '-C=browser';
 		try {
-			var results = await listExports(fixturePkgJSON('has-package-exports'), { conditions: true });
-			var allExportKeys = [];
+			var results = /** @type {import('list-exports').Results} */ (await listExports(fixturePkgJSON('has-package-exports'), { conditions: true }));
+			var allExportKeys = /** @type {string[]} */ ([]);
 			Object.keys(results.exports).forEach(function (category) {
-				var catExports = results.exports[category];
+				var catExports = results.exports[/** @type {import('list-exports').Category} */ (category)];
 				if (catExports && catExports.require) {
 					arrayFrom(catExports.require.keys()).forEach(function (key) {
 						allExportKeys.push(key);
@@ -195,10 +200,10 @@ test('conditions option: NODE_OPTIONS parsing', function (t) {
 		process.execArgv = [];
 		process.env.NODE_OPTIONS = '--conditions browser';
 		try {
-			var results = await listExports(fixturePkgJSON('has-package-exports'), { conditions: true });
-			var allExportKeys = [];
+			var results = /** @type {import('list-exports').Results} */ (await listExports(fixturePkgJSON('has-package-exports'), { conditions: true }));
+			var allExportKeys = /** @type {string[]} */ ([]);
 			Object.keys(results.exports).forEach(function (category) {
-				var catExports = results.exports[category];
+				var catExports = results.exports[/** @type {import('list-exports').Category} */ (category)];
 				if (catExports && catExports.require) {
 					arrayFrom(catExports.require.keys()).forEach(function (key) {
 						allExportKeys.push(key);
@@ -222,10 +227,10 @@ test('conditions option: NODE_OPTIONS parsing', function (t) {
 		process.execArgv = [];
 		process.env.NODE_OPTIONS = '-C browser';
 		try {
-			var results = await listExports(fixturePkgJSON('has-package-exports'), { conditions: true });
-			var allExportKeys = [];
+			var results = /** @type {import('list-exports').Results} */ (await listExports(fixturePkgJSON('has-package-exports'), { conditions: true }));
+			var allExportKeys = /** @type {string[]} */ ([]);
 			Object.keys(results.exports).forEach(function (category) {
-				var catExports = results.exports[category];
+				var catExports = results.exports[/** @type {import('list-exports').Category} */ (category)];
 				if (catExports && catExports.require) {
 					arrayFrom(catExports.require.keys()).forEach(function (key) {
 						allExportKeys.push(key);
@@ -255,12 +260,12 @@ test('conditions option: NODE_OPTIONS parsing', function (t) {
 			process.env.NODE_OPTIONS = '';
 			var resultsSingle = await listExports(fixturePkgJSON('has-package-exports'), { conditions: true });
 
-			var dupedJSON = JSON.stringify(resultsDuped, function (key, value) {
+			var dupedJSON = JSON.stringify(resultsDuped, function (_key, value) {
 				if (value instanceof Set) { return arrayFrom(value); }
 				if (value instanceof Map) { return Object.fromEntries(arrayFrom(value)); }
 				return value;
 			});
-			var singleJSON = JSON.stringify(resultsSingle, function (key, value) {
+			var singleJSON = JSON.stringify(resultsSingle, function (_key, value) {
 				if (value instanceof Set) { return arrayFrom(value); }
 				if (value instanceof Map) { return Object.fromEntries(arrayFrom(value)); }
 				return value;
@@ -283,10 +288,10 @@ test('conditions option: NODE_OPTIONS parsing', function (t) {
 		process.execArgv = [];
 		process.env.NODE_OPTIONS = '-Cbrowser';
 		try {
-			var results = await listExports(fixturePkgJSON('has-package-exports'), { conditions: true });
-			var allExportKeys = [];
+			var results = /** @type {import('list-exports').Results} */ (await listExports(fixturePkgJSON('has-package-exports'), { conditions: true }));
+			var allExportKeys = /** @type {string[]} */ ([]);
 			Object.keys(results.exports).forEach(function (category) {
-				var catExports = results.exports[category];
+				var catExports = results.exports[/** @type {import('list-exports').Category} */ (category)];
 				if (catExports && catExports.require) {
 					arrayFrom(catExports.require.keys()).forEach(function (key) {
 						allExportKeys.push(key);
@@ -294,10 +299,10 @@ test('conditions option: NODE_OPTIONS parsing', function (t) {
 				}
 			});
 
-			var withoutConditions = await listExports(fixturePkgJSON('has-package-exports'));
-			var baseExportKeys = [];
+			var withoutConditions = /** @type {import('list-exports').Results} */ (await listExports(fixturePkgJSON('has-package-exports')));
+			var baseExportKeys = /** @type {string[]} */ ([]);
 			Object.keys(withoutConditions.exports).forEach(function (category) {
-				var catExports = withoutConditions.exports[category];
+				var catExports = withoutConditions.exports[/** @type {import('list-exports').Category} */ (category)];
 				if (catExports && catExports.require) {
 					arrayFrom(catExports.require.keys()).forEach(function (key) {
 						baseExportKeys.push(key);
@@ -324,12 +329,12 @@ test('conditions option: deduplication', function (t) {
 		var resultsDuped = await listExports(fixturePkgJSON('has-package-exports'), { conditions: ['browser', 'browser'] });
 		var resultsSingle = await listExports(fixturePkgJSON('has-package-exports'), { conditions: ['browser'] });
 
-		var dupedJSON = JSON.stringify(resultsDuped, function (key, value) {
+		var dupedJSON = JSON.stringify(resultsDuped, function (_key, value) {
 			if (value instanceof Set) { return arrayFrom(value); }
 			if (value instanceof Map) { return Object.fromEntries(arrayFrom(value)); }
 			return value;
 		});
-		var singleJSON = JSON.stringify(resultsSingle, function (key, value) {
+		var singleJSON = JSON.stringify(resultsSingle, function (_key, value) {
 			if (value instanceof Set) { return arrayFrom(value); }
 			if (value instanceof Map) { return Object.fromEntries(arrayFrom(value)); }
 			return value;
@@ -346,18 +351,19 @@ test('conditions option: private packages', function (t) {
 		var results = await listExports(fixturePkgJSON('ex-private'), { conditions: ['browser'] });
 
 		st.ok(results.private, 'result indicates package is private');
-		st.notOk(results.exports, 'private packages have no exports in result');
+		st.notOk(/** @type {Record<string, unknown>} */ (results).exports, 'private packages have no exports in result');
 	});
 
 	t.test('conditions: true does not cause errors for private packages', async function (st) {
 		var results = await listExports(fixturePkgJSON('ex-private'), { conditions: true });
 
 		st.ok(results.private, 'result indicates package is private');
-		st.notOk(results.exports, 'private packages have no exports in result');
+		st.notOk(/** @type {Record<string, unknown>} */ (results).exports, 'private packages have no exports in result');
 	});
 
 	t.test('invalid conditions still throw for private packages', async function (st) {
 		try {
+			// @ts-expect-error deliberately invalid input
 			await listExports(fixturePkgJSON('ex-private'), { conditions: 123 });
 			st.fail('should have thrown');
 		} catch (e) {

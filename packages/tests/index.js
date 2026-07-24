@@ -28,13 +28,19 @@ const cli = path.join(__dirname, '..', 'ls-exports', 'bin', 'ls-exports.mjs');
 
 const re = GREP && new RegExp(GREP);
 
+/** @param {string} name */
 function isInternalPackage(name) {
 	return name === 'ls-exports' || name === 'list-exports';
 }
 
+/**
+ * @param {string} expectedPath
+ * @param {{ version: string }} packageData
+ * @returns {Record<string, any>}
+ */
 function readExpectedJson(expectedPath, packageData) {
 	try {
-		const expected = JSON.parse(fs.readFileSync(expectedPath));
+		const expected = JSON.parse(`${fs.readFileSync(expectedPath)}`);
 		if (isInternalPackage(expected.name)) {
 			expected.version = packageData.version;
 		}
@@ -44,6 +50,11 @@ function readExpectedJson(expectedPath, packageData) {
 	}
 }
 
+/**
+ * @param {import('tape').Test} t
+ * @param {string} message
+ * @param {{ expected: Record<string, any>, results: Record<string, any>, expectedPath: string }} context
+ */
 function diffApiOutput(t, message, { expected, results, expectedPath }) {
 	const diff = diffString(expected, results);
 	if (diff) {
@@ -59,7 +70,11 @@ function diffApiOutput(t, message, { expected, results, expectedPath }) {
 	}
 }
 
-function serializer(key, value) {
+/**
+ * @param {string} _key
+ * @param {unknown} value
+ */
+function serializer(_key, value) {
 	if (value instanceof Set) {
 		return arrayFrom(value);
 	}
@@ -84,7 +99,7 @@ test('listExports', (t) => {
 			const projectDir = path.join(fixtureDir, 'project');
 
 			const packageJSON = path.resolve(path.join(projectDir, 'package.json'));
-			const packageData = JSON.parse(fs.readFileSync(packageJSON));
+			const packageData = JSON.parse(`${fs.readFileSync(packageJSON)}`);
 
 			let found = 0;
 			categories.forEach(([range, category]) => {
@@ -126,7 +141,7 @@ test('listExports', (t) => {
 								});
 								// to avoid the "engine mismatch" in "problems" in nodes that ls-exports doesn't support
 								if (fixture === 'ls-exports') {
-									resultsNative.problems = [];
+									resultsNative.problems = /** @type {Set<string>} */ (/** @type {unknown} */ ([]));
 								}
 
 								const resultsNativeJSON = JSON.stringify(resultsNative, serializer);
@@ -138,7 +153,9 @@ test('listExports', (t) => {
 								});
 
 								if (!resultsNative.private) {
-									const exportResults = resultsNative.exports[category];
+									// `getRangePairs` comes from this package's `node-exports-info`, whose
+									// category list can differ from the one `list-exports` resolves
+									const exportResults = resultsNative.exports[/** @type {import('list-exports').Category} */ (category)];
 									if (exportResults) {
 										exportResults.require.forEach((file, specifier) => {
 											const fixtureSpec = `@fixtures/${specifier.replace(/^\./, resultsNative.name)}`;
@@ -170,7 +187,7 @@ test('listExports', (t) => {
 													`${fixture} (${category}): ${specifier} resolves natively`,
 												);
 											} catch (e) {
-												if (e.code === 'ERR_INVALID_PACKAGE_TARGET') {
+												if (/** @type {NodeJS.ErrnoException} */ (e).code === 'ERR_INVALID_PACKAGE_TARGET') {
 													s4t.comment(`# SKIP (require) ${fixtureSpec} is not a valid package target`);
 												} else {
 													throw e;
@@ -190,9 +207,10 @@ test('listExports', (t) => {
 												try {
 													await Function('fixtureSpec', 'return import(fixtureSpec)')(fixtureSpec); // eslint-disable-line no-new-func
 												} catch (e) {
-													if (e.code === 'ERR_INVALID_PACKAGE_TARGET') {
+													const err = /** @type {NodeJS.ErrnoException} */ (e);
+													if (err.code === 'ERR_INVALID_PACKAGE_TARGET') {
 														s4t.comment(`# SKIP (import) ${fixtureSpec} is not a valid package target`);
-													} else if (e.code === 'ERR_DLOPEN_FAILED' || (e.code === 'ERR_UNKNOWN_FILE_EXTENSION' && e.message.includes('.node'))) {
+													} else if (err.code === 'ERR_DLOPEN_FAILED' || (err.code === 'ERR_UNKNOWN_FILE_EXTENSION' && err.message.includes('.node'))) {
 														// native addons can't be imported: older node throws ERR_UNKNOWN_FILE_EXTENSION, newer node attempts dlopen and throws ERR_DLOPEN_FAILED
 														s4t.comment(`# SKIP (import) ${fixtureSpec} resolved to a native addon (.node) which cannot be imported`);
 														return;
@@ -228,7 +246,7 @@ test('listExports', (t) => {
 						s2t.test(`${fixture} (${category}): CLI`, { skip: SKIP_CLI || !exists }, (s3t) => {
 							s3t.plan(checkNPM ? 2 : 1);
 
-							const env = { ...process.env, NO_COLOR: 1 };
+							const env = /** @type {NodeJS.ProcessEnv} */ (/** @type {unknown} */ ({ ...process.env, NO_COLOR: 1 }));
 
 							const cliResults = JSON.parse(`${execSync(`${cli} path "./${path.relative(process.cwd(), projectDir)}" --json`, { env })}`);
 							// to avoid the "engine mismatch" in "problems" in nodes that ls-exports doesn't support

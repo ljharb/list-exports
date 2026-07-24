@@ -14,6 +14,7 @@ var conditionsPkg = JSON.parse(String(fs.readFileSync(path.join(__dirname, './fi
 
 var empty = {};
 
+/** @param {string} slug */
 function makeResult(slug) {
 	return {
 		resolved: path.basename(path.join(__dirname, 'fixtures/ex-conditions/project/' + slug + '.js')),
@@ -21,6 +22,7 @@ function makeResult(slug) {
 	};
 }
 
+/** @param {(specifier: string) => string} resolve */
 module.exports = function getExpectedConditions(resolve) {
 	var expected = {
 		'.': makeResult(hasBrokenExports ? 'fallback' : hasPackageExports ? 'default' : 'main'),

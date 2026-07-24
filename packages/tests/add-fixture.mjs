@@ -18,7 +18,7 @@ import pacote from 'pacote';
 import path from 'path';
 import npa from 'npm-package-arg';
 
-const name = npa(spec).name.replace('/', '~');
+const name = /** @type {string} */ (npa(spec).name).replace('/', '~');
 
 const fixtureDir = path.join(import.meta.dirname, 'fixtures', name);
 
@@ -48,21 +48,21 @@ await Promise.all(filesToTruncate.map((file) => {
 import { execSync } from 'child_process';
 execSync(
 	'npm pkg delete dependencies devDependencies peerDependencies optionalDependencies bundleDependencies bundledDependencies publishConfig scripts',
-	{
+	/** @type {import('child_process').ExecSyncOptions} */ ({
 		__proto__: null,
 		cwd: projectDir,
 		stdio: 'inherit',
-	},
+	}),
 );
 
 console.log(`Added fixture: ${name}`);
 
 console.log('writing initial test results - YOU MUST REVIEW');
 
-await mkdir(path.join(fixtureDir, 'expected'), { __proto__: null, recursive: true }).catch();
+await mkdir(path.join(fixtureDir, 'expected'), /** @type {import('fs').MakeDirectoryOptions} */ ({ __proto__: null, recursive: true })).catch();
 
 try {
-	execSync('npm run tests-only', {
+	execSync('npm run tests-only', /** @type {import('child_process').ExecSyncOptions} */ (/** @type {unknown} */ ({
 		__proto__: null,
 		cwd: import.meta.dirname,
 		stdio: 'inherit',
@@ -72,7 +72,7 @@ try {
 			WRITE: 1,
 			GREP: name.replace('~', '/'),
 		},
-	});
+	})));
 } catch {
 	// the WRITE run is expected to exit non-zero: it compares against the not-yet-written expectations before writing them
 }

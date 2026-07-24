@@ -12,13 +12,13 @@ import listExports from 'list-exports';
 import exportsTable from '../exportsTable.mjs';
 import getPackageJSONPath from '../getPackageJSONPath.mjs';
 
-const commonOptions = {
+const commonOptions = /** @type {const} */ ({
 	json: {
 		default: false,
 		description: 'Output the results as JSON',
 		type: 'boolean',
 	},
-};
+});
 
 const {
 	help,
@@ -45,7 +45,11 @@ const {
 
 await help();
 
-function serializer(key, value) {
+/**
+ * @param {string} _key
+ * @param {unknown} value
+ */
+function serializer(_key, value) {
 	if (value instanceof Set) {
 		return arrayFrom(value);
 	}
@@ -72,7 +76,8 @@ if (command.name === 'path') {
 	packageDirP = getPackageJSONPath(specifier);
 }
 
-const promise = packageDirP.then((packageDir) => (command.values.json
+// `command.name` is always one of the two subcommands, so `packageDirP` is always assigned
+const promise = /** @type {Promise<string>} */ (packageDirP).then((packageDir) => (command.values.json
 	? listExports(packageDir).then((x) => console.log(colorize(JSON.stringify(x, serializer))))
 	: exportsTable(packageDir, (x) => console.log(x))));
 
