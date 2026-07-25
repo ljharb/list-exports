@@ -981,8 +981,10 @@ module.exports = async function listExports(packageJSON, options = {}) {
 		name,
 		version,
 		private: isPrivate,
-		engines = { node: '*' },
+		engines: rawEngines,
 	} = pkgData;
+	// a destructuring default only covers `undefined`; `"engines": null` must fall back too
+	const engines = rawEngines || { node: '*' };
 
 	let node = process.version;
 
