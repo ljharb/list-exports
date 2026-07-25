@@ -85,8 +85,8 @@ export default async function exportsTable(packageDir, log) {
 		.sort((a, b) => (a.endsWith('/') ? b.endsWith('/') ? a.localeCompare(b) : -1 : 1))
 		.map((file) => [
 			file.endsWith('/') ? styleText(['bold', 'cyan'], file) : styleText('magenta', file),
-			latestTreeSums[file],
-			preExportsTreeSums[file],
+			latestTreeSums[file] ?? '',
+			preExportsTreeSums[file] ?? '',
 		]);
 	log(table(treeRows, tableOptions));
 

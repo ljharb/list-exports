@@ -15,6 +15,8 @@ const resolve = require('resolve/sync');
 
 const listExports = require('list-exports');
 
+require('./ls-exports'); // registers the ls-exports package's unit tests, so `tests-only` runs them too
+
 const { OFFLINE, GREP, WRITE, SKIP_CLI } = process.env;
 
 const fixturesDir = path.join(__dirname, 'fixtures');
