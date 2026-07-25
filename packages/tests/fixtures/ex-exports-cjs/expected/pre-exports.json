@@ -1,0 +1,35 @@
+{
+	"name": "ex-exports-cjs",
+	"version": "0.0.0",
+	"engines": {
+		"node": "*"
+	},
+	"problems": [
+		"`.` has a `package.json`, but lacks both a `main` and an `index.js`!"
+	],
+	"exports": {
+		"binaries": {},
+		"latest": "pre-exports",
+		"pre-exports": {
+			"import": {},
+			"require": {
+				"./main.cjs": "./main.cjs",
+				"./package": "./package.json",
+				"./package.json": "./package.json"
+			},
+			"files": [
+				"./main.cjs",
+				"./package.json"
+			],
+			"tree": {
+				"main.cjs": [
+					"./main.cjs"
+				],
+				"package.json": [
+					"./package.json",
+					"./package"
+				]
+			}
+		}
+	}
+}

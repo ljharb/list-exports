@@ -1,0 +1,6 @@
+{
+	"bundleDependencies": true,
+	"name": "ex-exports-cjs",
+	"version": "0.0.0",
+	"exports": "./main.cjs"
+}

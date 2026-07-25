@@ -153,6 +153,10 @@ function isCJS(filename, usingExports = false, nodeRange = process.version) {
 	if (packageType !== 'commonjs' && packageType !== 'module') {
 		throw new TypeError(`unknown package type found: ${inspect(packageType)}`);
 	}
+	if (extname(filename) === '.cjs') {
+		// `.cjs` is always CommonJS, but node handles it natively so it never appears in `require.extensions`
+		return true;
+	}
 	const { base, legacy } = getExtensions(packageType, nodeRange);
 	return includes(usingExports ? base : legacy, extname(filename));
 }
