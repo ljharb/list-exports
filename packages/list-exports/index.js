@@ -693,6 +693,10 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 				}
 				if (typeof conditionRHS === 'string') {
 					if (endsWith(lhs, '/') && endsWith(conditionRHS, '/')) {
+						// node 17+ removed trailing-slash folder mappings; the top-level string branch guards this, so the conditional branch must too
+						if (category === 'pattern-trailers-no-dir-slash') {
+							return matchedSomething;
+						}
 						return traverseExportsSubdir({
 							packageDir,
 							packageExports,
@@ -702,6 +706,7 @@ async function forEachExportEntry([lhs, maybeRHS], conditionChain, {
 							tree,
 							legacy,
 							mains,
+							category,
 						});
 					}
 					return addFullPath(
