@@ -61,14 +61,20 @@ console.log('writing initial test results - YOU MUST REVIEW');
 
 await mkdir(path.join(fixtureDir, 'expected'), { __proto__: null, recursive: true }).catch();
 
-execSync('npm run tests-only', {
-	__proto__: null,
-	cwd: import.meta.dirname,
-	stdio: 'inherit',
-	env: {
+try {
+	execSync('npm run tests-only', {
 		__proto__: null,
-		...process.env,
-		WRITE: 1,
-		GREP: name.replace('~', '/'),
-	},
-});
+		cwd: import.meta.dirname,
+		stdio: 'inherit',
+		env: {
+			__proto__: null,
+			...process.env,
+			WRITE: 1,
+			GREP: name.replace('~', '/'),
+		},
+	});
+} catch {
+	// the WRITE run is expected to exit non-zero: it compares against the not-yet-written expectations before writing them
+}
+
+console.log(`\nWrote initial expectations for ${name} - YOU MUST REVIEW them, then re-run the tests to confirm they pass.`);
