@@ -3,6 +3,18 @@ import { styleText, stripVTControlCharacters } from 'util';
 import listExports from 'list-exports';
 import table from './table.mjs';
 
+// sorts tree-table keys: directories (trailing slash) before files, each group alphabetized
+/**
+ * @param {string} a
+ * @param {string} b
+ */
+export function compareTreeRows(a, b) {
+	if (a.endsWith('/')) {
+		return b.endsWith('/') ? a.localeCompare(b) : -1;
+	}
+	return b.endsWith('/') ? 1 : a.localeCompare(b);
+}
+
 const {
 	fromEntries,
 	keys,
@@ -82,7 +94,7 @@ export default async function exportsTable(packageDir, log) {
 	const preExportsTreeSums = sumTreeLeaves(preExports.tree);
 	log(styleText('bold', 'Top-level ') + styleText('magenta', 'files') + styleText('bold', '/') + styleText(['bold', 'cyan'], 'directories') + styleText('bold', ' that contribute specifiers:'));
 	const treeRows = keys({ ...latestTreeSums, ...preExportsTreeSums })
-		.sort((a, b) => (a.endsWith('/') ? b.endsWith('/') ? a.localeCompare(b) : -1 : 1))
+		.sort(compareTreeRows)
 		.map((file) => [
 			file.endsWith('/') ? styleText(['bold', 'cyan'], file) : styleText('magenta', file),
 			latestTreeSums[file] ?? '',
