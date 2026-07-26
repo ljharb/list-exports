@@ -10,3 +10,27 @@ jobs:
     uses: ljharb/actions/.github/workflows/pretest.yml@main
     with:
       skip-engines: true
+      skip-pack: true
+
+  pack:
+    runs-on: ubuntu-24.04
+
+    strategy:
+      fail-fast: false
+      matrix:
+        pkg:
+          - list-exports
+          - ls-exports
+
+    steps:
+      - uses: ljharb/actions/node/install@main
+        name: 'install node lts/*'
+        with:
+          node-version: lts/*
+          skip-install: true
+          skip-ls-check: true
+
+      - uses: ljharb/actions/node/pack@main
+        name: 'pack: ${{matrix.pkg}}'
+        with:
+          working-directory: ./packages/${{matrix.pkg}}
