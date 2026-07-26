@@ -17,7 +17,7 @@ const {
 	sep: pathSep,
 } = require('path');
 
-const readPackageJSON = require('read-package-json');
+const PackageJson = require('@npmcli/package-json');
 const entries = require('object.entries');
 const fromEntries = require('object.fromentries');
 const flatMap = require('array.prototype.flatmap');
@@ -64,7 +64,7 @@ const $all = /** @type {<T>(values: Iterable<T | PromiseLike<T>>) => Promise<T[]
 /** @typedef {import('.').Category} Category */
 /** @typedef {import('.').Tree} Tree */
 /** @typedef {import('.').CategoryExports} CategoryExports */
-/** @typedef {import('read-package-json').PackageData} PackageData */
+/** @typedef {import('@npmcli/package-json').Content & { name: string, version: string }} PackageData */
 /** @typedef {Set<string>} Problems */
 /** @typedef {Map<string, string>} Mains */
 /** @typedef {{ all: string[], base: string[], esm: string[], legacy: string[] }} Extensions */
@@ -238,15 +238,12 @@ function isESM(filename, nodeRange = process.version) {
  * @returns {Promise<PackageData>}
  */
 async function readPackage(packageJSON) {
-	return new Promise((resolveP, rejectP) => {
-		readPackageJSON(packageJSON, (err, data) => {
-			if (err) {
-				rejectP(err);
-			} else {
-				resolveP(data);
-			}
-		});
-	});
+	const { content } = await PackageJson.normalize(dirname(packageJSON));
+	// `read-package-json` rejected a truthy non-string `main` (but allowed `false`/`null`); `@npmcli/package-json` does not, so preserve that
+	if (content.main && typeof content.main !== 'string') {
+		throw new TypeError('`main` must be a string');
+	}
+	return /** @type {PackageData} */ (content);
 }
 
 /**
@@ -1140,9 +1137,9 @@ async function getExports(packageDir, pkgData, nodeRange, problems, customCondit
 	const categories = getCategoriesForRange(nodeRange);
 	const [latest] = categories;
 
-	const binaryEntries = typeof pkgData.bin === 'string'
+	const binaryEntries = /** @type {[string, string][]} */ (typeof pkgData.bin === 'string'
 		? [[pkgData.name, pkgData.bin]]
-		: entries(pkgData.bin || {});
+		: entries(pkgData.bin || {}));
 	const binaries = fromEntries(flatMap(binaryEntries, ([n, p]) => {
 		const resolved = resolveFrom($replace(p, /^(?:\.\/)?/, './'), packageDir, $concat('', rootAllExtensions));
 		if (resolved) {

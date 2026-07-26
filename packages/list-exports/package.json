@@ -49,6 +49,7 @@
 	"homepage": "https://github.com/ljharb/list-exports#readme",
 	"dependencies": {
 		"@npmcli/arborist": "^8.0.5",
+		"@npmcli/package-json": "^6.0.0",
 		"array-includes": "^3.1.9",
 		"array.from": "^1.1.6",
 		"array.prototype.filter": "^1.0.4",
@@ -69,7 +70,6 @@
 		"object-keys": "^1.1.1",
 		"object.entries": "^1.1.9",
 		"object.fromentries": "^2.0.8",
-		"read-package-json": "^7.0.1",
 		"resolve": "^2.0.0-next.7",
 		"safe-array-concat": "^1.1.4",
 		"semver": "^7.8.5",
