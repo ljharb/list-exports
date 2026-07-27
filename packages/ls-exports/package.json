@@ -15,6 +15,7 @@
 		"postlint": "evalmd --eslint README.md && tsc -p .",
 		"pretest": "npm run lint",
 		"test": ">&2 echo tests are ran in the monorepo only",
+		"tests-only": "cd ../.. && npm run tests-only",
 		"posttest": "npx npm@'>=10.2' audit --production",
 		"version": "node ../../release.mjs"
 	},
