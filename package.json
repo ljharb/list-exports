@@ -8,7 +8,7 @@
 		"lint": "eslint .",
 		"postlint": "tsc && attw --pack packages/list-exports",
 		"pretest": "npm run lint",
-		"pretests-only": "npm run prepack -w ls-exports",
+		"pretests-only": "npm run prepack -w ls-exports -w list-exports",
 		"tests-only": "tape packages/tests",
 		"tests:conditions": "tape packages/tests/conditions",
 		"tests:conditions-option": "tape packages/tests/conditions-option.js",
