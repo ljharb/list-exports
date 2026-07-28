@@ -5,7 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.0.2](https://github.com/ljharb/list-exports/compare/ls-exports@2.0.0...2.0.2)
+## [2.1.0](https://github.com/ljharb/list-exports/compare/ls-exports@2.0.2...2.1.0)
+
+### Commits
+
+- [*] [new] add types [`9ebe65f`](https://github.com/ljharb/list-exports/commit/9ebe65f015102112117731dcea375328aeff3bf5)
+- [ls-exports] [deps] update `npm-package-arg`, `pacote`, `pargs` [`403b533`](https://github.com/ljharb/list-exports/commit/403b533ef938392b1fdab279dd5548417534ac51)
+- [ls-exports] [fix] sort tree-table file rows consistently [`35a508b`](https://github.com/ljharb/list-exports/commit/35a508b7cdcebd64208f481e935ac7ab0f946e5f)
+- [*] [deps] update `@ljharb/eslint-config`, `auto-changelog`, `eslint`, `ls-engines`, `semver`, `tape` [`fe3491b`](https://github.com/ljharb/list-exports/commit/fe3491b37a583f16365ecb8ce95e8557e393687a)
+- [ls-exports] [fix] clean up extracted package temp directories [`9c04649`](https://github.com/ljharb/list-exports/commit/9c046499ac5ac01eed894517096411d3a3814c2f)
+- [*] [dev deps] update `eslint`, `evalmd` [`3924b03`](https://github.com/ljharb/list-exports/commit/3924b034e722db1a021e29bc27bde4e74740ceb7)
+- [ls-exports] [fix] show a blank cell instead of `undefined` for one-sided tree files [`a146a10`](https://github.com/ljharb/list-exports/commit/a146a10ceb92487d66b41e5c89daeaf0efc56a27)
+- [ls-exports] [deps] update `list-exports`, `pacote` [`87c23e0`](https://github.com/ljharb/list-exports/commit/87c23e07661af5d08600bbaaa1f28b41c26118a6)
+- [ls-exports] [deps] update `list-exports` [`477a943`](https://github.com/ljharb/list-exports/commit/477a943b922de83ff9c33c98157d6c82727c2489)
+- [*] [dev deps] update `eslint` [`4927925`](https://github.com/ljharb/list-exports/commit/4927925846548fe8e6dbf11978b6760867f1fcc6)
+- [ls-exports] [dev deps] update `pacote` [`bc286d5`](https://github.com/ljharb/list-exports/commit/bc286d5e1d1ea5026cdd9792bd7b24f80130bbb2)
+- [*] [deps] update `pacote`, `tmp` [`a2af5c4`](https://github.com/ljharb/list-exports/commit/a2af5c41e62955d46f877c60c055fdc5f7a3eea7)
+- [actions] add delegating `tests-only` and `npmignore` to the published packages for the pack matrix [`4f65f67`](https://github.com/ljharb/list-exports/commit/4f65f671e0e84dd96646ef99c01975cb52d74fc9)
+
+## [ls-exports@2.0.2](https://github.com/ljharb/list-exports/compare/ls-exports@2.0.0...ls-exports@2.0.2) - 2026-01-19
 
 ### Commits
 
@@ -14,6 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [ls-exports] [eslint] migrate to flat config [`7fea014`](https://github.com/ljharb/list-exports/commit/7fea014477c913bbff6ee91832427b4ac09dd715)
 - [ls-exports] [refactor] remove some unnecessary packages [`0640a7a`](https://github.com/ljharb/list-exports/commit/0640a7aa45612fb3822d52d22371c898d3febb28)
 - [*] [dev deps] update `eslint` [`976d6a5`](https://github.com/ljharb/list-exports/commit/976d6a5b83c484d86bd7d2116372980048c6c925)
+- [ls-exports] v2.0.2 [`8e2fc27`](https://github.com/ljharb/list-exports/commit/8e2fc27317b20d60b0c124f33a8d88f8c286df08)
 - [ls-exports] [refactor] remove `strip-ansi`, use built-in `util.stripVTControlCharacters` [`a6d7056`](https://github.com/ljharb/list-exports/commit/a6d70569e1173e5ad82e7c7648c1ed19346ecf84)
 - [ls-exports] [meta] add `npmignore` to generate `.npmignore` from `publishConfig.ignore` [`8ed9460`](https://github.com/ljharb/list-exports/commit/8ed9460bb56ea9201a3b3bd87f6ffb546a69409c)
 - [ls-exports] [deps] update `list-exports` [`5a76e00`](https://github.com/ljharb/list-exports/commit/5a76e00b9576ac0103e5aa6f8bcdb1b767f32f33)
