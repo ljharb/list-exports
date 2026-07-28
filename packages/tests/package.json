@@ -62,7 +62,7 @@
 		"@ljharb/eslint-config": "^22.2.3",
 		"@types/json-diff": "^1.0.3",
 		"array.from": "^1.1.6",
-		"eslint": "^10.7.0",
+		"eslint": "^10.8.0",
 		"for-each": "^0.3.5",
 		"has-dynamic-import": "^2.1.1",
 		"has-package-exports": "^1.3.0",

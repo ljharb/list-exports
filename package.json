@@ -51,7 +51,7 @@
 		"@types/object-inspect": "^1.13.0",
 		"@types/semver": "^7.7.1",
 		"@types/tmp": "^0.2.6",
-		"eslint": "^10.7.0",
+		"eslint": "^10.8.0",
 		"glob-gitignore": "^1.0.15",
 		"jiti": "^0.0.0",
 		"tape": "^5.10.2",
