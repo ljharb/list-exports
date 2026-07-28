@@ -5,13 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.2.0](https://github.com/ljharb/list-exports/compare/list-exports@2.1.0...2.2.0)
+## [2.3.0](https://github.com/ljharb/list-exports/compare/list-exports@2.2.0...2.3.0)
+
+### Commits
+
+- [*] [new] add types [`9ebe65f`](https://github.com/ljharb/list-exports/commit/9ebe65f015102112117731dcea375328aeff3bf5)
+- [list-exports] [fix] migrate from deprecated `read-package-json` to `@npmcli/package-json` [`fcaa67c`](https://github.com/ljharb/list-exports/commit/fcaa67cccd7646e35f3ba0b13f5b51cf7181a88e)
+- [list-exports] [deps] update `@npmcli/arborist`, `call-bind`, `hasown`, `npm-packlist`, `resolve`, `safe-array-concat` [`f1d1dfa`](https://github.com/ljharb/list-exports/commit/f1d1dfa446234f4655507a70ea46434e1921c169)
+- [*] [deps] update `@ljharb/eslint-config`, `auto-changelog`, `eslint`, `ls-engines`, `semver`, `tape` [`fe3491b`](https://github.com/ljharb/list-exports/commit/fe3491b37a583f16365ecb8ce95e8557e393687a)
+- [*] [dev deps] update `eslint`, `evalmd` [`3924b03`](https://github.com/ljharb/list-exports/commit/3924b034e722db1a021e29bc27bde4e74740ceb7)
+- [list-exports] [fix] apply the trailing-slash removal to conditional folder mappings [`4140ece`](https://github.com/ljharb/list-exports/commit/4140eceaec569bee9ee9215d9a4dcdd8e01664db)
+- [list-exports] [deps] pin `@npmcli/arborist` and `npm-packlist` for node 18/20 support [`6baf0a1`](https://github.com/ljharb/list-exports/commit/6baf0a158a385c881d1371d9685230a382bafb6e)
+- [list-exports] [fix] handle `null` `engines` in package.json [`e679aac`](https://github.com/ljharb/list-exports/commit/e679aac52bed88e6cb74631542c5934f229481fa)
+- [list-exports] [fix] classify `.cjs` files as CommonJS [`151f11e`](https://github.com/ljharb/list-exports/commit/151f11e90f093840ac4ba583bb4852ac03b7fbbc)
+- [actions] add delegating `tests-only` and `npmignore` to the published packages for the pack matrix [`4f65f67`](https://github.com/ljharb/list-exports/commit/4f65f671e0e84dd96646ef99c01975cb52d74fc9)
+- [list-exports] [deps] update `node-exports-info` to `^2.0.0`, and regenerate fixtures [`033fa6b`](https://github.com/ljharb/list-exports/commit/033fa6bb9521a20a6bb58c51592ae3bc1d321e02)
+
+## [list-exports@2.2.0](https://github.com/ljharb/list-exports/compare/list-exports@2.1.0...list-exports@2.2.0) - 2026-02-09
 
 ### Commits
 
 - [{ls,list}-exports] [meta] use a release script [`920a109`](https://github.com/ljharb/list-exports/commit/920a1096f7cb2502b08564c64949fdaa7f4de128)
 - [list-exports] [new] add `conditions` option for custom export conditions [`11aef95`](https://github.com/ljharb/list-exports/commit/11aef95d81713d5aa268d63b36ede1534d2354be)
 - [list-exports] [fix] handle `null` exports values [`366a26d`](https://github.com/ljharb/list-exports/commit/366a26d9163d81aaf83e14f78197ed17615eafb0)
+- [list-exports] v2.2.0 [`186335b`](https://github.com/ljharb/list-exports/commit/186335b0f92967f2d51528ec569833b09ec50464)
 - [list-exports] [fix] handle malformed URI sequences in export targets [`97d5932`](https://github.com/ljharb/list-exports/commit/97d5932953fcc561073a193853a5fb90e9437031)
 - [list-exports] [deps] update `@npmcli/arborist`, `node-exports-info`, `semver` [`1519229`](https://github.com/ljharb/list-exports/commit/151922925838acdcb334a90deeeef490aef3c028)
 - [*] [deps] update `ls-engines` [`f4b8466`](https://github.com/ljharb/list-exports/commit/f4b84665f7445331c7bb206c49e07fe567b6115b)
